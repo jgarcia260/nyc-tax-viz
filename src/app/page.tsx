@@ -1,6 +1,7 @@
 import { readFileSync } from "fs";
 import { join } from "path";
 import { BudgetViz } from "@/components/BudgetViz";
+import { YearComparison } from "@/components/YearComparison";
 import { FacilitiesMap } from "@/components/FacilitiesMap";
 
 function loadData() {
@@ -36,6 +37,10 @@ export default function Home() {
         expenseBudget={expenseBudget}
         years={years}
       />
+
+      <div className="mt-16">
+        <YearComparison expenseBudget={expenseBudget} years={years} />
+      </div>
 
       <div className="mt-16">
         <FacilitiesMap data={facilitiesByBorough} />
