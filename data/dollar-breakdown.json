@@ -1,0 +1,422 @@
+{
+  "2021": {
+    "comesFrom": [
+      {
+        "description": "Prior Year Resources",
+        "cents": 4
+      },
+      {
+        "description": "Other Categorical Aid",
+        "cents": 1
+      },
+      {
+        "description": "State Categorical Aid",
+        "cents": 17
+      },
+      {
+        "description": "Federal Categorical Aid",
+        "cents": 8
+      },
+      {
+        "description": "Capital IFA",
+        "cents": 1
+      },
+      {
+        "description": "Other Taxes and Local Revenues",
+        "cents": 36
+      },
+      {
+        "description": "Property Tax",
+        "cents": 33
+      }
+    ],
+    "goesTo": [
+      {
+        "description": "All Other Agencies",
+        "cents": 10
+      },
+      {
+        "description": "Miscellaneous Budget",
+        "cents": 6
+      },
+      {
+        "description": "Fire",
+        "cents": 5
+      },
+      {
+        "description": "Administration of Justice",
+        "cents": 15
+      },
+      {
+        "description": "Environmental Protection",
+        "cents": 5
+      },
+      {
+        "description": "Health",
+        "cents": 4
+      },
+      {
+        "description": "Social Services",
+        "cents": 17
+      },
+      {
+        "description": "Higher Education",
+        "cents": 1
+      },
+      {
+        "description": "Education",
+        "cents": 37
+      }
+    ]
+  },
+  "2022": {
+    "comesFrom": [
+      {
+        "description": "Prior Year Resources",
+        "cents": 4
+      },
+      {
+        "description": "Other Categorical Aid",
+        "cents": 1
+      },
+      {
+        "description": "State Categorical Aid",
+        "cents": 16
+      },
+      {
+        "description": "Federal Categorical Aid",
+        "cents": 13
+      },
+      {
+        "description": "Capital IFA",
+        "cents": 1
+      },
+      {
+        "description": "Other Taxes and Local Revenues",
+        "cents": 36
+      },
+      {
+        "description": "Property Tax",
+        "cents": 29
+      }
+    ],
+    "goesTo": [
+      {
+        "description": "All Other Agencies",
+        "cents": 11
+      },
+      {
+        "description": "Miscellaneous Budget",
+        "cents": 5
+      },
+      {
+        "description": "Fire",
+        "cents": 5
+      },
+      {
+        "description": "Administration of Justice",
+        "cents": 14
+      },
+      {
+        "description": "Environmental Protection",
+        "cents": 5
+      },
+      {
+        "description": "Health",
+        "cents": 4
+      },
+      {
+        "description": "Social Services",
+        "cents": 18
+      },
+      {
+        "description": "Higher Education",
+        "cents": 1
+      },
+      {
+        "description": "Education",
+        "cents": 37
+      }
+    ]
+  },
+  "2023": {
+    "comesFrom": [
+      {
+        "description": "Prior Year Resources",
+        "cents": 5
+      },
+      {
+        "description": "Other Categorical Aid",
+        "cents": 1
+      },
+      {
+        "description": "State Categorical Aid",
+        "cents": 16
+      },
+      {
+        "description": "Federal Categorical Aid",
+        "cents": 9
+      },
+      {
+        "description": "Capital IFA",
+        "cents": 1
+      },
+      {
+        "description": "Other Taxes and Local Revenues",
+        "cents": 38
+      },
+      {
+        "description": "Property Tax",
+        "cents": 30
+      }
+    ],
+    "goesTo": [
+      {
+        "description": "All Other Agencies",
+        "cents": 12
+      },
+      {
+        "description": "Miscellaneous Budget",
+        "cents": 6
+      },
+      {
+        "description": "Fire",
+        "cents": 5
+      },
+      {
+        "description": "Administration of Justice",
+        "cents": 14
+      },
+      {
+        "description": "Environmental Protection",
+        "cents": 5
+      },
+      {
+        "description": "Health",
+        "cents": 4
+      },
+      {
+        "description": "Social Services",
+        "cents": 17
+      },
+      {
+        "description": "Higher Education",
+        "cents": 1
+      },
+      {
+        "description": "Education",
+        "cents": 36
+      }
+    ]
+  },
+  "2024": {
+    "comesFrom": [
+      {
+        "description": "Prior Year Resources",
+        "cents": 3
+      },
+      {
+        "description": "Other Categorical Aid",
+        "cents": 1
+      },
+      {
+        "description": "State Categorical Aid",
+        "cents": 16
+      },
+      {
+        "description": "Federal Categorical Aid",
+        "cents": 9
+      },
+      {
+        "description": "Capital IFA",
+        "cents": 1
+      },
+      {
+        "description": "Other Taxes and Local Revenues",
+        "cents": 41
+      },
+      {
+        "description": "Property Tax",
+        "cents": 29
+      }
+    ],
+    "goesTo": [
+      {
+        "description": "All Other Agencies",
+        "cents": 11
+      },
+      {
+        "description": "Miscellaneous Budget",
+        "cents": 8
+      },
+      {
+        "description": "Fire",
+        "cents": 5
+      },
+      {
+        "description": "Administration of Justice",
+        "cents": 13
+      },
+      {
+        "description": "Environmental Protection",
+        "cents": 5
+      },
+      {
+        "description": "Health",
+        "cents": 4
+      },
+      {
+        "description": "Social Services",
+        "cents": 19
+      },
+      {
+        "description": "Higher Education",
+        "cents": 1
+      },
+      {
+        "description": "Education",
+        "cents": 34
+      }
+    ]
+  },
+  "2025": {
+    "comesFrom": [
+      {
+        "description": "Prior Year Resources",
+        "cents": 3
+      },
+      {
+        "description": "Other Categorical Aid",
+        "cents": 1
+      },
+      {
+        "description": "State Categorical Aid",
+        "cents": 17
+      },
+      {
+        "description": "Federal Categorical Aid",
+        "cents": 7
+      },
+      {
+        "description": "Capital IFA",
+        "cents": 1
+      },
+      {
+        "description": "Other Taxes and Local Revenues",
+        "cents": 42
+      },
+      {
+        "description": "Property Tax",
+        "cents": 29
+      }
+    ],
+    "goesTo": [
+      {
+        "description": "All Other Agencies",
+        "cents": 15
+      },
+      {
+        "description": "Miscellaneous Budget",
+        "cents": 5
+      },
+      {
+        "description": "Fire",
+        "cents": 5
+      },
+      {
+        "description": "Administration of Justice",
+        "cents": 13
+      },
+      {
+        "description": "Environmental Protection",
+        "cents": 4
+      },
+      {
+        "description": "Health",
+        "cents": 5
+      },
+      {
+        "description": "Social Services",
+        "cents": 18
+      },
+      {
+        "description": "Higher Education",
+        "cents": 1
+      },
+      {
+        "description": "Education",
+        "cents": 34
+      }
+    ]
+  },
+  "2026": {
+    "comesFrom": [
+      {
+        "description": "Prior Year Resources",
+        "cents": 2
+      },
+      {
+        "description": "Other Categorical Aid",
+        "cents": 1
+      },
+      {
+        "description": "State Categorical Aid",
+        "cents": 16
+      },
+      {
+        "description": "Federal Categorical Aid",
+        "cents": 6
+      },
+      {
+        "description": "Capital IFA",
+        "cents": 1
+      },
+      {
+        "description": "Other Taxes and Local Revenues",
+        "cents": 44
+      },
+      {
+        "description": "Property Tax",
+        "cents": 30
+      }
+    ],
+    "goesTo": [
+      {
+        "description": "All Other Agencies",
+        "cents": 12
+      },
+      {
+        "description": "Miscellaneous Budget",
+        "cents": 5
+      },
+      {
+        "description": "Fire",
+        "cents": 5
+      },
+      {
+        "description": "Administration of Justice",
+        "cents": 14
+      },
+      {
+        "description": "Environmental Protection",
+        "cents": 5
+      },
+      {
+        "description": "Health",
+        "cents": 4
+      },
+      {
+        "description": "Social Services",
+        "cents": 18
+      },
+      {
+        "description": "Higher Education",
+        "cents": 1
+      },
+      {
+        "description": "Education",
+        "cents": 36
+      }
+    ]
+  }
+}

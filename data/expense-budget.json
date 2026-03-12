@@ -1,0 +1,2522 @@
+{
+  "2024": {
+    "agencies": [
+      {
+        "name": "DEPARTMENT OF EDUCATION",
+        "number": "040",
+        "amount": 93096009054
+      },
+      {
+        "name": "MISCELLANEOUS",
+        "number": "098",
+        "amount": 45080959818
+      },
+      {
+        "name": "DEPARTMENT OF SOCIAL SERVICES",
+        "number": "069",
+        "amount": 33813991860
+      },
+      {
+        "name": "PENSION CONTRIBUTIONS",
+        "number": "095",
+        "amount": 28240945722
+      },
+      {
+        "name": "POLICE DEPARTMENT",
+        "number": "056",
+        "amount": 16591872423
+      },
+      {
+        "name": "ADMIN FOR CHILDREN'S SERVICES",
+        "number": "068",
+        "amount": 8300886765
+      },
+      {
+        "name": "DEBT SERVICE",
+        "number": "099",
+        "amount": 7292030769
+      },
+      {
+        "name": "DEPARTMENT OF HOMELESS SERVICES",
+        "number": "071",
+        "amount": 7212345792
+      },
+      {
+        "name": "FIRE DEPARTMENT",
+        "number": "057",
+        "amount": 6878907390
+      },
+      {
+        "name": "DEPARTMENT OF HEALTH AND MENTAL HYGIENE",
+        "number": "816",
+        "amount": 6853516536
+      },
+      {
+        "name": "DEPARTMENT OF SANITATION",
+        "number": "827",
+        "amount": 5630985834
+      },
+      {
+        "name": "DEPARTMENT OF ENVIRONMENTAL PROTECT.",
+        "number": "826",
+        "amount": 4869238584
+      },
+      {
+        "name": "DEPARTMENT OF CITYWIDE ADMIN SERVICE",
+        "number": "856",
+        "amount": 4529442507
+      },
+      {
+        "name": "CITY UNIVERSITY OF NEW YORK",
+        "number": "042",
+        "amount": 4333890687
+      },
+      {
+        "name": "DEPARTMENT OF TRANSPORTATION",
+        "number": "841",
+        "amount": 4315468407
+      },
+      {
+        "name": "DEPARTMENT OF CORRECTION",
+        "number": "072",
+        "amount": 3826074888
+      },
+      {
+        "name": "HOUSING PRESERVATION AND DEVELOPMENT",
+        "number": "806",
+        "amount": 3770420940
+      },
+      {
+        "name": "DEPARTMENT OF YOUTH & COMMUNITY DEV",
+        "number": "260",
+        "amount": 3393632994
+      },
+      {
+        "name": "HEALTH AND HOSPITALS CORP",
+        "number": "819",
+        "amount": 3259983486
+      },
+      {
+        "name": "DEPARTMENT OF INFO TECH & TELECOMM",
+        "number": "858",
+        "amount": 2162280708
+      },
+      {
+        "name": "DEPARTMENT OF PARKS AND RECREATION",
+        "number": "846",
+        "amount": 1872612213
+      },
+      {
+        "name": "DEPARTMENT FOR THE AGING",
+        "number": "125",
+        "amount": 1621674819
+      },
+      {
+        "name": "DEPARTMENT OF FINANCE",
+        "number": "836",
+        "amount": 1031170980
+      },
+      {
+        "name": "DEPARTMENT OF SMALL BUSINESS SERVICES",
+        "number": "801",
+        "amount": 910051743
+      },
+      {
+        "name": "LAW DEPARTMENT",
+        "number": "025",
+        "amount": 839854626
+      },
+      {
+        "name": "DEPARTMENT OF BUILDINGS",
+        "number": "810",
+        "amount": 716318886
+      },
+      {
+        "name": "DEPARTMENT OF CULTURAL AFFAIRS",
+        "number": "126",
+        "amount": 714348705
+      },
+      {
+        "name": "MAYORALTY",
+        "number": "002",
+        "amount": 621563604
+      },
+      {
+        "name": "DEPARTMENT OF DESIGN & CONSTRUCTION",
+        "number": "850",
+        "amount": 552590616
+      },
+      {
+        "name": "BOARD OF ELECTIONS",
+        "number": "003",
+        "amount": 521036943
+      },
+      {
+        "name": "NEW YORK PUBLIC LIBRARY",
+        "number": "037",
+        "amount": 497616735
+      },
+      {
+        "name": "NYC TAXI AND LIMOUSINE COMM",
+        "number": "156",
+        "amount": 466537320
+      },
+      {
+        "name": "DISTRICT ATTORNEY NEW YORK COUNTY",
+        "number": "901",
+        "amount": 444976722
+      },
+      {
+        "name": "DISTRICT ATTORNEY KINGS COUNTY",
+        "number": "903",
+        "amount": 391335978
+      },
+      {
+        "name": "QUEENS BOROUGH PUBLIC LIBRARY",
+        "number": "039",
+        "amount": 390034887
+      },
+      {
+        "name": "DEPARTMENT OF PROBATION",
+        "number": "781",
+        "amount": 377115939
+      },
+      {
+        "name": "BROOKLYN PUBLIC LIBRARY",
+        "number": "038",
+        "amount": 375792765
+      },
+      {
+        "name": "OFFICE OF THE COMPTROLLER",
+        "number": "015",
+        "amount": 344076606
+      },
+      {
+        "name": "FINANCIAL INFORMATION SERVICE AGENCY",
+        "number": "127",
+        "amount": 338099730
+      },
+      {
+        "name": "DISTRICT ATTORNEY BRONX COUNTY",
+        "number": "902",
+        "amount": 300998790
+      },
+      {
+        "name": "CITY COUNCIL",
+        "number": "102",
+        "amount": 300000000
+      },
+      {
+        "name": "DISTRICT ATTORNEY QUEENS COUNTY",
+        "number": "904",
+        "amount": 259959672
+      },
+      {
+        "name": "CAMPAIGN FINANCE BOARD",
+        "number": "004",
+        "amount": 241115343
+      },
+      {
+        "name": "DEPT OF CONSUMER & WORKER PROTECTION",
+        "number": "866",
+        "amount": 209752404
+      },
+      {
+        "name": "OFFICE OF ADMIN TRIALS & HEARINGS",
+        "number": "820",
+        "amount": 204674559
+      },
+      {
+        "name": "DEPARTMENT OF EMERGENCY MANAGEMENT",
+        "number": "017",
+        "amount": 180708333
+      },
+      {
+        "name": "DEPARTMENT OF INVESTIGATION",
+        "number": "032",
+        "amount": 160621767
+      },
+      {
+        "name": "DEPARTMENT OF CITY PLANNING",
+        "number": "030",
+        "amount": 147236976
+      },
+      {
+        "name": "NEW YORK RESEARCH LIBRARIES",
+        "number": "035",
+        "amount": 95122515
+      },
+      {
+        "name": "OFFICE OF PROSECUTION SPEC NARCO",
+        "number": "906",
+        "amount": 78492696
+      },
+      {
+        "name": "CIVILIAN COMPLAINT REVIEW BOARD",
+        "number": "054",
+        "amount": 70644783
+      },
+      {
+        "name": "DISTRICT ATTORNEY RICHMOND COUNTY",
+        "number": "905",
+        "amount": 65282022
+      },
+      {
+        "name": "DEPARTMENT OF RECORDS & INFORMATION SVS",
+        "number": "860",
+        "amount": 49746828
+      },
+      {
+        "name": "COMMISSION ON HUMAN RIGHTS",
+        "number": "226",
+        "amount": 45622473
+      },
+      {
+        "name": "OFFICE OF PAYROLL ADMINISTRATION",
+        "number": "131",
+        "amount": 44821998
+      },
+      {
+        "name": "BUSINESS INTEGRITY COMMISSION",
+        "number": "829",
+        "amount": 27747687
+      },
+      {
+        "name": "BOROUGH PRESIDENT - BROOKLYN",
+        "number": "012",
+        "amount": 21966096
+      },
+      {
+        "name": "OFFICE OF THE ACTUARY",
+        "number": "008",
+        "amount": 21645054
+      },
+      {
+        "name": "LANDMARKS PRESERVATION COMM.",
+        "number": "136",
+        "amount": 21562626
+      },
+      {
+        "name": "INDEPENDENT BUDGET OFFICE",
+        "number": "132",
+        "amount": 19678983
+      },
+      {
+        "name": "BOROUGH PRESIDENT BRONX",
+        "number": "011",
+        "amount": 19027314
+      },
+      {
+        "name": "CITY CLERK",
+        "number": "103",
+        "amount": 18472128
+      },
+      {
+        "name": "DEPARTMENT OF VETERANS' SERVICES",
+        "number": "063",
+        "amount": 18416343
+      },
+      {
+        "name": "OFFICE OF ADMINISTRATIVE TAX APPEALS",
+        "number": "021",
+        "amount": 17954769
+      },
+      {
+        "name": "BOROUGH PRESIDENT - QUEENS",
+        "number": "013",
+        "amount": 17722212
+      }
+    ],
+    "total": 309138689352
+  },
+  "2025": {
+    "agencies": [
+      {
+        "name": "DEPARTMENT OF EDUCATION",
+        "number": "040",
+        "amount": 94496999226
+      },
+      {
+        "name": "MISCELLANEOUS",
+        "number": "098",
+        "amount": 50069373327
+      },
+      {
+        "name": "DEPARTMENT OF SOCIAL SERVICES",
+        "number": "069",
+        "amount": 34442795478
+      },
+      {
+        "name": "PENSION CONTRIBUTIONS",
+        "number": "095",
+        "amount": 28925239242
+      },
+      {
+        "name": "POLICE DEPARTMENT",
+        "number": "056",
+        "amount": 17414198178
+      },
+      {
+        "name": "DEPARTMENT OF HOMELESS SERVICES",
+        "number": "071",
+        "amount": 12323192928
+      },
+      {
+        "name": "DEBT SERVICE",
+        "number": "099",
+        "amount": 8284462845
+      },
+      {
+        "name": "ADMIN FOR CHILDREN'S SERVICES",
+        "number": "068",
+        "amount": 8208871431
+      },
+      {
+        "name": "FIRE DEPARTMENT",
+        "number": "057",
+        "amount": 6898242822
+      },
+      {
+        "name": "DEPARTMENT OF HEALTH AND MENTAL HYGIENE",
+        "number": "816",
+        "amount": 6605455698
+      },
+      {
+        "name": "DEPARTMENT OF SANITATION",
+        "number": "827",
+        "amount": 5704327116
+      },
+      {
+        "name": "HEALTH AND HOSPITALS CORP",
+        "number": "819",
+        "amount": 5471520255
+      },
+      {
+        "name": "DEPARTMENT OF ENVIRONMENTAL PROTECT.",
+        "number": "826",
+        "amount": 4986526647
+      },
+      {
+        "name": "DEPARTMENT OF CITYWIDE ADMIN SERVICE",
+        "number": "856",
+        "amount": 4930549002
+      },
+      {
+        "name": "CITY UNIVERSITY OF NEW YORK",
+        "number": "042",
+        "amount": 4375216623
+      },
+      {
+        "name": "HOUSING PRESERVATION AND DEVELOPMENT",
+        "number": "806",
+        "amount": 4239507999
+      },
+      {
+        "name": "DEPARTMENT OF TRANSPORTATION",
+        "number": "841",
+        "amount": 4216024530
+      },
+      {
+        "name": "DEPARTMENT OF YOUTH & COMMUNITY DEV",
+        "number": "260",
+        "amount": 4087348311
+      },
+      {
+        "name": "DEPARTMENT OF CORRECTION",
+        "number": "072",
+        "amount": 3497588160
+      },
+      {
+        "name": "DEPARTMENT OF INFO TECH & TELECOMM",
+        "number": "858",
+        "amount": 2350752897
+      },
+      {
+        "name": "DEPARTMENT OF PARKS AND RECREATION",
+        "number": "846",
+        "amount": 1914552531
+      },
+      {
+        "name": "DEPARTMENT FOR THE AGING",
+        "number": "125",
+        "amount": 1565373705
+      },
+      {
+        "name": "DEPARTMENT OF FINANCE",
+        "number": "836",
+        "amount": 1022960805
+      },
+      {
+        "name": "DEPARTMENT OF SMALL BUSINESS SERVICES",
+        "number": "801",
+        "amount": 850639281
+      },
+      {
+        "name": "LAW DEPARTMENT",
+        "number": "025",
+        "amount": 740843511
+      },
+      {
+        "name": "DEPARTMENT OF CULTURAL AFFAIRS",
+        "number": "126",
+        "amount": 724778889
+      },
+      {
+        "name": "DEPARTMENT OF BUILDINGS",
+        "number": "810",
+        "amount": 657693870
+      },
+      {
+        "name": "DEPARTMENT OF EMERGENCY MANAGEMENT",
+        "number": "017",
+        "amount": 652695252
+      },
+      {
+        "name": "MAYORALTY",
+        "number": "002",
+        "amount": 547280643
+      },
+      {
+        "name": "NEW YORK PUBLIC LIBRARY",
+        "number": "037",
+        "amount": 518993697
+      },
+      {
+        "name": "DISTRICT ATTORNEY NEW YORK COUNTY",
+        "number": "901",
+        "amount": 473511651
+      },
+      {
+        "name": "DEPARTMENT OF DESIGN & CONSTRUCTION",
+        "number": "850",
+        "amount": 472316442
+      },
+      {
+        "name": "BOARD OF ELECTIONS",
+        "number": "003",
+        "amount": 413153271
+      },
+      {
+        "name": "QUEENS BOROUGH PUBLIC LIBRARY",
+        "number": "039",
+        "amount": 405948495
+      },
+      {
+        "name": "DISTRICT ATTORNEY KINGS COUNTY",
+        "number": "903",
+        "amount": 404516256
+      },
+      {
+        "name": "BROOKLYN PUBLIC LIBRARY",
+        "number": "038",
+        "amount": 389649348
+      },
+      {
+        "name": "DEPARTMENT OF PROBATION",
+        "number": "781",
+        "amount": 359778504
+      },
+      {
+        "name": "OFFICE OF THE COMPTROLLER",
+        "number": "015",
+        "amount": 350316042
+      },
+      {
+        "name": "FINANCIAL INFORMATION SERVICE AGENCY",
+        "number": "127",
+        "amount": 349005141
+      },
+      {
+        "name": "DISTRICT ATTORNEY BRONX COUNTY",
+        "number": "902",
+        "amount": 317752584
+      },
+      {
+        "name": "CITY COUNCIL",
+        "number": "102",
+        "amount": 300000006
+      },
+      {
+        "name": "DISTRICT ATTORNEY QUEENS COUNTY",
+        "number": "904",
+        "amount": 271516254
+      },
+      {
+        "name": "CAMPAIGN FINANCE BOARD",
+        "number": "004",
+        "amount": 219403224
+      },
+      {
+        "name": "DEPT OF CONSUMER & WORKER PROTECTION",
+        "number": "866",
+        "amount": 203075715
+      },
+      {
+        "name": "OFFICE OF ADMIN TRIALS & HEARINGS",
+        "number": "820",
+        "amount": 195831816
+      },
+      {
+        "name": "NYC TAXI AND LIMOUSINE COMM",
+        "number": "156",
+        "amount": 180984516
+      },
+      {
+        "name": "DEPARTMENT OF INVESTIGATION",
+        "number": "032",
+        "amount": 155485947
+      },
+      {
+        "name": "DEPARTMENT OF CITY PLANNING",
+        "number": "030",
+        "amount": 146029659
+      },
+      {
+        "name": "OFFICE OF CRIMINAL JUSTICE",
+        "number": "128",
+        "amount": 134841414
+      },
+      {
+        "name": "NEW YORK RESEARCH LIBRARIES",
+        "number": "035",
+        "amount": 101048337
+      },
+      {
+        "name": "OFFICE OF PROSECUTION SPEC NARCO",
+        "number": "906",
+        "amount": 86495880
+      },
+      {
+        "name": "CIVILIAN COMPLAINT REVIEW BOARD",
+        "number": "054",
+        "amount": 76328949
+      },
+      {
+        "name": "DISTRICT ATTORNEY RICHMOND COUNTY",
+        "number": "905",
+        "amount": 71779764
+      },
+      {
+        "name": "DEPARTMENT OF RECORDS & INFORMATION SVS",
+        "number": "860",
+        "amount": 48080427
+      },
+      {
+        "name": "OFFICE OF PAYROLL ADMINISTRATION",
+        "number": "131",
+        "amount": 46172172
+      },
+      {
+        "name": "COMMISSION ON HUMAN RIGHTS",
+        "number": "226",
+        "amount": 42176463
+      },
+      {
+        "name": "BUSINESS INTEGRITY COMMISSION",
+        "number": "829",
+        "amount": 25134669
+      },
+      {
+        "name": "LANDMARKS PRESERVATION COMM.",
+        "number": "136",
+        "amount": 22718715
+      },
+      {
+        "name": "BOROUGH PRESIDENT - BROOKLYN",
+        "number": "012",
+        "amount": 22388754
+      },
+      {
+        "name": "OFFICE OF THE ACTUARY",
+        "number": "008",
+        "amount": 20993829
+      },
+      {
+        "name": "INDEPENDENT BUDGET OFFICE",
+        "number": "132",
+        "amount": 20295744
+      },
+      {
+        "name": "BOROUGH PRESIDENT BRONX",
+        "number": "011",
+        "amount": 19706676
+      },
+      {
+        "name": "OFFICE OF ADMINISTRATIVE TAX APPEALS",
+        "number": "021",
+        "amount": 18543636
+      },
+      {
+        "name": "BOROUGH PRESIDENT - QUEENS",
+        "number": "013",
+        "amount": 18447555
+      },
+      {
+        "name": "BOROUGH PRESIDENT - MANHATTAN",
+        "number": "010",
+        "amount": 17627874
+      },
+      {
+        "name": "CITY CLERK",
+        "number": "103",
+        "amount": 16877253
+      },
+      {
+        "name": "DEPARTMENT OF VETERANS' SERVICES",
+        "number": "063",
+        "amount": 15341295
+      },
+      {
+        "name": "BOROUGH PRESIDENT STATEN ISLAND",
+        "number": "014",
+        "amount": 14957517
+      },
+      {
+        "name": "OFFICE OF RACIAL EQUITY",
+        "number": "213",
+        "amount": 14844774
+      },
+      {
+        "name": "PUBLIC ADVOCATE",
+        "number": "101",
+        "amount": 14806641
+      },
+      {
+        "name": "BOARD OF CORRECTION",
+        "number": "073",
+        "amount": 11518308
+      },
+      {
+        "name": "CONFLICTS OF INTEREST BOARD",
+        "number": "312",
+        "amount": 7487034
+      },
+      {
+        "name": "OFFICE OF COLLECTIVE BARGAINING",
+        "number": "313",
+        "amount": 7276956
+      },
+      {
+        "name": "COMMISSION ON RACIAL EQUITY",
+        "number": "215",
+        "amount": 3900000
+      },
+      {
+        "name": "EQUAL EMPLOYMENT PRACTICES COMMISSION",
+        "number": "133",
+        "amount": 3816732
+      },
+      {
+        "name": "PUBLIC ADMINISTRATOR-NEW YORK COUNTY",
+        "number": "941",
+        "amount": 3767907
+      },
+      {
+        "name": "CIVIL SERVICE COMMISSION",
+        "number": "134",
+        "amount": 3230604
+      },
+      {
+        "name": "PUBLIC ADMINISTRATOR-KINGS COUNTY",
+        "number": "943",
+        "amount": 2903880
+      },
+      {
+        "name": "PUBLIC ADMINISTRATOR-BRONX COUNTY",
+        "number": "942",
+        "amount": 2304645
+      },
+      {
+        "name": "PUBLIC ADMINISTRATOR- QUEENS COUNTY",
+        "number": "944",
+        "amount": 2100435
+      },
+      {
+        "name": "PUBLIC ADMINISTRATOR-RICHMOND COUNTY",
+        "number": "945",
+        "amount": 1853946
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #12",
+        "number": "352",
+        "amount": 1614576
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #4",
+        "number": "344",
+        "amount": 1530258
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #3",
+        "number": "343",
+        "amount": 1382820
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #10",
+        "number": "350",
+        "amount": 1358319
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #7",
+        "number": "347",
+        "amount": 1351371
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #6",
+        "number": "346",
+        "amount": 1344840
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #8",
+        "number": "348",
+        "amount": 1338294
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #9",
+        "number": "389",
+        "amount": 1284381
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #9",
+        "number": "349",
+        "amount": 1235451
+      },
+      {
+        "name": "STATEN ISLAND COMMUNITY BOARD #3",
+        "number": "493",
+        "amount": 1197489
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #9",
+        "number": "479",
+        "amount": 1172922
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #2",
+        "number": "432",
+        "amount": 1170066
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #10",
+        "number": "480",
+        "amount": 1164234
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #5",
+        "number": "345",
+        "amount": 1139616
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #14",
+        "number": "484",
+        "amount": 1139181
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #7",
+        "number": "437",
+        "amount": 1122924
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #11",
+        "number": "351",
+        "amount": 1118253
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #3",
+        "number": "433",
+        "amount": 1107240
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #17",
+        "number": "487",
+        "amount": 1104123
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #6",
+        "number": "476",
+        "amount": 1093947
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #2",
+        "number": "342",
+        "amount": 1085868
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #8",
+        "number": "438",
+        "amount": 1066767
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #12",
+        "number": "482",
+        "amount": 1065525
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #11",
+        "number": "441",
+        "amount": 1064187
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #7",
+        "number": "387",
+        "amount": 1054593
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #8",
+        "number": "478",
+        "amount": 1044594
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #10",
+        "number": "390",
+        "amount": 1042761
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #13",
+        "number": "483",
+        "amount": 1042503
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #2",
+        "number": "382",
+        "amount": 1038855
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #8",
+        "number": "388",
+        "amount": 1037295
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #2",
+        "number": "472",
+        "amount": 1034382
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #3",
+        "number": "383",
+        "amount": 1026117
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #12",
+        "number": "442",
+        "amount": 1022826
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #11",
+        "number": "391",
+        "amount": 1020360
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #11",
+        "number": "481",
+        "amount": 1019001
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #1",
+        "number": "381",
+        "amount": 1013628
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #1",
+        "number": "471",
+        "amount": 1012701
+      },
+      {
+        "name": "STATEN ISLAND COMMUNITY BOARD #1",
+        "number": "491",
+        "amount": 1011501
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #6",
+        "number": "436",
+        "amount": 1006728
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #4",
+        "number": "434",
+        "amount": 978336
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #4",
+        "number": "474",
+        "amount": 977889
+      },
+      {
+        "name": "STATEN ISLAND COMMUNITY BOARD #2",
+        "number": "492",
+        "amount": 977724
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #13",
+        "number": "443",
+        "amount": 976644
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #1",
+        "number": "431",
+        "amount": 948540
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #5",
+        "number": "435",
+        "amount": 947694
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #3",
+        "number": "473",
+        "amount": 946812
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #10",
+        "number": "440",
+        "amount": 934356
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #16",
+        "number": "486",
+        "amount": 927585
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #14",
+        "number": "444",
+        "amount": 904626
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #4",
+        "number": "384",
+        "amount": 845850
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #1",
+        "number": "341",
+        "amount": 827754
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #7",
+        "number": "477",
+        "amount": 823305
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #6",
+        "number": "386",
+        "amount": 821850
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #9",
+        "number": "439",
+        "amount": 812184
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #5",
+        "number": "475",
+        "amount": 809085
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #18",
+        "number": "488",
+        "amount": 797559
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #12",
+        "number": "392",
+        "amount": 796932
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #5",
+        "number": "385",
+        "amount": 792453
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #15",
+        "number": "485",
+        "amount": 789879
+      },
+      {
+        "name": "DISTRICTING COMMISSION",
+        "number": "138",
+        "amount": 0
+      },
+      {
+        "name": "ENERGY ADJUSTMENT",
+        "number": "99P",
+        "amount": 0
+      },
+      {
+        "name": "DEPARTMENT OF MENTAL HEALTH",
+        "number": "817",
+        "amount": 0
+      },
+      {
+        "name": "DEPARTMENT OF JUVENILE JUSTICE",
+        "number": "130",
+        "amount": 0
+      },
+      {
+        "name": "LEASE ADJUSTMENT",
+        "number": "99S",
+        "amount": 0
+      },
+      {
+        "name": "DEPARTMENT OF EMPLOYMENT",
+        "number": "094",
+        "amount": 0
+      }
+    ],
+    "total": 327314366109
+  },
+  "2026": {
+    "agencies": [
+      {
+        "name": "DEPARTMENT OF EDUCATION",
+        "number": "040",
+        "amount": 98046285552
+      },
+      {
+        "name": "MISCELLANEOUS",
+        "number": "098",
+        "amount": 46330213032
+      },
+      {
+        "name": "DEPARTMENT OF SOCIAL SERVICES",
+        "number": "069",
+        "amount": 35433472956
+      },
+      {
+        "name": "PENSION CONTRIBUTIONS",
+        "number": "095",
+        "amount": 31041224202
+      },
+      {
+        "name": "POLICE DEPARTMENT",
+        "number": "056",
+        "amount": 17498795175
+      },
+      {
+        "name": "DEPARTMENT OF HOMELESS SERVICES",
+        "number": "071",
+        "amount": 11720219973
+      },
+      {
+        "name": "DEBT SERVICE",
+        "number": "099",
+        "amount": 11016336321
+      },
+      {
+        "name": "HEALTH AND HOSPITALS CORP",
+        "number": "819",
+        "amount": 9467810511
+      },
+      {
+        "name": "ADMIN FOR CHILDREN'S SERVICES",
+        "number": "068",
+        "amount": 8361993594
+      },
+      {
+        "name": "FIRE DEPARTMENT",
+        "number": "057",
+        "amount": 7714089990
+      },
+      {
+        "name": "DEPARTMENT OF HEALTH AND MENTAL HYGIENE",
+        "number": "816",
+        "amount": 6696382806
+      },
+      {
+        "name": "DEPARTMENT OF CITYWIDE ADMIN SERVICE",
+        "number": "856",
+        "amount": 6279956094
+      },
+      {
+        "name": "HOUSING PRESERVATION AND DEVELOPMENT",
+        "number": "806",
+        "amount": 5979364023
+      },
+      {
+        "name": "DEPARTMENT OF SANITATION",
+        "number": "827",
+        "amount": 5842351782
+      },
+      {
+        "name": "DEPARTMENT OF ENVIRONMENTAL PROTECT.",
+        "number": "826",
+        "amount": 5032082121
+      },
+      {
+        "name": "DEPARTMENT OF TRANSPORTATION",
+        "number": "841",
+        "amount": 4347969606
+      },
+      {
+        "name": "DEPARTMENT OF YOUTH & COMMUNITY DEV",
+        "number": "260",
+        "amount": 4176142401
+      },
+      {
+        "name": "CITY UNIVERSITY OF NEW YORK",
+        "number": "042",
+        "amount": 4105714269
+      },
+      {
+        "name": "DEPARTMENT OF CORRECTION",
+        "number": "072",
+        "amount": 3149324352
+      },
+      {
+        "name": "DEPARTMENT OF INFO TECH & TELECOMM",
+        "number": "858",
+        "amount": 2438854650
+      },
+      {
+        "name": "OFFICE OF CRIMINAL JUSTICE",
+        "number": "128",
+        "amount": 2336325108
+      },
+      {
+        "name": "DEPARTMENT OF PARKS AND RECREATION",
+        "number": "846",
+        "amount": 1854153852
+      },
+      {
+        "name": "DEPARTMENT FOR THE AGING",
+        "number": "125",
+        "amount": 1650667416
+      },
+      {
+        "name": "DEPARTMENT OF FINANCE",
+        "number": "836",
+        "amount": 1043848206
+      },
+      {
+        "name": "DEPARTMENT OF SMALL BUSINESS SERVICES",
+        "number": "801",
+        "amount": 817452786
+      },
+      {
+        "name": "LAW DEPARTMENT",
+        "number": "025",
+        "amount": 763819095
+      },
+      {
+        "name": "DEPARTMENT OF CULTURAL AFFAIRS",
+        "number": "126",
+        "amount": 761597934
+      },
+      {
+        "name": "DEPARTMENT OF BUILDINGS",
+        "number": "810",
+        "amount": 637233072
+      },
+      {
+        "name": "DEPARTMENT OF EMERGENCY MANAGEMENT",
+        "number": "017",
+        "amount": 595915809
+      },
+      {
+        "name": "DEPARTMENT OF DESIGN & CONSTRUCTION",
+        "number": "850",
+        "amount": 539388576
+      },
+      {
+        "name": "MAYORALTY",
+        "number": "002",
+        "amount": 534575130
+      },
+      {
+        "name": "NEW YORK PUBLIC LIBRARY",
+        "number": "037",
+        "amount": 534517401
+      },
+      {
+        "name": "DISTRICT ATTORNEY NEW YORK COUNTY",
+        "number": "901",
+        "amount": 517040181
+      },
+      {
+        "name": "DISTRICT ATTORNEY KINGS COUNTY",
+        "number": "903",
+        "amount": 445821657
+      },
+      {
+        "name": "BOARD OF ELECTIONS",
+        "number": "003",
+        "amount": 436902576
+      },
+      {
+        "name": "QUEENS BOROUGH PUBLIC LIBRARY",
+        "number": "039",
+        "amount": 420585606
+      },
+      {
+        "name": "BROOKLYN PUBLIC LIBRARY",
+        "number": "038",
+        "amount": 406523961
+      },
+      {
+        "name": "OFFICE OF THE COMPTROLLER",
+        "number": "015",
+        "amount": 368995371
+      },
+      {
+        "name": "DISTRICT ATTORNEY BRONX COUNTY",
+        "number": "902",
+        "amount": 363236040
+      },
+      {
+        "name": "FINANCIAL INFORMATION SERVICE AGENCY",
+        "number": "127",
+        "amount": 347943993
+      },
+      {
+        "name": "DEPARTMENT OF PROBATION",
+        "number": "781",
+        "amount": 341784966
+      },
+      {
+        "name": "CITY COUNCIL",
+        "number": "102",
+        "amount": 325253109
+      },
+      {
+        "name": "DISTRICT ATTORNEY QUEENS COUNTY",
+        "number": "904",
+        "amount": 311038944
+      },
+      {
+        "name": "CAMPAIGN FINANCE BOARD",
+        "number": "004",
+        "amount": 310241508
+      },
+      {
+        "name": "OFFICE OF ADMIN TRIALS & HEARINGS",
+        "number": "820",
+        "amount": 220334505
+      },
+      {
+        "name": "DEPT OF CONSUMER & WORKER PROTECTION",
+        "number": "866",
+        "amount": 196363251
+      },
+      {
+        "name": "NYC TAXI AND LIMOUSINE COMM",
+        "number": "156",
+        "amount": 180951885
+      },
+      {
+        "name": "DEPARTMENT OF INVESTIGATION",
+        "number": "032",
+        "amount": 161370489
+      },
+      {
+        "name": "DEPARTMENT OF CITY PLANNING",
+        "number": "030",
+        "amount": 148529214
+      },
+      {
+        "name": "NEW YORK RESEARCH LIBRARIES",
+        "number": "035",
+        "amount": 104985330
+      },
+      {
+        "name": "OFFICE OF PROSECUTION SPEC NARCO",
+        "number": "906",
+        "amount": 93161394
+      },
+      {
+        "name": "CIVILIAN COMPLAINT REVIEW BOARD",
+        "number": "054",
+        "amount": 83408082
+      },
+      {
+        "name": "DISTRICT ATTORNEY RICHMOND COUNTY",
+        "number": "905",
+        "amount": 76338123
+      },
+      {
+        "name": "OFFICE OF PAYROLL ADMINISTRATION",
+        "number": "131",
+        "amount": 46314744
+      },
+      {
+        "name": "DEPARTMENT OF RECORDS & INFORMATION SVS",
+        "number": "860",
+        "amount": 44347992
+      },
+      {
+        "name": "COMMISSION ON HUMAN RIGHTS",
+        "number": "226",
+        "amount": 43591284
+      },
+      {
+        "name": "BUSINESS INTEGRITY COMMISSION",
+        "number": "829",
+        "amount": 25567641
+      },
+      {
+        "name": "OFFICE OF RACIAL EQUITY",
+        "number": "213",
+        "amount": 24296097
+      },
+      {
+        "name": "LANDMARKS PRESERVATION COMM.",
+        "number": "136",
+        "amount": 23806704
+      },
+      {
+        "name": "INDEPENDENT BUDGET OFFICE",
+        "number": "132",
+        "amount": 23376327
+      },
+      {
+        "name": "CITY CLERK",
+        "number": "103",
+        "amount": 23321973
+      },
+      {
+        "name": "BOROUGH PRESIDENT - BROOKLYN",
+        "number": "012",
+        "amount": 22966980
+      },
+      {
+        "name": "OFFICE OF THE ACTUARY",
+        "number": "008",
+        "amount": 22458648
+      },
+      {
+        "name": "BOROUGH PRESIDENT BRONX",
+        "number": "011",
+        "amount": 20709270
+      },
+      {
+        "name": "BOROUGH PRESIDENT - QUEENS",
+        "number": "013",
+        "amount": 19563387
+      },
+      {
+        "name": "DEPARTMENT OF VETERANS' SERVICES",
+        "number": "063",
+        "amount": 19099095
+      },
+      {
+        "name": "OFFICE OF ADMINISTRATIVE TAX APPEALS",
+        "number": "021",
+        "amount": 17836863
+      },
+      {
+        "name": "BOROUGH PRESIDENT - MANHATTAN",
+        "number": "010",
+        "amount": 17657034
+      },
+      {
+        "name": "PUBLIC ADVOCATE",
+        "number": "101",
+        "amount": 15858498
+      },
+      {
+        "name": "BOROUGH PRESIDENT STATEN ISLAND",
+        "number": "014",
+        "amount": 15417651
+      },
+      {
+        "name": "BOARD OF CORRECTION",
+        "number": "073",
+        "amount": 11338449
+      },
+      {
+        "name": "OFFICE OF COLLECTIVE BARGAINING",
+        "number": "313",
+        "amount": 8259879
+      },
+      {
+        "name": "CONFLICTS OF INTEREST BOARD",
+        "number": "312",
+        "amount": 8044473
+      },
+      {
+        "name": "EQUAL EMPLOYMENT PRACTICES COMMISSION",
+        "number": "133",
+        "amount": 4709388
+      },
+      {
+        "name": "COMMISSION ON RACIAL EQUITY",
+        "number": "215",
+        "amount": 4407279
+      },
+      {
+        "name": "PUBLIC ADMINISTRATOR-NEW YORK COUNTY",
+        "number": "941",
+        "amount": 3905397
+      },
+      {
+        "name": "CIVIL SERVICE COMMISSION",
+        "number": "134",
+        "amount": 3403242
+      },
+      {
+        "name": "PUBLIC ADMINISTRATOR-KINGS COUNTY",
+        "number": "943",
+        "amount": 3360126
+      },
+      {
+        "name": "PUBLIC ADMINISTRATOR-BRONX COUNTY",
+        "number": "942",
+        "amount": 2618064
+      },
+      {
+        "name": "PUBLIC ADMINISTRATOR- QUEENS COUNTY",
+        "number": "944",
+        "amount": 2057142
+      },
+      {
+        "name": "PUBLIC ADMINISTRATOR-RICHMOND COUNTY",
+        "number": "945",
+        "amount": 2012685
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #14",
+        "number": "484",
+        "amount": 1681326
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #4",
+        "number": "344",
+        "amount": 1624224
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #5",
+        "number": "345",
+        "amount": 1448613
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #6",
+        "number": "346",
+        "amount": 1407579
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #8",
+        "number": "348",
+        "amount": 1397025
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #7",
+        "number": "387",
+        "amount": 1369233
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #10",
+        "number": "350",
+        "amount": 1359852
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #3",
+        "number": "343",
+        "amount": 1334058
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #7",
+        "number": "347",
+        "amount": 1296012
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #12",
+        "number": "352",
+        "amount": 1294623
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #9",
+        "number": "349",
+        "amount": 1282188
+      },
+      {
+        "name": "STATEN ISLAND COMMUNITY BOARD #3",
+        "number": "493",
+        "amount": 1263081
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #9",
+        "number": "479",
+        "amount": 1231941
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #2",
+        "number": "432",
+        "amount": 1229907
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #11",
+        "number": "351",
+        "amount": 1191366
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #17",
+        "number": "487",
+        "amount": 1180938
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #6",
+        "number": "476",
+        "amount": 1180647
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #3",
+        "number": "433",
+        "amount": 1166283
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #7",
+        "number": "437",
+        "amount": 1164537
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #1",
+        "number": "471",
+        "amount": 1164423
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #2",
+        "number": "342",
+        "amount": 1153308
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #10",
+        "number": "480",
+        "amount": 1148817
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #8",
+        "number": "438",
+        "amount": 1128873
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #9",
+        "number": "389",
+        "amount": 1127307
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #10",
+        "number": "390",
+        "amount": 1123806
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #2",
+        "number": "382",
+        "amount": 1118292
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #12",
+        "number": "482",
+        "amount": 1117380
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #11",
+        "number": "441",
+        "amount": 1116150
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #8",
+        "number": "478",
+        "amount": 1115109
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #6",
+        "number": "436",
+        "amount": 1110450
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #13",
+        "number": "483",
+        "amount": 1101816
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #11",
+        "number": "391",
+        "amount": 1089660
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #2",
+        "number": "472",
+        "amount": 1083951
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #8",
+        "number": "388",
+        "amount": 1082331
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #1",
+        "number": "381",
+        "amount": 1081557
+      },
+      {
+        "name": "STATEN ISLAND COMMUNITY BOARD #1",
+        "number": "491",
+        "amount": 1075986
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #11",
+        "number": "481",
+        "amount": 1074627
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #12",
+        "number": "442",
+        "amount": 1066737
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #4",
+        "number": "434",
+        "amount": 1058577
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #13",
+        "number": "443",
+        "amount": 1033260
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #5",
+        "number": "435",
+        "amount": 1028577
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #4",
+        "number": "474",
+        "amount": 1022448
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #3",
+        "number": "383",
+        "amount": 1007880
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #1",
+        "number": "431",
+        "amount": 1006818
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #10",
+        "number": "440",
+        "amount": 989442
+      },
+      {
+        "name": "STATEN ISLAND COMMUNITY BOARD #2",
+        "number": "492",
+        "amount": 961086
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #3",
+        "number": "473",
+        "amount": 954063
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #16",
+        "number": "486",
+        "amount": 927399
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #14",
+        "number": "444",
+        "amount": 909999
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #4",
+        "number": "384",
+        "amount": 906069
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #1",
+        "number": "341",
+        "amount": 884187
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #7",
+        "number": "477",
+        "amount": 881583
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #12",
+        "number": "392",
+        "amount": 880836
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #6",
+        "number": "386",
+        "amount": 874491
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #5",
+        "number": "385",
+        "amount": 863871
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #5",
+        "number": "475",
+        "amount": 861018
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #9",
+        "number": "439",
+        "amount": 859707
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #18",
+        "number": "488",
+        "amount": 856533
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #15",
+        "number": "485",
+        "amount": 829347
+      },
+      {
+        "name": "LEASE ADJUSTMENT",
+        "number": "99S",
+        "amount": 0
+      },
+      {
+        "name": "DEPARTMENT OF JUVENILE JUSTICE",
+        "number": "130",
+        "amount": 0
+      },
+      {
+        "name": "DEPARTMENT OF EMPLOYMENT",
+        "number": "094",
+        "amount": 0
+      },
+      {
+        "name": "DEPARTMENT OF MENTAL HEALTH",
+        "number": "817",
+        "amount": 0
+      },
+      {
+        "name": "DISTRICTING COMMISSION",
+        "number": "138",
+        "amount": 0
+      },
+      {
+        "name": "ENERGY ADJUSTMENT",
+        "number": "99P",
+        "amount": 0
+      }
+    ],
+    "total": 343154975496
+  },
+  "2027": {
+    "agencies": [
+      {
+        "name": "DEPARTMENT OF EDUCATION",
+        "number": "040",
+        "amount": 34996591607
+      },
+      {
+        "name": "MISCELLANEOUS",
+        "number": "098",
+        "amount": 15528804614
+      },
+      {
+        "name": "DEPARTMENT OF SOCIAL SERVICES",
+        "number": "069",
+        "amount": 11974308439
+      },
+      {
+        "name": "PENSION CONTRIBUTIONS",
+        "number": "095",
+        "amount": 10478679824
+      },
+      {
+        "name": "POLICE DEPARTMENT",
+        "number": "056",
+        "amount": 6276535865
+      },
+      {
+        "name": "DEBT SERVICE",
+        "number": "099",
+        "amount": 4874454475
+      },
+      {
+        "name": "DEPARTMENT OF HOMELESS SERVICES",
+        "number": "071",
+        "amount": 3554426684
+      },
+      {
+        "name": "ADMIN FOR CHILDREN'S SERVICES",
+        "number": "068",
+        "amount": 3141750019
+      },
+      {
+        "name": "FIRE DEPARTMENT",
+        "number": "057",
+        "amount": 2621215957
+      },
+      {
+        "name": "DEPARTMENT OF HEALTH AND MENTAL HYGIENE",
+        "number": "816",
+        "amount": 2440587524
+      },
+      {
+        "name": "DEPARTMENT OF SANITATION",
+        "number": "827",
+        "amount": 1987963656
+      },
+      {
+        "name": "DEPARTMENT OF CITYWIDE ADMIN SERVICE",
+        "number": "856",
+        "amount": 1774665175
+      },
+      {
+        "name": "DEPARTMENT OF ENVIRONMENTAL PROTECT.",
+        "number": "826",
+        "amount": 1751638987
+      },
+      {
+        "name": "HEALTH AND HOSPITALS CORP",
+        "number": "819",
+        "amount": 1672894540
+      },
+      {
+        "name": "HOUSING PRESERVATION AND DEVELOPMENT",
+        "number": "806",
+        "amount": 1611120690
+      },
+      {
+        "name": "CITY UNIVERSITY OF NEW YORK",
+        "number": "042",
+        "amount": 1554336905
+      },
+      {
+        "name": "DEPARTMENT OF YOUTH & COMMUNITY DEV",
+        "number": "260",
+        "amount": 1514141442
+      },
+      {
+        "name": "DEPARTMENT OF TRANSPORTATION",
+        "number": "841",
+        "amount": 1503042033
+      },
+      {
+        "name": "DEPARTMENT OF CORRECTION",
+        "number": "072",
+        "amount": 1212565375
+      },
+      {
+        "name": "OFFICE OF CRIMINAL JUSTICE",
+        "number": "128",
+        "amount": 868317728
+      },
+      {
+        "name": "DEPARTMENT OF INFO TECH & TELECOMM",
+        "number": "858",
+        "amount": 817833296
+      },
+      {
+        "name": "DEPARTMENT OF PARKS AND RECREATION",
+        "number": "846",
+        "amount": 687637766
+      },
+      {
+        "name": "DEPARTMENT FOR THE AGING",
+        "number": "125",
+        "amount": 605474705
+      },
+      {
+        "name": "DEPARTMENT OF FINANCE",
+        "number": "836",
+        "amount": 371193171
+      },
+      {
+        "name": "DEPARTMENT OF CULTURAL AFFAIRS",
+        "number": "126",
+        "amount": 299657922
+      },
+      {
+        "name": "DEPARTMENT OF SMALL BUSINESS SERVICES",
+        "number": "801",
+        "amount": 279711843
+      },
+      {
+        "name": "LAW DEPARTMENT",
+        "number": "025",
+        "amount": 276814297
+      },
+      {
+        "name": "DEPARTMENT OF BUILDINGS",
+        "number": "810",
+        "amount": 230868731
+      },
+      {
+        "name": "MAYORALTY",
+        "number": "002",
+        "amount": 196146351
+      },
+      {
+        "name": "NEW YORK PUBLIC LIBRARY",
+        "number": "037",
+        "amount": 190598450
+      },
+      {
+        "name": "DISTRICT ATTORNEY NEW YORK COUNTY",
+        "number": "901",
+        "amount": 180030822
+      },
+      {
+        "name": "DEPARTMENT OF DESIGN & CONSTRUCTION",
+        "number": "850",
+        "amount": 164489559
+      },
+      {
+        "name": "DISTRICT ATTORNEY KINGS COUNTY",
+        "number": "903",
+        "amount": 157898433
+      },
+      {
+        "name": "QUEENS BOROUGH PUBLIC LIBRARY",
+        "number": "039",
+        "amount": 149900210
+      },
+      {
+        "name": "BOARD OF ELECTIONS",
+        "number": "003",
+        "amount": 146875148
+      },
+      {
+        "name": "BROOKLYN PUBLIC LIBRARY",
+        "number": "038",
+        "amount": 144774313
+      },
+      {
+        "name": "DISTRICT ATTORNEY BRONX COUNTY",
+        "number": "902",
+        "amount": 128320716
+      },
+      {
+        "name": "OFFICE OF THE COMPTROLLER",
+        "number": "015",
+        "amount": 127028130
+      },
+      {
+        "name": "FINANCIAL INFORMATION SERVICE AGENCY",
+        "number": "127",
+        "amount": 122930913
+      },
+      {
+        "name": "DEPARTMENT OF PROBATION",
+        "number": "781",
+        "amount": 115658490
+      },
+      {
+        "name": "CITY COUNCIL",
+        "number": "102",
+        "amount": 115049827
+      },
+      {
+        "name": "CAMPAIGN FINANCE BOARD",
+        "number": "004",
+        "amount": 109481237
+      },
+      {
+        "name": "DISTRICT ATTORNEY QUEENS COUNTY",
+        "number": "904",
+        "amount": 108133079
+      },
+      {
+        "name": "OFFICE OF ADMIN TRIALS & HEARINGS",
+        "number": "820",
+        "amount": 80902546
+      },
+      {
+        "name": "DEPARTMENT OF EMERGENCY MANAGEMENT",
+        "number": "017",
+        "amount": 80773863
+      },
+      {
+        "name": "DEPT OF CONSUMER & WORKER PROTECTION",
+        "number": "866",
+        "amount": 75070618
+      },
+      {
+        "name": "NYC TAXI AND LIMOUSINE COMM",
+        "number": "156",
+        "amount": 58133858
+      },
+      {
+        "name": "DEPARTMENT OF CITY PLANNING",
+        "number": "030",
+        "amount": 56788947
+      },
+      {
+        "name": "DEPARTMENT OF INVESTIGATION",
+        "number": "032",
+        "amount": 55874468
+      },
+      {
+        "name": "NEW YORK RESEARCH LIBRARIES",
+        "number": "035",
+        "amount": 37866916
+      },
+      {
+        "name": "OFFICE OF PROSECUTION SPEC NARCO",
+        "number": "906",
+        "amount": 31694549
+      },
+      {
+        "name": "CIVILIAN COMPLAINT REVIEW BOARD",
+        "number": "054",
+        "amount": 29167829
+      },
+      {
+        "name": "DISTRICT ATTORNEY RICHMOND COUNTY",
+        "number": "905",
+        "amount": 27013456
+      },
+      {
+        "name": "OFFICE OF PAYROLL ADMINISTRATION",
+        "number": "131",
+        "amount": 17573369
+      },
+      {
+        "name": "COMMISSION ON HUMAN RIGHTS",
+        "number": "226",
+        "amount": 15355660
+      },
+      {
+        "name": "DEPARTMENT OF RECORDS & INFORMATION SVS",
+        "number": "860",
+        "amount": 15233377
+      },
+      {
+        "name": "CITY CLERK",
+        "number": "103",
+        "amount": 8924713
+      },
+      {
+        "name": "BUSINESS INTEGRITY COMMISSION",
+        "number": "829",
+        "amount": 8724918
+      },
+      {
+        "name": "INDEPENDENT BUDGET OFFICE",
+        "number": "132",
+        "amount": 8343403
+      },
+      {
+        "name": "LANDMARKS PRESERVATION COMM.",
+        "number": "136",
+        "amount": 8144365
+      },
+      {
+        "name": "BOROUGH PRESIDENT - BROOKLYN",
+        "number": "012",
+        "amount": 7735303
+      },
+      {
+        "name": "DEPARTMENT OF VETERANS' SERVICES",
+        "number": "063",
+        "amount": 7634186
+      },
+      {
+        "name": "OFFICE OF THE ACTUARY",
+        "number": "008",
+        "amount": 7614099
+      },
+      {
+        "name": "OFFICE OF RACIAL EQUITY",
+        "number": "213",
+        "amount": 7277388
+      },
+      {
+        "name": "BOROUGH PRESIDENT BRONX",
+        "number": "011",
+        "amount": 7034979
+      },
+      {
+        "name": "BOROUGH PRESIDENT - QUEENS",
+        "number": "013",
+        "amount": 6778610
+      },
+      {
+        "name": "OFFICE OF ADMINISTRATIVE TAX APPEALS",
+        "number": "021",
+        "amount": 6092131
+      },
+      {
+        "name": "BOROUGH PRESIDENT - MANHATTAN",
+        "number": "010",
+        "amount": 6017382
+      },
+      {
+        "name": "PUBLIC ADVOCATE",
+        "number": "101",
+        "amount": 5542658
+      },
+      {
+        "name": "BOROUGH PRESIDENT STATEN ISLAND",
+        "number": "014",
+        "amount": 5206209
+      },
+      {
+        "name": "COMMISSION ON RACIAL EQUITY",
+        "number": "215",
+        "amount": 4827741
+      },
+      {
+        "name": "BOARD OF CORRECTION",
+        "number": "073",
+        "amount": 4086397
+      },
+      {
+        "name": "CONFLICTS OF INTEREST BOARD",
+        "number": "312",
+        "amount": 2860750
+      },
+      {
+        "name": "OFFICE OF COLLECTIVE BARGAINING",
+        "number": "313",
+        "amount": 2825195
+      },
+      {
+        "name": "EQUAL EMPLOYMENT PRACTICES COMMISSION",
+        "number": "133",
+        "amount": 1606048
+      },
+      {
+        "name": "PUBLIC ADMINISTRATOR-NEW YORK COUNTY",
+        "number": "941",
+        "amount": 1320021
+      },
+      {
+        "name": "CIVIL SERVICE COMMISSION",
+        "number": "134",
+        "amount": 1217197
+      },
+      {
+        "name": "PUBLIC ADMINISTRATOR-KINGS COUNTY",
+        "number": "943",
+        "amount": 1136406
+      },
+      {
+        "name": "PUBLIC ADMINISTRATOR-BRONX COUNTY",
+        "number": "942",
+        "amount": 883662
+      },
+      {
+        "name": "PUBLIC ADMINISTRATOR- QUEENS COUNTY",
+        "number": "944",
+        "amount": 694608
+      },
+      {
+        "name": "PUBLIC ADMINISTRATOR-RICHMOND COUNTY",
+        "number": "945",
+        "amount": 673602
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #10",
+        "number": "350",
+        "amount": 514822
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #6",
+        "number": "346",
+        "amount": 481762
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #7",
+        "number": "347",
+        "amount": 476493
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #8",
+        "number": "348",
+        "amount": 473952
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #9",
+        "number": "389",
+        "amount": 453870
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #3",
+        "number": "343",
+        "amount": 451596
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #12",
+        "number": "352",
+        "amount": 450041
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #4",
+        "number": "344",
+        "amount": 449041
+      },
+      {
+        "name": "STATEN ISLAND COMMUNITY BOARD #3",
+        "number": "493",
+        "amount": 432660
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #9",
+        "number": "349",
+        "amount": 431952
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #14",
+        "number": "484",
+        "amount": 425845
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #9",
+        "number": "479",
+        "amount": 421418
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #5",
+        "number": "345",
+        "amount": 421019
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #2",
+        "number": "432",
+        "amount": 416566
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #13",
+        "number": "483",
+        "amount": 414056
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #11",
+        "number": "351",
+        "amount": 410575
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #8",
+        "number": "438",
+        "amount": 407127
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #17",
+        "number": "487",
+        "amount": 403279
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #3",
+        "number": "433",
+        "amount": 401524
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #2",
+        "number": "382",
+        "amount": 399815
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #6",
+        "number": "476",
+        "amount": 399467
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #7",
+        "number": "387",
+        "amount": 398834
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #7",
+        "number": "437",
+        "amount": 394912
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #1",
+        "number": "471",
+        "amount": 393231
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #10",
+        "number": "480",
+        "amount": 392890
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #2",
+        "number": "342",
+        "amount": 391085
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #6",
+        "number": "436",
+        "amount": 385645
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #11",
+        "number": "481",
+        "amount": 383858
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #12",
+        "number": "482",
+        "amount": 383723
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #10",
+        "number": "390",
+        "amount": 383130
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #8",
+        "number": "478",
+        "amount": 380585
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #11",
+        "number": "441",
+        "amount": 377984
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #11",
+        "number": "391",
+        "amount": 372726
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #12",
+        "number": "442",
+        "amount": 371442
+      },
+      {
+        "name": "STATEN ISLAND COMMUNITY BOARD #1",
+        "number": "491",
+        "amount": 369744
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #1",
+        "number": "381",
+        "amount": 366943
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #2",
+        "number": "472",
+        "amount": 365767
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #8",
+        "number": "388",
+        "amount": 365715
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #4",
+        "number": "434",
+        "amount": 361481
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #13",
+        "number": "443",
+        "amount": 358205
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #5",
+        "number": "435",
+        "amount": 353468
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #4",
+        "number": "474",
+        "amount": 345739
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #1",
+        "number": "431",
+        "amount": 341878
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #10",
+        "number": "440",
+        "amount": 340680
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #3",
+        "number": "383",
+        "amount": 340425
+      },
+      {
+        "name": "STATEN ISLAND COMMUNITY BOARD #2",
+        "number": "492",
+        "amount": 325687
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #3",
+        "number": "473",
+        "amount": 320444
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #4",
+        "number": "384",
+        "amount": 313241
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #16",
+        "number": "486",
+        "amount": 313065
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #14",
+        "number": "444",
+        "amount": 305806
+      },
+      {
+        "name": "MANHATTAN COMMUNITY BOARD #1",
+        "number": "341",
+        "amount": 302305
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #7",
+        "number": "477",
+        "amount": 301427
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #6",
+        "number": "386",
+        "amount": 297220
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #12",
+        "number": "392",
+        "amount": 296002
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #5",
+        "number": "475",
+        "amount": 292874
+      },
+      {
+        "name": "QUEENS COMMUNITY BOARD #9",
+        "number": "439",
+        "amount": 292231
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #18",
+        "number": "488",
+        "amount": 292201
+      },
+      {
+        "name": "BRONX COMMUNITY BOARD #5",
+        "number": "385",
+        "amount": 282857
+      },
+      {
+        "name": "BROOKLYN COMMUNITY BOARD #15",
+        "number": "485",
+        "amount": 280971
+      },
+      {
+        "name": "ENERGY ADJUSTMENT",
+        "number": "99P",
+        "amount": 0
+      },
+      {
+        "name": "LEASE ADJUSTMENT",
+        "number": "99S",
+        "amount": 0
+      },
+      {
+        "name": "CITYWIDE SAVINGS INITIATIVES",
+        "number": "99C",
+        "amount": 0
+      }
+    ],
+    "total": 117791473676
+  }
+}
