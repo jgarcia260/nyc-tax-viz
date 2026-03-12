@@ -62,20 +62,51 @@ function formatFullDollars(amount: number): string {
   }).format(amount);
 }
 
+type SortField = "name" | "amount" | "percentage";
+type SortDirection = "asc" | "desc";
+
 export function BudgetViz({ dollarBreakdown, expenseBudget, years }: BudgetVizProps) {
   const [selectedYear, setSelectedYear] = useState(years[0]);
   const [hoveredAgency, setHoveredAgency] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortField, setSortField] = useState<SortField>("amount");
+  const [sortDirection, setSortDirection] = useState<SortDirection>("desc");
 
   const yearData = expenseBudget[selectedYear];
   const dollarData = dollarBreakdown[selectedYear];
 
-  // Filter out negative budgets and sort
+  // Filter, search, and sort agencies
   const agencies = useMemo(() => {
     if (!yearData) return [];
-    return yearData.agencies
-      .filter((a) => a.amount > 0)
-      .sort((a, b) => b.amount - a.amount);
-  }, [yearData]);
+    
+    let filtered = yearData.agencies.filter((a) => a.amount > 0);
+
+    // Apply search filter
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase();
+      filtered = filtered.filter((a) => a.name.toLowerCase().includes(query));
+    }
+
+    // Apply sort
+    filtered.sort((a, b) => {
+      let compareValue = 0;
+      
+      if (sortField === "name") {
+        compareValue = a.name.localeCompare(b.name);
+      } else if (sortField === "amount") {
+        compareValue = a.amount - b.amount;
+      } else if (sortField === "percentage") {
+        const totalBudget = yearData.agencies.reduce((sum, agency) => sum + agency.amount, 0);
+        const pctA = (a.amount / totalBudget) * 100;
+        const pctB = (b.amount / totalBudget) * 100;
+        compareValue = pctA - pctB;
+      }
+      
+      return sortDirection === "asc" ? compareValue : -compareValue;
+    });
+
+    return filtered;
+  }, [yearData, searchQuery, sortField, sortDirection]);
 
   const totalBudget = useMemo(() => {
     return agencies.reduce((sum, a) => sum + a.amount, 0);
@@ -88,7 +119,7 @@ export function BudgetViz({ dollarBreakdown, expenseBudget, years }: BudgetVizPr
   return (
     <div className="space-y-10">
       {/* Year selector */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 flex-wrap">
         <span className="text-sm font-medium text-zinc-400">Fiscal Year</span>
         <div className="flex gap-1">
           {years.map((year) => (
@@ -105,6 +136,25 @@ export function BudgetViz({ dollarBreakdown, expenseBudget, years }: BudgetVizPr
             </button>
           ))}
         </div>
+      </div>
+
+      {/* Search bar */}
+      <div className="relative">
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Search agencies..."
+          className="w-full md:w-96 bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-indigo-500 transition-colors"
+        />
+        {searchQuery && (
+          <button
+            onClick={() => setSearchQuery("")}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-300"
+          >
+            ✕
+          </button>
+        )}
       </div>
 
       {/* Total budget headline */}
@@ -232,9 +282,60 @@ export function BudgetViz({ dollarBreakdown, expenseBudget, years }: BudgetVizPr
           <table className="w-full">
             <thead>
               <tr className="border-b border-zinc-800 bg-zinc-900/50">
-                <th className="px-4 py-3 text-left text-xs font-medium text-zinc-400 uppercase">Agency</th>
-                <th className="px-4 py-3 text-right text-xs font-medium text-zinc-400 uppercase">Amount</th>
-                <th className="px-4 py-3 text-right text-xs font-medium text-zinc-400 uppercase">% of Budget</th>
+                <th className="px-4 py-3 text-left">
+                  <button
+                    onClick={() => {
+                      if (sortField === "name") {
+                        setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+                      } else {
+                        setSortField("name");
+                        setSortDirection("asc");
+                      }
+                    }}
+                    className="text-xs font-medium text-zinc-400 uppercase hover:text-zinc-200 transition-colors flex items-center gap-1"
+                  >
+                    Agency
+                    {sortField === "name" && (
+                      <span className="text-indigo-400">{sortDirection === "asc" ? "↑" : "↓"}</span>
+                    )}
+                  </button>
+                </th>
+                <th className="px-4 py-3 text-right">
+                  <button
+                    onClick={() => {
+                      if (sortField === "amount") {
+                        setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+                      } else {
+                        setSortField("amount");
+                        setSortDirection("desc");
+                      }
+                    }}
+                    className="text-xs font-medium text-zinc-400 uppercase hover:text-zinc-200 transition-colors flex items-center gap-1 ml-auto"
+                  >
+                    Amount
+                    {sortField === "amount" && (
+                      <span className="text-indigo-400">{sortDirection === "asc" ? "↑" : "↓"}</span>
+                    )}
+                  </button>
+                </th>
+                <th className="px-4 py-3 text-right">
+                  <button
+                    onClick={() => {
+                      if (sortField === "percentage") {
+                        setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+                      } else {
+                        setSortField("percentage");
+                        setSortDirection("desc");
+                      }
+                    }}
+                    className="text-xs font-medium text-zinc-400 uppercase hover:text-zinc-200 transition-colors flex items-center gap-1 ml-auto"
+                  >
+                    % of Budget
+                    {sortField === "percentage" && (
+                      <span className="text-indigo-400">{sortDirection === "asc" ? "↑" : "↓"}</span>
+                    )}
+                  </button>
+                </th>
                 <th className="px-4 py-3 text-left text-xs font-medium text-zinc-400 uppercase w-1/3">Share</th>
               </tr>
             </thead>
