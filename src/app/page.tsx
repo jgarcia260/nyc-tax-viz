@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { readFileSync } from "fs";
 import { join } from "path";
 import { BudgetViz } from "@/components/BudgetViz";
@@ -32,11 +33,13 @@ export default function Home() {
         </p>
       </header>
 
-      <BudgetViz
-        dollarBreakdown={dollarBreakdown}
-        expenseBudget={expenseBudget}
-        years={years}
-      />
+      <Suspense fallback={<div className="text-zinc-400">Loading...</div>}>
+        <BudgetViz
+          dollarBreakdown={dollarBreakdown}
+          expenseBudget={expenseBudget}
+          years={years}
+        />
+      </Suspense>
 
       <div className="mt-16">
         <YearComparison expenseBudget={expenseBudget} years={years} />
