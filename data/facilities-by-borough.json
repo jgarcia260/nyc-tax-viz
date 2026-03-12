@@ -1232,7 +1232,26 @@
         "lat": 40.618111,
         "lng": -73.928089
       }
-    ]
+    ],
+    "spending": {
+      "estimatedAnnualSpending": 16354390016,
+      "estimatedPerFacility": 1615568,
+      "facilityCount": 10123,
+      "topDomains": [
+        {
+          "name": "EDUCATION, CHILD WELFARE, AND YOUTH",
+          "count": 5379
+        },
+        {
+          "name": "HEALTH AND HUMAN SERVICES",
+          "count": 1595
+        },
+        {
+          "name": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+          "count": 1297
+        }
+      ]
+    }
   },
   "QUEENS": {
     "domains": [
@@ -2467,7 +2486,26 @@
         "lat": 40.663837,
         "lng": -73.783561
       }
-    ]
+    ],
+    "spending": {
+      "estimatedAnnualSpending": 11045363086,
+      "estimatedPerFacility": 1635139,
+      "facilityCount": 6755,
+      "topDomains": [
+        {
+          "name": "EDUCATION, CHILD WELFARE, AND YOUTH",
+          "count": 3417
+        },
+        {
+          "name": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+          "count": 1060
+        },
+        {
+          "name": "HEALTH AND HUMAN SERVICES",
+          "count": 1035
+        }
+      ]
+    }
   },
   "MANHATTAN": {
     "domains": [
@@ -3702,7 +3740,26 @@
         "lat": 40.831257,
         "lng": -73.940748
       }
-    ]
+    ],
+    "spending": {
+      "estimatedAnnualSpending": 15852611633,
+      "estimatedPerFacility": 1559989,
+      "facilityCount": 10162,
+      "topDomains": [
+        {
+          "name": "EDUCATION, CHILD WELFARE, AND YOUTH",
+          "count": 3383
+        },
+        {
+          "name": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+          "count": 1861
+        },
+        {
+          "name": "HEALTH AND HUMAN SERVICES",
+          "count": 1617
+        }
+      ]
+    }
   },
   "BRONX": {
     "domains": [
@@ -4937,7 +4994,26 @@
         "lat": 40.850424,
         "lng": -73.83054
       }
-    ]
+    ],
+    "spending": {
+      "estimatedAnnualSpending": 9447474544,
+      "estimatedPerFacility": 1668870,
+      "facilityCount": 5661,
+      "topDomains": [
+        {
+          "name": "EDUCATION, CHILD WELFARE, AND YOUTH",
+          "count": 2778
+        },
+        {
+          "name": "HEALTH AND HUMAN SERVICES",
+          "count": 1183
+        },
+        {
+          "name": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+          "count": 827
+        }
+      ]
+    }
   },
   "STATEN ISLAND": {
     "domains": [
@@ -5812,6 +5888,25 @@
         "lat": 40.641009,
         "lng": -74.120191
       }
-    ]
+    ],
+    "spending": {
+      "estimatedAnnualSpending": 2945124804,
+      "estimatedPerFacility": 1597139,
+      "facilityCount": 1844,
+      "topDomains": [
+        {
+          "name": "EDUCATION, CHILD WELFARE, AND YOUTH",
+          "count": 815
+        },
+        {
+          "name": "HEALTH AND HUMAN SERVICES",
+          "count": 298
+        },
+        {
+          "name": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+          "count": 290
+        }
+      ]
+    }
   }
 }

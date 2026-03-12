@@ -9,10 +9,18 @@ interface Facility {
   lng: number;
 }
 
+interface BoroughSpending {
+  estimatedAnnualSpending: number;
+  estimatedPerFacility: number;
+  facilityCount: number;
+  topDomains: { name: string; count: number }[];
+}
+
 interface BoroughData {
   domains: { name: string; count: number }[];
   totalFacilities: number;
   facilities: Facility[];
+  spending?: BoroughSpending;
 }
 
 interface FacilitiesMapProps {
@@ -38,6 +46,13 @@ const BOROUGH_CENTER: Record<string, [number, number]> = {
 
 function getDomainColor(domain: string): string {
   return DOMAIN_COLORS[domain] || "#6b7280";
+}
+
+function formatDollars(amount: number): string {
+  if (amount >= 1e9) return `$${(amount / 1e9).toFixed(1)}B`;
+  if (amount >= 1e6) return `$${(amount / 1e6).toFixed(0)}M`;
+  if (amount >= 1e3) return `$${(amount / 1e3).toFixed(0)}K`;
+  return `$${amount.toFixed(0)}`;
 }
 
 export function FacilitiesMap({ data }: FacilitiesMapProps) {
@@ -199,6 +214,12 @@ export function FacilitiesMap({ data }: FacilitiesMapProps) {
       </div>
 
       {/* Borough breakdown cards */}
+      <div className="mb-2 px-4 py-2 rounded-lg bg-zinc-900/30 border border-zinc-800/50">
+        <p className="text-xs text-zinc-500">
+          💡 <strong className="text-zinc-400">Spending estimates</strong> are calculated based on facility counts and types. 
+          Actual capital spending may vary significantly by borough.
+        </p>
+      </div>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {boroughStats.map((boro) => (
           <div
@@ -218,7 +239,17 @@ export function FacilitiesMap({ data }: FacilitiesMapProps) {
             <p className="text-2xl font-bold text-indigo-400 mt-1">
               {boro.totalFacilities.toLocaleString()}
             </p>
-            <p className="text-xs text-zinc-500 mb-3">public facilities</p>
+            <p className="text-xs text-zinc-500">public facilities</p>
+            {boro.spending && (
+              <div className="mt-2 mb-3">
+                <p className="text-lg font-semibold text-emerald-400">
+                  {formatDollars(boro.spending.estimatedAnnualSpending)}
+                </p>
+                <p className="text-xs text-zinc-500">
+                  estimated annual capital spending
+                </p>
+              </div>
+            )}
             <div className="space-y-1.5">
               {boro.domains.slice(0, 4).map((d) => (
                 <div key={d.name} className="flex items-center gap-2">
