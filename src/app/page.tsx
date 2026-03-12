@@ -1,21 +1,23 @@
 import { readFileSync } from "fs";
 import { join } from "path";
 import { BudgetViz } from "@/components/BudgetViz";
+import { FacilitiesMap } from "@/components/FacilitiesMap";
 
 function loadData() {
   const dollarPath = join(process.cwd(), "data", "dollar-breakdown.json");
   const expensePath = join(process.cwd(), "data", "expense-budget.json");
+  const facilitiesPath = join(process.cwd(), "data", "facilities-by-borough.json");
 
   const dollarBreakdown = JSON.parse(readFileSync(dollarPath, "utf-8"));
   const expenseBudget = JSON.parse(readFileSync(expensePath, "utf-8"));
+  const facilitiesByBorough = JSON.parse(readFileSync(facilitiesPath, "utf-8"));
 
-  return { dollarBreakdown, expenseBudget };
+  return { dollarBreakdown, expenseBudget, facilitiesByBorough };
 }
 
 export default function Home() {
-  const { dollarBreakdown, expenseBudget } = loadData();
+  const { dollarBreakdown, expenseBudget, facilitiesByBorough } = loadData();
 
-  // Get available fiscal years
   const years = Object.keys(expenseBudget).sort().reverse();
 
   return (
@@ -34,6 +36,10 @@ export default function Home() {
         expenseBudget={expenseBudget}
         years={years}
       />
+
+      <div className="mt-16">
+        <FacilitiesMap data={facilitiesByBorough} />
+      </div>
 
       <footer className="mt-16 pt-8 border-t border-zinc-800 text-sm text-zinc-500">
         <p>

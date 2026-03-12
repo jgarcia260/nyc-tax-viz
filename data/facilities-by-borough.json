@@ -1,0 +1,5817 @@
+{
+  "BROOKLYN": {
+    "domains": [
+      {
+        "name": "EDUCATION, CHILD WELFARE, AND YOUTH",
+        "count": 5379
+      },
+      {
+        "name": "HEALTH AND HUMAN SERVICES",
+        "count": 1595
+      },
+      {
+        "name": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "count": 1297
+      },
+      {
+        "name": "PARKS, GARDENS, AND HISTORICAL SITES",
+        "count": 870
+      },
+      {
+        "name": "LIBRARIES AND CULTURAL PROGRAMS",
+        "count": 613
+      },
+      {
+        "name": "ADMINISTRATION OF GOVERNMENT",
+        "count": 246
+      },
+      {
+        "name": "PUBLIC SAFETY, EMERGENCY SERVICES, AND ADMINISTRATION OF JUSTICE",
+        "count": 123
+      }
+    ],
+    "totalFacilities": 10123,
+    "facilities": [
+      {
+        "name": "BROOKLYN 15 GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.59139,
+        "lng": -73.931931
+      },
+      {
+        "name": "OFFICE BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.693609,
+        "lng": -73.990862
+      },
+      {
+        "name": "73 PRECINCT OFF-STREET PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.670862,
+        "lng": -73.91486
+      },
+      {
+        "name": "BROOKLYN DERELICT VEHICLE OFFICE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.664119,
+        "lng": -73.859507
+      },
+      {
+        "name": "INDOOR STORAGE (WAREHOUSE)",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.672549,
+        "lng": -74.002076
+      },
+      {
+        "name": "BROOKLYN FAMILY COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.694603,
+        "lng": -73.987696
+      },
+      {
+        "name": "OFFICE BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.69272,
+        "lng": -73.988446
+      },
+      {
+        "name": "COMBINED MAINTENANCE/STORAGE FACILITY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.696515,
+        "lng": -73.982719
+      },
+      {
+        "name": "FIA SNAP #25/EIS APS/IREA OI",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.688759,
+        "lng": -73.984531
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.686113,
+        "lng": -73.994765
+      },
+      {
+        "name": "ENG 218 - PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.698269,
+        "lng": -73.926654
+      },
+      {
+        "name": "NYCTA ULMER PARK DEPOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.593776,
+        "lng": -73.992136
+      },
+      {
+        "name": "BROOKLYN 5 GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.660942,
+        "lng": -73.870255
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.584105,
+        "lng": -73.981441
+      },
+      {
+        "name": "SANITATION GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.710957,
+        "lng": -73.92967
+      },
+      {
+        "name": "ENG 280  LAD 132 - PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.673951,
+        "lng": -73.961523
+      },
+      {
+        "name": "TECHNOLOGY SUPPORT CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.643583,
+        "lng": -74.011502
+      },
+      {
+        "name": "RUTH BADER GINSBURG BROOKLYN MUNICIPAL BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.692072,
+        "lng": -73.990473
+      },
+      {
+        "name": "LOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.700045109,
+        "lng": -73.9890645058
+      },
+      {
+        "name": "JW MAYS BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.6892,
+        "lng": -73.982865
+      },
+      {
+        "name": "KINGS COUNTY CRIMINAL COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.689692,
+        "lng": -73.988948
+      },
+      {
+        "name": "CONDO UNIT DESIGNATION OFF2",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.693812,
+        "lng": -73.987992
+      },
+      {
+        "name": "23 STREET BULKHEAD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.664553,
+        "lng": -74.002026
+      },
+      {
+        "name": "FLATLANDS INDUSTRIAL PARK",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.650626,
+        "lng": -73.898791
+      },
+      {
+        "name": "SANITATION SALT STORAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.675527,
+        "lng": -73.991921
+      },
+      {
+        "name": "OFF STREET PARKING FOR 75 PRECINCT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.671473,
+        "lng": -73.879924
+      },
+      {
+        "name": "FUTURE BROOKLYN 3 DIST GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.697973,
+        "lng": -73.953579
+      },
+      {
+        "name": "PARKING FIELD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.573868,
+        "lng": -73.988107
+      },
+      {
+        "name": "INDOOR PARKING GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.70881,
+        "lng": -73.92859
+      },
+      {
+        "name": "OLD 83 PRECINCT OFF STREET PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.698786,
+        "lng": -73.92384
+      },
+      {
+        "name": "CONDO UNIT DESIGNATION OFF2",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.693812,
+        "lng": -73.987992
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.630508,
+        "lng": -73.921681
+      },
+      {
+        "name": "FUTURE GARAGE AND SALT FACILITY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.582348,
+        "lng": -73.978601
+      },
+      {
+        "name": "KINGS COUNTY CRIMINAL COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.689692,
+        "lng": -73.988948
+      },
+      {
+        "name": "HOWARD AVE /PARK PLACE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.6710640452,
+        "lng": -73.919977799
+      },
+      {
+        "name": "NYPD OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.650481,
+        "lng": -74.007899
+      },
+      {
+        "name": "OFFICE CONDO UNIT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.69272,
+        "lng": -73.988446
+      },
+      {
+        "name": "METRO TECHOLOGY CENTER URA",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.692862,
+        "lng": -73.983845
+      },
+      {
+        "name": "KINGSBOROUGH COMMUNITY COLLEGE AND LEON M. GOLDSTEIN HIGH SCHOOL FOR THE SCIENCES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.577972,
+        "lng": -73.934148
+      },
+      {
+        "name": "ACCESSORY PARKING-DIST 8 GAR",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.676407,
+        "lng": -73.931318
+      },
+      {
+        "name": "FLOYD BENNETT FIELD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.595332,
+        "lng": -73.889697
+      },
+      {
+        "name": "ST MARY'S HOSPITAL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.67412,
+        "lng": -73.926064
+      },
+      {
+        "name": "OFFICE CONDO UNIT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.69272,
+        "lng": -73.988446
+      },
+      {
+        "name": "BROOKLYN NORTH SALT SHED",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.71209,
+        "lng": -73.929524
+      },
+      {
+        "name": "ACCESSORY PARKING LOT DIST. 12",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.622669,
+        "lng": -73.982641
+      },
+      {
+        "name": "CUSTODIAL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.673462,
+        "lng": -73.960139
+      },
+      {
+        "name": "HOWARD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.6729393246,
+        "lng": -73.9082748783
+      },
+      {
+        "name": "BROOKLYN FAMILY COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.694603,
+        "lng": -73.987696
+      },
+      {
+        "name": "23 STREET BULKHEAD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.664553,
+        "lng": -74.002026
+      },
+      {
+        "name": "PEST CONTROL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.695716,
+        "lng": -73.952935
+      },
+      {
+        "name": "SUPREME AND SURROGATE COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.693892,
+        "lng": -73.989423
+      },
+      {
+        "name": "KINGS COUNTY CRIMINAL COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.689692,
+        "lng": -73.988948
+      },
+      {
+        "name": "APPELLATE DIVISION COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.695662,
+        "lng": -73.993264
+      },
+      {
+        "name": "INDOOR STORAGE - EQUIPMENT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.648695,
+        "lng": -74.018534
+      },
+      {
+        "name": "NYS FAIR HEARING PROG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.691476,
+        "lng": -73.989806
+      },
+      {
+        "name": "COMMUNICATIONS GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.68512,
+        "lng": -74.004247
+      },
+      {
+        "name": "NYCTA FLATBUSH BUS DEPOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.617068,
+        "lng": -73.927211
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.629406,
+        "lng": -73.998372
+      },
+      {
+        "name": "OFFICE BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.693609,
+        "lng": -73.990862
+      },
+      {
+        "name": "DISTRCIT #18 CEC BROOKLYN",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.643318,
+        "lng": -73.903512
+      },
+      {
+        "name": "CONDO UNIT DESIGNATION OFF2",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.693812,
+        "lng": -73.987992
+      },
+      {
+        "name": "TWO METROTECH CENTER URA",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.693288,
+        "lng": -73.985727
+      },
+      {
+        "name": "LOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.5738697123,
+        "lng": -73.9881046475
+      },
+      {
+        "name": "OFFICE CONDO UNIT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.69272,
+        "lng": -73.988446
+      },
+      {
+        "name": "BWSO STOREHOUSE FACILITY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.71461,
+        "lng": -73.928789
+      },
+      {
+        "name": "CLINTON JOB CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.682596,
+        "lng": -73.968232
+      },
+      {
+        "name": "LAD 102 PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.695663,
+        "lng": -73.957057
+      },
+      {
+        "name": "INDOOR STORAGE (WAREHOUSE)",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.659275,
+        "lng": -74.004426
+      },
+      {
+        "name": "OUTDOOR PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.694955,
+        "lng": -73.977083
+      },
+      {
+        "name": "BROOKLYN WEST BROOM DEPOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.685271,
+        "lng": -74.00463
+      },
+      {
+        "name": "METRO TECHOLOGY CENTER URA",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.693222,
+        "lng": -73.986719
+      },
+      {
+        "name": "SUPREME AND SURROGATE COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.693892,
+        "lng": -73.989423
+      },
+      {
+        "name": "FOREST CITY PIERREPONT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.695127,
+        "lng": -73.991439
+      },
+      {
+        "name": "BROOKLYN NAVY YARD/MAR.DIV.6",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.702258,
+        "lng": -73.972767
+      },
+      {
+        "name": "GREENWOOD JOB CNTR",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.683927,
+        "lng": -73.9823
+      },
+      {
+        "name": "OLD 83 PCT.OFF STREET PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.697607,
+        "lng": -73.926362
+      },
+      {
+        "name": "GREENPOINT MARINE TRANSFER STATION",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.735693,
+        "lng": -73.945679
+      },
+      {
+        "name": "BUSHWICK FAMILY RESIDENCE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.684326,
+        "lng": -73.912149
+      },
+      {
+        "name": "PARKING FOR CROSSROADS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.671939,
+        "lng": -73.912223
+      },
+      {
+        "name": "EDUC ADMINISTRATIVE OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.697339,
+        "lng": -73.984518
+      },
+      {
+        "name": "23 STREET BULKHEAD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.664553,
+        "lng": -74.002026
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.700092,
+        "lng": -73.932101
+      },
+      {
+        "name": "BRIDGES/IRON SHOP",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.702801,
+        "lng": -73.988116
+      },
+      {
+        "name": "MARINE PARK",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.596586,
+        "lng": -73.919405
+      },
+      {
+        "name": "METRO TECHOLOGY CENTER URA",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.693222,
+        "lng": -73.986719
+      },
+      {
+        "name": "DIST OFFICE 13 (OLD PS 9 ANNEX",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.676312,
+        "lng": -73.965848
+      },
+      {
+        "name": "BROOKLYN BOROUGH HALL/PARK",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.69365,
+        "lng": -73.989971
+      },
+      {
+        "name": "OUTDOOR TRUCK PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.676429,
+        "lng": -73.931725
+      },
+      {
+        "name": "23 STREET BULKHEAD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.664553,
+        "lng": -74.002026
+      },
+      {
+        "name": "SPRING CREEK PARK",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.663423,
+        "lng": -73.858467
+      },
+      {
+        "name": "DOS BROOKLYN 13 GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.578251,
+        "lng": -73.98771
+      },
+      {
+        "name": "COMBINED MAINTENANCE/STORAGE FACILITY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.680192,
+        "lng": -73.987212
+      },
+      {
+        "name": "NYPD OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.650481,
+        "lng": -74.007899
+      },
+      {
+        "name": "CIOFFEE BOROUGH REPAIR SHOP",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.654943,
+        "lng": -73.90107
+      },
+      {
+        "name": "JUNIOR ACADEMY LEAGUE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.689408,
+        "lng": -73.924897
+      },
+      {
+        "name": "FOREST CITY PIERREPONT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.695127,
+        "lng": -73.991439
+      },
+      {
+        "name": "TRANSIT POLICE DIST.#32 BMS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.667936,
+        "lng": -73.959519
+      },
+      {
+        "name": "CONDO UNIT DESIGNATION OFF2",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.693812,
+        "lng": -73.987992
+      },
+      {
+        "name": "COOPER PARK",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.7184537206,
+        "lng": -73.9396258149
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.618712,
+        "lng": -73.955396
+      },
+      {
+        "name": "NYPD PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.671315,
+        "lng": -73.91394
+      },
+      {
+        "name": "ENG 277  LAD 112 - PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.696836,
+        "lng": -73.914538
+      },
+      {
+        "name": "FLOYD BENNETT FIELD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.595332,
+        "lng": -73.889697
+      },
+      {
+        "name": "15 METROTECH CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.694009,
+        "lng": -73.984537
+      },
+      {
+        "name": "79TH PRECINCT PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.689492,
+        "lng": -73.943676
+      },
+      {
+        "name": "SPRING CREEK BUS DEPOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.662081,
+        "lng": -73.865476
+      },
+      {
+        "name": "OUTDOOR PARKING FOR 75 PRECINCT PERSONNEL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.671617,
+        "lng": -73.880883
+      },
+      {
+        "name": "DFMCS CENTRAL REPAIR SHOP",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.711455,
+        "lng": -73.968763
+      },
+      {
+        "name": "CENTERPOINT FLATLANDS LLC",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.650655,
+        "lng": -73.900485
+      },
+      {
+        "name": "HAMILTON AVENUE ASPHALT PLANT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.669351,
+        "lng": -73.998046
+      },
+      {
+        "name": "BROOKLYN TERMINAL MARKET",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.646746,
+        "lng": -73.913626
+      },
+      {
+        "name": "RUTH BADER GINSBURG BROOKLYN MUNICIPAL BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.692072,
+        "lng": -73.990473
+      },
+      {
+        "name": "OUTDOOR STORAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.665385,
+        "lng": -73.860351
+      },
+      {
+        "name": "FIELD OFFICE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.667578,
+        "lng": -73.869477
+      },
+      {
+        "name": "CYPRESS HILLS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.6689356851,
+        "lng": -73.8729473137
+      },
+      {
+        "name": "OFFICE CONDO UNIT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.69272,
+        "lng": -73.988446
+      },
+      {
+        "name": "EMS STATION 44 PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.674488,
+        "lng": -73.911413
+      },
+      {
+        "name": "BROOKLYN WHOLESALE MEAT MRKT/BFI",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.649021,
+        "lng": -74.024956
+      },
+      {
+        "name": "BOARD OF ED CENTRAL OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.691767,
+        "lng": -73.990981
+      },
+      {
+        "name": "OEM HEADQUARTERS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.69914,
+        "lng": -73.989325
+      },
+      {
+        "name": "DEPT OF SANITATION PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.577557,
+        "lng": -73.98852
+      },
+      {
+        "name": "OLD 73 PRECINCT OFF STREET PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.699005,
+        "lng": -73.923927
+      },
+      {
+        "name": "KINGS COUNTY CRIMINAL COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.689692,
+        "lng": -73.988948
+      },
+      {
+        "name": "KENT AVENUE  MACHINE SHOP",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.69808,
+        "lng": -73.960561
+      },
+      {
+        "name": "LOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.7115961044,
+        "lng": -73.9657047606
+      },
+      {
+        "name": "SW SANIT.CMPLX.BROOKLYN.11 STRG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.589379,
+        "lng": -73.997566
+      },
+      {
+        "name": "9 METROTECH CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.694498,
+        "lng": -73.984551
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.584105,
+        "lng": -73.981441
+      },
+      {
+        "name": "BUSH TERMINAL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.655177,
+        "lng": -74.011893
+      },
+      {
+        "name": "BROOKLYN ARMY TERMINAL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.645199,
+        "lng": -74.027196
+      },
+      {
+        "name": "BROOKLYN PROPERTY CLERK",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.703005,
+        "lng": -73.993043
+      },
+      {
+        "name": "FORMER 79TH PRECINCT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.689432,
+        "lng": -73.924684
+      },
+      {
+        "name": "BROOKLYN 3 GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.709077,
+        "lng": -73.926317
+      },
+      {
+        "name": "75TH PRECINCT PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.671746,
+        "lng": -73.88054
+      },
+      {
+        "name": "PAERDEGAT BASIN PARK ADDITION",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.627063,
+        "lng": -73.910218
+      },
+      {
+        "name": "COMM BD 11",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.598064,
+        "lng": -73.996961
+      },
+      {
+        "name": "RUTH BADER GINSBURG BROOKLYN MUNICIPAL BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.692072,
+        "lng": -73.990473
+      },
+      {
+        "name": "75TH PRECINCT PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.67158,
+        "lng": -73.87947
+      },
+      {
+        "name": "BROOKLYN 6 GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.670932,
+        "lng": -73.994297
+      },
+      {
+        "name": "KINGS COUNTY CRIMINAL COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.689692,
+        "lng": -73.988948
+      },
+      {
+        "name": "BWSO BROOKLYN WATER/SEWER MAINTENANCE YARD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.724472,
+        "lng": -73.957197
+      },
+      {
+        "name": "11 METROTECH CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.695225,
+        "lng": -73.984497
+      },
+      {
+        "name": "OFFICE BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.649306,
+        "lng": -73.920127
+      },
+      {
+        "name": "ENG 243 LAD 168 STRG/TRN AREA",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.605889,
+        "lng": -74.003454
+      },
+      {
+        "name": "RUTH BADER GINSBURG BROOKLYN MUNICIPAL BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.692072,
+        "lng": -73.990473
+      },
+      {
+        "name": "RUTH BADER GINSBURG BROOKLYN MUNICIPAL BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.692072,
+        "lng": -73.990473
+      },
+      {
+        "name": "WYCKOFF GARDENS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.6829291512,
+        "lng": -73.9834655939
+      },
+      {
+        "name": "BRKYN 17/18 SANITATION GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.653268,
+        "lng": -73.900229
+      },
+      {
+        "name": "DISTRICT 14 GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.642921,
+        "lng": -73.918903
+      },
+      {
+        "name": "BROOKLYN 16 SANITATION GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.654164,
+        "lng": -73.890061
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.636688,
+        "lng": -73.937206
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.629787,
+        "lng": -73.961538
+      },
+      {
+        "name": "COMM BD 13",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.575843,
+        "lng": -73.97982
+      },
+      {
+        "name": "BEDFORD DCC/FIELD OFFICE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.679926,
+        "lng": -73.953689
+      },
+      {
+        "name": "67TH PRECINCT OFF-STREET PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.648618,
+        "lng": -73.950871
+      },
+      {
+        "name": "15 METROTECH CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.694009,
+        "lng": -73.984537
+      },
+      {
+        "name": "COMM BD 1",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.718187,
+        "lng": -73.945261
+      },
+      {
+        "name": "VAN DYKE I",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 0,
+        "lng": 0
+      },
+      {
+        "name": "HINSDALE YARD BROOKLYN WOMEN'S SHELTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.673428,
+        "lng": -73.900776
+      },
+      {
+        "name": "BROWNSVILLE MULTI-SERV CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.669849,
+        "lng": -73.91422
+      },
+      {
+        "name": "HINSDALE YARD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.673483,
+        "lng": -73.90079
+      },
+      {
+        "name": "NYCTA FLATBUSH BUS DEPOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.615508,
+        "lng": -73.927047
+      },
+      {
+        "name": "OLD 83 PRECINCT OFF STREET PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.697481,
+        "lng": -73.926208
+      },
+      {
+        "name": "NYCTA ULMER PARK DEPOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.594339,
+        "lng": -73.992658
+      },
+      {
+        "name": "INDOOR PARKING GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.670268,
+        "lng": -73.996327
+      },
+      {
+        "name": "OLD 83 PRECINCT OFF STREET PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.698449,
+        "lng": -73.92529
+      },
+      {
+        "name": "BROOKLYN ARMY TERMINAL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.645199,
+        "lng": -74.027196
+      },
+      {
+        "name": "BROOKLYN 9 SANITATION GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.656837,
+        "lng": -73.947672
+      },
+      {
+        "name": "9 ST BRIDGE OPERATORS QUARTERS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.674048,
+        "lng": -73.996813
+      },
+      {
+        "name": "BROOKLYN BOROUGH HALL/PARK",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.69365,
+        "lng": -73.989971
+      },
+      {
+        "name": "BROOKLYN 2 GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.669541,
+        "lng": -73.996557
+      },
+      {
+        "name": "BROOKLYN FIELD OFFICE/SVU CHILD ABUSE SQUAD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.687012,
+        "lng": -73.981701
+      },
+      {
+        "name": "RUTH BADER GINSBURG BROOKLYN MUNICIPAL BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.692072,
+        "lng": -73.990473
+      },
+      {
+        "name": "ATLANTIC PLAYGROUND",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.692339,
+        "lng": -73.999239
+      },
+      {
+        "name": "NYPD PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.669153,
+        "lng": -73.89832
+      },
+      {
+        "name": "BUILDING MAINTENANCE SECTION",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.712475,
+        "lng": -73.945334
+      },
+      {
+        "name": "72ND PRECINCT PARKING LOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.659297,
+        "lng": -74.00129
+      },
+      {
+        "name": "BWSO BROOKLYN SOUTH WATER/SEWER REPAIR",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.647286,
+        "lng": -73.912613
+      },
+      {
+        "name": "OFFICE CONDO UNIT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.69272,
+        "lng": -73.988446
+      },
+      {
+        "name": "BROOKLYN FAMILY COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.694603,
+        "lng": -73.987696
+      },
+      {
+        "name": "61ST PRECINCT PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.59462,
+        "lng": -73.960539
+      },
+      {
+        "name": "BOARD OF ED CENTRAL OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.691114,
+        "lng": -73.988457
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.689464,
+        "lng": -73.984073
+      },
+      {
+        "name": "KINGS COUNTY CIVIL COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.690829,
+        "lng": -73.98814
+      },
+      {
+        "name": "OEM HEADQUARTERS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.69914,
+        "lng": -73.989325
+      },
+      {
+        "name": "BUSH TERMINAL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.655177,
+        "lng": -74.011893
+      },
+      {
+        "name": "ROOSEVELT I",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.6936167378,
+        "lng": -73.9352073887
+      },
+      {
+        "name": "ROOSEVELT I",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.6934798239,
+        "lng": -73.9364462632
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.575734,
+        "lng": -73.986242
+      },
+      {
+        "name": "ENG 235  BAT 57 PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.685228,
+        "lng": -73.950988
+      },
+      {
+        "name": "BWSO BROOKLYN WATER/SEWER MAINTENANCE YARD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.724472,
+        "lng": -73.957197
+      },
+      {
+        "name": "FORMER NYPD HARBOR CHARLIE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.651239,
+        "lng": -74.023111
+      },
+      {
+        "name": "LEASED OFFICE - DOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.652916,
+        "lng": -73.921175
+      },
+      {
+        "name": "P.S.67",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.695954,
+        "lng": -73.97819
+      },
+      {
+        "name": "SPECIAL INVESTIGATIVE UNITS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.695354,
+        "lng": -73.983646
+      },
+      {
+        "name": "RUTH BADER GINSBURG BROOKLYN MUNICIPAL BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.692072,
+        "lng": -73.990473
+      },
+      {
+        "name": "NYCTA TRAINING FACILITY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.594986,
+        "lng": -73.983472
+      },
+      {
+        "name": "TWO METROTECH CENTER URA",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.693288,
+        "lng": -73.985727
+      },
+      {
+        "name": "E.S.D/COMMERCIAL CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.67981,
+        "lng": -73.946334
+      },
+      {
+        "name": "BROOKLYN EAST 15 GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.618111,
+        "lng": -73.928089
+      }
+    ]
+  },
+  "QUEENS": {
+    "domains": [
+      {
+        "name": "EDUCATION, CHILD WELFARE, AND YOUTH",
+        "count": 3417
+      },
+      {
+        "name": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "count": 1060
+      },
+      {
+        "name": "HEALTH AND HUMAN SERVICES",
+        "count": 1035
+      },
+      {
+        "name": "PARKS, GARDENS, AND HISTORICAL SITES",
+        "count": 618
+      },
+      {
+        "name": "LIBRARIES AND CULTURAL PROGRAMS",
+        "count": 323
+      },
+      {
+        "name": "ADMINISTRATION OF GOVERNMENT",
+        "count": 205
+      },
+      {
+        "name": "PUBLIC SAFETY, EMERGENCY SERVICES, AND ADMINISTRATION OF JUSTICE",
+        "count": 97
+      }
+    ],
+    "totalFacilities": 6755,
+    "facilities": [
+      {
+        "name": "OUTDOOR STORAGE - AGENCY VEHICLES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.781977,
+        "lng": -73.902968
+      },
+      {
+        "name": "QUEENS CENTRAL REPAIR SHOP",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.735168,
+        "lng": -73.909116
+      },
+      {
+        "name": "QUEENS BOROUGH HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714006,
+        "lng": -73.827997
+      },
+      {
+        "name": "FLUSHING TOWN HALLPARKING LOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.764197,
+        "lng": -73.829846
+      },
+      {
+        "name": "BETTS AVENUE INCINERATOR",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.733174,
+        "lng": -73.907737
+      },
+      {
+        "name": "COLLEGE POINT BUS GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.773571,
+        "lng": -73.842108
+      },
+      {
+        "name": "FDNY PARKING/FUTURE DEP MAINT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.724479,
+        "lng": -73.918807
+      },
+      {
+        "name": "QUEENS BOROUGH HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714006,
+        "lng": -73.827997
+      },
+      {
+        "name": "SCHOOL OPERATIONS HQ",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.749942,
+        "lng": -73.954626
+      },
+      {
+        "name": "QUEENS BOROUGH HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714006,
+        "lng": -73.827997
+      },
+      {
+        "name": "LEFRAK CITY - OFFICE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.734781,
+        "lng": -73.864388
+      },
+      {
+        "name": "WOODSIDE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.7555832829,
+        "lng": -73.9111755787
+      },
+      {
+        "name": "MASPETH GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.724544,
+        "lng": -73.913673
+      },
+      {
+        "name": "FLUSHING MEADOW CORONA PARK",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.718046,
+        "lng": -73.827662
+      },
+      {
+        "name": "JAMAICA JOB CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.708391,
+        "lng": -73.796282
+      },
+      {
+        "name": "CORRECTION HEADQUARTERS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.764136,
+        "lng": -73.893244
+      },
+      {
+        "name": "WELL STATION #24",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.700594,
+        "lng": -73.777527
+      },
+      {
+        "name": "OUTDOOR PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.718577,
+        "lng": -73.730955
+      },
+      {
+        "name": "PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.770859,
+        "lng": -73.845996
+      },
+      {
+        "name": "QUEENS BOROUGH HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714006,
+        "lng": -73.827997
+      },
+      {
+        "name": "NYPD CENTRAL MOTOR REPAIR",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.733708,
+        "lng": -73.909898
+      },
+      {
+        "name": "QUEENS 7 SANIT GARAGE ANNEX",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.770094,
+        "lng": -73.846167
+      },
+      {
+        "name": "DIVISION OF SUPPORT SERVICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.750071,
+        "lng": -73.953074
+      },
+      {
+        "name": "BD OF ED OFFICE (BUR.OF SUPLY)",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.749667,
+        "lng": -73.953049
+      },
+      {
+        "name": "ASTORIA",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.7720963102,
+        "lng": -73.9349132706
+      },
+      {
+        "name": "QUEENS CRIMINAL COURT/PARKING LOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.713498,
+        "lng": -73.82578
+      },
+      {
+        "name": "QUEENS STOREHOUSE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.710897,
+        "lng": -73.89158
+      },
+      {
+        "name": "CORRECTION HEADQUARTERS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.764136,
+        "lng": -73.893244
+      },
+      {
+        "name": "BUILDING SERVICES/STATIONERY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.719436,
+        "lng": -73.909935
+      },
+      {
+        "name": "QUEENS 9 DISTRICT GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.696837,
+        "lng": -73.816772
+      },
+      {
+        "name": "PS 225 PARKING LOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.580803,
+        "lng": -73.832286
+      },
+      {
+        "name": "TRAFFIC DIVISION ENFORCEMENT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.767277,
+        "lng": -73.83221
+      },
+      {
+        "name": "OFFICE BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.711528,
+        "lng": -73.825912
+      },
+      {
+        "name": "28-11 QUEENS PLAZA N-OFFICE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.750291,
+        "lng": -73.937966
+      },
+      {
+        "name": "FAMILY COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.702185,
+        "lng": -73.802782
+      },
+      {
+        "name": "WELL STATION #24",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.70335,
+        "lng": -73.777535
+      },
+      {
+        "name": "SPRING CREEK PARK Q165",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.662849,
+        "lng": -73.857805
+      },
+      {
+        "name": "SUNRISE YARD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.673186,
+        "lng": -73.847097
+      },
+      {
+        "name": "3RD WARD YARD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.747095,
+        "lng": -73.798112
+      },
+      {
+        "name": "SOUTH JAMAICA I",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.6965258179,
+        "lng": -73.7952840948
+      },
+      {
+        "name": "ROSEDALE FIELD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.666202,
+        "lng": -73.737395
+      },
+      {
+        "name": "OUTDOOR MAINTENANCE/STORAGE FACILITY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.592205,
+        "lng": -73.807823
+      },
+      {
+        "name": "GERTZ PLAZA ACS MULTI PROGRAM",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.703768,
+        "lng": -73.7971
+      },
+      {
+        "name": "MTA BUS GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.773346,
+        "lng": -73.838047
+      },
+      {
+        "name": "FLEET SERVICES REPAIR SHOP",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.737518,
+        "lng": -73.938699
+      },
+      {
+        "name": "QUEENS BOROUGH HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714006,
+        "lng": -73.827997
+      },
+      {
+        "name": "COLLEGE POINT BUS GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.773452,
+        "lng": -73.839466
+      },
+      {
+        "name": "ROCKAWAY GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.591878,
+        "lng": -73.802859
+      },
+      {
+        "name": "FAMILY COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.702185,
+        "lng": -73.802782
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.721367,
+        "lng": -73.848715
+      },
+      {
+        "name": "QUEENS BOROUGH HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714006,
+        "lng": -73.827997
+      },
+      {
+        "name": "QUEENS CRIMINAL COURT/PARKING LOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.713498,
+        "lng": -73.82578
+      },
+      {
+        "name": "QUEENS 13 B SALT DOMAR",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.664935,
+        "lng": -73.785309
+      },
+      {
+        "name": "QUEENS BOROUGH HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714006,
+        "lng": -73.827997
+      },
+      {
+        "name": "SCHOOL.DISTRICT.27.OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.684508,
+        "lng": -73.85818
+      },
+      {
+        "name": "FLUSHING TOWN HALL PARKING LOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.764926,
+        "lng": -73.831118
+      },
+      {
+        "name": "QUEENS BOROUGH HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714006,
+        "lng": -73.827997
+      },
+      {
+        "name": "SEWER MAINTENANCE GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.76734,
+        "lng": -73.835372
+      },
+      {
+        "name": "OUTDOOR PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.76954,
+        "lng": -73.846771
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.742215,
+        "lng": -73.936443
+      },
+      {
+        "name": "ELMHURST CITY HOSPITAL CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.745362,
+        "lng": -73.887767
+      },
+      {
+        "name": "QUEENS EMPLOYMENT ELIGIBILITY CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.751739,
+        "lng": -73.929908
+      },
+      {
+        "name": "SPRING CREEK PARK ADD. Q165",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.662564,
+        "lng": -73.857906
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.603869,
+        "lng": -73.752705
+      },
+      {
+        "name": "COMM BD 4",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.7461,
+        "lng": -73.859446
+      },
+      {
+        "name": "QUEENS BOROUGH HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714006,
+        "lng": -73.827997
+      },
+      {
+        "name": "WELL STATION #24",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.700103,
+        "lng": -73.77918
+      },
+      {
+        "name": "GLENDALE YARD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.708616,
+        "lng": -73.853923
+      },
+      {
+        "name": "NYPD COMBINED SUPPORT FACILITY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.736576,
+        "lng": -73.906155
+      },
+      {
+        "name": "JAMAICA BUS GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.699846,
+        "lng": -73.789654
+      },
+      {
+        "name": "QUEENS 13 SANIT GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.665065,
+        "lng": -73.784407
+      },
+      {
+        "name": "QUEENS BOROUGH HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714006,
+        "lng": -73.827997
+      },
+      {
+        "name": "PROPERTY CLERK WAREHOUSE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.742724,
+        "lng": -73.942216
+      },
+      {
+        "name": "DCAS TESTING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.745459,
+        "lng": -73.930103
+      },
+      {
+        "name": "QUEENS BUSINESS CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.698362,
+        "lng": -73.807701
+      },
+      {
+        "name": "QUEENS CIVIL COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.70349,
+        "lng": -73.808004
+      },
+      {
+        "name": "HAMMEL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.5888145679,
+        "lng": -73.8095312952
+      },
+      {
+        "name": "QUEENS CRIMINAL COURT/PARKING LOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.713498,
+        "lng": -73.82578
+      },
+      {
+        "name": "SOUTH JAMAICA I",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.695573979,
+        "lng": -73.794589228
+      },
+      {
+        "name": "JAMAICA JOB CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.708391,
+        "lng": -73.796282
+      },
+      {
+        "name": "BEACH CHANNEL DRIVE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.581896,
+        "lng": -73.846738
+      },
+      {
+        "name": "DOE SCHOOL SAFETY PARKING LOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.746812,
+        "lng": -73.940336
+      },
+      {
+        "name": "OUTSIDE PLNT OPERATIONS GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.712721,
+        "lng": -73.89549
+      },
+      {
+        "name": "INDOOR STORAGE (WAREHOUSE)",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.699214,
+        "lng": -73.895382
+      },
+      {
+        "name": "QUEENS CIVIL COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.70349,
+        "lng": -73.808004
+      },
+      {
+        "name": "QUEENS BOROUGH HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714006,
+        "lng": -73.827997
+      },
+      {
+        "name": "CENTRAL REPAIR SHOP AND DISTRICT GARAGES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.734042,
+        "lng": -73.907891
+      },
+      {
+        "name": "COMM BD 2",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.743796,
+        "lng": -73.915059
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.78534,
+        "lng": -73.856409
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.710363,
+        "lng": -73.848801
+      },
+      {
+        "name": "FAMILY COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.702185,
+        "lng": -73.802782
+      },
+      {
+        "name": "OUTDOOR PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.787359,
+        "lng": -73.854971
+      },
+      {
+        "name": "FLUSHING ARMORY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.763139,
+        "lng": -73.828935
+      },
+      {
+        "name": "BARRIER STORAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.739622,
+        "lng": -73.937914
+      },
+      {
+        "name": "QUEENS CRIMINAL COURT/PARKING LOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.713498,
+        "lng": -73.82578
+      },
+      {
+        "name": "VEHICLE MAINTENANCE SHOP",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714788,
+        "lng": -73.916258
+      },
+      {
+        "name": "TECHNICAL SERVICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.743414,
+        "lng": -73.930509
+      },
+      {
+        "name": "JFK AIRPORT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.647938,
+        "lng": -73.789277
+      },
+      {
+        "name": "LEFRAK CITY - OFFICE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.735021,
+        "lng": -73.8635
+      },
+      {
+        "name": "DOE SCHOOL SAFETY PARKING LOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.746812,
+        "lng": -73.940336
+      },
+      {
+        "name": "SANITATION GARAGE FACILITY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.600515,
+        "lng": -73.781321
+      },
+      {
+        "name": "COLLEGE POINT INDUSTRIAL PARK",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.768617,
+        "lng": -73.842275
+      },
+      {
+        "name": "FAMILY COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.702185,
+        "lng": -73.802782
+      },
+      {
+        "name": "28-11 QUEENS PLAZA N-OFFICE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.750291,
+        "lng": -73.937966
+      },
+      {
+        "name": "COMBINED MAINTENANCE/STORAGE FACILITY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.700635,
+        "lng": -73.778598
+      },
+      {
+        "name": "PS 51 ECC",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.698287,
+        "lng": -73.831536
+      },
+      {
+        "name": "QUEENS 1 SANITATION GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.762081,
+        "lng": -73.93529
+      },
+      {
+        "name": "QUEENS BOROUGH HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714006,
+        "lng": -73.827997
+      },
+      {
+        "name": "QUEENS REFORM CHURCH",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.719053,
+        "lng": -73.735099
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.718822,
+        "lng": -73.765161
+      },
+      {
+        "name": "BEACH CHANNEL SEA WALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.582031,
+        "lng": -73.848944
+      },
+      {
+        "name": "POLICE ACADEMY SITE+AUTO POUND",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.771806,
+        "lng": -73.841975
+      },
+      {
+        "name": "DDC HEADQUARTERS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.744071,
+        "lng": -73.936077
+      },
+      {
+        "name": "FRANK SINATRA HS/KAS PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.756097,
+        "lng": -73.925182
+      },
+      {
+        "name": "JAMAICA JOB CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.708391,
+        "lng": -73.796282
+      },
+      {
+        "name": "BUILDING SERVICES/STATIONERY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.719436,
+        "lng": -73.909935
+      },
+      {
+        "name": "BROAD CHANNEL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.602591,
+        "lng": -73.817711
+      },
+      {
+        "name": "QUEENS FAMILY COURT GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.701858,
+        "lng": -73.804052
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.770841,
+        "lng": -73.836775
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.715256,
+        "lng": -73.830624
+      },
+      {
+        "name": "FAMILY COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.702185,
+        "lng": -73.802782
+      },
+      {
+        "name": "GLENDALE YARD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.70879,
+        "lng": -73.854753
+      },
+      {
+        "name": "FLEET SERVICES PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.727772,
+        "lng": -73.910317
+      },
+      {
+        "name": "QUEENSBORO BRIDGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.754925,
+        "lng": -73.95006
+      },
+      {
+        "name": "LIC COURT/COURT SQUARE PARK",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.746007,
+        "lng": -73.943177
+      },
+      {
+        "name": "QUEENS FAMILY COURT GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.701858,
+        "lng": -73.804052
+      },
+      {
+        "name": "FORT TOTTEN (US ARMY)",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.791397,
+        "lng": -73.775082
+      },
+      {
+        "name": "SCHOOL OPERATIONS HQ",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.750434,
+        "lng": -73.954376
+      },
+      {
+        "name": "PROP ENG 268/LAD 137/TRAINING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.581509,
+        "lng": -73.838811
+      },
+      {
+        "name": "BD OF ED OFFICE (BUR.OF SUPLY)",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.749667,
+        "lng": -73.953049
+      },
+      {
+        "name": "COMM BD 11",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.770416,
+        "lng": -73.733656
+      },
+      {
+        "name": "FAMILY COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.702185,
+        "lng": -73.802782
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.703123,
+        "lng": -73.80205
+      },
+      {
+        "name": "QUEENS DA OFFICE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.7136,
+        "lng": -73.831263
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.745639,
+        "lng": -73.944109
+      },
+      {
+        "name": "ENG 306 - PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.763997,
+        "lng": -73.769781
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.70246,
+        "lng": -73.807823
+      },
+      {
+        "name": "FAMILY COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.702185,
+        "lng": -73.802782
+      },
+      {
+        "name": "TLC TESTING FACILITY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.763847,
+        "lng": -73.901944
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.786385,
+        "lng": -73.857494
+      },
+      {
+        "name": "TECHNICAL SERVICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.743414,
+        "lng": -73.930509
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.676908,
+        "lng": -73.819253
+      },
+      {
+        "name": "FLEET SERVICES REPAIR SHOP",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.737518,
+        "lng": -73.938699
+      },
+      {
+        "name": "COLLEGE POINT BUS GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.773571,
+        "lng": -73.842108
+      },
+      {
+        "name": "FAMILY COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.702185,
+        "lng": -73.802782
+      },
+      {
+        "name": "QUEENS 8/10/12 SANIT GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.665181,
+        "lng": -73.809913
+      },
+      {
+        "name": "QUEENS STOREHOUSE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.710897,
+        "lng": -73.89158
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.70246,
+        "lng": -73.807823
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.704531,
+        "lng": -73.79911
+      },
+      {
+        "name": "FACILITIES MAINTENANCE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.582089,
+        "lng": -73.846982
+      },
+      {
+        "name": "TECH SERVICES WAREHOUSE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.737942,
+        "lng": -73.931554
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.701116,
+        "lng": -73.893316
+      },
+      {
+        "name": "DDC HEADQUARTERS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.744071,
+        "lng": -73.936077
+      },
+      {
+        "name": "BAISLEY PARK",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.684569836,
+        "lng": -73.7836005562
+      },
+      {
+        "name": "FAMILY COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.702185,
+        "lng": -73.802782
+      },
+      {
+        "name": "OUTDOOR STORAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.718218,
+        "lng": -73.922931
+      },
+      {
+        "name": "ACS FIELD OFFICE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.704525,
+        "lng": -73.798512
+      },
+      {
+        "name": "RRM/JETS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.749033,
+        "lng": -73.953587
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.767085,
+        "lng": -73.845409
+      },
+      {
+        "name": "OUTDOOR PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.752237,
+        "lng": -73.931608
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.715256,
+        "lng": -73.830624
+      },
+      {
+        "name": "C. DREW ELC 3 AND T. JACKSON SENIOR CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.704458,
+        "lng": -73.793491
+      },
+      {
+        "name": "FDNY PARKING/FUTURE DEP MAINT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.724479,
+        "lng": -73.918807
+      },
+      {
+        "name": "FLUSHING TOWN HALL PARKING LOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.764187,
+        "lng": -73.830149
+      },
+      {
+        "name": "FAMILY COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.702185,
+        "lng": -73.802782
+      },
+      {
+        "name": "FLEET SERVICES DIV PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.728702,
+        "lng": -73.906975
+      },
+      {
+        "name": "POLICE ACADEMY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.771689,
+        "lng": -73.838582
+      },
+      {
+        "name": "ALLEY POND PARK",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.738254,
+        "lng": -73.736693
+      },
+      {
+        "name": "PIPE YARD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.747197,
+        "lng": -73.794979
+      },
+      {
+        "name": "QUEENS BOROUGH HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714006,
+        "lng": -73.827997
+      },
+      {
+        "name": "QUEENS SUPREME COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.704501,
+        "lng": -73.808416
+      },
+      {
+        "name": "QUEENS WATER MAINTENANCE YARD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.747015,
+        "lng": -73.796265
+      },
+      {
+        "name": "LEFRAK CITY - OFFICE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.734781,
+        "lng": -73.864388
+      },
+      {
+        "name": "FORMER J.KURTZ  AND SONS STORE BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.70427,
+        "lng": -73.797027
+      },
+      {
+        "name": "FAMILY COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.702185,
+        "lng": -73.802782
+      },
+      {
+        "name": "WOODSIDE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.7552245294,
+        "lng": -73.9097108884
+      },
+      {
+        "name": "BD OF ED OFFICE (BUR.OF SUPLY)",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.749667,
+        "lng": -73.953049
+      },
+      {
+        "name": "OUTDOOR PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.745296,
+        "lng": -73.887391
+      },
+      {
+        "name": "QUEENS BOROUGH HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714006,
+        "lng": -73.827997
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.715256,
+        "lng": -73.830624
+      },
+      {
+        "name": "AGENCY PARKING/SANITATION",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.734441,
+        "lng": -73.906324
+      },
+      {
+        "name": "HARPER STREET YARD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.764532,
+        "lng": -73.841271
+      },
+      {
+        "name": "GLENDALE YARD ADDITION",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.708404,
+        "lng": -73.8537
+      },
+      {
+        "name": "QUEENS PUBLIC LIBRARY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.664343,
+        "lng": -73.782878
+      },
+      {
+        "name": "CSD25-Q OFFICES/QUEENS HS SUPT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.769648,
+        "lng": -73.833168
+      },
+      {
+        "name": "QUEENS STOREHOUSE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.710897,
+        "lng": -73.89158
+      },
+      {
+        "name": "GOTHAM CENTER-DOHMH HQ",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.74895,
+        "lng": -73.938606
+      },
+      {
+        "name": "GERTZ PLAZA ACS MULTI PROGRAM",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.703768,
+        "lng": -73.7971
+      },
+      {
+        "name": "JAMAICA WATER POLLUTION CP",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.664469,
+        "lng": -73.810423
+      },
+      {
+        "name": "DDC HEADQUARTERS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.744071,
+        "lng": -73.936077
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.750046,
+        "lng": -73.883706
+      },
+      {
+        "name": "FLEET SERVICES REPAIR SHOP",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.739245,
+        "lng": -73.931336
+      },
+      {
+        "name": "QUEENS BOROUGH HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714006,
+        "lng": -73.827997
+      },
+      {
+        "name": "JFK AIRPORT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.647938,
+        "lng": -73.789277
+      },
+      {
+        "name": "BWSO QUEENS WATER/SEWER REPAIR YARD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.70287,
+        "lng": -73.777797
+      },
+      {
+        "name": "JAMAICA DEPOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.700343,
+        "lng": -73.789775
+      },
+      {
+        "name": "FALCHI BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.742108,
+        "lng": -73.935516
+      },
+      {
+        "name": "TRAINING FACILITY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.564852,
+        "lng": -73.888394
+      },
+      {
+        "name": "QUEENS PUBLIC LIBRARY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.664309,
+        "lng": -73.782485
+      },
+      {
+        "name": "JFK PROLOGIS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.663837,
+        "lng": -73.783561
+      }
+    ]
+  },
+  "MANHATTAN": {
+    "domains": [
+      {
+        "name": "EDUCATION, CHILD WELFARE, AND YOUTH",
+        "count": 3383
+      },
+      {
+        "name": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "count": 1861
+      },
+      {
+        "name": "HEALTH AND HUMAN SERVICES",
+        "count": 1617
+      },
+      {
+        "name": "LIBRARIES AND CULTURAL PROGRAMS",
+        "count": 1492
+      },
+      {
+        "name": "PARKS, GARDENS, AND HISTORICAL SITES",
+        "count": 1423
+      },
+      {
+        "name": "ADMINISTRATION OF GOVERNMENT",
+        "count": 282
+      },
+      {
+        "name": "PUBLIC SAFETY, EMERGENCY SERVICES, AND ADMINISTRATION OF JUSTICE",
+        "count": 104
+      }
+    ],
+    "totalFacilities": 10162,
+    "facilities": [
+      {
+        "name": "CIVIL MUNICIPAL COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.716817,
+        "lng": -74.001432
+      },
+      {
+        "name": "NYPD PARKING GARAGE CONDO",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.793682,
+        "lng": -73.946445
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.800391,
+        "lng": -73.942921
+      },
+      {
+        "name": "NYS APPELLATE DIV COURTHOUSE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.742191,
+        "lng": -73.986565
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.71437,
+        "lng": -74.010872
+      },
+      {
+        "name": "COMMERCIAL CONDOMINIUM UNIT #2",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.713432,
+        "lng": -74.007409
+      },
+      {
+        "name": "MANHATTAN 4/4A/7 GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.770125,
+        "lng": -73.993624
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.710465,
+        "lng": -74.0105
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.710907,
+        "lng": -74.001176
+      },
+      {
+        "name": "NYPD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.706855,
+        "lng": -74.013024
+      },
+      {
+        "name": "DAVID N. DINKINS MANHATTAN MUNICIPAL BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.712974,
+        "lng": -74.003676
+      },
+      {
+        "name": "OFF STREET PARKING FOR 32 PRECINCT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.815837,
+        "lng": -73.946626
+      },
+      {
+        "name": "MANHATTAN BORO REPAIR SHOP",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.750945,
+        "lng": -74.007034
+      },
+      {
+        "name": "OFFICE BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.710103,
+        "lng": -74.003243
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.807525,
+        "lng": -73.944111
+      },
+      {
+        "name": "CRIM COURTHOUSE/DETENTION CPLX",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.716358,
+        "lng": -74.000602
+      },
+      {
+        "name": "OFFICE BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.708659,
+        "lng": -74.007982
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.709323,
+        "lng": -74.007142
+      },
+      {
+        "name": "DOI HEADQUARTERS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.707086,
+        "lng": -74.007802
+      },
+      {
+        "name": "SUN BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714234,
+        "lng": -74.005653
+      },
+      {
+        "name": "RAIL CONTROL CENTER FOR TA",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.765159,
+        "lng": -73.98608
+      },
+      {
+        "name": "MANHATTAN HS SUSPENSION OFFICE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.809388,
+        "lng": -73.948589
+      },
+      {
+        "name": "CRIM COURTHOUSE/DETENTION CPLX",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.716358,
+        "lng": -74.000602
+      },
+      {
+        "name": "WORLD TRADE CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.711639,
+        "lng": -74.012343
+      },
+      {
+        "name": "BERGTRAUM AF",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.71018,
+        "lng": -73.993309
+      },
+      {
+        "name": "DOT HEADQUARTERS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.703183,
+        "lng": -74.009154
+      },
+      {
+        "name": "ST NICHOLAS JOB CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.808111,
+        "lng": -73.947408
+      },
+      {
+        "name": "INVESTIGATIVE SUPPORT UNITS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.712458,
+        "lng": -74.008329
+      },
+      {
+        "name": "NYPD OPERATIONS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.717193,
+        "lng": -74.000891
+      },
+      {
+        "name": "OBERTA DEMPSEY MULTI-SERV CENT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.80993,
+        "lng": -73.945767
+      },
+      {
+        "name": "DAVID N. DINKINS MANHATTAN MUNICIPAL BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.712974,
+        "lng": -74.003676
+      },
+      {
+        "name": "CITY HALL/TWEED CRTHS/PARK",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.712804,
+        "lng": -74.006157
+      },
+      {
+        "name": "AMSTERDAM JOB CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.749375,
+        "lng": -73.995117
+      },
+      {
+        "name": "HARLEM COURTHOUSE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.801212,
+        "lng": -73.93846
+      },
+      {
+        "name": "DEPARTMENT OF SANITATION",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.704904,
+        "lng": -74.010784
+      },
+      {
+        "name": "DOI HEADQUARTERS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.707086,
+        "lng": -74.007802
+      },
+      {
+        "name": "ENG 59  LAD 30 - PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.813266,
+        "lng": -73.942296
+      },
+      {
+        "name": "ENG 59  LAD 30  PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.813244,
+        "lng": -73.942246
+      },
+      {
+        "name": "MAINTENANCE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.814203,
+        "lng": -73.933802
+      },
+      {
+        "name": "COURT SQUARE BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714022,
+        "lng": -74.003903
+      },
+      {
+        "name": "DAVID N. DINKINS MANHATTAN MUNICIPAL BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.712974,
+        "lng": -74.003676
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.710465,
+        "lng": -74.0105
+      },
+      {
+        "name": "CHINESE-AMERICAN PLANNING COUNCIL DAYCARE CENTER AND OPEN DOOR SENIOR CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.718683,
+        "lng": -73.993929
+      },
+      {
+        "name": "LOUIS J. LEFKOWITZ BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.715096,
+        "lng": -74.001187
+      },
+      {
+        "name": "60 BROAD ST/33 BEAVER ST",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.705313,
+        "lng": -74.012
+      },
+      {
+        "name": "MIDTOWN COMMUNITY COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.764879,
+        "lng": -73.985455
+      },
+      {
+        "name": "MANHATTAN 1/2/5 GARAGES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.726823,
+        "lng": -74.010239
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.807525,
+        "lng": -73.944111
+      },
+      {
+        "name": "SURROGATE COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.713594,
+        "lng": -74.004242
+      },
+      {
+        "name": "MANHATTAN 1/2/5 SALT STORAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.72586,
+        "lng": -74.010448
+      },
+      {
+        "name": "OFFICE BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.708659,
+        "lng": -74.007982
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714393,
+        "lng": -74.004783
+      },
+      {
+        "name": "LOUIS CUVILLIER PARK/RFK RAMPS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.80154,
+        "lng": -73.931102
+      },
+      {
+        "name": "COMMERCIAL CONDOMINIUM UNIT #1",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.713432,
+        "lng": -74.007409
+      },
+      {
+        "name": "HARLEM COURTHOUSE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.801212,
+        "lng": -73.93846
+      },
+      {
+        "name": "MANHATTAN LOT CLEANING OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.802809,
+        "lng": -73.937169
+      },
+      {
+        "name": "COMMERCIAL CONDOMINIUM UNIT #1",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.713432,
+        "lng": -74.007409
+      },
+      {
+        "name": "60 BROAD ST/33 BEAVER ST",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.705313,
+        "lng": -74.012
+      },
+      {
+        "name": "COMMERCIAL CONDOMINIUM UNIT #1",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.713432,
+        "lng": -74.007409
+      },
+      {
+        "name": "BWSO MANHATTAN SEWER MAINTENANCE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.83067,
+        "lng": -73.941208
+      },
+      {
+        "name": "FIELD OFFICE-MANHATTAN FAMILY COURT DIVISION",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.716655,
+        "lng": -74.002738
+      },
+      {
+        "name": "COURT SQUARE BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714022,
+        "lng": -74.003903
+      },
+      {
+        "name": "SURROGATE COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.713594,
+        "lng": -74.004242
+      },
+      {
+        "name": "NORTH RIVER WATER POLL CTRL PL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.825831,
+        "lng": -73.954664
+      },
+      {
+        "name": "LOUIS J. LEFKOWITZ BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.715096,
+        "lng": -74.001187
+      },
+      {
+        "name": "DOT WBURG BRG STORAGE/MAINTEN",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.715384,
+        "lng": -73.977765
+      },
+      {
+        "name": "HARLEM RIVER BRIDGE SHOPS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.862301,
+        "lng": -73.916846
+      },
+      {
+        "name": "WALD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.7210614681,
+        "lng": -73.977309208
+      },
+      {
+        "name": "BETHUNE GARDENS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.8324164312,
+        "lng": -73.9419990094
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.751463,
+        "lng": -73.990753
+      },
+      {
+        "name": "CITY PLANNING HQ",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.708219,
+        "lng": -74.010521
+      },
+      {
+        "name": "MANHATTAN 11 GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.785671,
+        "lng": -73.943367
+      },
+      {
+        "name": "MABSTOA KINGSBRIDGE DEPOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.870335,
+        "lng": -73.913314
+      },
+      {
+        "name": "ENG 28  LAD 11 PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.721953,
+        "lng": -73.982683
+      },
+      {
+        "name": "OFFICE BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.710103,
+        "lng": -74.003243
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.712458,
+        "lng": -74.008329
+      },
+      {
+        "name": "DAVID N. DINKINS MANHATTAN MUNICIPAL BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.712974,
+        "lng": -74.003676
+      },
+      {
+        "name": "DAVID N. DINKINS MANHATTAN MUNICIPAL BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.712974,
+        "lng": -74.003676
+      },
+      {
+        "name": "COURT SQUARE BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714022,
+        "lng": -74.003903
+      },
+      {
+        "name": "WALD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.7204436979,
+        "lng": -73.9764904208
+      },
+      {
+        "name": "COMMERCIAL CONDOMINIUM UNIT #1",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.713432,
+        "lng": -74.007409
+      },
+      {
+        "name": "WALD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.7206703852,
+        "lng": -73.9776814571
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.788924,
+        "lng": -73.976671
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.710907,
+        "lng": -74.001176
+      },
+      {
+        "name": "DAVID N. DINKINS MANHATTAN MUNICIPAL BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.712974,
+        "lng": -74.003676
+      },
+      {
+        "name": "HRA OFFICE OF FACILITIES OPR",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.750942,
+        "lng": -74.004945
+      },
+      {
+        "name": "CRIM COURTHOUSE/DETENTION CPLX",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.716358,
+        "lng": -74.000602
+      },
+      {
+        "name": "COURT SQUARE BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714022,
+        "lng": -74.003903
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.735683,
+        "lng": -73.988092
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714393,
+        "lng": -74.004783
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.708774,
+        "lng": -74.006745
+      },
+      {
+        "name": "OFFICE BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.710103,
+        "lng": -74.003243
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.717113,
+        "lng": -74.00746
+      },
+      {
+        "name": "EMPIRE STATE BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.748452,
+        "lng": -73.985712
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.708631,
+        "lng": -74.014659
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.71437,
+        "lng": -74.010872
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.751444,
+        "lng": -73.973007
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.726275,
+        "lng": -74.007988
+      },
+      {
+        "name": "32 PRECINCT OFF STREET PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.81554,
+        "lng": -73.945773
+      },
+      {
+        "name": "HOME LIFE INSURANCE BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.713432,
+        "lng": -74.007409
+      },
+      {
+        "name": "PARKING LOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.713852,
+        "lng": -74.004805
+      },
+      {
+        "name": "MANHATTAN BORO OFFICE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.777233,
+        "lng": -73.947537
+      },
+      {
+        "name": "AMSTERDAM",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.7733972266,
+        "lng": -73.9859317079
+      },
+      {
+        "name": "HEALTH BUILDING-125 WORTH ST",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.715669,
+        "lng": -74.002352
+      },
+      {
+        "name": "FIRE DEPT.FIRE TRAINING ACAD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.791278,
+        "lng": -73.919784
+      },
+      {
+        "name": "P/O MABSTOA KINGSBRIDGE DEPOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.869623,
+        "lng": -73.911966
+      },
+      {
+        "name": "BWSO WATER SEWER AND REPAIR FACILITY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.712779,
+        "lng": -73.993063
+      },
+      {
+        "name": "COLUMBIA UNIVERSITY L/T LEASE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.839183,
+        "lng": -73.939614
+      },
+      {
+        "name": "MANHATTAN GARAGE 11",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.785696,
+        "lng": -73.943945
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.717113,
+        "lng": -74.00746
+      },
+      {
+        "name": "GARDEN FOR P.S. 194",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.820808,
+        "lng": -73.940563
+      },
+      {
+        "name": "FUTURE DSNY GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.804934,
+        "lng": -73.933811
+      },
+      {
+        "name": "LOUIS CUVILLIER PARK/RFK RAMPS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.80154,
+        "lng": -73.931102
+      },
+      {
+        "name": "COMM BD 3",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.727002,
+        "lng": -73.990796
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.708774,
+        "lng": -74.006745
+      },
+      {
+        "name": "SUPREME COURT / FOLEY SQ PLOTS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714302,
+        "lng": -74.001569
+      },
+      {
+        "name": "HARLEM SALT STORAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.869521,
+        "lng": -73.911265
+      },
+      {
+        "name": "NYPD PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.815788,
+        "lng": -73.946355
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714242,
+        "lng": -74.004
+      },
+      {
+        "name": "AMSTERDAM BUS DEPOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.814487,
+        "lng": -73.954499
+      },
+      {
+        "name": "MIDTOWN COMMUNITY COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.764879,
+        "lng": -73.985455
+      },
+      {
+        "name": "DOT ENFORCEMENT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.793169,
+        "lng": -73.946962
+      },
+      {
+        "name": "OFFICE BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.708659,
+        "lng": -74.007982
+      },
+      {
+        "name": "DAVID N. DINKINS MANHATTAN MUNICIPAL BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.712974,
+        "lng": -74.003676
+      },
+      {
+        "name": "EAST HARLEM ASTHMA CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.794638,
+        "lng": -73.943417
+      },
+      {
+        "name": "CHIEF MEDICAL EXAMINER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.74127,
+        "lng": -73.974772
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.7056,
+        "lng": -74.015837
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.705269,
+        "lng": -74.005515
+      },
+      {
+        "name": "PS 751 (OLD PS 25)",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.725887,
+        "lng": -73.987787
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.71437,
+        "lng": -74.010872
+      },
+      {
+        "name": "SURROGATE COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.713594,
+        "lng": -74.004242
+      },
+      {
+        "name": "FORMER FIREHOUSE (ENG.31)",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.717311,
+        "lng": -74.001151
+      },
+      {
+        "name": "NYPD HEADQUARTERS/POLICE PLAZA",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.712211,
+        "lng": -74.001796
+      },
+      {
+        "name": "WALD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.7210614681,
+        "lng": -73.977309208
+      },
+      {
+        "name": "126TH STREET BUS DEPOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.803215,
+        "lng": -73.931624
+      },
+      {
+        "name": "MANHATTAN LOT CLEAINIG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.802883,
+        "lng": -73.937342
+      },
+      {
+        "name": "LEHMAN VILLAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.7953471992,
+        "lng": -73.9467208399
+      },
+      {
+        "name": "DAVID N. DINKINS MANHATTAN MUNICIPAL BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.712974,
+        "lng": -74.003676
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.762938,
+        "lng": -73.969291
+      },
+      {
+        "name": "FIELD OFFICE-MANHATTAN FAMILY COURT DIVISION",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.716655,
+        "lng": -74.002738
+      },
+      {
+        "name": "SURROGATE COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.713594,
+        "lng": -74.004242
+      },
+      {
+        "name": "WASHINGTON IRVING HIGH SCHOOL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.735326,
+        "lng": -73.987089
+      },
+      {
+        "name": "CRIM COURTHOUSE/DETENTION CPLX",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.716358,
+        "lng": -74.000602
+      },
+      {
+        "name": "DYCKMAN JOB CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.870088,
+        "lng": -73.913853
+      },
+      {
+        "name": "OFFICE BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.705988,
+        "lng": -74.012595
+      },
+      {
+        "name": "OFFICE BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.705988,
+        "lng": -74.012595
+      },
+      {
+        "name": "DAVID N. DINKINS MANHATTAN MUNICIPAL BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.712974,
+        "lng": -74.003676
+      },
+      {
+        "name": "FIELD OFFICE-MANHATTAN FAMILY COURT DIVISION",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.716655,
+        "lng": -74.002738
+      },
+      {
+        "name": "CITY HALL/TWEED CRTHS/PARK",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.712804,
+        "lng": -74.006157
+      },
+      {
+        "name": "COURT SQUARE BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714022,
+        "lng": -74.003903
+      },
+      {
+        "name": "MAN 10 DIST GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.808352,
+        "lng": -73.935946
+      },
+      {
+        "name": "AMERICAN BUS DEPOT-126TH DEPOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.805211,
+        "lng": -73.932561
+      },
+      {
+        "name": "HENRY STREET GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.712743,
+        "lng": -73.993695
+      },
+      {
+        "name": "HEALTH BUILDING-125 WORTH ST",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.715669,
+        "lng": -74.002352
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.71437,
+        "lng": -74.010872
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.709323,
+        "lng": -74.007142
+      },
+      {
+        "name": "LOUIS J. LEFKOWITZ BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.715096,
+        "lng": -74.001187
+      },
+      {
+        "name": "OCA OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.742383,
+        "lng": -73.986269
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.705269,
+        "lng": -74.005515
+      },
+      {
+        "name": "60 BROAD ST/33 BEAVER ST",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.705313,
+        "lng": -74.012
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.710465,
+        "lng": -74.0105
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.750831,
+        "lng": -73.9696
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.757076,
+        "lng": -73.972405
+      },
+      {
+        "name": "COMMERCIAL CONDOMINIUM UNIT #1",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.713432,
+        "lng": -74.007409
+      },
+      {
+        "name": "DAVID N. DINKINS MANHATTAN MUNICIPAL BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.712974,
+        "lng": -74.003676
+      },
+      {
+        "name": "1 LIBERTY PLAZA",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.709216,
+        "lng": -74.011257
+      },
+      {
+        "name": "FIELD OFFICE-MANHATTAN FAMILY COURT DIVISION",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.716655,
+        "lng": -74.002738
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.812369,
+        "lng": -73.954984
+      },
+      {
+        "name": "MANHATTAN 4/4A/7 GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.770633,
+        "lng": -73.993621
+      },
+      {
+        "name": "HARLEM COURTHOUSE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.801212,
+        "lng": -73.93846
+      },
+      {
+        "name": "EQUIPMENT STORAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.803097,
+        "lng": -73.937855
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.755012,
+        "lng": -73.971785
+      },
+      {
+        "name": "DAVID N. DINKINS MANHATTAN MUNICIPAL BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.712974,
+        "lng": -74.003676
+      },
+      {
+        "name": "ACS HEADQUARTERS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.709521,
+        "lng": -74.005796
+      },
+      {
+        "name": "DAVID N. DINKINS MANHATTAN MUNICIPAL BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.712974,
+        "lng": -74.003676
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.710907,
+        "lng": -74.001176
+      },
+      {
+        "name": "DOI HEADQUARTERS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.707086,
+        "lng": -74.007802
+      },
+      {
+        "name": "NYPD CITYWIDE TRAFFIC TASK FC",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.747807,
+        "lng": -73.991457
+      },
+      {
+        "name": "SANIT PRINT SHOP/DEP REPAIR YD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.712035,
+        "lng": -73.993294
+      },
+      {
+        "name": "MAINTENANCE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.819528,
+        "lng": -73.933746
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714393,
+        "lng": -74.004783
+      },
+      {
+        "name": "1 LIBERTY PLAZA",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.709216,
+        "lng": -74.011257
+      },
+      {
+        "name": "COURT SQUARE BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.714022,
+        "lng": -74.003903
+      },
+      {
+        "name": "BELLEVUE HOSP CTR-OCME TRAILER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.740188,
+        "lng": -73.973625
+      },
+      {
+        "name": "CITY HALL/TWEED CRTHS/PARK",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.712804,
+        "lng": -74.006157
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.818814,
+        "lng": -73.956588
+      },
+      {
+        "name": "HEALTH DEPT PUBLIC HEALTH LAB",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.739335,
+        "lng": -73.977472
+      },
+      {
+        "name": "MANHATTAN 12 GARAGE/MAN.8 GAR",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.868737,
+        "lng": -73.912152
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.710907,
+        "lng": -74.001176
+      },
+      {
+        "name": "FIELD OFFICE-MANHATTAN FAMILY COURT DIVISION",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.716655,
+        "lng": -74.002738
+      },
+      {
+        "name": "DAVID N. DINKINS MANHATTAN MUNICIPAL BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.712974,
+        "lng": -74.003676
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.809693,
+        "lng": -73.948939
+      },
+      {
+        "name": "LOUIS J. LEFKOWITZ BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.715096,
+        "lng": -74.001187
+      },
+      {
+        "name": "PIERS 35 AND 36  EMS ST.4/DIV.1",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.709581,
+        "lng": -73.986351
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.708774,
+        "lng": -74.006745
+      },
+      {
+        "name": "CORPORATION YARD ADDITION",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.712246,
+        "lng": -73.99306
+      },
+      {
+        "name": "COMM BD 2",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.728076,
+        "lng": -73.997197
+      },
+      {
+        "name": "DAVID N. DINKINS MANHATTAN MUNICIPAL BUILDING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.712974,
+        "lng": -74.003676
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.705796,
+        "lng": -74.012746
+      },
+      {
+        "name": "OUTDOOR STORAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.831257,
+        "lng": -73.940748
+      }
+    ]
+  },
+  "BRONX": {
+    "domains": [
+      {
+        "name": "EDUCATION, CHILD WELFARE, AND YOUTH",
+        "count": 2778
+      },
+      {
+        "name": "HEALTH AND HUMAN SERVICES",
+        "count": 1183
+      },
+      {
+        "name": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "count": 827
+      },
+      {
+        "name": "PARKS, GARDENS, AND HISTORICAL SITES",
+        "count": 493
+      },
+      {
+        "name": "ADMINISTRATION OF GOVERNMENT",
+        "count": 153
+      },
+      {
+        "name": "LIBRARIES AND CULTURAL PROGRAMS",
+        "count": 143
+      },
+      {
+        "name": "PUBLIC SAFETY, EMERGENCY SERVICES, AND ADMINISTRATION OF JUSTICE",
+        "count": 84
+      }
+    ],
+    "totalFacilities": 5661,
+    "facilities": [
+      {
+        "name": "WEST FARMS COLD COLISEUM DEPOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.837968,
+        "lng": -73.878019
+      },
+      {
+        "name": "INDOOR PARKING GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.830136,
+        "lng": -73.845255
+      },
+      {
+        "name": "BRONX CRIMINAL/FAMILY COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.826902,
+        "lng": -73.92029
+      },
+      {
+        "name": "BRONX LOT CLEANING GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.85132,
+        "lng": -73.893917
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.867428,
+        "lng": -73.825355
+      },
+      {
+        "name": "SANITATION GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.83912,
+        "lng": -73.920861
+      },
+      {
+        "name": "BERGEN BLDG/NYC MUNICIPAL BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.845703,
+        "lng": -73.892755
+      },
+      {
+        "name": "TRAFFIC ENFORCEMENT COMMAND",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.846495,
+        "lng": -73.896596
+      },
+      {
+        "name": "40 PRECINCT PERSONNEL PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.810557,
+        "lng": -73.923665
+      },
+      {
+        "name": "OUTDOOR STORAGE - AGENCY VEHICLES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.867519,
+        "lng": -73.909604
+      },
+      {
+        "name": "MELROSE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.8204341838,
+        "lng": -73.9208532113
+      },
+      {
+        "name": "EMS STATION 55 PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.823851,
+        "lng": -73.916753
+      },
+      {
+        "name": "BRONX 6 SANIT GARAGE COMPLEX",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.841477,
+        "lng": -73.889961
+      },
+      {
+        "name": "WATER/SEWER MAINTENANCE YARD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.878151,
+        "lng": -73.887108
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.852749,
+        "lng": -73.836802
+      },
+      {
+        "name": "RIDER JOB CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.813208,
+        "lng": -73.927163
+      },
+      {
+        "name": "BRONX CRIMINAL/FAMILY COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.826902,
+        "lng": -73.92029
+      },
+      {
+        "name": "OUTDOOR STORAGE - AGENCY VEHICLES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.868899,
+        "lng": -73.909454
+      },
+      {
+        "name": "BERGEN BLDG/NYC MUNICIPAL BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.845703,
+        "lng": -73.892755
+      },
+      {
+        "name": "TOWN HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.890914,
+        "lng": -73.859165
+      },
+      {
+        "name": "BRONX DISTRICT 9 10 11 SITE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.81873,
+        "lng": -73.842016
+      },
+      {
+        "name": "CONCOURSE PLAZA BRONX DA OFFICE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.825865,
+        "lng": -73.921097
+      },
+      {
+        "name": "PARK ADJACENT TO CROSS BRONX EXWY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.844504,
+        "lng": -73.8991
+      },
+      {
+        "name": "DYRE AVENUE RIGHT OF WAY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.836695,
+        "lng": -73.878498
+      },
+      {
+        "name": "BERGEN BLDG/NYC MUNICIPAL BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.845703,
+        "lng": -73.892755
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.856415,
+        "lng": -73.910556
+      },
+      {
+        "name": "ENG 83  LAD 29 PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.805889,
+        "lng": -73.91598
+      },
+      {
+        "name": "ENG 68  LAD 49 PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.836574,
+        "lng": -73.926678
+      },
+      {
+        "name": "BRONX 5 ADMINISTRATION BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.83918,
+        "lng": -73.920391
+      },
+      {
+        "name": "SANITATION BRONX, 1 3 AND 4 GARAGES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.800437,
+        "lng": -73.915539
+      },
+      {
+        "name": "RESERVOIR OPERATIONS HDQTRS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.870406,
+        "lng": -73.877027
+      },
+      {
+        "name": "DOS MANHATTAN 9 GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.819486,
+        "lng": -73.92876
+      },
+      {
+        "name": "BERGEN BLDG/NYC MUNICIPAL BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.845703,
+        "lng": -73.892755
+      },
+      {
+        "name": "COMM BD 11",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.847785,
+        "lng": -73.856271
+      },
+      {
+        "name": "BRONX RIVER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.8344096807,
+        "lng": -73.8753364893
+      },
+      {
+        "name": "BRONX BUSINESS CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.819377,
+        "lng": -73.913019
+      },
+      {
+        "name": "BRONX SUPREME COUNTY COURTHOUSE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.82629,
+        "lng": -73.923799
+      },
+      {
+        "name": "COMM BD 10",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.837471,
+        "lng": -73.834028
+      },
+      {
+        "name": "MELROSE/KINGSBRIDGE JOB CNTR",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.825452,
+        "lng": -73.919078
+      },
+      {
+        "name": "BRONX DISTRICT 9 10 11 SITE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.820768,
+        "lng": -73.840678
+      },
+      {
+        "name": "BRONX HALL OF JUSTICE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.826509,
+        "lng": -73.919127
+      },
+      {
+        "name": "DOS BRONX 2 GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.812709,
+        "lng": -73.88955
+      },
+      {
+        "name": "YANKEE STADIUM GARAGES/LOTS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.8242118141,
+        "lng": -73.9287002079
+      },
+      {
+        "name": "COMBINED MAINTENANCE/STORAGE FACILITY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.862944,
+        "lng": -73.913179
+      },
+      {
+        "name": "OLD 41 PRECINCT PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.826377,
+        "lng": -73.89155
+      },
+      {
+        "name": "BERGEN BLDG/NYC MUNICIPAL BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.845703,
+        "lng": -73.892755
+      },
+      {
+        "name": "ENG 73  LAD 42 PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.815389,
+        "lng": -73.9037
+      },
+      {
+        "name": "MELROSE/KINGSBRIDGE JOB CNTR",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.825452,
+        "lng": -73.919078
+      },
+      {
+        "name": "YANKEE STADIUM URA",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.82191,
+        "lng": -73.928646
+      },
+      {
+        "name": "EMS STATION 55 PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.823826,
+        "lng": -73.916673
+      },
+      {
+        "name": "FORDHAM PLAZA",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.860193,
+        "lng": -73.890024
+      },
+      {
+        "name": "CROTONA JOB CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.846916,
+        "lng": -73.894842
+      },
+      {
+        "name": "CASTLE HILL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.8195229673,
+        "lng": -73.8488555665
+      },
+      {
+        "name": "PARKING FOR P.S. 93",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.823299,
+        "lng": -73.877435
+      },
+      {
+        "name": "COMM BD 8",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.906253,
+        "lng": -73.903702
+      },
+      {
+        "name": "NYPD PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.907742,
+        "lng": -73.853453
+      },
+      {
+        "name": "PBBX PARKING LOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.826881,
+        "lng": -73.893598
+      },
+      {
+        "name": "MELROSE/KINGSBRIDGE JOB CNTR",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.825452,
+        "lng": -73.919078
+      },
+      {
+        "name": "UNIVERSITY AVENUE REHAB",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 0,
+        "lng": 0
+      },
+      {
+        "name": "TRANSIT POLICE DIST. #12 BMS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.840953,
+        "lng": -73.871772
+      },
+      {
+        "name": "BRONX HALL OF JUSTICE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.826509,
+        "lng": -73.919127
+      },
+      {
+        "name": "INDOOR PARKING GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.833598,
+        "lng": -73.845796
+      },
+      {
+        "name": "MELROSE/KINGSBRIDGE JOB CNTR",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.825452,
+        "lng": -73.919078
+      },
+      {
+        "name": "ENG 45  LAD 58  BAT 18-PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.842252,
+        "lng": -73.883053
+      },
+      {
+        "name": "BRONX HALL OF JUSTICE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.826509,
+        "lng": -73.919127
+      },
+      {
+        "name": "COMM BD 9",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.824308,
+        "lng": -73.857077
+      },
+      {
+        "name": "BRONX BUSINESS CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.819377,
+        "lng": -73.913019
+      },
+      {
+        "name": "BRONX BORO CMD  DO 6 PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.845915,
+        "lng": -73.899275
+      },
+      {
+        "name": "COMM BD 2",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.821245,
+        "lng": -73.892072
+      },
+      {
+        "name": "BRONX CRIMINAL/FAMILY COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.826902,
+        "lng": -73.92029
+      },
+      {
+        "name": "46 PRECINCT OFF STREET PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.853318,
+        "lng": -73.899969
+      },
+      {
+        "name": "OUTDOOR STORAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.832705,
+        "lng": -73.843052
+      },
+      {
+        "name": "FRANKLIN ARMORY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.827676,
+        "lng": -73.905041
+      },
+      {
+        "name": "TILLOTSON AVENUE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.880415,
+        "lng": -73.832644
+      },
+      {
+        "name": "MTA PARATRANSIT/SANIT PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.831514,
+        "lng": -73.842932
+      },
+      {
+        "name": "BRONX CRIMINAL/FAMILY COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.826902,
+        "lng": -73.92029
+      },
+      {
+        "name": "BRONX SUPREME COUNTY COURTHOUSE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.82629,
+        "lng": -73.923799
+      },
+      {
+        "name": "MELROSE/KINGSBRIDGE JOB CNTR",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.825452,
+        "lng": -73.919078
+      },
+      {
+        "name": "LOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.8311811503,
+        "lng": -73.9234430514
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.906939,
+        "lng": -73.854453
+      },
+      {
+        "name": "FORDHAM JOB CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.862587,
+        "lng": -73.893548
+      },
+      {
+        "name": "46 PRECINCT OFF-STREET PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.852476,
+        "lng": -73.900367
+      },
+      {
+        "name": "DAVIDSON",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.8274615653,
+        "lng": -73.8990971094
+      },
+      {
+        "name": "TOWN HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.890914,
+        "lng": -73.859165
+      },
+      {
+        "name": "OUTDOOR PARKING - AGENCY VEHICLES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.822127,
+        "lng": -73.91024
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.84647,
+        "lng": -73.910399
+      },
+      {
+        "name": "HUNTS PT MARKET EXPANSION AREA",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.809154,
+        "lng": -73.878307
+      },
+      {
+        "name": "VEHICLE REPAIR",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.852665,
+        "lng": -73.897233
+      },
+      {
+        "name": "DOT BRONX OFFICES-VARIOUS BUREAUS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.842565,
+        "lng": -73.843936
+      },
+      {
+        "name": "BANKNOTE CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.817107,
+        "lng": -73.890933
+      },
+      {
+        "name": "HISTORICAL SOCIETY ARCHIVE BDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.878394,
+        "lng": -73.87972
+      },
+      {
+        "name": "BWSO BRONX REPAIR/WATER MAINT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.827367,
+        "lng": -73.84301
+      },
+      {
+        "name": "47TH PRECINCT OFF STREET PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.888021,
+        "lng": -73.846332
+      },
+      {
+        "name": "BRONX SUPREME COUNTY COURTHOUSE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.82629,
+        "lng": -73.923799
+      },
+      {
+        "name": "TOWN HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.890914,
+        "lng": -73.859165
+      },
+      {
+        "name": "COLISEUM DEPOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.837601,
+        "lng": -73.876487
+      },
+      {
+        "name": "PART OF CONNER STREET YARD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.88148,
+        "lng": -73.82142
+      },
+      {
+        "name": "THE CHRISTOPHER SCHOOL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.882387,
+        "lng": -73.843195
+      },
+      {
+        "name": "WESTCHESTER CREEK CORP",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.836546,
+        "lng": -73.841536
+      },
+      {
+        "name": "HOE AVENUE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.828309,
+        "lng": -73.891106
+      },
+      {
+        "name": "ENG 92  LAD 44  BAT 17 PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.834426,
+        "lng": -73.913758
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.833934,
+        "lng": -73.844383
+      },
+      {
+        "name": "CONCOURSE PLAZA BRONX DA OFFICE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.825865,
+        "lng": -73.921097
+      },
+      {
+        "name": "BERGEN BLDG/NYC MUNICIPAL BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.845703,
+        "lng": -73.892755
+      },
+      {
+        "name": "CONCOURSE PLAZA",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.825107,
+        "lng": -73.920285
+      },
+      {
+        "name": "DISTRICT #7 OFFICE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.815462,
+        "lng": -73.920361
+      },
+      {
+        "name": "SQUAD 41 PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.817211,
+        "lng": -73.920031
+      },
+      {
+        "name": "BRONX CRIMINAL/FAMILY COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.826902,
+        "lng": -73.92029
+      },
+      {
+        "name": "ENG 73  LAD 42",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.815488,
+        "lng": -73.903663
+      },
+      {
+        "name": "CONNER STREET YARD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.88092,
+        "lng": -73.82153
+      },
+      {
+        "name": "CONCOURSE PLAZA BRONX DA OFFICE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.825865,
+        "lng": -73.921097
+      },
+      {
+        "name": "BERGEN BLDG/NYC MUNICIPAL BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.845703,
+        "lng": -73.892755
+      },
+      {
+        "name": "CONCOURSE PLAZA BRONX DA OFFICE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.825865,
+        "lng": -73.921097
+      },
+      {
+        "name": "BRONX 12 SANITATION GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.888759,
+        "lng": -73.82654
+      },
+      {
+        "name": "BRONX CRIMINAL/FAMILY COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.826902,
+        "lng": -73.92029
+      },
+      {
+        "name": "BRONX HIGH SCHOOL/VISUAL ARTS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.851068,
+        "lng": -73.864993
+      },
+      {
+        "name": "BRX 9/10/11 SANITATION GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.825057,
+        "lng": -73.842239
+      },
+      {
+        "name": "ZEREGA INDUSTRIAL PARK",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.836085,
+        "lng": -73.846119
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.876293,
+        "lng": -73.905774
+      },
+      {
+        "name": "SACK-WERN",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.8190211281,
+        "lng": -73.8670253994
+      },
+      {
+        "name": "BRONX CRIMINAL/FAMILY COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.826902,
+        "lng": -73.92029
+      },
+      {
+        "name": "BRONX SUPREME COUNTY COURTHOUSE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.82629,
+        "lng": -73.923799
+      },
+      {
+        "name": "BRONX CRIMINAL/FAMILY COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.826902,
+        "lng": -73.92029
+      },
+      {
+        "name": "BERGEN BLDG/NYC MUNICIPAL BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.845703,
+        "lng": -73.892755
+      },
+      {
+        "name": "BRONX SUPREME COUNTY COURTHOUSE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.82629,
+        "lng": -73.923799
+      },
+      {
+        "name": "ENG 71  LAD 55 - PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.820235,
+        "lng": -73.915316
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.84647,
+        "lng": -73.910399
+      },
+      {
+        "name": "COMM BD 4",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.843437,
+        "lng": -73.910096
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.84647,
+        "lng": -73.910399
+      },
+      {
+        "name": "BRONX SUPREME COUNTY COURTHOUSE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.82629,
+        "lng": -73.923799
+      },
+      {
+        "name": "GARAGE STORAGE YARD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.853233,
+        "lng": -73.896907
+      },
+      {
+        "name": "BRONX 5 SANITATION GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.839493,
+        "lng": -73.920889
+      },
+      {
+        "name": "EMS STATION 17 PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.83487,
+        "lng": -73.92797
+      },
+      {
+        "name": "ENG 43  LAD 59 - PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.854331,
+        "lng": -73.916845
+      },
+      {
+        "name": "COMM BD 7",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.874589,
+        "lng": -73.884927
+      },
+      {
+        "name": "ACCESSORY AREA FOR SHELTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.827736,
+        "lng": -73.905134
+      },
+      {
+        "name": "BRONX DERELICT VEHICLE YARD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.81328,
+        "lng": -73.881857
+      },
+      {
+        "name": "BRONX 5 PARKING LOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.839254,
+        "lng": -73.921002
+      },
+      {
+        "name": "BERGEN BLDG/NYC MUNICIPAL BLDG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.845703,
+        "lng": -73.892755
+      },
+      {
+        "name": "5 BORO SHOP",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.802771,
+        "lng": -73.909295
+      },
+      {
+        "name": "MTA CABLE SHOP + GANTRIES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.799633,
+        "lng": -73.908617
+      },
+      {
+        "name": "BRONX SUPREME COUNTY COURTHOUSE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.82629,
+        "lng": -73.923799
+      },
+      {
+        "name": "LINCOLN MEDICAL/EMS 14",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.816758,
+        "lng": -73.924478
+      },
+      {
+        "name": "NEW SCH FOR ARTS AND SCIENCE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.817742,
+        "lng": -73.897876
+      },
+      {
+        "name": "TOWN HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.890914,
+        "lng": -73.859165
+      },
+      {
+        "name": "BRONX HALL OF JUSTICE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.826509,
+        "lng": -73.919127
+      },
+      {
+        "name": "CONCOURSE JOB CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.839881,
+        "lng": -73.918782
+      },
+      {
+        "name": "BRONX 3A BROOM DEPOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.834268,
+        "lng": -73.883674
+      },
+      {
+        "name": "BRX LOT...CLEANING...PKING LOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.851496,
+        "lng": -73.894235
+      },
+      {
+        "name": "EMS STATION 18 PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.840793,
+        "lng": -73.901979
+      },
+      {
+        "name": "MITCHEL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 0,
+        "lng": 0
+      },
+      {
+        "name": "MELROSE/KINGSBRIDGE JOB CNTR",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.825452,
+        "lng": -73.919078
+      },
+      {
+        "name": "BRONX HALL OF JUSTICE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.826509,
+        "lng": -73.919127
+      },
+      {
+        "name": "G.V.C. LTD. (B2192)",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.8382717188,
+        "lng": -73.8415246987
+      },
+      {
+        "name": "LEESEL TRANSPORTATION CORP (B2192)",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.8885524241,
+        "lng": -73.866984781
+      },
+      {
+        "name": "BOBBY`S BUS CO. INC.",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.8164714493,
+        "lng": -73.8442600095
+      },
+      {
+        "name": "SNT BUS INC",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.825161888,
+        "lng": -73.8445141748
+      },
+      {
+        "name": "G.V.C. LTD. (B2192)",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.8150408728,
+        "lng": -73.8445183185
+      },
+      {
+        "name": "BLACK & YELLOW AUTO CENTER LLC",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.84614,
+        "lng": -73.913049
+      },
+      {
+        "name": "LITTLE LISA BUS CO. INC.",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.8552264154,
+        "lng": -73.8407862526
+      },
+      {
+        "name": "RELIANT TRANSPORTATION, INC (B2321)",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.8310571088,
+        "lng": -73.8452177573
+      },
+      {
+        "name": "PRIDE TRANSPORTATION (SCH AGE)",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.8262487542,
+        "lng": -73.8405720336
+      },
+      {
+        "name": "MORRISANIA FARMSTAND FOOD DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.831187,
+        "lng": -73.900567
+      },
+      {
+        "name": "PIONEER TRANSPORTATION CORP",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.8229318252,
+        "lng": -73.843224286
+      },
+      {
+        "name": "4332 WHITE PLAINS RD TEXTILE DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.896269,
+        "lng": -73.855399
+      },
+      {
+        "name": "GRANDPA`S BUS CO., INC.",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.8164714493,
+        "lng": -73.8442600095
+      },
+      {
+        "name": "FIRST STEPS TRANS INC. (B2192)",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.8359933598,
+        "lng": -73.8773576213
+      },
+      {
+        "name": "CONSOLIDATED BUS TRANSIT, INC.",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.8214636656,
+        "lng": -73.8413623315
+      },
+      {
+        "name": "BORO TRANSIT, INC.",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.8214636656,
+        "lng": -73.8413623315
+      },
+      {
+        "name": "LOGAN BUS COMPANY INC.",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.8102034182,
+        "lng": -73.8849153864
+      },
+      {
+        "name": "BX06A GARAGE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.8363434845,
+        "lng": -73.8824413873
+      },
+      {
+        "name": "LITTLE LISA BUS CO. INC.",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.8102034182,
+        "lng": -73.8849153864
+      },
+      {
+        "name": "3680 E TREMONT AVE TEXTILE DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.827097,
+        "lng": -73.823289
+      },
+      {
+        "name": "HOYT TRANSPORTATION CORP.",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.8124640964,
+        "lng": -73.8862652258
+      },
+      {
+        "name": "199 BROOK AVE TEXTILE DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.8066,
+        "lng": -73.920296
+      },
+      {
+        "name": "FUERTE PARKING LOT INC",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.80975,
+        "lng": -73.923688
+      },
+      {
+        "name": "115 E 138 ST TEXTILE DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.813789,
+        "lng": -73.930692
+      },
+      {
+        "name": "LITTLE RICHIE BUS SERVICE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.8552264154,
+        "lng": -73.8407862526
+      },
+      {
+        "name": "DON THOMAS BUSES, INC. (B2321)",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.8369187627,
+        "lng": -73.8758092201
+      },
+      {
+        "name": "ST. ANTHONY'S CHURCH TEXTILE DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.83776,
+        "lng": -73.868858
+      },
+      {
+        "name": "SATNAM STORES INC.",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.856438,
+        "lng": -73.868955
+      },
+      {
+        "name": "A/J PARKING II INC",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.855463,
+        "lng": -73.883275
+      },
+      {
+        "name": "ESPAILLAT MOTORS INC",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.807790845,
+        "lng": -73.8877619973
+      },
+      {
+        "name": "PELHAM BAY BRIDGE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.8618127345,
+        "lng": -73.81596855
+      },
+      {
+        "name": "BORO TRANSIT, INC.",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.825161888,
+        "lng": -73.8445141748
+      },
+      {
+        "name": "MP FORDHAM PARKING LLC",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.857051,
+        "lng": -73.882517
+      },
+      {
+        "name": "ON SITE AUTOMOTIVE INC.",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.85521,
+        "lng": -73.89441
+      },
+      {
+        "name": "EZY PARKING INC.",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.827717,
+        "lng": -73.920108
+      },
+      {
+        "name": "QUALITY TRANSPORTATION CORP.",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.830896419,
+        "lng": -73.8403642641
+      },
+      {
+        "name": "THOMAS BUSES INC (B2192)",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.8369187627,
+        "lng": -73.8758092201
+      },
+      {
+        "name": "BPC WEBSTER INC",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.857859,
+        "lng": -73.894951
+      },
+      {
+        "name": "BRUCKNER PARKING LLC",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.807758,
+        "lng": -73.928394
+      },
+      {
+        "name": "MKN PARKING CORP",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.840099,
+        "lng": -73.920639
+      },
+      {
+        "name": "WATER/SEWER MAINTENANCE YARD",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.878151,
+        "lng": -73.887108
+      },
+      {
+        "name": "LITTLE RICHIE BUS SERVICE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.8102034182,
+        "lng": -73.8849153864
+      },
+      {
+        "name": "2025 PITMAN AVE TEXTILE DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.897141,
+        "lng": -73.844108
+      },
+      {
+        "name": "CHILDREN`S TRANS INC. (B2321)",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.8369187627,
+        "lng": -73.8758092201
+      },
+      {
+        "name": "JEROME AVENUE BRIDGE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.8654323853,
+        "lng": -73.8989864375
+      },
+      {
+        "name": "WESTCHESTER AVENUE IRT YARD",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.843542,
+        "lng": -73.841574
+      },
+      {
+        "name": "3151 WESTCHESTER AVE TEXTILE DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.850424,
+        "lng": -73.83054
+      }
+    ]
+  },
+  "STATEN ISLAND": {
+    "domains": [
+      {
+        "name": "EDUCATION, CHILD WELFARE, AND YOUTH",
+        "count": 815
+      },
+      {
+        "name": "HEALTH AND HUMAN SERVICES",
+        "count": 298
+      },
+      {
+        "name": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "count": 290
+      },
+      {
+        "name": "PARKS, GARDENS, AND HISTORICAL SITES",
+        "count": 252
+      },
+      {
+        "name": "ADMINISTRATION OF GOVERNMENT",
+        "count": 77
+      },
+      {
+        "name": "LIBRARIES AND CULTURAL PROGRAMS",
+        "count": 77
+      },
+      {
+        "name": "PUBLIC SAFETY, EMERGENCY SERVICES, AND ADMINISTRATION OF JUSTICE",
+        "count": 35
+      }
+    ],
+    "totalFacilities": 1844,
+    "facilities": [
+      {
+        "name": "BWSO STATEN ISLAND REPAIR YARD/BLUE BELT OFFICE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.50821,
+        "lng": -74.236487
+      },
+      {
+        "name": "FIELD OFFICE-S.I.TORT.DIVN",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.640487,
+        "lng": -74.076237
+      },
+      {
+        "name": "TA BUS GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.63296,
+        "lng": -74.129017
+      },
+      {
+        "name": "SANIT GARAGE STATEN ISLAND 1",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.636386,
+        "lng": -74.084134
+      },
+      {
+        "name": "MARK A. COSTANTINO JUDICIAL CT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.64277,
+        "lng": -74.077256
+      },
+      {
+        "name": "MARK A. COSTANTINO JUDICIAL CT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.64277,
+        "lng": -74.077256
+      },
+      {
+        "name": "WEST BRIGHTON II",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.6346526107,
+        "lng": -74.1191714495
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.542095,
+        "lng": -74.206687
+      },
+      {
+        "name": "FDNY COMMUNICATIONS GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.608926,
+        "lng": -74.171329
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.621223,
+        "lng": -74.06828
+      },
+      {
+        "name": "STATEN ISLAND BOROUGH HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.6424,
+        "lng": -74.075958
+      },
+      {
+        "name": "LAD 79  BAT 22 - PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.634387,
+        "lng": -74.121785
+      },
+      {
+        "name": "ENG 164  LAD - 84 PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.535049,
+        "lng": -74.195595
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.61692,
+        "lng": -74.172793
+      },
+      {
+        "name": "ARLINGTON MARSH",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.643002,
+        "lng": -74.17374
+      },
+      {
+        "name": "ENG 164  LAD 84 - PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.535159,
+        "lng": -74.195761
+      },
+      {
+        "name": "FDNY EMS CMND - SEAVIEW CAMPUS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.59255,
+        "lng": -74.134517
+      },
+      {
+        "name": "MEREDITH WOODS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.600042,
+        "lng": -74.185119
+      },
+      {
+        "name": "STATEN ISLAND BUSINESS CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.641276,
+        "lng": -74.078249
+      },
+      {
+        "name": "STATEN ISLAND BUSINESS CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.641276,
+        "lng": -74.078249
+      },
+      {
+        "name": "STATEN ISLAND BOROUGH HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.6424,
+        "lng": -74.075958
+      },
+      {
+        "name": "COMBINED MAINTENANCE/STORAGE FACILITY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.548357,
+        "lng": -74.222517
+      },
+      {
+        "name": "TOTTENVILLE HIGH SCHOOL AND ATHLETIC FIELD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.528303,
+        "lng": -74.193522
+      },
+      {
+        "name": "ENG 161  LAD 81 - PARKING",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.596634,
+        "lng": -74.069972
+      },
+      {
+        "name": "COMBINED MAINTENANCE/STORAGE FACILITY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.528768,
+        "lng": -74.238093
+      },
+      {
+        "name": "STATEN ISLAND BOROUGH HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.6424,
+        "lng": -74.075958
+      },
+      {
+        "name": "SUPREME/SURROGATES/FAMILY CTS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.642968,
+        "lng": -74.076388
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.621223,
+        "lng": -74.06828
+      },
+      {
+        "name": "FIELD OFFICE-S.I.TORT.DIVN",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.640487,
+        "lng": -74.076237
+      },
+      {
+        "name": "STATEN ISLAND TRANSFER STATION",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.581618,
+        "lng": -74.195437
+      },
+      {
+        "name": "STATEN ISLAND BOROUGH HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.6424,
+        "lng": -74.075958
+      },
+      {
+        "name": "STATEN ISLAND BOROUGH HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.6424,
+        "lng": -74.075958
+      },
+      {
+        "name": "FK LANDFILL/SI GARAGE 2/NYPD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.579272,
+        "lng": -74.174708
+      },
+      {
+        "name": "MARK A. COSTANTINO JUDICIAL CT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.64277,
+        "lng": -74.077256
+      },
+      {
+        "name": "MARK A. COSTANTINO JUDICIAL CT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.64277,
+        "lng": -74.077256
+      },
+      {
+        "name": "MARK A. COSTANTINO JUDICIAL CT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.64277,
+        "lng": -74.077256
+      },
+      {
+        "name": "PARKING - COURTS AND HEALTH CTR",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.645204,
+        "lng": -74.078012
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.621223,
+        "lng": -74.06828
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.633828,
+        "lng": -74.075491
+      },
+      {
+        "name": "S.I. LOT CLEANING GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.634417,
+        "lng": -74.077434
+      },
+      {
+        "name": "INDOOR STORAGE - EQUIPMENT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.621223,
+        "lng": -74.06828
+      },
+      {
+        "name": "COURTHOUSE/MEMORIAL GRN/GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.640659,
+        "lng": -74.077196
+      },
+      {
+        "name": "TELEPORT LEASE TO PORT AUTHORITY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.605841,
+        "lng": -74.178826
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.5266,
+        "lng": -74.229776
+      },
+      {
+        "name": "ENG 160  RESCUE 5  DIV.8 PRKG",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.607609,
+        "lng": -74.088931
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.642042,
+        "lng": -74.077338
+      },
+      {
+        "name": "FIELD OFFICE-S.I.TORT.DIVN",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.640487,
+        "lng": -74.076237
+      },
+      {
+        "name": "VILLA MARIN",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.637927,
+        "lng": -74.149846
+      },
+      {
+        "name": "CSD 31 DISTRICT OFF (OLD PS16)",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.638991,
+        "lng": -74.079439
+      },
+      {
+        "name": "CIVIL COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.635025,
+        "lng": -74.1119
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.636902,
+        "lng": -74.075819
+      },
+      {
+        "name": "MARK A. COSTANTINO JUDICIAL CT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.64277,
+        "lng": -74.077256
+      },
+      {
+        "name": "MARK A. COSTANTINO JUDICIAL CT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.64277,
+        "lng": -74.077256
+      },
+      {
+        "name": "STATEN ISLAND BOROUGH HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.6424,
+        "lng": -74.075958
+      },
+      {
+        "name": "FDR BOARDWALK AND BEACH/MIDLAND",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.582696,
+        "lng": -74.069507
+      },
+      {
+        "name": "IN USE-RESIDENTIAL STRUCTURE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.551235,
+        "lng": -74.152296
+      },
+      {
+        "name": "TELEPORT LEASE TO PORT AUTHORITY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.605841,
+        "lng": -74.178826
+      },
+      {
+        "name": "TESTING FACILITY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.626819,
+        "lng": -74.078549
+      },
+      {
+        "name": "STATEN ISLAND BUSINESS CENTER",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.641276,
+        "lng": -74.078249
+      },
+      {
+        "name": "MARK A. COSTANTINO JUDICIAL CT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.64277,
+        "lng": -74.077256
+      },
+      {
+        "name": "BWSO SEWER MAINTENANCE YARD",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.632911,
+        "lng": -74.126326
+      },
+      {
+        "name": "MARK A. COSTANTINO JUDICIAL CT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.64277,
+        "lng": -74.077256
+      },
+      {
+        "name": "YUKON BUS DEPOT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.573902,
+        "lng": -74.165825
+      },
+      {
+        "name": "FDNY EMS CMND - SEAVIEW CAMPUS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.59255,
+        "lng": -74.134517
+      },
+      {
+        "name": "COURTHOUSE/MEMORIAL GRN/GARAGE",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.640659,
+        "lng": -74.077196
+      },
+      {
+        "name": "STATEN ISLAND BOROUGH HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.6424,
+        "lng": -74.075958
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.598878,
+        "lng": -74.080443
+      },
+      {
+        "name": "RICHMOND FAMILY COURT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.645039,
+        "lng": -74.077788
+      },
+      {
+        "name": "SUPREME/SURROGATES/FAMILY CTS",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.642968,
+        "lng": -74.076388
+      },
+      {
+        "name": "STATEN ISLAND BOROUGH HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.6424,
+        "lng": -74.075958
+      },
+      {
+        "name": "FRESH KILLS LANDFILL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.61646,
+        "lng": -74.074737
+      },
+      {
+        "name": "FRESH KILLS LANDFILL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.615924,
+        "lng": -74.07479
+      },
+      {
+        "name": "STATEN ISLAND BOROUGH HALL",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.6424,
+        "lng": -74.075958
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.637059,
+        "lng": -74.07592
+      },
+      {
+        "name": "OFFICES",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.626819,
+        "lng": -74.078549
+      },
+      {
+        "name": "TELEPORT LEASE TO PORT AUTHORITY",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.605841,
+        "lng": -74.178826
+      },
+      {
+        "name": "MARK A. COSTANTINO JUDICIAL CT",
+        "domain": "ADMINISTRATION OF GOVERNMENT",
+        "lat": 40.64277,
+        "lng": -74.077256
+      },
+      {
+        "name": "PIONEER TRANSPORTATION CORP",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.5461075175,
+        "lng": -74.227755307
+      },
+      {
+        "name": "GATX TERMINALS CORP., STATEN ISLAND TERMINAL BERTH NO. 1.",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.6312730004,
+        "lng": -74.1999739997
+      },
+      {
+        "name": "RELIANT TRANSPORTATION, INC (B2321)",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.6391230982,
+        "lng": -74.129050801
+      },
+      {
+        "name": "NE VERMONT AVENUE & HYLAN BLVD FOOD DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.61258951,
+        "lng": -74.06930957
+      },
+      {
+        "name": "ROSSVILLE MARINE TERMINAL WHARF",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.5557879998,
+        "lng": -74.2238819997
+      },
+      {
+        "name": "RAIL LINE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.637549,
+        "lng": -74.140502
+      },
+      {
+        "name": "VINNY`S BUS SERVICES (B2321)",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.6323970201,
+        "lng": -74.154771464
+      },
+      {
+        "name": "RAIL LINE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.648731,
+        "lng": -74.085079
+      },
+      {
+        "name": "IC BUS INC.",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.6094004742,
+        "lng": -74.1883371186
+      },
+      {
+        "name": "RAIL LINE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.634013,
+        "lng": -74.152593
+      },
+      {
+        "name": "GOOD COUNSEL HOMES TEXTILE DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.615666,
+        "lng": -74.066361
+      },
+      {
+        "name": "SAILOR'S SNUG HARBOR PARK ADDITION",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.645005,
+        "lng": -74.100216
+      },
+      {
+        "name": "J&J RECYCLING ELECTRONICS DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.639759,
+        "lng": -74.121586
+      },
+      {
+        "name": "266 SAND LANE TEXTILE DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.593009,
+        "lng": -74.068654
+      },
+      {
+        "name": "RICHMOND RECYCLING LLC",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.6027997002,
+        "lng": -74.1928752051
+      },
+      {
+        "name": "SOUTH SHORE RECYCLING LLC",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.5509080305,
+        "lng": -74.2329655321
+      },
+      {
+        "name": "JOHN FRANCESCO SCRAP INC",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.6323834942,
+        "lng": -74.1481049592
+      },
+      {
+        "name": "1111 HYLAN BLVD TEXTILE DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.598818,
+        "lng": -74.079668
+      },
+      {
+        "name": "RAIL LINE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.63546,
+        "lng": -74.145228
+      },
+      {
+        "name": "RAIL LINE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.638754,
+        "lng": -74.136134
+      },
+      {
+        "name": "SW CAMPBELL AVENUE & HENDERSON AVENUE FOOD DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.63714951,
+        "lng": -74.11651209
+      },
+      {
+        "name": "NW INNIS STREET & ST JOSEPHS AVENUE FOOD DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.6337035,
+        "lng": -74.14217077
+      },
+      {
+        "name": "BRIDGES - REPAIR / SIM - HIQA",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.6407167272,
+        "lng": -74.1729895571
+      },
+      {
+        "name": "NYCDOS STATEN ISLAND TRANSFER STATION",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.5799574365,
+        "lng": -74.193182881
+      },
+      {
+        "name": "ALL AMERICAN SCHOOL BUS CORP.",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.6405665717,
+        "lng": -74.1380712417
+      },
+      {
+        "name": "ANNADALE PUMPING STATION",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.552264,
+        "lng": -74.186405
+      },
+      {
+        "name": "RAIL LINE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.637002,
+        "lng": -74.141564
+      },
+      {
+        "name": "FINEST AUTOMOTIVE RECOVERY INC",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.636194,
+        "lng": -74.128242
+      },
+      {
+        "name": "PORT OF NEW YORK, LOWER BAY, ANCHORAGE NO. 28",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.515697,
+        "lng": -74.091102
+      },
+      {
+        "name": "NW HOUSTON STREET & WILLOWBROOK ROAD FOOD DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.62262016,
+        "lng": -74.14456081
+      },
+      {
+        "name": "AMERICAN AUTOCAT RECOVERY INC",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.516695,
+        "lng": -74.24297
+      },
+      {
+        "name": "TOMPKINSVILLE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.634855,
+        "lng": -74.074894
+      },
+      {
+        "name": "SIRTOA R.O.W",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.600013,
+        "lng": -74.190856
+      },
+      {
+        "name": "SP PLUS CORPORATION",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.644141,
+        "lng": -74.075229
+      },
+      {
+        "name": "PORT RICHMOND WWTP",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.638396,
+        "lng": -74.125608
+      },
+      {
+        "name": "SIRTOA R.O.W",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.610871,
+        "lng": -74.192821
+      },
+      {
+        "name": "OLIVET HEAVENLY HARVEST FOOD DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.6302105566,
+        "lng": -74.1160435088
+      },
+      {
+        "name": "FDR BOARDWALK AND BEACH/MIDLAND",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.582696,
+        "lng": -74.069507
+      },
+      {
+        "name": "1180 BAY ST TEXTILE DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.614357,
+        "lng": -74.06667
+      },
+      {
+        "name": "ACE AUTO WORLD INC",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.6344085861,
+        "lng": -74.1278974681
+      },
+      {
+        "name": "1609 VICTORY BLVD TEXTILE DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.613734,
+        "lng": -74.117159
+      },
+      {
+        "name": "H.E.A.L.T.H FOR YOUTHS SKYLINE COMMUNITY GARDEN FOOD DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.63990101,
+        "lng": -74.09028654
+      },
+      {
+        "name": "BREEN BROS. TOWING, INC.",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.546942,
+        "lng": -74.230094
+      },
+      {
+        "name": "KNIGHTS TOWING CORP",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.550559,
+        "lng": -74.231726
+      },
+      {
+        "name": "DONGAN HILLS",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.588718,
+        "lng": -74.096838
+      },
+      {
+        "name": "*CLOSED FOR THE SEASON* WEST BRIGHTON FOOD DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.636758,
+        "lng": -74.119727
+      },
+      {
+        "name": "443 CASTLETON AVE TEXTILE DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.634122,
+        "lng": -74.096975
+      },
+      {
+        "name": "CLIFTON",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.621811,
+        "lng": -74.071569
+      },
+      {
+        "name": "CHARLESTON BUS DEPOT",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.530532,
+        "lng": -74.237408
+      },
+      {
+        "name": "J&J TOWING AND RECOVERY INC",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.545894,
+        "lng": -74.228467
+      },
+      {
+        "name": "FAZTEC INDUSTRIES",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.6129267519,
+        "lng": -74.1864651784
+      },
+      {
+        "name": "HOMEPORT",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.631295,
+        "lng": -74.074995
+      },
+      {
+        "name": "OAKWOOD BEACH WTTP",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.551241,
+        "lng": -74.116884
+      },
+      {
+        "name": "SE STUYVESANT PLACE & SCHUYLER STREET FOOD DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.64305723,
+        "lng": -74.07695856
+      },
+      {
+        "name": "TM MAINTENANCE INC",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.6025169416,
+        "lng": -74.1956719667
+      },
+      {
+        "name": "APPLEBEE'S GRILL + BAR TEXTILE DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.612554,
+        "lng": -74.158213
+      },
+      {
+        "name": "SIM - HIQA, PERMIT MANAGEMENT / BC - SI BOROUGH COMMISSIONERS",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.6424163335,
+        "lng": -74.0760467293
+      },
+      {
+        "name": "STATEN ISLAND FAMILY EMPOWERMENT PROJECT TEXTILE DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.636637,
+        "lng": -74.158688
+      },
+      {
+        "name": "DSNY FRESH KILLS COMPOSTING FACILITY",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.5799574365,
+        "lng": -74.193182881
+      },
+      {
+        "name": "SOUTH SHORE PARK & RIDE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.523574,
+        "lng": -74.224938
+      },
+      {
+        "name": "2509 VICTORY BLVD TEXTILE DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.61044,
+        "lng": -74.146654
+      },
+      {
+        "name": "FAMILIES ON THE MOVE OF NYC, INC. TEXTILE DROP-OFF SITE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.640974,
+        "lng": -74.078176
+      },
+      {
+        "name": "RAIL LINE",
+        "domain": "CORE INFRASTRUCTURE AND TRANSPORTATION",
+        "lat": 40.641009,
+        "lng": -74.120191
+      }
+    ]
+  }
+}
