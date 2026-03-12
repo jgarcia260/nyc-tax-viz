@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 
 interface Agency {
   name: string;
@@ -66,11 +67,35 @@ type SortField = "name" | "amount" | "percentage";
 type SortDirection = "asc" | "desc";
 
 export function BudgetViz({ dollarBreakdown, expenseBudget, years }: BudgetVizProps) {
-  const [selectedYear, setSelectedYear] = useState(years[0]);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const [selectedYear, setSelectedYear] = useState(
+    searchParams.get("year") || years[0]
+  );
   const [hoveredAgency, setHoveredAgency] = useState<string | null>(null);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [sortField, setSortField] = useState<SortField>("amount");
-  const [sortDirection, setSortDirection] = useState<SortDirection>("desc");
+  const [searchQuery, setSearchQuery] = useState(searchParams.get("search") || "");
+  const [sortField, setSortField] = useState<SortField>(
+    (searchParams.get("sort") as SortField) || "amount"
+  );
+  const [sortDirection, setSortDirection] = useState<SortDirection>(
+    (searchParams.get("dir") as SortDirection) || "desc"
+  );
+
+  // Sync URL with state
+  useEffect(() => {
+    const params = new URLSearchParams();
+    if (selectedYear !== years[0]) params.set("year", selectedYear);
+    if (searchQuery) params.set("search", searchQuery);
+    if (sortField !== "amount") params.set("sort", sortField);
+    if (sortDirection !== "desc") params.set("dir", sortDirection);
+
+    const queryString = params.toString();
+    const newUrl = queryString ? `${pathname}?${queryString}` : pathname;
+    
+    router.replace(newUrl, { scroll: false });
+  }, [selectedYear, searchQuery, sortField, sortDirection, years, pathname, router]);
 
   const yearData = expenseBudget[selectedYear];
   const dollarData = dollarBreakdown[selectedYear];
