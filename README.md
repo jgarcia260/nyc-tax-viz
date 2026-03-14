@@ -4,6 +4,14 @@
 
 Built with Next.js, React, Recharts, and real research data from NYC Open Data, City & State NY, and community surveys.
 
+## 🚀 Quick Deploy
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/jgarcia260/nyc-tax-viz)
+
+**One-click deployment** - Click the button above to deploy instantly to Vercel.
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
+
 ---
 
 ## 🎯 Project Overview
