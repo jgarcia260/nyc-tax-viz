@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[35417,["/nyc-tax-viz/_next/static/chunks/26ca110782d86623.js","/nyc-tax-viz/_next/static/chunks/81f0f13d25d49d65.js"],"ViewportBoundary"]
+3:I[35417,["/nyc-tax-viz/_next/static/chunks/26ca110782d86623.js","/nyc-tax-viz/_next/static/chunks/81f0f13d25d49d65.js"],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"buildId":"I7T_8UsjEyWeoREQOEE8m","rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"NYC Tax Dollar Visualizer"}],["$","meta","1",{"name":"description","content":"See how New York City spends its $107 billion budget"}]]}]}]}],null]}],"loading":null,"isPartial":false}

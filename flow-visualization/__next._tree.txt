@@ -1,0 +1,2 @@
+:HL["/nyc-tax-viz/_next/static/chunks/3374802b37d66889.css","style"]
+0:{"buildId":"I7T_8UsjEyWeoREQOEE8m","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"flow-visualization","paramType":null,"paramKey":"flow-visualization","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
