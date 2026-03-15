@@ -511,7 +511,8 @@ function Scene({ boroughs, showTaxData = true }: SceneProps) {
           roughness={0.1}
         />
       </mesh>
-      <gridHelper args={[300, 30, '#4ECDC4', '#2EAD9D']} position={[0, -0.9, 0]} />
+      {/* gridHelper disabled - was causing green horizontal scan lines */}
+      {/* <gridHelper args={[300, 30, '#4ECDC4', '#2EAD9D']} position={[0, -0.9, 0]} /> */}
 
       {/* Post-processing - DISABLED TO FIX RENDERING */}
       {/* <EffectComposer>
