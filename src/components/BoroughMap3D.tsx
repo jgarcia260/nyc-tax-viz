@@ -6,13 +6,22 @@ import { Suspense, useState, useRef, useMemo, useEffect } from 'react';
 import * as THREE from 'three';
 import { parseBoroughGeoJSON, BOROUGH_INFO, BoroughData } from '@/lib/boroughData';
 
-// NYC Borough colors - SimCity vibrant style
+// NYC Borough colors - Vibrant, high-contrast palette
 const BOROUGH_COLORS: Record<string, string> = {
-  'Manhattan': '#FF6B6B',
-  'Brooklyn': '#4ECDC4',
-  'Queens': '#FFE66D',
-  'Bronx': '#95E1D3',
-  'Staten Island': '#C7CEEA'
+  'Manhattan': '#FF3366',      // Vibrant Pink-Red
+  'Brooklyn': '#00D9FF',       // Electric Cyan
+  'Queens': '#FFD700',         // Gold
+  'Bronx': '#00FF9F',          // Bright Teal
+  'Staten Island': '#9D4EDD'   // Vivid Purple
+};
+
+// Borough extrusion heights - differentiate visually
+const BOROUGH_HEIGHTS: Record<string, number> = {
+  'Manhattan': 8,      // Tallest (financial center)
+  'Brooklyn': 5,       // Second tallest
+  'Queens': 6,         // Medium-tall
+  'Bronx': 4,          // Medium
+  'Staten Island': 3   // Shortest
 };
 
 interface BoroughProps {
@@ -26,6 +35,30 @@ interface BoroughProps {
 
 function Borough({ name, coordinates, isHovered, isSelected, onClick, onHover }: BoroughProps) {
   const meshRef = useRef<THREE.Mesh>(null);
+
+  // Calculate borough centroid for label positioning
+  const centroid = useMemo(() => {
+    if (!coordinates || coordinates.length === 0) return [0, 0, 0];
+    
+    const NYC_CENTER_LON = -73.978;
+    const NYC_CENTER_LAT = 40.706;
+    const SCALE = 400;
+    
+    let sumX = 0, sumY = 0, count = 0;
+    
+    coordinates.forEach((polygon) => {
+      if (!polygon || !polygon[0]) return;
+      polygon[0].forEach((point: any) => {
+        if (!point || point.length < 2) return;
+        sumX += (point[0] - NYC_CENTER_LON) * SCALE;
+        sumY += (point[1] - NYC_CENTER_LAT) * SCALE;
+        count++;
+      });
+    });
+    
+    const baseHeight = BOROUGH_HEIGHTS[name] || 5;
+    return count > 0 ? [sumX / count, sumY / count, baseHeight + 2] : [0, 0, baseHeight + 2];
+  }, [coordinates, name]);
 
   // Convert GeoJSON coordinates to Three.js shape
   const geometry = useMemo(() => {
@@ -116,13 +149,14 @@ function Borough({ name, coordinates, isHovered, isSelected, onClick, onHover }:
       }
     });
 
-    // Create extruded geometry for 3D effect
+    // Create extruded geometry for 3D effect - use borough-specific height
+    const baseHeight = BOROUGH_HEIGHTS[name] || 5;
     const extrudeSettings = {
-      depth: isSelected ? 3 : (isHovered ? 2 : 1),
+      depth: isSelected ? baseHeight * 1.3 : (isHovered ? baseHeight * 1.15 : baseHeight),
       bevelEnabled: true,
-      bevelThickness: 0.1,
-      bevelSize: 0.1,
-      bevelSegments: 2
+      bevelThickness: 0.2,
+      bevelSize: 0.15,
+      bevelSegments: 3
     };
 
     if (shapes.length === 0) {
@@ -142,22 +176,44 @@ function Borough({ name, coordinates, isHovered, isSelected, onClick, onHover }:
   const color = BOROUGH_COLORS[name] || '#FFFFFF';
 
   return (
-    <mesh
-      ref={meshRef}
-      geometry={geometry}
-      onClick={onClick}
-      onPointerOver={() => onHover(true)}
-      onPointerOut={() => onHover(false)}
-      position={[0, 0, 0]}
-    >
-      <meshStandardMaterial
-        color={color}
-        emissive={isHovered || isSelected ? color : '#000000'}
-        emissiveIntensity={isHovered ? 0.5 : (isSelected ? 0.3 : 0)}
-        metalness={0.2}
-        roughness={0.4}
-      />
-    </mesh>
+    <>
+      <mesh
+        ref={meshRef}
+        geometry={geometry}
+        onClick={onClick}
+        onPointerOver={() => onHover(true)}
+        onPointerOut={() => onHover(false)}
+        position={[0, 0, 0]}
+      >
+        <meshStandardMaterial
+          color={color}
+          emissive={color}
+          emissiveIntensity={isHovered ? 0.4 : (isSelected ? 0.3 : 0.15)}
+          metalness={0.1}
+          roughness={0.3}
+          toneMapped={false}
+        />
+      </mesh>
+      
+      {/* Permanent borough label */}
+      <Html position={[centroid[0], centroid[2], centroid[1]]} center distanceFactor={10}>
+        <div 
+          className="pointer-events-none select-none"
+          style={{
+            color: 'white',
+            fontSize: isHovered || isSelected ? '20px' : '16px',
+            fontWeight: 'bold',
+            textShadow: `0 0 8px ${color}, 0 0 12px rgba(0,0,0,0.8), 2px 2px 4px rgba(0,0,0,0.9)`,
+            transition: 'font-size 0.2s ease',
+            whiteSpace: 'nowrap',
+            textTransform: 'uppercase',
+            letterSpacing: '0.05em'
+          }}
+        >
+          {name}
+        </div>
+      </Html>
+    </>
   );
 }
 
@@ -188,9 +244,10 @@ function Scene({ boroughs }: SceneProps) {
         target={[0, 0, 0]}
       />
       
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 10, 5]} intensity={1} castShadow />
-      <pointLight position={[-10, -10, -5]} intensity={0.5} />
+      <ambientLight intensity={0.7} />
+      <directionalLight position={[50, 100, 50]} intensity={1.2} castShadow />
+      <directionalLight position={[-50, 80, -50]} intensity={0.8} />
+      <pointLight position={[0, 150, 0]} intensity={0.6} color="#ffffff" />
       
       <Environment preset="city" />
       
@@ -229,7 +286,7 @@ function Scene({ boroughs }: SceneProps) {
       {/* Ground plane */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
         <planeGeometry args={[800, 800]} />
-        <meshStandardMaterial color="#1a1a2e" />
+        <meshStandardMaterial color="#0a0a15" roughness={0.9} />
       </mesh>
     </>
   );
