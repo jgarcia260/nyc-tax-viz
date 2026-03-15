@@ -18,27 +18,39 @@ export interface BoroughFeature {
 
 export interface BoroughData {
   name: string;
-  coordinates: number[][][];
+  coordinates: number[][][][]; // Array of polygons, each polygon is array of rings
   properties?: any;
 }
 
 export function parseBoroughGeoJSON(geojson: any): BoroughData[] {
   if (!geojson || !geojson.features) {
+    console.error('[parseBoroughGeoJSON] Invalid GeoJSON:', geojson);
     return [];
   }
+
+  console.log(`[parseBoroughGeoJSON] Parsing ${geojson.features.length} features`);
 
   return geojson.features.map((feature: BoroughFeature) => {
     // Extract borough name from properties (try both formats)
     const name = feature.properties?.BoroName || feature.properties?.boro_name || 'Unknown';
     
+    console.log(`[parseBoroughGeoJSON] Processing borough: ${name}, type: ${feature.geometry?.type}`);
+    
     // Get coordinates - handle both MultiPolygon and Polygon types
-    let coordinates: number[][][] = [];
+    let coordinates: number[][][][] = [];
     
     if (feature.geometry.type === 'MultiPolygon') {
-      // MultiPolygon: take the first polygon (usually the main landmass)
-      coordinates = feature.geometry.coordinates[0];
+      // MultiPolygon: array of polygons, each polygon is an array of rings
+      coordinates = feature.geometry.coordinates;
+      console.log(`[parseBoroughGeoJSON] ${name} has ${coordinates.length} polygon(s)`);
     } else if (feature.geometry.type === 'Polygon') {
-      coordinates = feature.geometry.coordinates as any;
+      // Polygon: single polygon, wrap in array to match MultiPolygon structure
+      coordinates = [feature.geometry.coordinates as any];
+      console.log(`[parseBoroughGeoJSON] ${name} is a Polygon with ${coordinates[0].length} ring(s)`);
+    }
+
+    if (coordinates.length === 0) {
+      console.error(`[parseBoroughGeoJSON] No coordinates for ${name}!`);
     }
 
     return {

@@ -7,10 +7,7 @@ import {
   Environment, 
   Html,
   Stars,
-  Float,
-  MeshDistortMaterial,
   Sparkles,
-  useTexture
 } from '@react-three/drei';
 import { 
   EffectComposer, 
@@ -23,9 +20,17 @@ import {
 } from '@react-three/postprocessing';
 import { Suspense, useState, useRef, useMemo, useEffect } from 'react';
 import * as THREE from 'three';
-import { useControls } from 'leva';
 import gsap from 'gsap';
 import { parseBoroughGeoJSON, BOROUGH_INFO, BoroughData } from '@/lib/boroughData';
+
+// Tax revenue data per borough (from tax-policies.json)
+const BOROUGH_TAX_DATA: Record<string, { revenue: number; billionaireTaxShare: number; corporateTaxShare: number }> = {
+  'Manhattan': { revenue: 8000000000, billionaireTaxShare: 0.6, corporateTaxShare: 0.5 },
+  'Brooklyn': { revenue: 3500000000, billionaireTaxShare: 0.15, corporateTaxShare: 0.2 },
+  'Queens': { revenue: 2800000000, billionaireTaxShare: 0.1, corporateTaxShare: 0.15 },
+  'Bronx': { revenue: 1200000000, billionaireTaxShare: 0.05, corporateTaxShare: 0.08 },
+  'Staten Island': { revenue: 800000000, billionaireTaxShare: 0.1, corporateTaxShare: 0.07 }
+};
 
 // Premium SimCity-inspired colors with metallic sheen
 const BOROUGH_COLORS: Record<string, { base: string; emissive: string; glow: string }> = {
@@ -38,7 +43,7 @@ const BOROUGH_COLORS: Record<string, { base: string; emissive: string; glow: str
 
 interface BoroughProps {
   name: string;
-  coordinates: number[][][];
+  coordinates: number[][][][]; // Array of polygons (MultiPolygon support)
   isHovered: boolean;
   isSelected: boolean;
   onClick: () => void;
@@ -165,23 +170,55 @@ function Borough({ name, coordinates, isHovered, isSelected, onClick, onHover, a
   const geometry = useMemo(() => {
     const shapes: THREE.Shape[] = [];
 
-    coordinates.forEach((polygon) => {
+    // Iterate over all polygons in the MultiPolygon
+    coordinates.forEach((polygon, polyIndex) => {
+      if (!polygon || polygon.length === 0) return;
+      
+      // First ring is the outer boundary
+      const outerRing = polygon[0];
+      if (!outerRing || outerRing.length === 0) return;
+      
       const shape = new THREE.Shape();
       
-      polygon.forEach((ring) => {
-        ring.forEach((point: any, pointIndex: number) => {
+      // Process outer boundary
+      outerRing.forEach((point: any, pointIndex: number) => {
+        if (!point || point.length < 2) return;
+        
+        const x = (point[0] + 74.0) * 100;
+        const y = (point[1] - 40.7) * 100;
+
+        if (pointIndex === 0) {
+          shape.moveTo(x, y);
+        } else {
+          shape.lineTo(x, y);
+        }
+      });
+      
+      // Process holes (inner rings) if they exist
+      for (let ringIdx = 1; ringIdx < polygon.length; ringIdx++) {
+        const holeRing = polygon[ringIdx];
+        if (!holeRing || holeRing.length === 0) continue;
+        
+        const holePath = new THREE.Path();
+        holeRing.forEach((point: any, pointIndex: number) => {
+          if (!point || point.length < 2) return;
+          
           const x = (point[0] + 74.0) * 100;
           const y = (point[1] - 40.7) * 100;
-
+          
           if (pointIndex === 0) {
-            shape.moveTo(x, y);
+            holePath.moveTo(x, y);
           } else {
-            shape.lineTo(x, y);
+            holePath.lineTo(x, y);
           }
         });
-      });
+        
+        shape.holes.push(holePath);
+      }
 
-      shapes.push(shape);
+      if (shape.curves.length > 0) {
+        shapes.push(shape);
+      }
     });
 
     const extrudeSettings = {
@@ -305,25 +342,6 @@ function Scene({ boroughs }: SceneProps) {
   const [hoveredBorough, setHoveredBorough] = useState<string | null>(null);
   const [selectedBorough, setSelectedBorough] = useState<string | null>(null);
 
-  // Leva debug controls
-  const { 
-    bloomIntensity,
-    bloomRadius,
-    dofFocusDistance,
-    dofBokehScale,
-    ssaoIntensity,
-    enableEffects,
-    showParticles
-  } = useControls('Visual Effects', {
-    bloomIntensity: { value: 2.0, min: 0, max: 5, step: 0.1 },
-    bloomRadius: { value: 1.0, min: 0, max: 2, step: 0.1 },
-    dofFocusDistance: { value: 0.05, min: 0, max: 1, step: 0.01 },
-    dofBokehScale: { value: 3, min: 0, max: 10, step: 0.5 },
-    ssaoIntensity: { value: 50, min: 0, max: 100, step: 1 },
-    enableEffects: true,
-    showParticles: true
-  });
-
   return (
     <>
       <PerspectiveCamera makeDefault position={[0, 60, 80]} fov={50} />
@@ -367,7 +385,7 @@ function Scene({ boroughs }: SceneProps) {
       <Stars radius={300} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
       
       {/* Atmospheric particles */}
-      {showParticles && <AtmosphericParticles />}
+      <AtmosphericParticles />
       
       {/* Boroughs with staggered animation */}
       {boroughs.map((borough, index) => (
@@ -379,42 +397,61 @@ function Scene({ boroughs }: SceneProps) {
           isSelected={selectedBorough === borough.name}
           onClick={() => {
             setSelectedBorough(borough.name);
-            // Camera animation to selected borough
-            // (would need camera ref for full implementation)
           }}
           onHover={(hovered) => setHoveredBorough(hovered ? borough.name : null)}
           animationDelay={index * 0.2}
         />
       ))}
 
-      {/* Premium info overlay with glassmorphism */}
-      {(hoveredBorough || selectedBorough) && (
-        <Html position={[0, 40, 0]} center>
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/30 to-blue-500/30 blur-xl" />
-            <div className="relative bg-white/10 backdrop-blur-xl px-6 py-4 rounded-2xl shadow-2xl border border-white/20 max-w-xs">
-              <h3 
-                className="font-bold text-2xl mb-2 animate-pulse"
-                style={{ 
-                  color: BOROUGH_COLORS[hoveredBorough || selectedBorough || '']?.glow || '#fff',
-                  textShadow: `0 0 20px ${BOROUGH_COLORS[hoveredBorough || selectedBorough || '']?.emissive}`
-                }}
-              >
-                {hoveredBorough || selectedBorough}
-              </h3>
-              {BOROUGH_INFO[hoveredBorough || selectedBorough || ''] && (
-                <div className="text-sm space-y-2 text-white">
-                  <p className="text-gray-200">{BOROUGH_INFO[hoveredBorough || selectedBorough || ''].description}</p>
-                  <div className="flex justify-between text-xs pt-2 border-t border-white/20">
-                    <span className="font-semibold">👥 {(BOROUGH_INFO[hoveredBorough || selectedBorough || ''].population / 1000000).toFixed(2)}M</span>
-                    <span className="font-semibold">📏 {BOROUGH_INFO[hoveredBorough || selectedBorough || ''].area} mi²</span>
+      {/* Enhanced info overlay with better contrast */}
+      {(hoveredBorough || selectedBorough) && (() => {
+        const borough = hoveredBorough || selectedBorough || '';
+        const taxData = BOROUGH_TAX_DATA[borough];
+        const boroughInfo = BOROUGH_INFO[borough];
+        const colors = BOROUGH_COLORS[borough];
+
+        return (
+          <Html position={[0, 40, 0]} center>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/40 to-blue-500/40 blur-2xl" />
+              <div className="relative bg-black/80 backdrop-blur-xl px-8 py-6 rounded-3xl shadow-2xl border-2 border-white/30 max-w-md">
+                <h3 
+                  className="font-black text-3xl mb-3 drop-shadow-lg"
+                  style={{ 
+                    color: colors?.glow || '#fff',
+                    textShadow: `0 0 30px ${colors?.emissive}, 0 2px 10px rgba(0,0,0,0.8)`
+                  }}
+                >
+                  {borough}
+                </h3>
+                
+                {taxData && (
+                  <div className="mb-4 p-4 bg-white/10 rounded-xl border border-white/20">
+                    <p className="text-sm font-bold text-white mb-2 drop-shadow">Tax Revenue Potential</p>
+                    <p className="text-2xl font-black text-emerald-400 drop-shadow-lg">
+                      ${(taxData.revenue / 1000000000).toFixed(2)}B
+                    </p>
+                    <div className="mt-3 space-y-1 text-xs text-white">
+                      <p className="drop-shadow">💰 Billionaire Tax: {(taxData.billionaireTaxShare * 100).toFixed(0)}% share</p>
+                      <p className="drop-shadow">🏢 Corporate Tax: {(taxData.corporateTaxShare * 100).toFixed(0)}% share</p>
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
+
+                {boroughInfo && (
+                  <div className="text-sm space-y-2 text-white">
+                    <p className="text-gray-100 drop-shadow leading-relaxed">{boroughInfo.description}</p>
+                    <div className="flex justify-between text-xs pt-3 border-t border-white/20">
+                      <span className="font-bold drop-shadow">👥 {(boroughInfo.population / 1000000).toFixed(2)}M</span>
+                      <span className="font-bold drop-shadow">📏 {boroughInfo.area} mi²</span>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
-        </Html>
-      )}
+          </Html>
+        );
+      })()}
 
       {/* Elevated ground plane with grid */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1, 0]} receiveShadow>
@@ -430,29 +467,27 @@ function Scene({ boroughs }: SceneProps) {
       <gridHelper args={[300, 30, '#4ECDC4', '#2EAD9D']} position={[0, -0.9, 0]} />
 
       {/* Post-processing effects */}
-      {enableEffects && (
-        <EffectComposer>
-          <Bloom 
-            intensity={bloomIntensity} 
-            luminanceThreshold={0.2}
-            luminanceSmoothing={0.9}
-            radius={bloomRadius}
-          />
-          <DepthOfField 
-            focusDistance={dofFocusDistance}
-            focalLength={0.02}
-            bokehScale={dofBokehScale}
-          />
-          <SSAO 
-            intensity={ssaoIntensity}
-            radius={10}
-            luminanceInfluence={0.6}
-          />
-          <ChromaticAberration offset={[0.001, 0.001]} />
-          <Vignette eskil={false} offset={0.1} darkness={0.5} />
-          <ToneMapping />
-        </EffectComposer>
-      )}
+      <EffectComposer>
+        <Bloom 
+          intensity={2.0} 
+          luminanceThreshold={0.2}
+          luminanceSmoothing={0.9}
+          radius={1.0}
+        />
+        <DepthOfField 
+          focusDistance={0.05}
+          focalLength={0.02}
+          bokehScale={3}
+        />
+        <SSAO 
+          intensity={50}
+          radius={10}
+          luminanceInfluence={0.6}
+        />
+        <ChromaticAberration offset={[0.001, 0.001]} />
+        <Vignette eskil={false} offset={0.1} darkness={0.5} />
+        <ToneMapping />
+      </EffectComposer>
     </>
   );
 }
@@ -526,46 +561,61 @@ export default function BoroughMap3DPremium() {
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
 
-      {/* Premium info panel */}
-      <div className="absolute top-6 left-6 z-10 space-y-4 max-w-sm">
+      {/* Enhanced title and explanation */}
+      <div className="absolute top-6 left-6 z-10 space-y-4 max-w-md">
         <div className="relative group">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-purple-500/30 blur-xl group-hover:blur-2xl transition-all" />
-          <div className="relative bg-black/40 backdrop-blur-2xl p-6 rounded-3xl shadow-2xl border border-white/10">
-            <h1 className="text-3xl md:text-4xl font-black mb-3 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              NYC Boroughs
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/40 to-purple-500/40 blur-2xl group-hover:blur-3xl transition-all" />
+          <div className="relative bg-black/70 backdrop-blur-2xl p-8 rounded-3xl shadow-2xl border-2 border-white/20">
+            <h1 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent drop-shadow-lg">
+              NYC Tax Revenue
             </h1>
-            <p className="text-sm text-gray-300 mb-4 leading-relaxed">
-              AAA Game-Quality 3D Visualization
+            <p className="text-base text-white mb-4 leading-relaxed drop-shadow-md font-medium">
+              Interactive 3D visualization of NYC&apos;s 5 boroughs showing tax revenue potential and distribution.
             </p>
+            <div className="bg-white/10 p-4 rounded-xl border border-white/20 mb-4">
+              <p className="text-sm text-gray-200 drop-shadow">
+                <span className="font-bold text-white">💡 Data Source:</span> Tax revenue projections from billionaire and corporate tax reform proposals (2026)
+              </p>
+            </div>
             <div className="grid grid-cols-1 gap-2">
-              {Object.entries(BOROUGH_COLORS).map(([name, colors]) => (
-                <div 
-                  key={name} 
-                  className="flex items-center gap-3 bg-white/5 hover:bg-white/10 px-3 py-2 rounded-xl transition-all cursor-pointer group/item border border-white/5"
-                >
+              {Object.entries(BOROUGH_COLORS).map(([name, colors]) => {
+                const taxData = BOROUGH_TAX_DATA[name];
+                return (
                   <div 
-                    className="w-5 h-5 rounded-lg shadow-lg group-hover/item:scale-110 transition-transform" 
-                    style={{ 
-                      backgroundColor: colors.base,
-                      boxShadow: `0 0 20px ${colors.glow}`
-                    }} 
-                  />
-                  <span className="text-sm font-semibold text-white">{name}</span>
-                </div>
-              ))}
+                    key={name} 
+                    className="flex items-center justify-between gap-3 bg-white/5 hover:bg-white/10 px-4 py-3 rounded-xl transition-all cursor-pointer group/item border border-white/10"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div 
+                        className="w-6 h-6 rounded-lg shadow-lg group-hover/item:scale-110 transition-transform" 
+                        style={{ 
+                          backgroundColor: colors.base,
+                          boxShadow: `0 0 20px ${colors.glow}`
+                        }} 
+                      />
+                      <span className="text-sm font-bold text-white drop-shadow">{name}</span>
+                    </div>
+                    {taxData && (
+                      <span className="text-xs font-bold text-emerald-400 drop-shadow">
+                        ${(taxData.revenue / 1000000000).toFixed(1)}B
+                      </span>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
 
         <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-blue-500/20 blur-xl" />
-          <div className="relative bg-black/40 backdrop-blur-2xl p-4 rounded-2xl border border-white/10">
-            <p className="text-xs font-bold text-emerald-400 mb-2">🎮 PREMIUM CONTROLS</p>
-            <div className="text-xs text-gray-300 space-y-1">
-              <p>🖱️ Drag to rotate (auto-rotating)</p>
-              <p>🔍 Scroll to zoom</p>
-              <p>👆 Click borough for details</p>
-              <p>⚙️ Use Leva panel for tweaks</p>
+          <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/30 to-blue-500/30 blur-xl" />
+          <div className="relative bg-black/70 backdrop-blur-2xl p-5 rounded-2xl border-2 border-white/20">
+            <p className="text-sm font-black text-emerald-400 mb-3 drop-shadow">🎮 CONTROLS</p>
+            <div className="text-sm text-white space-y-2 drop-shadow-md">
+              <p className="font-semibold">🖱️ Drag to rotate (auto-rotating)</p>
+              <p className="font-semibold">🔍 Scroll to zoom in/out</p>
+              <p className="font-semibold">👆 Click borough for tax data</p>
+              <p className="font-semibold">✨ Hover for details</p>
             </div>
           </div>
         </div>
@@ -576,7 +626,7 @@ export default function BoroughMap3DPremium() {
         {['Bloom', 'DOF', 'SSAO', 'Shaders', 'GSAP'].map((effect) => (
           <div 
             key={effect}
-            className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 backdrop-blur-xl px-4 py-2 rounded-full border border-white/20 text-white text-xs font-bold shadow-lg"
+            className="bg-gradient-to-r from-purple-500/30 to-blue-500/30 backdrop-blur-xl px-5 py-2 rounded-full border-2 border-white/30 text-white text-sm font-bold shadow-lg drop-shadow-lg"
           >
             ✨ {effect}
           </div>
