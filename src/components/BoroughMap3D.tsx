@@ -97,7 +97,8 @@ function Scene({ boroughs }: SceneProps) {
 
   return (
     <>
-      <PerspectiveCamera makeDefault position={[0, 50, 50]} fov={50} />
+      {/* Top-down camera view - map is horizontal, boroughs extrude upward */}
+      <PerspectiveCamera makeDefault position={[0, 100, 0]} fov={50} />
       <OrbitControls
         enablePan={true}
         enableZoom={true}
@@ -110,13 +111,14 @@ function Scene({ boroughs }: SceneProps) {
         rotateSpeed={0.5}
         zoomSpeed={0.8}
         panSpeed={0.5}
+        target={[0, 0, 0]}
       />
       
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 10, 5]} intensity={1} castShadow />
-      <pointLight position={[-10, -10, -5]} intensity={0.5} />
-      
-      <Environment preset="city" />
+      {/* Clean, bright lighting for professional aesthetic */}
+      <ambientLight intensity={0.8} />
+      <directionalLight position={[10, 10, 5]} intensity={1.2} castShadow />
+      <directionalLight position={[-10, 10, -5]} intensity={0.6} />
+      <hemisphereLight intensity={0.5} groundColor="#ffffff" />
       
       {boroughs.map((borough) => (
         <Borough
@@ -150,10 +152,10 @@ function Scene({ boroughs }: SceneProps) {
         </Html>
       )}
 
-      {/* Ground plane */}
+      {/* Clean white ground plane */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
         <planeGeometry args={[200, 200]} />
-        <meshStandardMaterial color="#1a1a2e" />
+        <meshStandardMaterial color="#ffffff" roughness={0.9} metalness={0.0} />
       </mesh>
     </>
   );
@@ -186,22 +188,22 @@ export default function BoroughMap3D() {
 
   if (loading) {
     return (
-      <div className="w-full h-full flex items-center justify-center bg-gradient-to-b from-blue-900 to-blue-700">
-        <div className="text-white text-2xl">Loading NYC Boroughs...</div>
+      <div className="w-full h-full flex items-center justify-center bg-white">
+        <div className="text-gray-800 text-2xl">Loading NYC Boroughs...</div>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="w-full h-full flex items-center justify-center bg-gradient-to-b from-blue-900 to-blue-700">
-        <div className="text-red-500 text-2xl">Error: {error}</div>
+      <div className="w-full h-full flex items-center justify-center bg-white">
+        <div className="text-red-600 text-2xl">Error: {error}</div>
       </div>
     );
   }
 
   return (
-    <div className="w-full h-full bg-gradient-to-b from-blue-900 via-purple-800 to-indigo-900 relative">
+    <div className="w-full h-full bg-white relative">
       {/* Info Panel */}
       <div className="absolute top-4 left-4 z-10 bg-white/95 backdrop-blur-md p-4 md:p-6 rounded-2xl shadow-2xl max-w-md border-2 border-white/20">
         <h1 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
