@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, PerspectiveCamera, Environment, Html } from '@react-three/drei';
+import { OrbitControls, PerspectiveCamera, Html } from '@react-three/drei';
 import { Suspense, useState, useRef, useMemo, useEffect } from 'react';
 import * as THREE from 'three';
 import { parseBoroughGeoJSON, BOROUGH_INFO, BoroughData } from '@/lib/boroughData';
@@ -31,16 +31,23 @@ function Borough({ name, coordinates, isHovered, isSelected, onClick, onHover }:
   const geometry = useMemo(() => {
     const shapes: THREE.Shape[] = [];
 
+    // NYC center coordinates (from bounding box analysis)
+    const NYC_CENTER_LON = -73.978;
+    const NYC_CENTER_LAT = 40.706;
+    
+    // Scale factor - larger value = bigger map
+    // We want the map to be about 40-50 units wide in Three.js space
+    const SCALE = 400; // This will make ~0.55 lon range = ~220 units
+
     coordinates.forEach((polygon) => {
       const shape = new THREE.Shape();
       
       polygon.forEach((ring, ringIndex) => {
         ring.forEach((point: any, pointIndex: number) => {
           // Convert longitude/latitude to x/y coordinates
-          // NYC is roughly centered at [-74.0, 40.7]
-          // Scale and center the coordinates
-          const x = (point[0] + 74.0) * 100; // Longitude
-          const y = (point[1] - 40.7) * 100; // Latitude
+          // Center around NYC and scale up for visibility
+          const x = (point[0] - NYC_CENTER_LON) * SCALE;
+          const y = (point[1] - NYC_CENTER_LAT) * SCALE;
 
           if (pointIndex === 0) {
             shape.moveTo(x, y);
@@ -98,15 +105,15 @@ function Scene({ boroughs }: SceneProps) {
   return (
     <>
       {/* Top-down camera view - map is horizontal, boroughs extrude upward */}
-      <PerspectiveCamera makeDefault position={[0, 100, 0]} fov={50} />
+      <PerspectiveCamera makeDefault position={[0, 200, 0]} fov={50} />
       <OrbitControls
         enablePan={true}
         enableZoom={true}
         enableRotate={true}
         enableDamping={true}
         dampingFactor={0.05}
-        minDistance={20}
-        maxDistance={150}
+        minDistance={100}
+        maxDistance={500}
         maxPolarAngle={Math.PI / 2}
         rotateSpeed={0.5}
         zoomSpeed={0.8}
