@@ -6,6 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "fetch-data": "tsx scripts/fetch-budget-data.ts",
     "deploy": "gh-pages -d out"
   },
@@ -42,14 +45,20 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.4",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
     "@types/d3": "^7.4.3",
     "@types/node": "^22.15.29",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.3",
     "@types/three": "^0.183.1",
+    "@vitejs/plugin-react": "^6.0.1",
     "gh-pages": "^6.3.0",
+    "jsdom": "^29.0.0",
     "tailwindcss": "^4.1.4",
     "tsx": "^4.19.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.0"
   }
 }
