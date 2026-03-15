@@ -2,14 +2,14 @@
 
 import dynamic from 'next/dynamic';
 
-// Dynamically import to avoid SSR issues with Three.js
-const BoroughMap3DPremium = dynamic(() => import('@/components/BoroughMap3DPremium'), {
+// Dynamically import the unified 3D component to avoid SSR issues with Three.js
+const BoroughMap3DUnified = dynamic(() => import('@/components/BoroughMap3DUnified'), {
   ssr: false,
   loading: () => (
     <div className="w-full h-screen flex items-center justify-center bg-gradient-to-br from-indigo-950 via-purple-900 to-blue-950">
       <div className="text-center space-y-4">
         <div className="text-4xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-pulse">
-          Loading AAA Experience...
+          Loading NYC 3D Map...
         </div>
       </div>
     </div>
@@ -19,7 +19,11 @@ const BoroughMap3DPremium = dynamic(() => import('@/components/BoroughMap3DPremi
 export default function BoroughMapPremiumPage() {
   return (
     <div className="w-full h-screen">
-      <BoroughMap3DPremium />
+      <BoroughMap3DUnified 
+        showTaxData={true}
+        title="NYC Tax Revenue"
+        description="Interactive 3D visualization of NYC's 5 boroughs showing tax revenue potential and distribution."
+      />
     </div>
   );
 }
