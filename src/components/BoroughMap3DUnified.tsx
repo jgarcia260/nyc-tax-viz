@@ -32,13 +32,31 @@ const BOROUGH_TAX_DATA: Record<string, { revenue: number; billionaireTaxShare: n
   'Staten Island': { revenue: 800000000, billionaireTaxShare: 0.1, corporateTaxShare: 0.07 }
 };
 
-// Premium SimCity-inspired colors
+// Vibrant, high-contrast borough colors
 const BOROUGH_COLORS: Record<string, { base: string; emissive: string; glow: string }> = {
-  'Manhattan': { base: '#FF6B6B', emissive: '#FF3333', glow: '#FF9999' },
-  'Brooklyn': { base: '#4ECDC4', emissive: '#2EAD9D', glow: '#6EDDD4' },
-  'Queens': { base: '#FFE66D', emissive: '#FFD633', glow: '#FFF09D' },
-  'Bronx': { base: '#95E1D3', emissive: '#75C1B3', glow: '#B5F1E3' },
-  'Staten Island': { base: '#C7CEEA', emissive: '#A7AECA', glow: '#E7EEFA' }
+  'Manhattan': { base: '#E63946', emissive: '#C1121F', glow: '#FF6B6B' },
+  'Brooklyn': { base: '#2A9D8F', emissive: '#1A7A6E', glow: '#52C7B8' },
+  'Queens': { base: '#E9C46A', emissive: '#D4A017', glow: '#F4D35E' },
+  'Bronx': { base: '#6A4C93', emissive: '#4A2D73', glow: '#9B72CF' },
+  'Staten Island': { base: '#F77F00', emissive: '#CC6600', glow: '#FFAA44' }
+};
+
+// Distinct extrusion heights per borough for visual differentiation
+const BOROUGH_HEIGHTS: Record<string, number> = {
+  'Manhattan': 6,
+  'Brooklyn': 3.5,
+  'Queens': 2.5,
+  'Bronx': 3,
+  'Staten Island': 2
+};
+
+// Approximate center positions for borough labels (in transformed coordinates)
+const BOROUGH_LABEL_OFFSETS: Record<string, [number, number]> = {
+  'Manhattan': [-1, 4],
+  'Brooklyn': [4, -4],
+  'Queens': [12, 4],
+  'Bronx': [4, 14],
+  'Staten Island': [-12, -10]
 };
 
 // Custom shader for premium visual effects
@@ -261,7 +279,7 @@ function Borough({
     });
 
     const extrudeSettings = {
-      depth: 2,
+      depth: BOROUGH_HEIGHTS[name] || 2,
       bevelEnabled: true,
       bevelThickness: 0.3,
       bevelSize: 0.2,
@@ -309,6 +327,33 @@ function Borough({
           }}
         />
       </mesh>
+
+      {/* Permanent borough label */}
+      <Html
+        position={[
+          BOROUGH_LABEL_OFFSETS[name]?.[0] ?? 0,
+          BOROUGH_LABEL_OFFSETS[name]?.[1] ?? 0,
+          (BOROUGH_HEIGHTS[name] || 2) + 2
+        ]}
+        center
+        distanceFactor={60}
+        style={{ pointerEvents: 'none' }}
+      >
+        <div
+          style={{
+            color: '#1a1a2e',
+            fontSize: '14px',
+            fontWeight: 800,
+            textTransform: 'uppercase',
+            letterSpacing: '1px',
+            textShadow: '0 1px 3px rgba(255,255,255,0.8)',
+            whiteSpace: 'nowrap',
+            userSelect: 'none',
+          }}
+        >
+          {name}
+        </div>
+      </Html>
 
       {/* Sparkles on hover */}
       {isHovered && (
@@ -416,22 +461,21 @@ function Scene({ boroughs, showTaxData = true }: SceneProps) {
         autoRotateSpeed={0.3}
       />
       
-      {/* Premium lighting */}
-      <ambientLight intensity={0.3} />
-      <directionalLight 
-        position={[20, 30, 10]} 
-        intensity={1.5} 
+      {/* Improved lighting for contrast on white background */}
+      <ambientLight intensity={0.5} />
+      <directionalLight
+        position={[20, 30, 10]}
+        intensity={1.8}
         castShadow
         shadow-mapSize-width={2048}
         shadow-mapSize-height={2048}
       />
-      <pointLight position={[-20, 20, -10]} intensity={0.8} color="#4ECDC4" />
-      <pointLight position={[20, 10, 20]} intensity={0.8} color="#FFE66D" />
+      <directionalLight position={[-15, 25, -10]} intensity={0.6} />
       <spotLight
         position={[0, 50, 0]}
         angle={0.6}
         penumbra={1}
-        intensity={1}
+        intensity={1.2}
         castShadow
         color="#ffffff"
       />
@@ -506,10 +550,10 @@ function Scene({ boroughs, showTaxData = true }: SceneProps) {
       {/* Ground plane with grid */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1, 0]} receiveShadow>
         <planeGeometry args={[300, 300]} />
-        <meshStandardMaterial 
-          color="#f0f0f0" 
-          metalness={0.1}
-          roughness={0.8}
+        <meshStandardMaterial
+          color="#e8e8e8"
+          metalness={0.05}
+          roughness={0.9}
         />
       </mesh>
       {/* gridHelper disabled - was causing green horizontal scan lines */}

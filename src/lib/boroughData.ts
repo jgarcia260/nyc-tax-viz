@@ -69,31 +69,31 @@ export const BOROUGH_INFO: Record<string, {
   description: string;
 }> = {
   'Manhattan': {
-    color: '#FF6B6B',
+    color: '#E63946',
     population: 1694251,
     area: 22.83,
     description: 'The economic and cultural heart of NYC'
   },
   'Brooklyn': {
-    color: '#4ECDC4',
+    color: '#2A9D8F',
     population: 2736074,
     area: 69.50,
     description: 'The most populous borough'
   },
   'Queens': {
-    color: '#FFE66D',
+    color: '#E9C46A',
     population: 2405464,
     area: 108.70,
     description: 'The largest and most diverse borough'
   },
   'Bronx': {
-    color: '#95E1D3',
+    color: '#6A4C93',
     population: 1472654,
     area: 42.47,
     description: 'The birthplace of hip-hop'
   },
   'Staten Island': {
-    color: '#C7CEEA',
+    color: '#F77F00',
     population: 495747,
     area: 57.50,
     description: 'The greenest borough'
