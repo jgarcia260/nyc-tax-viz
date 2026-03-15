@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { Citation } from "@/components/ui/Citation";
+import { CompactDataSources } from "@/components/ui/DataSourcesFooter";
 
 interface PolicyData {
   billionaireTax: any;
@@ -140,8 +142,14 @@ export function TaxSlider({ data }: { data: PolicyData }) {
         <div className="space-y-6">
           {/* Slider Label */}
           <div className="text-center">
-            <h2 className={`text-3xl font-bold ${colors.text} transition-colors duration-300`}>
+            <h2 className={`text-3xl font-bold ${colors.text} transition-colors duration-300 inline-flex items-center gap-2`}>
               {currentRevenue.label}
+              <Citation 
+                sourceIds={sliderValue === 0 ? ['forbes-millionaire-tax', 'cityandstate-mamdani'] : 
+                          sliderValue === 2 ? ['nyfocus-corporate', 'nyc-business-tax'] : 
+                          ['forbes-millionaire-tax', 'nyfocus-corporate']} 
+                variant="icon"
+              />
             </h2>
             <p className="text-zinc-400 mt-2">{currentRevenue.description}</p>
           </div>
@@ -252,19 +260,28 @@ export function TaxSlider({ data }: { data: PolicyData }) {
           {/* Revenue Display */}
           <div className="grid md:grid-cols-3 gap-4 mt-6">
             <div className="bg-zinc-800/50 rounded-xl p-4 border border-zinc-700">
-              <p className="text-xs text-zinc-500 uppercase mb-1">Year 1 Revenue</p>
+              <p className="text-xs text-zinc-500 uppercase mb-1 flex items-center gap-1">
+                Year 1 Revenue
+                <Citation sourceIds={['cityandstate-mamdani']} variant="icon" />
+              </p>
               <p className={`text-2xl font-bold ${colors.text} transition-all duration-300`}>
                 {formatCurrency(currentRevenue.year1)}
               </p>
             </div>
             <div className="bg-zinc-800/50 rounded-xl p-4 border border-zinc-700">
-              <p className="text-xs text-zinc-500 uppercase mb-1">5-Year Total</p>
+              <p className="text-xs text-zinc-500 uppercase mb-1 flex items-center gap-1">
+                5-Year Total
+                <Citation sourceIds={['cityandstate-mamdani', 'cbc']} variant="icon" />
+              </p>
               <p className={`text-2xl font-bold ${colors.text} transition-all duration-300`}>
                 {formatCurrency(currentRevenue.total5Year)}
               </p>
             </div>
             <div className="bg-zinc-800/50 rounded-xl p-4 border border-zinc-700">
-              <p className="text-xs text-zinc-500 uppercase mb-1">Flight Risk</p>
+              <p className="text-xs text-zinc-500 uppercase mb-1 flex items-center gap-1">
+                Flight Risk
+                <Citation sourceIds={['thecity-tax-increases', 'forbes-millionaire-tax']} variant="icon" />
+              </p>
               <p className={`text-2xl font-bold transition-all duration-300 ${
                 currentRevenue.flightRisk === "High" ? "text-red-400" :
                 currentRevenue.flightRisk === "Medium" ? "text-yellow-400" :
@@ -289,7 +306,13 @@ export function TaxSlider({ data }: { data: PolicyData }) {
 
       {/* Funded Improvements */}
       <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6">
-        <h2 className="text-2xl font-bold mb-6">What Can Be Funded</h2>
+        <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+          What Can Be Funded
+          <Citation 
+            sourceIds={['nyc-comptroller', 'nyc-opendata', 'cbc', 'transitcenter']} 
+            variant="icon"
+          />
+        </h2>
         <div className="space-y-4">
           {fundableImprovements.map((improvement) => (
             <div
@@ -361,46 +384,16 @@ export function TaxSlider({ data }: { data: PolicyData }) {
       </div>
 
       {/* Data Sources */}
-      <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6">
-        <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-          📚 Data Sources
-          <span className="text-xs text-zinc-500 font-normal">(hover for details)</span>
-        </h3>
-        <div className="grid md:grid-cols-2 gap-3">
-          <div className="group relative">
-            <div className="text-sm text-zinc-400 cursor-help border-b border-dotted border-zinc-600 inline-block">
-              NYC Open Data
-            </div>
-            <div className="invisible group-hover:visible absolute bottom-full left-0 mb-2 w-64 p-3 bg-zinc-800 border border-zinc-700 rounded-lg text-xs text-zinc-300 shadow-xl z-10">
-              Budget data, facilities, and demographic information from NYC's official open data portal
-            </div>
-          </div>
-          <div className="group relative">
-            <div className="text-sm text-zinc-400 cursor-help border-b border-dotted border-zinc-600 inline-block">
-              City & State NY
-            </div>
-            <div className="invisible group-hover:visible absolute bottom-full left-0 mb-2 w-64 p-3 bg-zinc-800 border border-zinc-700 rounded-lg text-xs text-zinc-300 shadow-xl z-10">
-              Policy analysis and revenue projections from City & State New York
-            </div>
-          </div>
-          <div className="group relative">
-            <div className="text-sm text-zinc-400 cursor-help border-b border-dotted border-zinc-600 inline-block">
-              Community Board Surveys
-            </div>
-            <div className="invisible group-hover:visible absolute bottom-full left-0 mb-2 w-64 p-3 bg-zinc-800 border border-zinc-700 rounded-lg text-xs text-zinc-300 shadow-xl z-10">
-              Public priorities from annual Community Board needs statements across all 5 boroughs
-            </div>
-          </div>
-          <div className="group relative">
-            <div className="text-sm text-zinc-400 cursor-help border-b border-dotted border-zinc-600 inline-block">
-              NYC Comptroller Reports
-            </div>
-            <div className="invisible group-hover:visible absolute bottom-full left-0 mb-2 w-64 p-3 bg-zinc-800 border border-zinc-700 rounded-lg text-xs text-zinc-300 shadow-xl z-10">
-              Budget analysis and infrastructure audits from the NYC Comptroller's office
-            </div>
-          </div>
-        </div>
-      </div>
+      <CompactDataSources 
+        sourceIds={[
+          'cityandstate-mamdani',
+          'forbes-millionaire-tax',
+          'nyfocus-corporate',
+          'nyc-opendata',
+          'nyc-comptroller',
+          'cbc'
+        ]} 
+      />
     </div>
   );
 }

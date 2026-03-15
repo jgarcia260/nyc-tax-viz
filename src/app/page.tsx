@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { DataSourcesFooter } from "@/components/ui/DataSourcesFooter";
+import { Citation } from "@/components/ui/Citation";
 
 export default function Home() {
   const visualizations = [
@@ -327,43 +329,68 @@ export default function Home() {
         {/* Research data source */}
         <div className="max-w-4xl mx-auto">
           <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6">
-            <h3 className="text-lg font-semibold mb-3">📚 Research Sources</h3>
+            <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+              📚 Research Sources
+              <Citation sourceIds={['nyc-opendata', 'nyc-comptroller', 'cityandstate-mamdani']} variant="icon" />
+            </h3>
             <p className="text-sm text-zinc-400 mb-4">
-              All visualizations are powered by comprehensive research including:
+              All visualizations are powered by comprehensive research from official government sources, 
+              academic institutions, and independent research organizations. Hover over the 
+              <Citation sourceIds={['nyc-opendata']} variant="icon" /> icons throughout the app to see specific citations.
             </p>
             <ul className="grid md:grid-cols-2 gap-3 text-sm text-zinc-400">
               <li className="flex items-start gap-2">
                 <span className="text-emerald-500 mt-0.5">•</span>
-                NYC Open Data (budget & facilities)
+                <span>
+                  NYC Open Data <Citation sourceIds={['nyc-opendata']} variant="superscript" />
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-emerald-500 mt-0.5">•</span>
-                City & State NY policy analysis
+                <span>
+                  City & State NY <Citation sourceIds={['cityandstate-mamdani']} variant="superscript" />
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-emerald-500 mt-0.5">•</span>
-                Community Board priorities
+                <span>
+                  NYC Comptroller <Citation sourceIds={['nyc-comptroller']} variant="superscript" />
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-emerald-500 mt-0.5">•</span>
-                NYC Comptroller reports
+                <span>
+                  MTA & DOT <Citation sourceIds={['mta', 'nyc-dot']} variant="superscript" />
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-emerald-500 mt-0.5">•</span>
-                MTA & DOT planning data
+                <span>
+                  Academic Research <Citation sourceIds={['nber-billionaire-tax', 'berkeley-ultrarich']} variant="superscript" />
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-emerald-500 mt-0.5">•</span>
-                Public opinion surveys
+                <span>
+                  Independent Analysis <Citation sourceIds={['cbc', 'rpa']} variant="superscript" />
+                </span>
               </li>
             </ul>
           </div>
         </div>
 
+        {/* Data Sources Footer */}
+        <DataSourcesFooter />
+
         {/* Footer */}
-        <footer className="mt-16 pt-8 border-t border-zinc-800 text-center text-sm text-zinc-500">
+        <footer className="mt-8 pt-8 border-t border-zinc-800 text-center text-sm text-zinc-500">
           <p>
             Built with Next.js, React, Recharts, D3.js, and Chart.js • Research completed March 2026
+          </p>
+          <p className="mt-2">
+            <a href="https://github.com/jgarcia260/nyc-tax-viz" className="text-blue-400 hover:underline" target="_blank" rel="noopener">
+              View on GitHub
+            </a>
           </p>
         </footer>
       </div>
