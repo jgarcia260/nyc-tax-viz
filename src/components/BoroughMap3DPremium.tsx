@@ -43,7 +43,7 @@ const BOROUGH_COLORS: Record<string, { base: string; emissive: string; glow: str
 
 interface BoroughProps {
   name: string;
-  coordinates: number[][][];
+  coordinates: number[][][][]; // Array of polygons (MultiPolygon support)
   isHovered: boolean;
   isSelected: boolean;
   onClick: () => void;
@@ -170,23 +170,55 @@ function Borough({ name, coordinates, isHovered, isSelected, onClick, onHover, a
   const geometry = useMemo(() => {
     const shapes: THREE.Shape[] = [];
 
-    coordinates.forEach((polygon) => {
+    // Iterate over all polygons in the MultiPolygon
+    coordinates.forEach((polygon, polyIndex) => {
+      if (!polygon || polygon.length === 0) return;
+      
+      // First ring is the outer boundary
+      const outerRing = polygon[0];
+      if (!outerRing || outerRing.length === 0) return;
+      
       const shape = new THREE.Shape();
       
-      polygon.forEach((ring) => {
-        ring.forEach((point: any, pointIndex: number) => {
+      // Process outer boundary
+      outerRing.forEach((point: any, pointIndex: number) => {
+        if (!point || point.length < 2) return;
+        
+        const x = (point[0] + 74.0) * 100;
+        const y = (point[1] - 40.7) * 100;
+
+        if (pointIndex === 0) {
+          shape.moveTo(x, y);
+        } else {
+          shape.lineTo(x, y);
+        }
+      });
+      
+      // Process holes (inner rings) if they exist
+      for (let ringIdx = 1; ringIdx < polygon.length; ringIdx++) {
+        const holeRing = polygon[ringIdx];
+        if (!holeRing || holeRing.length === 0) continue;
+        
+        const holePath = new THREE.Path();
+        holeRing.forEach((point: any, pointIndex: number) => {
+          if (!point || point.length < 2) return;
+          
           const x = (point[0] + 74.0) * 100;
           const y = (point[1] - 40.7) * 100;
-
+          
           if (pointIndex === 0) {
-            shape.moveTo(x, y);
+            holePath.moveTo(x, y);
           } else {
-            shape.lineTo(x, y);
+            holePath.lineTo(x, y);
           }
         });
-      });
+        
+        shape.holes.push(holePath);
+      }
 
-      shapes.push(shape);
+      if (shape.curves.length > 0) {
+        shapes.push(shape);
+      }
     });
 
     const extrudeSettings = {

@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, PerspectiveCamera, Html } from '@react-three/drei';
+import { OrbitControls, PerspectiveCamera, Environment, Html } from '@react-three/drei';
 import { Suspense, useState, useRef, useMemo, useEffect } from 'react';
 import * as THREE from 'three';
 import { parseBoroughGeoJSON, BOROUGH_INFO, BoroughData } from '@/lib/boroughData';
@@ -17,7 +17,7 @@ const BOROUGH_COLORS: Record<string, string> = {
 
 interface BoroughProps {
   name: string;
-  coordinates: number[][][];
+  coordinates: number[][][][]; // Array of polygons (MultiPolygon support)
   isHovered: boolean;
   isSelected: boolean;
   onClick: () => void;
@@ -29,35 +29,85 @@ function Borough({ name, coordinates, isHovered, isSelected, onClick, onHover }:
 
   // Convert GeoJSON coordinates to Three.js shape
   const geometry = useMemo(() => {
+    if (!coordinates || coordinates.length === 0) {
+      console.error(`[Borough:${name}] No coordinates provided!`);
+      return new THREE.BoxGeometry(1, 1, 1);
+    }
+    
+    console.log(`[Borough:${name}] Creating geometry with ${coordinates.length} polygon(s)`);
     const shapes: THREE.Shape[] = [];
 
-    // NYC center coordinates (from bounding box analysis)
-    const NYC_CENTER_LON = -73.978;
-    const NYC_CENTER_LAT = 40.706;
-    
-    // Scale factor - larger value = bigger map
-    // We want the map to be about 40-50 units wide in Three.js space
-    const SCALE = 400; // This will make ~0.55 lon range = ~220 units
-
-    coordinates.forEach((polygon) => {
+    // Iterate over all polygons in the MultiPolygon
+    coordinates.forEach((polygon, polyIndex) => {
+      if (!polygon || polygon.length === 0) {
+        console.warn(`[Borough:${name}] Empty polygon at index ${polyIndex}`);
+        return;
+      }
+      
+      console.log(`[Borough:${name}] Processing polygon ${polyIndex} with ${polygon.length} ring(s)`);
+      
+      // First ring is the outer boundary
+      const outerRing = polygon[0];
+      if (!outerRing || outerRing.length === 0) {
+        console.warn(`[Borough:${name}] No outer ring in polygon ${polyIndex}`);
+        return;
+      }
+      
+      console.log(`[Borough:${name}] Polygon ${polyIndex} outer ring has ${outerRing.length} points`);
       const shape = new THREE.Shape();
       
-      polygon.forEach((ring, ringIndex) => {
-        ring.forEach((point: any, pointIndex: number) => {
-          // Convert longitude/latitude to x/y coordinates
-          // Center around NYC and scale up for visibility
-          const x = (point[0] - NYC_CENTER_LON) * SCALE;
-          const y = (point[1] - NYC_CENTER_LAT) * SCALE;
+      // Process outer boundary
+      outerRing.forEach((point: any, pointIndex: number) => {
+        if (!point || point.length < 2) {
+          console.warn(`[Borough:${name}] Invalid point at ${polyIndex}.${pointIndex}:`, point);
+          return;
+        }
+        
+        // Convert longitude/latitude to x/y coordinates
+        // NYC is roughly centered at [-74.0, 40.7]
+        // Scale and center the coordinates
+        const x = (point[0] + 74.0) * 100; // Longitude
+        const y = (point[1] - 40.7) * 100; // Latitude
 
+        if (pointIndex === 0) {
+          if (polyIndex === 0) {
+            console.log(`[Borough:${name}] First point: [${point[0]}, ${point[1]}] -> [${x}, ${y}]`);
+          }
+          shape.moveTo(x, y);
+        } else {
+          shape.lineTo(x, y);
+        }
+      });
+      
+      // Process holes (inner rings) if they exist
+      for (let ringIdx = 1; ringIdx < polygon.length; ringIdx++) {
+        const holeRing = polygon[ringIdx];
+        if (!holeRing || holeRing.length === 0) continue;
+        
+        const holePath = new THREE.Path();
+        holeRing.forEach((point: any, pointIndex: number) => {
+          if (!point || point.length < 2) return;
+          
+          const x = (point[0] + 74.0) * 100;
+          const y = (point[1] - 40.7) * 100;
+          
           if (pointIndex === 0) {
-            shape.moveTo(x, y);
+            holePath.moveTo(x, y);
           } else {
-            shape.lineTo(x, y);
+            holePath.lineTo(x, y);
           }
         });
-      });
+        
+        shape.holes.push(holePath);
+        console.log(`[Borough:${name}] Polygon ${polyIndex} added hole ${ringIdx} with ${holeRing.length} points`);
+      }
 
-      shapes.push(shape);
+      if (shape.curves.length > 0) {
+        shapes.push(shape);
+        console.log(`[Borough:${name}] Added shape ${polyIndex} with ${shape.curves.length} curves and ${shape.holes.length} holes`);
+      } else {
+        console.warn(`[Borough:${name}] Polygon ${polyIndex} has no curves, skipping`);
+      }
     });
 
     // Create extruded geometry for 3D effect
@@ -69,7 +119,18 @@ function Borough({ name, coordinates, isHovered, isSelected, onClick, onHover }:
       bevelSegments: 2
     };
 
-    return new THREE.ExtrudeGeometry(shapes, extrudeSettings);
+    if (shapes.length === 0) {
+      console.error(`[Borough:${name}] No shapes created! Cannot create geometry.`);
+      return new THREE.BoxGeometry(1, 1, 1); // Fallback geometry
+    }
+
+    const extrudedGeometry = new THREE.ExtrudeGeometry(shapes, extrudeSettings);
+    console.log(`[Borough:${name}] Created extruded geometry:`, {
+      vertices: extrudedGeometry.attributes.position.count,
+      boundingBox: extrudedGeometry.boundingBox
+    });
+    
+    return extrudedGeometry;
   }, [coordinates, isHovered, isSelected]);
 
   const color = BOROUGH_COLORS[name] || '#FFFFFF';
@@ -105,15 +166,15 @@ function Scene({ boroughs }: SceneProps) {
   return (
     <>
       {/* Top-down camera view - map is horizontal, boroughs extrude upward */}
-      <PerspectiveCamera makeDefault position={[0, 200, 0]} fov={50} />
+      <PerspectiveCamera makeDefault position={[0, 100, 0]} fov={50} />
       <OrbitControls
         enablePan={true}
         enableZoom={true}
         enableRotate={true}
         enableDamping={true}
         dampingFactor={0.05}
-        minDistance={100}
-        maxDistance={500}
+        minDistance={20}
+        maxDistance={150}
         maxPolarAngle={Math.PI / 2}
         rotateSpeed={0.5}
         zoomSpeed={0.8}
@@ -121,11 +182,11 @@ function Scene({ boroughs }: SceneProps) {
         target={[0, 0, 0]}
       />
       
-      {/* Clean, bright lighting for professional aesthetic */}
-      <ambientLight intensity={0.8} />
-      <directionalLight position={[10, 10, 5]} intensity={1.2} castShadow />
-      <directionalLight position={[-10, 10, -5]} intensity={0.6} />
-      <hemisphereLight intensity={0.5} groundColor="#ffffff" />
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[10, 10, 5]} intensity={1} castShadow />
+      <pointLight position={[-10, -10, -5]} intensity={0.5} />
+      
+      <Environment preset="city" />
       
       {boroughs.map((borough) => (
         <Borough
@@ -159,10 +220,10 @@ function Scene({ boroughs }: SceneProps) {
         </Html>
       )}
 
-      {/* Clean white ground plane */}
+      {/* Ground plane */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
         <planeGeometry args={[200, 200]} />
-        <meshStandardMaterial color="#ffffff" roughness={0.9} metalness={0.0} />
+        <meshStandardMaterial color="#1a1a2e" />
       </mesh>
     </>
   );
@@ -176,15 +237,40 @@ export default function BoroughMap3D() {
   useEffect(() => {
     async function loadBoroughData() {
       try {
+        console.log('[BoroughMap3D] Starting to load borough data...');
         const response = await fetch('/borough-boundaries.geojson');
+        console.log('[BoroughMap3D] Fetch response:', response.status, response.statusText);
+        
         if (!response.ok) {
-          throw new Error('Failed to load borough data');
+          throw new Error(`Failed to load borough data: ${response.status} ${response.statusText}`);
         }
+        
         const geojson = await response.json();
+        console.log('[BoroughMap3D] GeoJSON loaded:', {
+          type: geojson.type,
+          featuresCount: geojson.features?.length,
+          features: geojson.features?.map((f: any) => ({
+            name: f.properties?.BoroName,
+            geometryType: f.geometry?.type,
+            coordinatesLength: f.geometry?.coordinates?.length
+          }))
+        });
+        
         const parsed = parseBoroughGeoJSON(geojson);
+        console.log('[BoroughMap3D] Parsed boroughs:', parsed.map(b => ({
+          name: b.name,
+          coordinatesLength: b.coordinates?.length,
+          firstRingPoints: b.coordinates?.[0]?.length
+        })));
+        
+        if (parsed.length === 0) {
+          throw new Error('No borough data parsed from GeoJSON');
+        }
+        
         setBoroughs(parsed);
         setLoading(false);
       } catch (err) {
+        console.error('[BoroughMap3D] Error loading borough data:', err);
         setError(err instanceof Error ? err.message : 'Unknown error');
         setLoading(false);
       }
@@ -195,22 +281,22 @@ export default function BoroughMap3D() {
 
   if (loading) {
     return (
-      <div className="w-full h-full flex items-center justify-center bg-white">
-        <div className="text-gray-800 text-2xl">Loading NYC Boroughs...</div>
+      <div className="w-full h-full flex items-center justify-center bg-gradient-to-b from-blue-900 to-blue-700">
+        <div className="text-white text-2xl">Loading NYC Boroughs...</div>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="w-full h-full flex items-center justify-center bg-white">
-        <div className="text-red-600 text-2xl">Error: {error}</div>
+      <div className="w-full h-full flex items-center justify-center bg-gradient-to-b from-blue-900 to-blue-700">
+        <div className="text-red-500 text-2xl">Error: {error}</div>
       </div>
     );
   }
 
   return (
-    <div className="w-full h-full bg-white relative">
+    <div className="w-full h-full bg-gradient-to-b from-blue-900 via-purple-800 to-indigo-900 relative">
       {/* Info Panel */}
       <div className="absolute top-4 left-4 z-10 bg-white/95 backdrop-blur-md p-4 md:p-6 rounded-2xl shadow-2xl max-w-md border-2 border-white/20">
         <h1 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
