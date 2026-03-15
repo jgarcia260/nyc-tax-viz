@@ -13,6 +13,8 @@ import {
   LineChart,
   Line,
 } from "recharts";
+import { Citation } from "@/components/ui/Citation";
+import { CompactDataSources } from "@/components/ui/DataSourcesFooter";
 
 interface PolicyData {
   billionaireTax: any;
@@ -306,6 +308,19 @@ export function PolicyDashboard({ data }: { data: PolicyData }) {
           ))}
         </div>
       </div>
+
+      {/* Data Sources */}
+      <CompactDataSources 
+        sourceIds={[
+          'cityandstate-mamdani',
+          'forbes-millionaire-tax',
+          'nyfocus-corporate',
+          'nyc-business-tax',
+          'nyc-comptroller',
+          'cbc',
+          'rpa'
+        ]} 
+      />
     </div>
   );
 }
