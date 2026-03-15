@@ -43,6 +43,39 @@ export default function Home() {
     },
   ];
 
+  const vizTools = [
+    {
+      title: "Recharts",
+      href: "/viz/recharts",
+      description: "React-native charting library with declarative API",
+      icon: "📈",
+      color: "indigo",
+      pros: ["React-friendly", "Declarative", "Good docs"],
+      cons: ["Limited types", "Less flexible"],
+      bestFor: "React projects, standard charts"
+    },
+    {
+      title: "D3.js Sankey",
+      href: "/viz/d3-sankey",
+      description: "Custom flow visualization showing money movement",
+      icon: "🌊",
+      color: "purple",
+      pros: ["Highly customizable", "Publication-quality", "Flow viz"],
+      cons: ["Steep curve", "More code"],
+      bestFor: "Complex flows, custom interactions"
+    },
+    {
+      title: "Chart.js",
+      href: "/viz/chartjs",
+      description: "Simple, flexible canvas-based charting",
+      icon: "📊",
+      color: "blue",
+      pros: ["Very easy", "Fast setup", "Good performance"],
+      cons: ["Limited to standard", "Canvas-based"],
+      bestFor: "Quick dashboards, simple viz"
+    },
+  ];
+
   return (
     <main className="min-h-screen p-6 md:p-12">
       <div className="max-w-7xl mx-auto">
@@ -53,7 +86,7 @@ export default function Home() {
           </h1>
           <p className="text-xl text-zinc-400 max-w-3xl mx-auto">
             Explore different ways to visualize how NYC tax dollars can fund improvements.
-            Three interactive approaches, powered by real research data.
+            Compare visualization approaches AND tools, powered by real research data.
           </p>
         </header>
 
@@ -76,11 +109,14 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Visualization options */}
+        {/* Visualization APPROACHES */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">
-            Choose a Visualization Approach
+          <h2 className="text-3xl font-bold mb-3 text-center">
+            Visualization Approaches
           </h2>
+          <p className="text-center text-zinc-400 mb-8 max-w-2xl mx-auto">
+            Different ways to <span className="text-white font-semibold">present the story</span> — policy comparison, geographic impact, or money flow.
+          </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {visualizations.map((viz) => (
               <Link
@@ -116,10 +152,69 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Visualization TOOLS */}
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold mb-3 text-center">
+            Compare Visualization Tools
+          </h2>
+          <p className="text-center text-zinc-400 mb-8 max-w-2xl mx-auto">
+            Same data, different <span className="text-white font-semibold">charting libraries</span> — see which tool best fits your needs.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            {vizTools.map((tool) => (
+              <Link
+                key={tool.href}
+                href={tool.href}
+                className={`group rounded-2xl border-2 p-6 transition-all hover:scale-105 ${
+                  tool.color === "indigo"
+                    ? "border-indigo-500/30 hover:border-indigo-500 hover:shadow-xl hover:shadow-indigo-500/20"
+                    : tool.color === "purple"
+                    ? "border-purple-500/30 hover:border-purple-500 hover:shadow-xl hover:shadow-purple-500/20"
+                    : "border-blue-500/30 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/20"
+                } bg-zinc-900/50 hover:bg-zinc-900`}
+              >
+                <div className="mb-4 text-4xl">{tool.icon}</div>
+                <h3 className="text-xl font-bold mb-2 group-hover:text-white transition-colors">
+                  {tool.title}
+                </h3>
+                <p className="text-sm text-zinc-400 mb-4">{tool.description}</p>
+                
+                <div className="space-y-3 mb-4">
+                  <div>
+                    <p className="text-xs text-emerald-400 font-semibold mb-1">✓ Pros</p>
+                    <ul className="space-y-1">
+                      {tool.pros.map((pro, i) => (
+                        <li key={i} className="text-xs text-zinc-500">• {pro}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="text-xs text-red-400 font-semibold mb-1">✗ Cons</p>
+                    <ul className="space-y-1">
+                      {tool.cons.map((con, i) => (
+                        <li key={i} className="text-xs text-zinc-500">• {con}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="text-xs text-zinc-500 mb-4">
+                  <span className="font-semibold text-zinc-400">Best for:</span> {tool.bestFor}
+                </div>
+
+                <div className="flex items-center gap-2 text-sm font-medium group-hover:text-white transition-colors">
+                  See examples
+                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
         {/* Comparison table */}
         <div className="mb-16">
           <h2 className="text-3xl font-bold mb-8 text-center">
-            Visualization Comparison
+            Approach Comparison
           </h2>
           <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 overflow-hidden">
             <table className="w-full">
@@ -226,7 +321,7 @@ export default function Home() {
         {/* Footer */}
         <footer className="mt-16 pt-8 border-t border-zinc-800 text-center text-sm text-zinc-500">
           <p>
-            Built with Next.js, React, and Recharts • Research completed March 2026
+            Built with Next.js, React, Recharts, D3.js, and Chart.js • Research completed March 2026
           </p>
         </footer>
       </div>
