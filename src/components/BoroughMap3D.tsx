@@ -17,7 +17,7 @@ const BOROUGH_COLORS: Record<string, string> = {
 
 interface BoroughProps {
   name: string;
-  coordinates: number[][][];
+  coordinates: number[][][][]; // Array of polygons (MultiPolygon support)
   isHovered: boolean;
   isSelected: boolean;
   onClick: () => void;
@@ -29,28 +29,85 @@ function Borough({ name, coordinates, isHovered, isSelected, onClick, onHover }:
 
   // Convert GeoJSON coordinates to Three.js shape
   const geometry = useMemo(() => {
+    if (!coordinates || coordinates.length === 0) {
+      console.error(`[Borough:${name}] No coordinates provided!`);
+      return new THREE.BoxGeometry(1, 1, 1);
+    }
+    
+    console.log(`[Borough:${name}] Creating geometry with ${coordinates.length} polygon(s)`);
     const shapes: THREE.Shape[] = [];
 
-    coordinates.forEach((polygon) => {
+    // Iterate over all polygons in the MultiPolygon
+    coordinates.forEach((polygon, polyIndex) => {
+      if (!polygon || polygon.length === 0) {
+        console.warn(`[Borough:${name}] Empty polygon at index ${polyIndex}`);
+        return;
+      }
+      
+      console.log(`[Borough:${name}] Processing polygon ${polyIndex} with ${polygon.length} ring(s)`);
+      
+      // First ring is the outer boundary
+      const outerRing = polygon[0];
+      if (!outerRing || outerRing.length === 0) {
+        console.warn(`[Borough:${name}] No outer ring in polygon ${polyIndex}`);
+        return;
+      }
+      
+      console.log(`[Borough:${name}] Polygon ${polyIndex} outer ring has ${outerRing.length} points`);
       const shape = new THREE.Shape();
       
-      polygon.forEach((ring, ringIndex) => {
-        ring.forEach((point: any, pointIndex: number) => {
-          // Convert longitude/latitude to x/y coordinates
-          // NYC is roughly centered at [-74.0, 40.7]
-          // Scale and center the coordinates
-          const x = (point[0] + 74.0) * 100; // Longitude
-          const y = (point[1] - 40.7) * 100; // Latitude
+      // Process outer boundary
+      outerRing.forEach((point: any, pointIndex: number) => {
+        if (!point || point.length < 2) {
+          console.warn(`[Borough:${name}] Invalid point at ${polyIndex}.${pointIndex}:`, point);
+          return;
+        }
+        
+        // Convert longitude/latitude to x/y coordinates
+        // NYC is roughly centered at [-74.0, 40.7]
+        // Scale and center the coordinates
+        const x = (point[0] + 74.0) * 100; // Longitude
+        const y = (point[1] - 40.7) * 100; // Latitude
 
+        if (pointIndex === 0) {
+          if (polyIndex === 0) {
+            console.log(`[Borough:${name}] First point: [${point[0]}, ${point[1]}] -> [${x}, ${y}]`);
+          }
+          shape.moveTo(x, y);
+        } else {
+          shape.lineTo(x, y);
+        }
+      });
+      
+      // Process holes (inner rings) if they exist
+      for (let ringIdx = 1; ringIdx < polygon.length; ringIdx++) {
+        const holeRing = polygon[ringIdx];
+        if (!holeRing || holeRing.length === 0) continue;
+        
+        const holePath = new THREE.Path();
+        holeRing.forEach((point: any, pointIndex: number) => {
+          if (!point || point.length < 2) return;
+          
+          const x = (point[0] + 74.0) * 100;
+          const y = (point[1] - 40.7) * 100;
+          
           if (pointIndex === 0) {
-            shape.moveTo(x, y);
+            holePath.moveTo(x, y);
           } else {
-            shape.lineTo(x, y);
+            holePath.lineTo(x, y);
           }
         });
-      });
+        
+        shape.holes.push(holePath);
+        console.log(`[Borough:${name}] Polygon ${polyIndex} added hole ${ringIdx} with ${holeRing.length} points`);
+      }
 
-      shapes.push(shape);
+      if (shape.curves.length > 0) {
+        shapes.push(shape);
+        console.log(`[Borough:${name}] Added shape ${polyIndex} with ${shape.curves.length} curves and ${shape.holes.length} holes`);
+      } else {
+        console.warn(`[Borough:${name}] Polygon ${polyIndex} has no curves, skipping`);
+      }
     });
 
     // Create extruded geometry for 3D effect
@@ -62,7 +119,18 @@ function Borough({ name, coordinates, isHovered, isSelected, onClick, onHover }:
       bevelSegments: 2
     };
 
-    return new THREE.ExtrudeGeometry(shapes, extrudeSettings);
+    if (shapes.length === 0) {
+      console.error(`[Borough:${name}] No shapes created! Cannot create geometry.`);
+      return new THREE.BoxGeometry(1, 1, 1); // Fallback geometry
+    }
+
+    const extrudedGeometry = new THREE.ExtrudeGeometry(shapes, extrudeSettings);
+    console.log(`[Borough:${name}] Created extruded geometry:`, {
+      vertices: extrudedGeometry.attributes.position.count,
+      boundingBox: extrudedGeometry.boundingBox
+    });
+    
+    return extrudedGeometry;
   }, [coordinates, isHovered, isSelected]);
 
   const color = BOROUGH_COLORS[name] || '#FFFFFF';
@@ -167,15 +235,40 @@ export default function BoroughMap3D() {
   useEffect(() => {
     async function loadBoroughData() {
       try {
+        console.log('[BoroughMap3D] Starting to load borough data...');
         const response = await fetch('/borough-boundaries.geojson');
+        console.log('[BoroughMap3D] Fetch response:', response.status, response.statusText);
+        
         if (!response.ok) {
-          throw new Error('Failed to load borough data');
+          throw new Error(`Failed to load borough data: ${response.status} ${response.statusText}`);
         }
+        
         const geojson = await response.json();
+        console.log('[BoroughMap3D] GeoJSON loaded:', {
+          type: geojson.type,
+          featuresCount: geojson.features?.length,
+          features: geojson.features?.map((f: any) => ({
+            name: f.properties?.BoroName,
+            geometryType: f.geometry?.type,
+            coordinatesLength: f.geometry?.coordinates?.length
+          }))
+        });
+        
         const parsed = parseBoroughGeoJSON(geojson);
+        console.log('[BoroughMap3D] Parsed boroughs:', parsed.map(b => ({
+          name: b.name,
+          coordinatesLength: b.coordinates?.length,
+          firstRingPoints: b.coordinates?.[0]?.length
+        })));
+        
+        if (parsed.length === 0) {
+          throw new Error('No borough data parsed from GeoJSON');
+        }
+        
         setBoroughs(parsed);
         setLoading(false);
       } catch (err) {
+        console.error('[BoroughMap3D] Error loading borough data:', err);
         setError(err instanceof Error ? err.message : 'Unknown error');
         setLoading(false);
       }
