@@ -165,7 +165,8 @@ function Scene({ boroughs }: SceneProps) {
 
   return (
     <>
-      <PerspectiveCamera makeDefault position={[0, 50, 50]} fov={50} />
+      {/* Top-down camera view - map is horizontal, boroughs extrude upward */}
+      <PerspectiveCamera makeDefault position={[0, 100, 0]} fov={50} />
       <OrbitControls
         enablePan={true}
         enableZoom={true}
@@ -178,6 +179,7 @@ function Scene({ boroughs }: SceneProps) {
         rotateSpeed={0.5}
         zoomSpeed={0.8}
         panSpeed={0.5}
+        target={[0, 0, 0]}
       />
       
       <ambientLight intensity={0.5} />
