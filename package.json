@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "fetch-data": "tsx scripts/fetch-budget-data.ts",
-    "deploy": "gh-pages -d out -t true"
+    "deploy": "gh-pages -d out"
   },
   "dependencies": {
     "@types/d3-sankey": "^0.12.5",
