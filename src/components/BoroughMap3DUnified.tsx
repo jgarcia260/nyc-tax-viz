@@ -395,16 +395,20 @@ function Scene({ boroughs, showTaxData = true }: SceneProps) {
 
   return (
     <>
-      <PerspectiveCamera makeDefault position={[0, 60, 80]} fov={50} />
+      {/* White background */}
+      <color attach="background" args={['#ffffff']} />
+      
+      <PerspectiveCamera makeDefault position={[0, 80, 120]} fov={60} />
       <OrbitControls
         enablePan={true}
         enableZoom={true}
         enableRotate={true}
         enableDamping={true}
         dampingFactor={0.05}
-        minDistance={30}
-        maxDistance={200}
-        maxPolarAngle={Math.PI / 2.2}
+        minDistance={40}
+        maxDistance={300}
+        maxPolarAngle={Math.PI}
+        minPolarAngle={0}
         rotateSpeed={0.5}
         zoomSpeed={0.8}
         panSpeed={0.5}
@@ -432,10 +436,7 @@ function Scene({ boroughs, showTaxData = true }: SceneProps) {
         color="#ffffff"
       />
       
-      <Environment preset="night" />
-      <Stars radius={300} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
-      
-      <AtmosphericParticles />
+      <Environment preset="city" />
       
       {/* Boroughs with staggered animation */}
       {boroughs.map((borough, index) => (
@@ -506,9 +507,9 @@ function Scene({ boroughs, showTaxData = true }: SceneProps) {
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1, 0]} receiveShadow>
         <planeGeometry args={[300, 300]} />
         <meshStandardMaterial 
-          color="#0a0a1e" 
-          metalness={0.9}
-          roughness={0.1}
+          color="#f0f0f0" 
+          metalness={0.1}
+          roughness={0.8}
         />
       </mesh>
       {/* gridHelper disabled - was causing green horizontal scan lines */}
@@ -637,12 +638,7 @@ export default function BoroughMap3DUnified({
   }
 
   return (
-    <div className="w-full h-full bg-gradient-to-br from-indigo-950 via-purple-900 to-blue-950 relative overflow-hidden">
-      {/* Animated background */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-      </div>
+    <div className="w-full h-full bg-white relative overflow-hidden">
 
       {/* UI Panel */}
       <div className="absolute top-6 left-6 z-10 space-y-4 max-w-md">
