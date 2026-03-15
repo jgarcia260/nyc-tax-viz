@@ -161,7 +161,7 @@ function Scene({ boroughs }: SceneProps) {
 
       {/* Clean white ground plane */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
-        <planeGeometry args={[200, 200]} />
+        <planeGeometry args={[800, 800]} />
         <meshStandardMaterial color="#ffffff" roughness={0.9} metalness={0.0} />
       </mesh>
     </>
