@@ -37,6 +37,13 @@ function Borough({ name, coordinates, isHovered, isSelected, onClick, onHover }:
     console.log(`[Borough:${name}] Creating geometry with ${coordinates.length} polygon(s)`);
     const shapes: THREE.Shape[] = [];
 
+    // NYC center coordinates (from bounding box analysis)
+    const NYC_CENTER_LON = -73.978;
+    const NYC_CENTER_LAT = 40.706;
+    
+    // Scale factor - larger value = bigger map
+    const SCALE = 400; // Makes ~0.55 lon range = ~220 units for better separation
+
     // Iterate over all polygons in the MultiPolygon
     coordinates.forEach((polygon, polyIndex) => {
       if (!polygon || polygon.length === 0) {
@@ -64,10 +71,9 @@ function Borough({ name, coordinates, isHovered, isSelected, onClick, onHover }:
         }
         
         // Convert longitude/latitude to x/y coordinates
-        // NYC is roughly centered at [-74.0, 40.7]
-        // Scale and center the coordinates
-        const x = (point[0] + 74.0) * 100; // Longitude
-        const y = (point[1] - 40.7) * 100; // Latitude
+        // Center around NYC's actual geographic center and scale for visibility
+        const x = (point[0] - NYC_CENTER_LON) * SCALE;
+        const y = (point[1] - NYC_CENTER_LAT) * SCALE;
 
         if (pointIndex === 0) {
           if (polyIndex === 0) {
@@ -88,8 +94,8 @@ function Borough({ name, coordinates, isHovered, isSelected, onClick, onHover }:
         holeRing.forEach((point: any, pointIndex: number) => {
           if (!point || point.length < 2) return;
           
-          const x = (point[0] + 74.0) * 100;
-          const y = (point[1] - 40.7) * 100;
+          const x = (point[0] - NYC_CENTER_LON) * SCALE;
+          const y = (point[1] - NYC_CENTER_LAT) * SCALE;
           
           if (pointIndex === 0) {
             holePath.moveTo(x, y);
@@ -166,15 +172,15 @@ function Scene({ boroughs }: SceneProps) {
   return (
     <>
       {/* Top-down camera view - map is horizontal, boroughs extrude upward */}
-      <PerspectiveCamera makeDefault position={[0, 100, 0]} fov={50} />
+      <PerspectiveCamera makeDefault position={[0, 250, 0]} fov={50} />
       <OrbitControls
         enablePan={true}
         enableZoom={true}
         enableRotate={true}
         enableDamping={true}
         dampingFactor={0.05}
-        minDistance={20}
-        maxDistance={150}
+        minDistance={100}
+        maxDistance={600}
         maxPolarAngle={Math.PI / 2}
         rotateSpeed={0.5}
         zoomSpeed={0.8}
@@ -222,7 +228,7 @@ function Scene({ boroughs }: SceneProps) {
 
       {/* Ground plane */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
-        <planeGeometry args={[200, 200]} />
+        <planeGeometry args={[800, 800]} />
         <meshStandardMaterial color="#1a1a2e" />
       </mesh>
     </>
