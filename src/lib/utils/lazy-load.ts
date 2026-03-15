@@ -4,7 +4,7 @@
  */
 
 import dynamic from 'next/dynamic';
-import { ComponentType } from 'react';
+import { ComponentType, ReactElement } from 'react';
 
 /**
  * Create a lazily loaded component with custom loading state
@@ -12,7 +12,7 @@ import { ComponentType } from 'react';
 export function lazyLoad<T extends ComponentType<any>>(
   importFn: () => Promise<{ default: T }>,
   options?: {
-    loading?: ComponentType;
+    loading?: () => ReactElement;
     ssr?: boolean;
   }
 ) {
@@ -41,7 +41,7 @@ export function lazyLoadWithRetry<T extends ComponentType<any>>(
 ) {
   return lazyLoad(
     () =>
-      new Promise((resolve, reject) => {
+      new Promise<{ default: T }>((resolve, reject) => {
         const attemptLoad = async (attemptsLeft: number) => {
           try {
             const module = await importFn();
