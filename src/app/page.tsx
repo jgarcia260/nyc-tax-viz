@@ -42,7 +42,7 @@ export default function Home() {
       icon: "🗺️",
     },
     {
-      title: "3D Borough Map (NEW!)",
+      title: "3D Borough Map",
       href: "/borough-map-3d",
       description: "Interactive 3D visualization of NYC boroughs with SimCity-style aesthetics",
       features: [
@@ -53,6 +53,20 @@ export default function Home() {
       ],
       color: "cyan",
       icon: "🏙️",
+    },
+    {
+      title: "3D Borough Map - PREMIUM ⭐",
+      href: "/borough-map-premium",
+      description: "AAA game-quality 3D visualization with advanced effects",
+      features: [
+        "✨ Bloom, DOF, SSAO post-processing",
+        "🎨 Custom WebGL shaders",
+        "🎬 GSAP cinematic animations",
+        "🌟 Particle systems & atmospherics",
+        "⚙️ Leva debug controls"
+      ],
+      color: "pink",
+      icon: "🎮",
     },
     {
       title: "Tax Revenue Flow",

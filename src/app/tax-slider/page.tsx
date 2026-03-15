@@ -1,21 +1,54 @@
+"use client";
+
+import { useState } from "react";
 import { TaxSlider } from "@/components/TaxSlider";
+import { TaxSliderPremium } from "@/components/TaxSliderPremium";
 import Link from "next/link";
 import taxPoliciesData from "../../../data/tax-policies.json";
 
 export default function TaxSliderPage() {
+  const [isPremium, setIsPremium] = useState(true);
+
   return (
     <main className="min-h-screen p-6 md:p-12">
       <div className="max-w-6xl mx-auto">
-        {/* Back button */}
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-zinc-400 hover:text-white mb-8 transition-colors"
-        >
-          ← Back to home
-        </Link>
+        {/* Back button + Premium toggle */}
+        <div className="flex items-center justify-between mb-8">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors"
+          >
+            ← Back to home
+          </Link>
+          
+          <div className="flex items-center gap-3">
+            <span className="text-sm text-zinc-400">
+              {isPremium ? "✨ Premium" : "Basic"}
+            </span>
+            <button
+              onClick={() => setIsPremium(!isPremium)}
+              className={`
+                relative inline-flex h-6 w-11 items-center rounded-full
+                transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-zinc-900
+                ${isPremium ? "bg-gradient-to-r from-purple-600 to-blue-600" : "bg-zinc-700"}
+              `}
+            >
+              <span
+                className={`
+                  inline-block h-4 w-4 transform rounded-full bg-white transition-transform
+                  ${isPremium ? "translate-x-6" : "translate-x-1"}
+                `}
+              />
+            </button>
+          </div>
+        </div>
 
         {/* Tax Slider Component */}
-        <TaxSlider data={taxPoliciesData} />
+        {isPremium ? (
+          <TaxSliderPremium data={taxPoliciesData} />
+        ) : (
+          <TaxSlider data={taxPoliciesData} />
+        )}
 
         {/* Additional Context */}
         <div className="mt-12 rounded-xl border border-zinc-800 bg-zinc-900/50 p-6">
