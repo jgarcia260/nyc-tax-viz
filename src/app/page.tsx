@@ -3,6 +3,19 @@ import Link from "next/link";
 export default function Home() {
   const visualizations = [
     {
+      title: "Interactive Tax Slider",
+      href: "/tax-slider",
+      description: "Adjust tax policy in real-time and see what can be funded",
+      features: [
+        "Real-time revenue calculations",
+        "Billionaire / Hybrid / Corporate slider",
+        "Funding coverage for each priority",
+        "Mobile-friendly controls"
+      ],
+      color: "emerald",
+      icon: "🎚️",
+    },
+    {
       title: "Policy Comparison Dashboard",
       href: "/policy-comparison",
       description: "Side-by-side comparison of billionaire tax vs. corporate tax reform",
@@ -27,6 +40,19 @@ export default function Home() {
       ],
       color: "purple",
       icon: "🗺️",
+    },
+    {
+      title: "3D Borough Map (NEW!)",
+      href: "/borough-map-3d",
+      description: "Interactive 3D visualization of NYC boroughs with SimCity-style aesthetics",
+      features: [
+        "360° camera controls (rotate, pan, zoom)",
+        "Clickable 3D borough geometries",
+        "Hover highlights",
+        "Mobile-responsive touch controls"
+      ],
+      color: "cyan",
+      icon: "🏙️",
     },
     {
       title: "Tax Revenue Flow",
@@ -123,7 +149,9 @@ export default function Home() {
                 key={viz.href}
                 href={viz.href}
                 className={`group rounded-2xl border-2 p-6 transition-all hover:scale-105 ${
-                  viz.color === "indigo"
+                  viz.color === "emerald"
+                    ? "border-emerald-500/30 hover:border-emerald-500 hover:shadow-xl hover:shadow-emerald-500/20"
+                    : viz.color === "indigo"
                     ? "border-indigo-500/30 hover:border-indigo-500 hover:shadow-xl hover:shadow-indigo-500/20"
                     : viz.color === "purple"
                     ? "border-purple-500/30 hover:border-purple-500 hover:shadow-xl hover:shadow-purple-500/20"
