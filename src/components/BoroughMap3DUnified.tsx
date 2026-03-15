@@ -90,9 +90,9 @@ const fragmentShader = `
     color += emissiveColor * hover * 0.3;
     color += emissiveColor * selected * pulse * 0.2;
     
-    // Scanline effect
-    float scanline = sin(vUv.y * 50.0 + time * 5.0) * 0.05 + 0.95;
-    color *= scanline;
+    // Scanline effect - DISABLED (was causing green scan lines)
+    // float scanline = sin(vUv.y * 50.0 + time * 5.0) * 0.05 + 0.95;
+    // color *= scanline;
     
     gl_FragColor = vec4(color, 1.0);
   }
@@ -513,8 +513,8 @@ function Scene({ boroughs, showTaxData = true }: SceneProps) {
       </mesh>
       <gridHelper args={[300, 30, '#4ECDC4', '#2EAD9D']} position={[0, -0.9, 0]} />
 
-      {/* Post-processing */}
-      <EffectComposer>
+      {/* Post-processing - DISABLED TO FIX RENDERING */}
+      {/* <EffectComposer>
         <Bloom 
           intensity={2.0} 
           luminanceThreshold={0.2}
@@ -534,7 +534,7 @@ function Scene({ boroughs, showTaxData = true }: SceneProps) {
         <ChromaticAberration offset={[0.001, 0.001]} />
         <Vignette eskil={false} offset={0.1} darkness={0.5} />
         <ToneMapping />
-      </EffectComposer>
+      </EffectComposer> */}
     </>
   );
 }
@@ -711,7 +711,7 @@ export default function BoroughMap3DUnified({
 
       {/* Feature badges */}
       <div className="absolute top-6 right-6 z-10 flex flex-col gap-2">
-        {['Bloom', 'DOF', 'SSAO', 'Shaders', 'GSAP'].map((effect) => (
+        {['3D Boroughs', 'Interactive', 'GSAP'].map((effect) => (
           <div 
             key={effect}
             className="bg-gradient-to-r from-purple-500/30 to-blue-500/30 backdrop-blur-xl px-5 py-2 rounded-full border-2 border-white/30 text-white text-sm font-bold shadow-lg drop-shadow-lg"
