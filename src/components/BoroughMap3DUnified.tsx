@@ -41,6 +41,9 @@ function projectCoordinate(lat: number, lng: number): { x: number; y: number } {
 }
 
 // Building density configuration per borough
+// FIX: Scale up buildings 3x to be visible from camera distance (camera at ~100 units, map spans ~200 units)
+const BUILDING_SCALE_MULTIPLIER = 3;
+
 const BOROUGH_BUILDING_CONFIG: Record<string, {
   count: number;
   minHeight: number;
@@ -49,11 +52,11 @@ const BOROUGH_BUILDING_CONFIG: Record<string, {
   maxWidth: number;
   clusterFactor: number;
 }> = {
-  'Manhattan':      { count: 220, minHeight: 4,   maxHeight: 28,  minWidth: 0.25, maxWidth: 0.7, clusterFactor: 0.7 },
-  'Brooklyn':       { count: 150, minHeight: 1,   maxHeight: 8,   minWidth: 0.25, maxWidth: 0.6, clusterFactor: 0.4 },
-  'Queens':         { count: 100, minHeight: 0.5, maxHeight: 4,   minWidth: 0.25, maxWidth: 0.5, clusterFactor: 0.2 },
-  'Bronx':          { count: 110, minHeight: 1,   maxHeight: 6,   minWidth: 0.25, maxWidth: 0.55, clusterFactor: 0.3 },
-  'Staten Island':  { count: 50,  minHeight: 0.3, maxHeight: 2.5, minWidth: 0.25, maxWidth: 0.45, clusterFactor: 0.1 },
+  'Manhattan':      { count: 220, minHeight: 4 * BUILDING_SCALE_MULTIPLIER,   maxHeight: 28 * BUILDING_SCALE_MULTIPLIER,  minWidth: 0.25 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.7 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.7 },
+  'Brooklyn':       { count: 150, minHeight: 1 * BUILDING_SCALE_MULTIPLIER,   maxHeight: 8 * BUILDING_SCALE_MULTIPLIER,   minWidth: 0.25 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.6 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.4 },
+  'Queens':         { count: 100, minHeight: 0.5 * BUILDING_SCALE_MULTIPLIER, maxHeight: 4 * BUILDING_SCALE_MULTIPLIER,   minWidth: 0.25 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.5 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.2 },
+  'Bronx':          { count: 110, minHeight: 1 * BUILDING_SCALE_MULTIPLIER,   maxHeight: 6 * BUILDING_SCALE_MULTIPLIER,   minWidth: 0.25 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.55 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.3 },
+  'Staten Island':  { count: 50,  minHeight: 0.3 * BUILDING_SCALE_MULTIPLIER, maxHeight: 2.5 * BUILDING_SCALE_MULTIPLIER, minWidth: 0.25 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.45 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.1 },
 };
 
 // Seeded random for deterministic building placement
@@ -161,14 +164,14 @@ const BOROUGH_TAX_DATA: Record<string, { revenue: number; billionaireTaxShare: n
   'Staten Island': { revenue: 800000000, billionaireTaxShare: 0.1, corporateTaxShare: 0.07 }
 };
 
-// Professional sequential Blues palette - darker shades = higher tax revenue potential
-// Based on economic activity and median income per borough
+// FIX: Use DISTINCT colors (not sequential blues) so boroughs are visually distinguishable
+// Each borough gets a unique, vibrant color
 const BOROUGH_COLORS: Record<string, { base: string; emissive: string; glow: string }> = {
-  'Manhattan': { base: '#08519c', emissive: '#2171b5', glow: '#4292c6' },        // Darkest - highest revenue
-  'Brooklyn': { base: '#3182bd', emissive: '#4292c6', glow: '#6baed6' },         // Dark - high revenue
-  'Queens': { base: '#6baed6', emissive: '#9ecae1', glow: '#bdd7e7' },           // Medium - moderate revenue
-  'Bronx': { base: '#9ecae1', emissive: '#bdd7e7', glow: '#d0e3f0' },            // Light - lower revenue
-  'Staten Island': { base: '#c6dbef', emissive: '#deebf7', glow: '#eff3fb' }     // Lightest - lowest revenue
+  'Manhattan': { base: '#0066FF', emissive: '#3385FF', glow: '#66A3FF' },        // Bright Blue
+  'Brooklyn': { base: '#FF6B35', emissive: '#FF8A5C', glow: '#FFA982' },         // Orange
+  'Queens': { base: '#FFD700', emissive: '#FFE033', glow: '#FFEA66' },           // Gold/Yellow
+  'Bronx': { base: '#50C878', emissive: '#70D88F', glow: '#90E7A6' },            // Green
+  'Staten Island': { base: '#9B59B6', emissive: '#AE7AC7', glow: '#C19AD7' }     // Purple
 };
 
 // Custom shader for premium visual effects
@@ -427,6 +430,15 @@ function Borough({
 
   const colors = BOROUGH_COLORS[name] || BOROUGH_COLORS['Manhattan'];
 
+  // Debug logging for color application
+  useEffect(() => {
+    console.log(`[Borough:${name}] Applying colors:`, {
+      base: colors.base,
+      emissive: colors.emissive,
+      glow: colors.glow
+    });
+  }, [name, colors]);
+
   return (
     <group ref={groupRef}>
       <mesh
@@ -438,17 +450,13 @@ function Borough({
         castShadow
         receiveShadow
       >
-        <shaderMaterial
-          ref={materialRef}
-          vertexShader={vertexShader}
-          fragmentShader={fragmentShader}
-          uniforms={{
-            baseColor: { value: new THREE.Color(colors.base) },
-            emissiveColor: { value: new THREE.Color(colors.emissive) },
-            time: { value: 0 },
-            hover: { value: 0 },
-            selected: { value: 0 }
-          }}
+        {/* FIX: Temporarily use MeshStandardMaterial to debug color rendering */}
+        <meshStandardMaterial
+          color={colors.base}
+          emissive={colors.emissive}
+          emissiveIntensity={isHovered ? 0.5 : isSelected ? 0.3 : 0.15}
+          metalness={0.3}
+          roughness={0.6}
         />
       </mesh>
 
@@ -481,10 +489,17 @@ function BoroughBuildings({ name, coordinates }: { name: string; coordinates: nu
     const base = new THREE.Color(colors.base);
     const emissive = new THREE.Color(colors.emissive);
 
+    console.log(`[BoroughBuildings:${name}] Positioning ${buildings.length} buildings`);
+
     buildings.forEach((b, i) => {
-      // FIX: After rotation, map lies on XZ plane (latitude is Z, height is Y)
-      // X = longitude, Y = height (extrude upward), Z = latitude
-      dummy.position.set(b.x, b.height / 2, b.y);
+      // CRITICAL FIX: The parent borough's geometry is rotated -90° around X
+      // This means the 2D shape (x,y) becomes (x,z) and extrude depth becomes y
+      // Buildings must match: X = longitude, Y = height, Z = latitude
+      dummy.position.set(
+        b.x,           // X: longitude (unchanged)
+        b.height / 2,  // Y: building height (half height to base at ground)
+        b.y            // Z: latitude (was y in 2D)
+      );
       dummy.scale.set(b.width, b.height, b.depth);
       dummy.updateMatrix();
       meshRef.current!.setMatrixAt(i, dummy.matrix);
@@ -493,10 +508,20 @@ function BoroughBuildings({ name, coordinates }: { name: string; coordinates: nu
       const c = base.clone().lerp(emissive, t * 0.5);
       c.multiplyScalar(0.7 + t * 0.3);
       meshRef.current!.setColorAt(i, c);
+
+      // Log first building with actual numeric values
+      if (i === 0) {
+        console.log(`[BoroughBuildings:${name}] First building:`, 
+          `pos=(${b.x.toFixed(2)}, ${(b.height/2).toFixed(2)}, ${b.y.toFixed(2)})`,
+          `scale=(${b.width.toFixed(2)}, ${b.height.toFixed(2)}, ${b.depth.toFixed(2)})`
+        );
+      }
     });
     meshRef.current.instanceMatrix.needsUpdate = true;
     if (meshRef.current.instanceColor) meshRef.current.instanceColor.needsUpdate = true;
-  }, [buildings, colors, config]);
+    
+    console.log(`[BoroughBuildings:${name}] Completed positioning ${buildings.length} buildings`);
+  }, [buildings, colors, config, name]);
 
   if (buildings.length === 0) return null;
 
@@ -582,11 +607,11 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: SceneProps &
 
   return (
     <>
-      {/* White background */}
-      <color attach="background" args={['#ffffff']} />
+      {/* FIX: Darker background to show colors better */}
+      <color attach="background" args={['#1a1a1a']} />
 
-      {/* FIX: 45° isometric view - equal X/Y/Z distances for true isometric */}
-      <PerspectiveCamera makeDefault position={[100, 100, 100]} fov={50} />
+      {/* FIX: Zoom out further and adjust angle to fit all 5 boroughs in frame */}
+      <PerspectiveCamera makeDefault position={[120, 140, 120]} fov={60} />
       <OrbitControls
         enablePan={true}
         enableZoom={true}
@@ -604,24 +629,14 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: SceneProps &
         autoRotateSpeed={0.5}
       />
 
-      {/* Premium lighting */}
-      <ambientLight intensity={0.3} />
+      {/* FIX: Reduced lighting to prevent washout */}
+      <ambientLight intensity={0.4} />
       <directionalLight
         position={[20, 30, 10]}
-        intensity={1.5}
+        intensity={0.8}
         castShadow
         shadow-mapSize-width={2048}
         shadow-mapSize-height={2048}
-      />
-      <pointLight position={[-20, 20, -10]} intensity={0.8} color="#4ECDC4" />
-      <pointLight position={[20, 10, 20]} intensity={0.8} color="#FFE66D" />
-      <spotLight
-        position={[0, 50, 0]}
-        angle={0.6}
-        penumbra={1}
-        intensity={1}
-        castShadow
-        color="#ffffff"
       />
 
       <Environment preset="city" />
