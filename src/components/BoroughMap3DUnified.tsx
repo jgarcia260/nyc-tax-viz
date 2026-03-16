@@ -459,15 +459,17 @@ function Borough({
         castShadow
         receiveShadow
       >
-        {/* Enhanced material with better reflections and depth */}
+        {/* Enhanced material with better reflections and depth - VISUAL POLISH */}
         <meshStandardMaterial
           color={colors.base}
           emissive={colors.emissive}
-          emissiveIntensity={isHovered ? 0.6 : isSelected ? 0.4 : 0.2}
-          metalness={0.4}
-          roughness={0.5}
-          envMapIntensity={1.0}
+          emissiveIntensity={isHovered ? 0.8 : isSelected ? 0.6 : 0.3}
+          metalness={isHovered ? 0.6 : 0.5}
+          roughness={0.4}
+          envMapIntensity={1.5}
           flatShading={false}
+          transparent={isHovered}
+          opacity={isHovered ? 0.95 : 1.0}
         />
       </mesh>
 
@@ -538,15 +540,141 @@ function BoroughBuildings({ name, coordinates }: { name: string; coordinates: nu
 
   if (buildings.length === 0) return null;
 
+  // VISUAL POLISH: Create separate instance groups for different material types
+  const buildingsByType = useMemo(() => {
+    const glass = [];      // Tallest buildings (top 20%)
+    const metallic = [];   // Mid-rise buildings (20-60%)
+    const concrete = [];   // Low-rise buildings (60-100%)
+    
+    const sortedByHeight = [...buildings].sort((a, b) => b.height - a.height);
+    const tallThreshold = sortedByHeight[Math.floor(sortedByHeight.length * 0.2)]?.height || 10;
+    const midThreshold = sortedByHeight[Math.floor(sortedByHeight.length * 0.6)]?.height || 5;
+    
+    buildings.forEach(b => {
+      if (b.height >= tallThreshold) glass.push(b);
+      else if (b.height >= midThreshold) metallic.push(b);
+      else concrete.push(b);
+    });
+    
+    return { glass, metallic, concrete };
+  }, [buildings]);
+
+  return (
+    <group>
+      {/* Glass buildings (tallest) - reflective, modern */}
+      {buildingsByType.glass.length > 0 && (
+        <BuildingInstances 
+          buildings={buildingsByType.glass} 
+          colors={colors}
+          material="glass"
+        />
+      )}
+      
+      {/* Metallic buildings (mid-rise) - sleek, semi-reflective */}
+      {buildingsByType.metallic.length > 0 && (
+        <BuildingInstances 
+          buildings={buildingsByType.metallic} 
+          colors={colors}
+          material="metallic"
+        />
+      )}
+      
+      {/* Concrete buildings (low-rise) - matte, traditional */}
+      {buildingsByType.concrete.length > 0 && (
+        <BuildingInstances 
+          buildings={buildingsByType.concrete} 
+          colors={colors}
+          material="concrete"
+        />
+      )}
+    </group>
+  );
+}
+
+// Helper component for different material types
+function BuildingInstances({ 
+  buildings, 
+  colors, 
+  material 
+}: { 
+  buildings: BuildingInstance[]; 
+  colors: any;
+  material: 'glass' | 'metallic' | 'concrete';
+}) {
+  const meshRef = useRef<THREE.InstancedMesh>(null);
+  const config = BOROUGH_BUILDING_CONFIG[Object.keys(BOROUGH_BUILDING_CONFIG)[0]]; // fallback
+
+  useEffect(() => {
+    if (!meshRef.current || buildings.length === 0) return;
+    const dummy = new THREE.Object3D();
+    const base = new THREE.Color(colors.base);
+    const emissive = new THREE.Color(colors.emissive);
+
+    buildings.forEach((b, i) => {
+      dummy.position.set(b.x, 2 + b.height / 2, -b.y);
+      dummy.scale.set(b.width, b.height, b.depth);
+      dummy.updateMatrix();
+      meshRef.current!.setMatrixAt(i, dummy.matrix);
+
+      const t = config ? (b.height - config.minHeight) / (config.maxHeight - config.minHeight) : 0.5;
+      const c = base.clone().lerp(emissive, t * 0.5);
+      
+      // Material-specific color adjustments
+      if (material === 'glass') {
+        c.multiplyScalar(0.9 + t * 0.2); // Brighter for glass
+      } else if (material === 'metallic') {
+        c.multiplyScalar(0.8 + t * 0.2);
+      } else {
+        c.multiplyScalar(0.7 + t * 0.2); // Darker for concrete
+      }
+      
+      meshRef.current!.setColorAt(i, c);
+    });
+    
+    meshRef.current.instanceMatrix.needsUpdate = true;
+    if (meshRef.current.instanceColor) meshRef.current.instanceColor.needsUpdate = true;
+  }, [buildings, colors, config, material]);
+
+  if (buildings.length === 0) return null;
+
+  // Material properties based on type
+  const materialProps = {
+    glass: {
+      metalness: 0.9,
+      roughness: 0.1,
+      envMapIntensity: 2.0,
+      emissiveIntensity: 0.15,
+      transparent: true,
+      opacity: 0.95,
+      transmission: 0.1,
+    },
+    metallic: {
+      metalness: 0.8,
+      roughness: 0.3,
+      envMapIntensity: 1.8,
+      emissiveIntensity: 0.1,
+    },
+    concrete: {
+      metalness: 0.2,
+      roughness: 0.7,
+      envMapIntensity: 0.8,
+      emissiveIntensity: 0.05,
+    }
+  };
+
+  const props = materialProps[material];
+
   return (
     <instancedMesh ref={meshRef} args={[undefined, undefined, buildings.length]} castShadow receiveShadow>
       <boxGeometry args={[1, 1, 1]} />
       <meshStandardMaterial
-        metalness={0.5}
-        roughness={0.4}
-        envMapIntensity={1.2}
+        metalness={props.metalness}
+        roughness={props.roughness}
+        envMapIntensity={props.envMapIntensity}
         emissive={colors.base}
-        emissiveIntensity={0.05}
+        emissiveIntensity={props.emissiveIntensity}
+        transparent={props.transparent}
+        opacity={props.opacity}
       />
     </instancedMesh>
   );
@@ -626,14 +754,16 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: SceneProps &
       {/* Gradient sky background for SimCity vibe */}
       <color attach="background" args={['#0f172a']} />
       
-      {/* Ground plane for depth and shadows */}
+      {/* Ground plane for depth and shadows - enhanced for visual polish */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
         <planeGeometry args={[500, 500]} />
         <meshStandardMaterial
-          color="#1a202c"
-          roughness={0.9}
-          metalness={0.1}
-          envMapIntensity={0.2}
+          color="#0f1419"
+          roughness={0.85}
+          metalness={0.15}
+          envMapIntensity={0.3}
+          emissive="#0a0e14"
+          emissiveIntensity={0.1}
         />
       </mesh>
       
@@ -662,51 +792,76 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: SceneProps &
         autoRotateSpeed={0.5}
       />
 
-      {/* Enhanced lighting for SimCity-style aesthetic */}
+      {/* Enhanced lighting for SimCity-style aesthetic - VISUAL POLISH */}
       {/* Soft ambient base lighting */}
-      <ambientLight intensity={0.3} color="#4a5568" />
+      <ambientLight intensity={0.4} color="#556b8a" />
       
-      {/* Primary sun light - warm, creates main shadows */}
+      {/* Primary sun light - warm golden hour lighting, creates main shadows */}
       <directionalLight
-        position={[50, 80, 40]}
-        intensity={1.2}
-        color="#fff5e6"
+        position={[100, 120, 80]}
+        intensity={1.8}
+        color="#ffe4b5"
         castShadow
         shadow-mapSize-width={4096}
         shadow-mapSize-height={4096}
+        shadow-camera-left={-200}
+        shadow-camera-right={200}
+        shadow-camera-top={200}
+        shadow-camera-bottom={-200}
+        shadow-camera-near={0.5}
+        shadow-camera-far={500}
+        shadow-bias={-0.0003}
+        shadow-radius={2}
+      />
+      
+      {/* Secondary sun light for softer shadows (dual-shadow SimCity effect) */}
+      <directionalLight
+        position={[80, 100, -60]}
+        intensity={0.8}
+        color="#ffd4a3"
+        castShadow
+        shadow-mapSize-width={2048}
+        shadow-mapSize-height={2048}
         shadow-camera-left={-150}
         shadow-camera-right={150}
         shadow-camera-top={150}
         shadow-camera-bottom={-150}
-        shadow-camera-near={0.5}
-        shadow-camera-far={500}
-        shadow-bias={-0.0001}
+        shadow-bias={-0.0002}
       />
       
-      {/* Fill light - cooler, subtle, no shadows */}
+      {/* Fill light - cool blue from opposite side */}
       <directionalLight
-        position={[-30, 40, -30]}
+        position={[-50, 60, -40]}
+        intensity={0.6}
+        color="#7da3cc"
+      />
+      
+      {/* Rim/accent light for edge highlighting */}
+      <directionalLight
+        position={[-30, 30, 50]}
         intensity={0.4}
-        color="#a8c5e6"
+        color="#c4b5fd"
       />
       
-      {/* Rim light from below for dramatic effect */}
+      {/* Subtle uplight for atmosphere */}
       <directionalLight
-        position={[0, -20, 0]}
-        intensity={0.15}
-        color="#667eea"
+        position={[0, -10, 0]}
+        intensity={0.2}
+        color="#a78bfa"
       />
       
       {/* Hemisphere light for natural sky/ground ambient */}
       <hemisphereLight
-        args={["#87ceeb", "#4a5568", 0.5]}
+        intensity={0.6}
+        color="#b8d4ff"
+        groundColor="#3b4252"
       />
 
-      {/* HDR environment for reflections */}
-      <Environment preset="city" background={false} />
+      {/* HDR environment for reflections and realistic lighting */}
+      <Environment preset="city" background={false} environmentIntensity={1.2} />
       
-      {/* Atmospheric fog */}
-      <fog attach="fog" args={["#1a1a2e", 100, 400]} />
+      {/* Enhanced atmospheric fog for depth and SimCity vibe */}
+      <fog attach="fog" args={["#1e2847", 120, 350]} />
       
       {/* Animated stars in the background */}
       <Stars
@@ -802,45 +957,57 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: SceneProps &
         );
       })()}
       
-      {/* Post-processing for cinematic SimCity-style visuals */}
+      {/* Post-processing for cinematic SimCity-style visuals - VISUAL POLISH */}
       <EffectComposer multisampling={8}>
-        {/* Ambient occlusion for depth and realism */}
+        {/* Ambient occlusion for realistic depth and shadows in crevices */}
         <SSAO
           samples={31}
-          radius={0.1}
-          intensity={50}
-          luminanceInfluence={0.6}
-          color="black"
+          radius={0.15}
+          intensity={60}
+          luminanceInfluence={0.5}
+          color="#000000"
+          bias={0.001}
         />
         
-        {/* Bloom for glowing lights and emissive materials */}
+        {/* Bloom for glowing lights and emissive materials - more prominent */}
         <Bloom
-          intensity={0.6}
-          luminanceThreshold={0.3}
-          luminanceSmoothing={0.7}
+          intensity={0.9}
+          luminanceThreshold={0.25}
+          luminanceSmoothing={0.8}
           mipmapBlur
+          radius={0.9}
         />
         
-        {/* Subtle vignette for focus */}
+        {/* Subtle vignette for cinematic focus */}
         <Vignette
-          offset={0.3}
-          darkness={0.5}
+          offset={0.2}
+          darkness={0.6}
           eskil={false}
         />
         
-        {/* Tone mapping for better color range */}
+        {/* Depth of field for atmospheric depth */}
+        <DepthOfField
+          focusDistance={0.01}
+          focalLength={0.08}
+          bokehScale={3}
+          height={480}
+        />
+        
+        {/* Tone mapping for better color range and HDR feel */}
         <ToneMapping
           adaptive={true}
           resolution={256}
-          middleGrey={0.6}
-          maxLuminance={16.0}
-          averageLuminance={1.0}
-          adaptationRate={1.5}
+          middleGrey={0.65}
+          maxLuminance={18.0}
+          averageLuminance={1.2}
+          adaptationRate={1.8}
         />
         
-        {/* Very subtle chromatic aberration for realism */}
+        {/* Subtle chromatic aberration for cinematic realism */}
         <ChromaticAberration
-          offset={[0.0008, 0.0008]}
+          offset={[0.001, 0.0012]}
+          radialModulation={true}
+          modulationOffset={0.5}
         />
       </EffectComposer>
 
