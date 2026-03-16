@@ -1,6 +1,6 @@
 "use client";
 
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import {
   OrbitControls,
   PerspectiveCamera,
@@ -8,6 +8,7 @@ import {
   Html,
   Stars,
   Sparkles,
+  ContactShadows,
 } from '@react-three/drei';
 import {
   EffectComposer,
@@ -15,7 +16,9 @@ import {
   SSAO,
   ChromaticAberration,
   Vignette,
-  ToneMapping
+  ToneMapping,
+  DepthOfField,
+  N8AO,
 } from '@react-three/postprocessing';
 import { Suspense, useState, useRef, useMemo, useEffect } from 'react';
 import * as THREE from 'three';
@@ -163,6 +166,105 @@ const BOROUGH_COLORS: Record<string, { base: string; emissive: string; glow: str
   'Staten Island': { base: '#9B59B6', emissive: '#AE7AC7', glow: '#C19AD7' },
 };
 
+// Enhanced atmosphere with volumetric fog
+function VolumetricAtmosphere() {
+  const meshRef = useRef<THREE.Mesh>(null);
+  
+  const material = useMemo(() => {
+    return new THREE.ShaderMaterial({
+      transparent: true,
+      depthWrite: false,
+      side: THREE.BackSide,
+      uniforms: {
+        time: { value: 0 },
+        fogColor: { value: new THREE.Color('#1e2847') },
+        fogDensity: { value: 0.008 },
+      },
+      vertexShader: `
+        varying vec3 vWorldPosition;
+        varying vec3 vViewPosition;
+        
+        void main() {
+          vec4 worldPosition = modelMatrix * vec4(position, 1.0);
+          vWorldPosition = worldPosition.xyz;
+          
+          vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+          vViewPosition = -mvPosition.xyz;
+          
+          gl_Position = projectionMatrix * mvPosition;
+        }
+      `,
+      fragmentShader: `
+        uniform float time;
+        uniform vec3 fogColor;
+        uniform float fogDensity;
+        
+        varying vec3 vWorldPosition;
+        varying vec3 vViewPosition;
+        
+        float noise(vec3 p) {
+          return fract(sin(dot(p, vec3(12.9898, 78.233, 45.543))) * 43758.5453);
+        }
+        
+        void main() {
+          float distance = length(vViewPosition);
+          
+          // Layered fog with movement
+          float fogFactor = 1.0 - exp(-distance * fogDensity);
+          
+          // Add subtle movement
+          vec3 pos = vWorldPosition * 0.01;
+          float n = noise(pos + vec3(time * 0.05));
+          fogFactor *= (0.8 + n * 0.2);
+          
+          // Height-based density (more fog at ground level)
+          float heightFactor = smoothstep(-10.0, 50.0, vWorldPosition.y);
+          fogFactor *= (1.0 - heightFactor * 0.5);
+          
+          gl_FragColor = vec4(fogColor, fogFactor * 0.3);
+        }
+      `,
+    });
+  }, []);
+
+  useFrame((state) => {
+    if (meshRef.current) {
+      (meshRef.current.material as THREE.ShaderMaterial).uniforms.time.value = state.clock.elapsedTime;
+    }
+  });
+
+  return (
+    <mesh ref={meshRef} position={[0, 25, 0]}>
+      <sphereGeometry args={[400, 32, 32]} />
+      <primitive object={material} attach="material" />
+    </mesh>
+  );
+}
+
+// Rim light component for enhanced lighting
+function RimLighting() {
+  return (
+    <>
+      {/* Key rim lights from different angles for depth */}
+      <directionalLight 
+        position={[150, 80, 100]} 
+        intensity={0.4} 
+        color="#88ccff" 
+      />
+      <directionalLight 
+        position={[-150, 60, -100]} 
+        intensity={0.3} 
+        color="#ff8844" 
+      />
+      <directionalLight 
+        position={[0, 100, -150]} 
+        intensity={0.25} 
+        color="#cc88ff" 
+      />
+    </>
+  );
+}
+
 interface BoroughProps {
   name: string;
   coordinates: number[][][][];
@@ -239,7 +341,12 @@ function Borough({ name, coordinates, isHovered, isSelected, onClick, onHover, a
     if (shapes.length === 0) return new THREE.BoxGeometry(1, 1, 1);
 
     const geo = new THREE.ExtrudeGeometry(shapes, {
-      depth: 2, bevelEnabled: true, bevelThickness: 0.3, bevelSize: 0.2, bevelSegments: 5, curveSegments: 32,
+      depth: 2, 
+      bevelEnabled: true, 
+      bevelThickness: 0.3, 
+      bevelSize: 0.2, 
+      bevelSegments: 5, 
+      curveSegments: 32,
     });
     geo.rotateX(-Math.PI / 2);
     return geo;
@@ -249,8 +356,29 @@ function Borough({ name, coordinates, isHovered, isSelected, onClick, onHover, a
 
   return (
     <group ref={groupRef}>
-      <mesh ref={meshRef} geometry={geometry} onClick={onClick} onPointerOver={() => onHover(true)} onPointerOut={() => onHover(false)} castShadow receiveShadow>
-        <meshStandardMaterial color={colors.base} emissive={colors.emissive} emissiveIntensity={isHovered ? 0.8 : isSelected ? 0.6 : 0.3} metalness={isHovered ? 0.6 : 0.5} roughness={0.4} envMapIntensity={1.5} transparent={isHovered} opacity={isHovered ? 0.95 : 1.0} />
+      <mesh 
+        ref={meshRef} 
+        geometry={geometry} 
+        onClick={onClick} 
+        onPointerOver={() => onHover(true)} 
+        onPointerOut={() => onHover(false)} 
+        castShadow 
+        receiveShadow
+      >
+        {/* Enhanced material with better reflections and glass-like appearance */}
+        <meshPhysicalMaterial 
+          color={colors.base}
+          emissive={colors.emissive}
+          emissiveIntensity={isHovered ? 0.9 : isSelected ? 0.7 : 0.4}
+          metalness={isHovered ? 0.7 : 0.6}
+          roughness={0.3}
+          envMapIntensity={2.0}
+          clearcoat={0.5}
+          clearcoatRoughness={0.2}
+          transparent={isHovered}
+          opacity={isHovered ? 0.95 : 1.0}
+          reflectivity={0.8}
+        />
       </mesh>
       <BoroughBuildings name={name} coordinates={coordinates} />
       {isHovered && <Sparkles count={50} scale={[50, 50, 10]} size={2} speed={0.4} color={colors.glow} />}
@@ -285,12 +413,31 @@ function BoroughBuildings({ name, coordinates }: { name: string; coordinates: nu
     if (meshRef.current.instanceColor) meshRef.current.instanceColor.needsUpdate = true;
   }, [buildings, colors, config, name]);
 
+  // Animate emissive for window effect
+  useFrame((state) => {
+    if (!meshRef.current) return;
+    const material = meshRef.current.material as THREE.MeshPhysicalMaterial;
+    if (material.emissiveIntensity !== undefined) {
+      material.emissiveIntensity = 0.08 + Math.sin(state.clock.elapsedTime * 0.5) * 0.02;
+    }
+  });
+
   if (buildings.length === 0) return null;
 
   return (
     <instancedMesh ref={meshRef} args={[undefined, undefined, buildings.length]} castShadow receiveShadow>
       <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial metalness={0.5} roughness={0.4} envMapIntensity={1.2} emissive={colors.base} emissiveIntensity={0.05} />
+      {/* Enhanced building material with metallic and glass-like properties */}
+      <meshPhysicalMaterial 
+        metalness={0.7}
+        roughness={0.25}
+        envMapIntensity={1.8}
+        emissive={colors.base}
+        emissiveIntensity={0.08}
+        clearcoat={0.3}
+        clearcoatRoughness={0.4}
+        reflectivity={0.7}
+      />
     </instancedMesh>
   );
 }
@@ -301,32 +448,129 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
 
   return (
     <>
-      <color attach="background" args={['#0f172a']} />
+      {/* Enhanced background with gradient */}
+      <color attach="background" args={['#0a0f1a']} />
+      
+      {/* Ground plane with enhanced material */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
         <planeGeometry args={[500, 500]} />
-        <meshStandardMaterial color="#0f1419" roughness={0.85} metalness={0.15} envMapIntensity={0.3} emissive="#0a0e14" emissiveIntensity={0.1} />
+        <meshPhysicalMaterial 
+          color="#0f1419"
+          roughness={0.9}
+          metalness={0.2}
+          envMapIntensity={0.4}
+          emissive="#0a0e14"
+          emissiveIntensity={0.15}
+          clearcoat={0.1}
+          clearcoatRoughness={0.8}
+        />
       </mesh>
-      <gridHelper args={[400, 40, '#334155', '#1e293b']} position={[0, -0.4, 0]} />
+      
+      {/* Enhanced grid with glow */}
+      <gridHelper args={[400, 40, '#3366aa', '#1e293b']} position={[0, -0.4, 0]} />
+      
+      {/* Contact shadows for better ground interaction */}
+      <ContactShadows 
+        position={[0, -0.45, 0]} 
+        opacity={0.6} 
+        scale={200} 
+        blur={2.5} 
+        far={50} 
+        resolution={512}
+        color="#000022"
+      />
 
       <PerspectiveCamera makeDefault position={[120, 140, 120]} fov={60} />
-      <OrbitControls enablePan enableZoom enableRotate enableDamping dampingFactor={0.15} minDistance={40} maxDistance={300} maxPolarAngle={Math.PI / 1.1} minPolarAngle={Math.PI / 8} rotateSpeed={0.6} zoomSpeed={1.0} panSpeed={0.6} autoRotate={autoRotate} autoRotateSpeed={0.5} />
+      <OrbitControls 
+        enablePan 
+        enableZoom 
+        enableRotate 
+        enableDamping 
+        dampingFactor={0.15} 
+        minDistance={40} 
+        maxDistance={300} 
+        maxPolarAngle={Math.PI / 1.1} 
+        minPolarAngle={Math.PI / 8} 
+        rotateSpeed={0.6} 
+        zoomSpeed={1.0} 
+        panSpeed={0.6} 
+        autoRotate={autoRotate} 
+        autoRotateSpeed={0.5} 
+      />
 
-      <ambientLight intensity={0.4} color="#556b8a" />
-      <directionalLight position={[100, 120, 80]} intensity={1.8} color="#ffe4b5" castShadow shadow-mapSize-width={4096} shadow-mapSize-height={4096} shadow-camera-left={-200} shadow-camera-right={200} shadow-camera-top={200} shadow-camera-bottom={-200} shadow-camera-near={0.5} shadow-camera-far={500} shadow-bias={-0.0003} shadow-radius={2} />
-      <directionalLight position={[80, 100, -60]} intensity={0.8} color="#ffd4a3" castShadow shadow-mapSize-width={2048} shadow-mapSize-height={2048} shadow-camera-left={-150} shadow-camera-right={150} shadow-camera-top={150} shadow-camera-bottom={-150} shadow-bias={-0.0002} />
-      <directionalLight position={[-50, 60, -40]} intensity={0.6} color="#7da3cc" />
-      <directionalLight position={[-30, 30, 50]} intensity={0.4} color="#c4b5fd" />
-      <directionalLight position={[0, -10, 0]} intensity={0.2} color="#a78bfa" />
-      <hemisphereLight intensity={0.6} color="#b8d4ff" groundColor="#3b4252" />
+      {/* Enhanced lighting setup */}
+      <ambientLight intensity={0.5} color="#4a5b7a" />
+      
+      {/* Main directional lights with enhanced shadows */}
+      <directionalLight 
+        position={[100, 120, 80]} 
+        intensity={2.2} 
+        color="#ffe8c5" 
+        castShadow 
+        shadow-mapSize-width={4096} 
+        shadow-mapSize-height={4096} 
+        shadow-camera-left={-200} 
+        shadow-camera-right={200} 
+        shadow-camera-top={200} 
+        shadow-camera-bottom={-200} 
+        shadow-camera-near={0.5} 
+        shadow-camera-far={500} 
+        shadow-bias={-0.0001}
+        shadow-radius={3}
+      />
+      
+      <directionalLight 
+        position={[80, 100, -60]} 
+        intensity={1.0} 
+        color="#ffd8b3" 
+        castShadow 
+        shadow-mapSize-width={2048} 
+        shadow-mapSize-height={2048} 
+        shadow-camera-left={-150} 
+        shadow-camera-right={150} 
+        shadow-camera-top={150} 
+        shadow-camera-bottom={-150} 
+        shadow-bias={-0.0001}
+      />
+      
+      {/* Fill lights for better atmosphere */}
+      <directionalLight position={[-50, 60, -40]} intensity={0.7} color="#7da3cc" />
+      <directionalLight position={[-30, 30, 50]} intensity={0.5} color="#c4b5fd" />
+      <directionalLight position={[0, -10, 0]} intensity={0.3} color="#a78bfa" />
+      
+      {/* Enhanced hemisphere light */}
+      <hemisphereLight intensity={0.8} color="#b8d4ff" groundColor="#2b3252" />
+      
+      {/* Rim lighting for depth */}
+      <RimLighting />
 
-      <Environment preset="city" background={false} environmentIntensity={1.2} />
-      <fog attach="fog" args={["#1e2847", 120, 350]} />
-      <Stars radius={300} depth={60} count={3000} factor={6} saturation={0.5} fade speed={0.5} />
+      {/* Enhanced environment */}
+      <Environment preset="city" background={false} environmentIntensity={1.5} />
+      
+      {/* Volumetric atmosphere */}
+      <VolumetricAtmosphere />
+      
+      {/* Enhanced fog */}
+      <fog attach="fog" args={["#1a2035", 100, 380]} />
+      
+      {/* Enhanced stars */}
+      <Stars 
+        radius={320} 
+        depth={70} 
+        count={4000} 
+        factor={6.5} 
+        saturation={0.6} 
+        fade 
+        speed={0.6} 
+      />
 
       {boroughs.map((borough, index) => (
         <Borough
-          key={borough.name} name={borough.name} coordinates={borough.coordinates}
-          isHovered={hoveredBorough === borough.name} isSelected={selectedBorough === borough.name}
+          key={borough.name} 
+          name={borough.name} 
+          coordinates={borough.coordinates}
+          isHovered={hoveredBorough === borough.name} 
+          isSelected={selectedBorough === borough.name}
           onClick={() => setSelectedBorough(selectedBorough === borough.name ? null : borough.name)}
           onHover={(hovered) => setHoveredBorough(hovered ? borough.name : null)}
           animationDelay={index * 0.2}
@@ -377,12 +621,47 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
         );
       })()}
 
+      {/* Enhanced post-processing */}
       <EffectComposer multisampling={8}>
-        <SSAO samples={31} radius={0.1} intensity={50} luminanceInfluence={0.6} color="black" />
-        <Bloom intensity={0.6} luminanceThreshold={0.3} luminanceSmoothing={0.7} mipmapBlur />
-        <Vignette offset={0.3} darkness={0.5} eskil={false} />
-        <ToneMapping adaptive resolution={256} middleGrey={0.6} maxLuminance={16.0} averageLuminance={1.0} adaptationRate={1.5} />
-        <ChromaticAberration offset={[0.0008, 0.0008]} />
+        {/* N8AO for better ambient occlusion */}
+        <N8AO 
+          aoRadius={0.5}
+          intensity={2.5}
+          quality="performance"
+          halfRes
+        />
+        
+        {/* Enhanced bloom for glow effects */}
+        <Bloom 
+          intensity={0.8} 
+          luminanceThreshold={0.25} 
+          luminanceSmoothing={0.8} 
+          mipmapBlur 
+        />
+        
+        {/* Subtle depth of field for atmospheric depth */}
+        <DepthOfField 
+          focusDistance={0.015}
+          focalLength={0.08}
+          bokehScale={3}
+          height={480}
+        />
+        
+        {/* Enhanced vignette */}
+        <Vignette offset={0.25} darkness={0.6} eskil={false} />
+        
+        {/* Tone mapping for better HDR */}
+        <ToneMapping 
+          adaptive 
+          resolution={256} 
+          middleGrey={0.55} 
+          maxLuminance={18.0} 
+          averageLuminance={1.2} 
+          adaptationRate={1.8} 
+        />
+        
+        {/* Subtle chromatic aberration */}
+        <ChromaticAberration offset={[0.001, 0.001]} />
       </EffectComposer>
     </>
   );
@@ -483,7 +762,17 @@ export default function BoroughMap3DUnified({
         </div>
       </div>
 
-      <Canvas shadows gl={{ antialias: true, alpha: false, powerPreference: "high-performance" }} dpr={[1, 2]}>
+      <Canvas 
+        shadows="soft"
+        gl={{ 
+          antialias: true, 
+          alpha: false, 
+          powerPreference: "high-performance",
+          toneMapping: THREE.ACESFilmicToneMapping,
+          toneMappingExposure: 1.2,
+        }} 
+        dpr={[1, 2]}
+      >
         <Suspense fallback={null}>
           <Scene boroughs={boroughs} showTaxData={showTaxData} autoRotate={autoRotate} />
         </Suspense>
