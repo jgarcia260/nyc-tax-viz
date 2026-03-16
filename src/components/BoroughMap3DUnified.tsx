@@ -402,6 +402,11 @@ function Borough({
     }
 
     const extrudedGeometry = new THREE.ExtrudeGeometry(shapes, extrudeSettings);
+    
+    // FIX: Rotate geometry -90° around X-axis to lay flat on XZ plane
+    // This maps: X→X (longitude), Y→Z (latitude), Z→Y (height)
+    extrudedGeometry.rotateX(-Math.PI / 2);
+    
     console.log(`[Borough:${name}] Created extruded geometry:`, {
       vertices: extrudedGeometry.attributes.position.count,
       boundingBox: extrudedGeometry.boundingBox
@@ -464,8 +469,9 @@ function BoroughBuildings({ name, coordinates }: { name: string; coordinates: nu
     const emissive = new THREE.Color(colors.emissive);
 
     buildings.forEach((b, i) => {
-      // FIX: Remove the +2 offset to anchor buildings to borough surface
-      dummy.position.set(b.x, b.height / 2, -b.y);
+      // FIX: After rotation, map lies on XZ plane (latitude is Z, height is Y)
+      // X = longitude, Y = height (extrude upward), Z = latitude
+      dummy.position.set(b.x, b.height / 2, b.y);
       dummy.scale.set(b.width, b.height, b.depth);
       dummy.updateMatrix();
       meshRef.current!.setMatrixAt(i, dummy.matrix);
