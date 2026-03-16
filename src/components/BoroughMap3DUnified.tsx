@@ -148,13 +148,14 @@ const BOROUGH_TAX_DATA: Record<string, { revenue: number; billionaireTaxShare: n
   'Staten Island': { revenue: 800000000, billionaireTaxShare: 0.1, corporateTaxShare: 0.07 }
 };
 
-// Premium SimCity-inspired colors
+// Professional sequential Blues palette - darker shades = higher tax revenue potential
+// Based on economic activity and median income per borough
 const BOROUGH_COLORS: Record<string, { base: string; emissive: string; glow: string }> = {
-  'Manhattan': { base: '#FF6B6B', emissive: '#FF3333', glow: '#FF9999' },
-  'Brooklyn': { base: '#4ECDC4', emissive: '#2EAD9D', glow: '#6EDDD4' },
-  'Queens': { base: '#FFE66D', emissive: '#FFD633', glow: '#FFF09D' },
-  'Bronx': { base: '#95E1D3', emissive: '#75C1B3', glow: '#B5F1E3' },
-  'Staten Island': { base: '#C7CEEA', emissive: '#A7AECA', glow: '#E7EEFA' }
+  'Manhattan': { base: '#08519c', emissive: '#2171b5', glow: '#4292c6' },        // Darkest - highest revenue
+  'Brooklyn': { base: '#3182bd', emissive: '#4292c6', glow: '#6baed6' },         // Dark - high revenue
+  'Queens': { base: '#6baed6', emissive: '#9ecae1', glow: '#bdd7e7' },           // Medium - moderate revenue
+  'Bronx': { base: '#9ecae1', emissive: '#bdd7e7', glow: '#d0e3f0' },            // Light - lower revenue
+  'Staten Island': { base: '#c6dbef', emissive: '#deebf7', glow: '#eff3fb' }     // Lightest - lowest revenue
 };
 
 // Custom shader for premium visual effects
@@ -790,16 +791,38 @@ export default function BoroughMap3DUnified({
             </p>
 
             {showTaxData && (
-              <div className="bg-white/10 p-4 rounded-xl border border-white/20 mb-4">
-                <p className="text-sm text-gray-200 drop-shadow">
-                  <span className="font-bold text-white">💡 Data Source:</span> Tax revenue projections from billionaire and corporate tax reform proposals (2026)
-                </p>
+              <div className="bg-white/10 p-4 rounded-xl border border-white/20 mb-4 space-y-3">
+                <div>
+                  <p className="text-xs font-bold text-emerald-400 mb-1 drop-shadow">📊 WHAT YOU'RE SEEING</p>
+                  <p className="text-sm text-gray-200 drop-shadow leading-relaxed">
+                    <span className="font-bold text-white">Building heights</span> represent tax revenue potential from each borough. Taller buildings = higher revenue.
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-purple-400 mb-1 drop-shadow">💰 TAX POLICIES EXPLAINED</p>
+                  <p className="text-xs text-gray-200 drop-shadow leading-relaxed mb-2">
+                    <span className="font-bold text-white">Billionaire Tax:</span> Wealth tax on NYC residents worth $1B+. Each borough's "share" shows what % of billionaires live there.
+                  </p>
+                  <p className="text-xs text-gray-200 drop-shadow leading-relaxed">
+                    <span className="font-bold text-white">Corporate Tax:</span> Tax on large businesses. Each borough's "share" shows what % of corporate activity happens there.
+                  </p>
+                </div>
+                <div className="pt-2 border-t border-white/20">
+                  <p className="text-xs text-gray-300 drop-shadow">
+                    <span className="font-bold text-white">📚 Sources:</span> NYC Open Data, NYC Comptroller, City & State NY (2026)
+                  </p>
+                </div>
               </div>
             )}
 
             {/* Borough legend */}
-            <div className="grid grid-cols-1 gap-2">
-              {Object.entries(BOROUGH_COLORS).map(([name, colors]) => {
+            <div>
+              <p className="text-xs font-bold text-blue-400 mb-2 drop-shadow">🗺️ BOROUGH COLORS & REVENUE</p>
+              <p className="text-xs text-gray-300 drop-shadow mb-3">
+                💡 <strong className="text-white">Color Guide:</strong> Darker shades = higher tax revenue potential
+              </p>
+              <div className="grid grid-cols-1 gap-2">
+                {Object.entries(BOROUGH_COLORS).map(([name, colors]) => {
                 const taxData = BOROUGH_TAX_DATA[name];
                 return (
                   <div
@@ -824,6 +847,7 @@ export default function BoroughMap3DUnified({
                   </div>
                 );
               })}
+              </div>
             </div>
           </div>
         </div>
