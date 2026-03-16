@@ -6,8 +6,6 @@ import {
   PerspectiveCamera,
   Environment,
   Html,
-  Stars,
-  Sparkles,
   ContactShadows,
 } from '@react-three/drei';
 import {
@@ -622,47 +620,11 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
         );
       })()}
 
-      {/* Enhanced post-processing */}
-      <EffectComposer multisampling={8}>
-        {/* N8AO for better ambient occlusion */}
-        <N8AO 
-          aoRadius={0.5}
-          intensity={2.5}
-          quality="performance"
-          halfRes
-        />
-        
-        {/* Enhanced bloom for glow effects */}
-        <Bloom 
-          intensity={0.8} 
-          luminanceThreshold={0.25} 
-          luminanceSmoothing={0.8} 
-          mipmapBlur 
-        />
-        
-        {/* Subtle depth of field for atmospheric depth */}
-        <DepthOfField 
-          focusDistance={0.015}
-          focalLength={0.08}
-          bokehScale={3}
-          height={480}
-        />
-        
-        {/* Enhanced vignette */}
-        <Vignette offset={0.25} darkness={0.6} eskil={false} />
-        
-        {/* Tone mapping for better HDR */}
-        <ToneMapping 
-          adaptive 
-          resolution={256} 
-          middleGrey={0.55} 
-          maxLuminance={18.0} 
-          averageLuminance={1.2} 
-          adaptationRate={1.8} 
-        />
-        
-        {/* Subtle chromatic aberration */}
-        <ChromaticAberration offset={[0.001, 0.001]} />
+      <EffectComposer multisampling={4}>
+        <N8AO aoRadius={0.4} intensity={1.0} quality="performance" halfRes />
+        <Bloom intensity={0.3} luminanceThreshold={0.6} luminanceSmoothing={0.7} mipmapBlur />
+        <Vignette offset={0.3} darkness={0.4} eskil={false} />
+        <ChromaticAberration offset={[0.0005, 0.0005]} />
       </EffectComposer>
     </>
   );
