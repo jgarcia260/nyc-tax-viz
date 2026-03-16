@@ -22,11 +22,11 @@ const BUILDING_SCALE_MULTIPLIER = 0.9;
 const BOROUGH_HEIGHT_MULTIPLIER: Record<string, number> = { 'Manhattan': 1.0, 'Brooklyn': 0.7, 'Queens': 0.7, 'Bronx': 0.6, 'Staten Island': 0.5 };
 
 const BOROUGH_BUILDING_CONFIG: Record<string, { count: number; minHeight: number; maxHeight: number; minWidth: number; maxWidth: number; clusterFactor: number }> = {
-  'Manhattan':      { count: 220, minHeight: 4 * BUILDING_SCALE_MULTIPLIER * 1.0,  maxHeight: 28 * BUILDING_SCALE_MULTIPLIER * 1.0, minWidth: 0.25 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.7 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.7 },
-  'Brooklyn':       { count: 150, minHeight: 1 * BUILDING_SCALE_MULTIPLIER * 0.7,  maxHeight: 8 * BUILDING_SCALE_MULTIPLIER * 0.7,  minWidth: 0.25 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.6 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.4 },
-  'Queens':         { count: 100, minHeight: 0.5 * BUILDING_SCALE_MULTIPLIER * 0.7, maxHeight: 4 * BUILDING_SCALE_MULTIPLIER * 0.7, minWidth: 0.25 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.5 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.2 },
-  'Bronx':          { count: 110, minHeight: 1 * BUILDING_SCALE_MULTIPLIER * 0.6,  maxHeight: 6 * BUILDING_SCALE_MULTIPLIER * 0.6,  minWidth: 0.25 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.55 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.3 },
-  'Staten Island':  { count: 50,  minHeight: 0.3 * BUILDING_SCALE_MULTIPLIER * 0.5, maxHeight: 2.5 * BUILDING_SCALE_MULTIPLIER * 0.5, minWidth: 0.25 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.45 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.1 },
+  'Manhattan':      { count: 220, minHeight: 2 * BUILDING_SCALE_MULTIPLIER * 1.0,  maxHeight: 12 * BUILDING_SCALE_MULTIPLIER * 1.0, minWidth: 0.25 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.7 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.7 },
+  'Brooklyn':       { count: 150, minHeight: 0.5 * BUILDING_SCALE_MULTIPLIER * 0.7,  maxHeight: 4 * BUILDING_SCALE_MULTIPLIER * 0.7,  minWidth: 0.25 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.6 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.4 },
+  'Queens':         { count: 100, minHeight: 0.3 * BUILDING_SCALE_MULTIPLIER * 0.7, maxHeight: 2 * BUILDING_SCALE_MULTIPLIER * 0.7, minWidth: 0.25 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.5 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.2 },
+  'Bronx':          { count: 110, minHeight: 0.5 * BUILDING_SCALE_MULTIPLIER * 0.6,  maxHeight: 3 * BUILDING_SCALE_MULTIPLIER * 0.6,  minWidth: 0.25 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.55 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.3 },
+  'Staten Island':  { count: 50,  minHeight: 0.2 * BUILDING_SCALE_MULTIPLIER * 0.5, maxHeight: 1.5 * BUILDING_SCALE_MULTIPLIER * 0.5, minWidth: 0.25 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.45 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.1 },
 };
 
 function seededRandom(seed: number) { let s = seed; return () => { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; }; }
