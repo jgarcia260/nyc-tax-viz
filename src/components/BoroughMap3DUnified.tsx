@@ -73,7 +73,7 @@ function Borough({ name, coordinates, isHovered, isSelected, onClick, onHover, a
   const meshRef = useRef<THREE.Mesh>(null);
   const groupRef = useRef<THREE.Group>(null);
   const [mounted, setMounted] = useState(false);
-  useEffect(() => { if (groupRef.current) { gsap.from(groupRef.current.position, { y: -50, duration: 1.5, delay: animationDelay, ease: 'elastic.out(1, 0.5)', onComplete: () => setMounted(true) }); gsap.from(groupRef.current.scale, { x: 0, y: 0, z: 0, duration: 1.5, delay: animationDelay, ease: 'back.out(1.7)' }); } }, [animationDelay]);
+  useEffect(() => { setMounted(true); }, [animationDelay]);
   useEffect(() => { if (groupRef.current && mounted) gsap.to(groupRef.current.position, { z: isSelected ? 5 : 0, duration: 0.6, ease: 'power2.out' }); }, [isSelected, mounted]);
   useEffect(() => { if (groupRef.current && mounted) gsap.to(groupRef.current.scale, { x: isHovered ? 1.02 : 1, y: isHovered ? 1.02 : 1, z: isHovered ? 1.05 : 1, duration: 0.3, ease: 'power2.out' }); }, [isHovered, mounted]);
   useFrame((state) => { if (groupRef.current && mounted) groupRef.current.rotation.z = Math.sin(state.clock.elapsedTime * 0.2 + animationDelay) * 0.002; });
