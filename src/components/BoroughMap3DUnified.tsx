@@ -583,7 +583,6 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: SceneProps &
         panSpeed={0.6}
         autoRotate={autoRotate}
         autoRotateSpeed={0.5}
-        target={[0, 0, 0]}  {/* FIX: Ensure controls center on origin */}
       />
 
       {/* Premium lighting */}
