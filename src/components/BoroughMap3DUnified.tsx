@@ -42,7 +42,7 @@ function projectCoordinate(lat: number, lng: number): { x: number; y: number } {
 
 // Building density configuration per borough
 // FIX: Reduced overall height (0.6x) + borough-specific multipliers to show Manhattan as tallest
-const BUILDING_SCALE_MULTIPLIER = 1.8;  // Reduced from 3 to 1.8 (0.6x overall)
+const BUILDING_SCALE_MULTIPLIER = 0.9;  // Reduced from 1.8 to 0.9 for subtle building emphasis
 
 // Borough-specific height multipliers (Manhattan = tallest)
 const BOROUGH_HEIGHT_MULTIPLIER: Record<string, number> = {
