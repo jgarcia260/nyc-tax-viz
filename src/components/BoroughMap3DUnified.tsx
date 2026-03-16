@@ -50,6 +50,72 @@ function pointInPolygon(x: number, y: number, polygon: number[][]) {
   return inside;
 }
 
+// Central Park boundaries (latitude, longitude)
+const CENTRAL_PARK_BOUNDS = {
+  north: 40.8003,
+  south: 40.7679,
+  west: -73.9735,
+  east: -73.9496
+};
+
+// Water exclusion zones around Manhattan (simplified polygons in lat/lng)
+// These prevent buildings from appearing in rivers and harbor areas
+const MANHATTAN_WATER_EXCLUSIONS: { name: string; polygon: [number, number][] }[] = [
+  {
+    name: "Hudson River West",
+    polygon: [
+      [-74.02, 40.70], [-74.02, 40.88], [-73.98, 40.88], [-73.98, 40.70]
+    ]
+  },
+  {
+    name: "East River East",
+    polygon: [
+      [-73.935, 40.70], [-73.935, 40.88], [-73.90, 40.88], [-73.90, 40.70]
+    ]
+  },
+  {
+    name: "Lower Manhattan Harbor",
+    polygon: [
+      [-74.02, 40.68], [-74.02, 40.72], [-73.98, 40.72], [-73.98, 40.68]
+    ]
+  }
+];
+
+// Check if a lat/lng coordinate is in Central Park
+function isInCentralPark(lat: number, lng: number): boolean {
+  return lat >= CENTRAL_PARK_BOUNDS.south && 
+         lat <= CENTRAL_PARK_BOUNDS.north && 
+         lng >= CENTRAL_PARK_BOUNDS.west && 
+         lng <= CENTRAL_PARK_BOUNDS.east;
+}
+
+// Check if a lat/lng coordinate is in water exclusion zone (Manhattan only)
+function isInWaterExclusion(lat: number, lng: number): boolean {
+  for (const zone of MANHATTAN_WATER_EXCLUSIONS) {
+    const projected = zone.polygon.map(pt => [projectCoordinate(pt[1], pt[0]).x, projectCoordinate(pt[1], pt[0]).y]);
+    const { x, y } = projectCoordinate(lat, lng);
+    if (pointInPolygon(x, y, projected)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+// Check if a projected x,y coordinate should be excluded (water or parks)
+function isExcludedLocation(x: number, y: number, boroughName: string): boolean {
+  // Convert projected coordinates back to lat/lng for exclusion checks
+  const lat = (y / COORDINATE_SCALE) + NYC_CENTER_LAT;
+  const lng = (x / COORDINATE_SCALE) + NYC_CENTER_LNG;
+  
+  // Apply Manhattan-specific exclusions
+  if (boroughName === 'Manhattan') {
+    if (isInCentralPark(lat, lng)) return true;
+    if (isInWaterExclusion(lat, lng)) return true;
+  }
+  
+  return false;
+}
+
 interface BuildingInstance { x: number; y: number; width: number; depth: number; height: number }
 
 function generateBuildings(name: string, coordinates: number[][][][]): BuildingInstance[] {
@@ -68,6 +134,7 @@ function generateBuildings(name: string, coordinates: number[][][][]): BuildingI
     const x = rand() < config.clusterFactor ? centerX + (rand() - 0.5) * (maxX - minX) * 0.4 : minX + rand() * (maxX - minX);
     const y = rand() < config.clusterFactor ? centerY + (rand() - 0.5) * (maxY - minY) * 0.4 : minY + rand() * (maxY - minY);
     if (!outerRings.some(ring => pointInPolygon(x, y, ring))) continue;
+    if (isExcludedLocation(x, y, name)) continue; // Skip Central Park and water
     const distRatio = Math.min(1, Math.sqrt((x - centerX) ** 2 + (y - centerY) ** 2) / (Math.sqrt((maxX - minX) ** 2 + (maxY - minY) ** 2) * 0.5));
     const centralBoost = 1 - distRatio * config.clusterFactor;
     buildings.push({ x, y, width: config.minWidth + rand() * (config.maxWidth - config.minWidth), depth: config.minWidth + rand() * (config.maxWidth - config.minWidth), height: config.minHeight + rand() * (config.maxHeight - config.minHeight) * centralBoost });
