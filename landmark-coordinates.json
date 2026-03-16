@@ -1,0 +1,66 @@
+{
+  "Manhattan": [
+    {
+      "name": "Statue of Liberty",
+      "lat": 40.6892,
+      "lng": -74.0445,
+      "type": "torch"
+    },
+    {
+      "name": "Empire State Building",
+      "lat": 40.7484,
+      "lng": -73.9857,
+      "type": "spire"
+    },
+    {
+      "name": "Central Park",
+      "lat": 40.7829,
+      "lng": -73.9654,
+      "type": "park"
+    }
+  ],
+  "Brooklyn": [
+    {
+      "name": "Brooklyn Bridge",
+      "lat": 40.7061,
+      "lng": -73.9969,
+      "type": "arch"
+    },
+    {
+      "name": "Coney Island Wonder Wheel",
+      "lat": 40.5742,
+      "lng": -73.9793,
+      "type": "wheel"
+    }
+  ],
+  "Queens": [
+    {
+      "name": "Unisphere",
+      "lat": 40.7475,
+      "lng": -73.8458,
+      "type": "sphere"
+    },
+    {
+      "name": "Citi Field",
+      "lat": 40.7571,
+      "lng": -73.8458,
+      "type": "stadium"
+    }
+  ],
+  "Bronx": [
+    {
+      "name": "Yankee Stadium",
+      "lat": 40.8296,
+      "lng": -73.9262,
+      "type": "stadium"
+    }
+  ],
+  "Staten Island": [
+    {
+      "name": "Verrazano Bridge Tower",
+      "lat": 40.6066,
+      "lng": -74.0447,
+      "type": "tower"
+    }
+  ]
+}
