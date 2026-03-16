@@ -495,9 +495,11 @@ function BoroughBuildings({ name, coordinates }: { name: string; coordinates: nu
       // CRITICAL FIX: The parent borough's geometry is rotated -90° around X
       // This means the 2D shape (x,y) becomes (x,z) and extrude depth becomes y
       // Buildings must match: X = longitude, Y = height, Z = latitude
+      // Borough extrusion depth is 2, so top surface is at y=2
+      // Buildings sit ON the borough surface, base at y=2
       dummy.position.set(
         b.x,           // X: longitude (unchanged)
-        b.height / 2,  // Y: building height (half height to base at ground)
+        2 + b.height / 2,  // Y: borough surface (2) + half building height
         b.y            // Z: latitude (was y in 2D)
       );
       dummy.scale.set(b.width, b.height, b.depth);
@@ -724,15 +726,7 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: SceneProps &
         );
       })()}
 
-      {/* Ground plane */}
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1, 0]} receiveShadow>
-        <planeGeometry args={[300, 300]} />
-        <meshStandardMaterial
-          color="#e8e8e8"
-          metalness={0.05}
-          roughness={0.9}
-        />
-      </mesh>
+
     </>
   );
 }
