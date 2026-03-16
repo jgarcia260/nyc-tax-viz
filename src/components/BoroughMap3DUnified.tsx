@@ -7,7 +7,7 @@ import { Suspense, useState, useRef, useMemo, useEffect } from 'react';
 import * as THREE from 'three';
 import gsap from 'gsap';
 import { parseBoroughGeoJSON, BOROUGH_INFO, BoroughData } from '@/lib/boroughData';
-import Landmarks from './Landmarks';
+// import Landmarks from './Landmarks'; // Temporarily disabled - focusing on perfecting base map first
 
 const NYC_CENTER_LNG = -73.978;
 const NYC_CENTER_LAT = 40.706;
@@ -79,12 +79,32 @@ const BOROUGH_TAX_DATA: Record<string, { revenue: number; billionaireTaxShare: n
 
 const BOROUGH_COLORS: Record<string, { base: string; emissive: string; glow: string }> = { 'Manhattan': { base: '#4A90E2', emissive: '#6BAEE8', glow: '#8CC5EE' }, 'Brooklyn': { base: '#D4866A', emissive: '#E09F88', glow: '#ECB8A6' }, 'Queens': { base: '#E8C468', emissive: '#F0D486', glow: '#F8E4A4' }, 'Bronx': { base: '#6BA888', emissive: '#89BCA3', glow: '#A7D0BE' }, 'Staten Island': { base: '#A87CA8', emissive: '#BF99BF', glow: '#D6B6D6' } };
 
+// Vertical offsets to prevent z-fighting between boroughs (imperceptible to user, critical for clean borders)
+const BOROUGH_Y_OFFSETS: Record<string, number> = {
+  'Manhattan': 0.00,
+  'Brooklyn': 0.02,
+  'Queens': 0.04,
+  'Bronx': 0.06,
+  'Staten Island': 0.08
+};
+
 function Borough({ name, coordinates, isHovered, isSelected, onClick, onHover, animationDelay }: { name: string; coordinates: number[][][][]; isHovered: boolean; isSelected: boolean; onClick: () => void; onHover: (h: boolean) => void; animationDelay: number }) {
   const meshRef = useRef<THREE.Mesh>(null);
   const groupRef = useRef<THREE.Group>(null);
   const [mounted, setMounted] = useState(false);
+  const yOffset = BOROUGH_Y_OFFSETS[name] || 0;
+  
   useEffect(() => { setMounted(true); }, [animationDelay]);
-  useEffect(() => { if (groupRef.current && mounted) gsap.to(groupRef.current.position, { z: isSelected ? 5 : 0, duration: 0.6, ease: 'power2.out' }); }, [isSelected, mounted]);
+  useEffect(() => { 
+    if (groupRef.current && mounted) {
+      gsap.to(groupRef.current.position, { 
+        y: yOffset,
+        z: isSelected ? 5 : 0, 
+        duration: 0.6, 
+        ease: 'power2.out' 
+      }); 
+    }
+  }, [isSelected, mounted, yOffset]);
   useEffect(() => { if (groupRef.current && mounted) gsap.to(groupRef.current.scale, { x: isHovered ? 1.02 : 1, y: isHovered ? 1.02 : 1, z: isHovered ? 1.05 : 1, duration: 0.3, ease: 'power2.out' }); }, [isHovered, mounted]);
   useFrame((state) => { if (groupRef.current && mounted) groupRef.current.rotation.z = Math.sin(state.clock.elapsedTime * 0.2 + animationDelay) * 0.002; });
   const geometry = useMemo(() => {
@@ -209,7 +229,7 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
     <fog attach="fog" args={["#131820", 200, 500]} />
     <Stars radius={350} depth={70} count={2000} factor={4} saturation={0.3} fade speed={0.3} />
     {boroughs.map((b, i) => <Borough key={b.name} name={b.name} coordinates={b.coordinates} isHovered={hoveredBorough === b.name} isSelected={selectedBorough === b.name} onClick={() => setSelectedBorough(selectedBorough === b.name ? null : b.name)} onHover={(h) => setHoveredBorough(h ? b.name : null)} animationDelay={i * 0.2} />)}
-    <Landmarks />
+    {/* <Landmarks /> */} {/* Temporarily disabled - focusing on perfecting base map first */}
     {(hoveredBorough || selectedBorough) && (() => { const b = hoveredBorough || selectedBorough || ''; const td = BOROUGH_TAX_DATA[b]; const bi = BOROUGH_INFO[b]; const bc = BOROUGH_COLORS[b]; return (<Html position={[0, 40, 0]} center><div className="bg-white rounded-lg shadow-lg px-6 py-4 border border-gray-200 max-w-sm pointer-events-none"><h3 className="text-2xl font-bold mb-3" style={{ color: bc?.base || '#000' }}>{b}</h3>{showTaxData && td && <div className="mb-3"><p className="text-3xl font-bold text-gray-900">${(td.revenue / 1e9).toFixed(2)}B</p><p className="text-sm text-gray-500 mt-1">Tax Revenue Potential</p></div>}{showTaxData && td && <div className="grid grid-cols-2 gap-3 mb-3 pb-3 border-b border-gray-200"><div><p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Billionaire Tax</p><p className="text-lg font-semibold text-gray-900">{(td.billionaireTaxShare * 100).toFixed(0)}%</p></div><div><p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Corporate Tax</p><p className="text-lg font-semibold text-gray-900">{(td.corporateTaxShare * 100).toFixed(0)}%</p></div></div>}{bi && <div className="grid grid-cols-2 gap-3 text-sm"><div><p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Population</p><p className="font-semibold text-gray-900">{(bi.population / 1e6).toFixed(2)}M</p></div><div><p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Area</p><p className="font-semibold text-gray-900">{bi.area} mi²</p></div></div>}</div></Html>); })()}
     <EffectComposer multisampling={4}><N8AO aoRadius={0.5} intensity={0.8} quality="medium" /><Bloom intensity={0.2} luminanceThreshold={0.7} luminanceSmoothing={0.8} mipmapBlur /><Vignette offset={0.4} darkness={0.3} eskil={false} /></EffectComposer>
   </>);
