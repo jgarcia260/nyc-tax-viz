@@ -237,13 +237,14 @@ function Borough({
   showTaxData = true
 }: BoroughProps) {
   const meshRef = useRef<THREE.Mesh>(null);
+  const groupRef = useRef<THREE.Group>(null);
   const materialRef = useRef<any>(null);
   const [mounted, setMounted] = useState(false);
 
   // Entry animation
   useEffect(() => {
-    if (meshRef.current) {
-      gsap.from(meshRef.current.position, {
+    if (groupRef.current) {
+      gsap.from(groupRef.current.position, {
         y: -50,
         duration: 1.5,
         delay: animationDelay,
@@ -251,7 +252,7 @@ function Borough({
         onComplete: () => setMounted(true)
       });
 
-      gsap.from(meshRef.current.scale, {
+      gsap.from(groupRef.current.scale, {
         x: 0,
         y: 0,
         z: 0,
@@ -264,8 +265,8 @@ function Borough({
 
   // Selection animation
   useEffect(() => {
-    if (meshRef.current && mounted) {
-      gsap.to(meshRef.current.position, {
+    if (groupRef.current && mounted) {
+      gsap.to(groupRef.current.position, {
         z: isSelected ? 5 : 0,
         duration: 0.6,
         ease: 'power2.out'
@@ -275,8 +276,8 @@ function Borough({
 
   // Hover animation
   useEffect(() => {
-    if (meshRef.current && mounted) {
-      gsap.to(meshRef.current.scale, {
+    if (groupRef.current && mounted) {
+      gsap.to(groupRef.current.scale, {
         x: isHovered ? 1.02 : 1,
         y: isHovered ? 1.02 : 1,
         z: isHovered ? 1.05 : 1,
@@ -303,8 +304,8 @@ function Borough({
     }
 
     // Gentle floating
-    if (meshRef.current && mounted) {
-      meshRef.current.rotation.z = Math.sin(state.clock.elapsedTime * 0.2 + animationDelay) * 0.002;
+    if (groupRef.current && mounted) {
+      groupRef.current.rotation.z = Math.sin(state.clock.elapsedTime * 0.2 + animationDelay) * 0.002;
     }
   });
 
@@ -418,7 +419,7 @@ function Borough({
   const colors = BOROUGH_COLORS[name] || BOROUGH_COLORS['Manhattan'];
 
   return (
-    <group>
+    <group ref={groupRef}>
       <mesh
         ref={meshRef}
         geometry={geometry}
@@ -441,6 +442,9 @@ function Borough({
           }}
         />
       </mesh>
+
+      {/* FIX: Buildings are now children of the borough group - they rotate together! */}
+      <BoroughBuildings name={name} coordinates={coordinates} />
 
       {isHovered && (
         <Sparkles
@@ -625,15 +629,6 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: SceneProps &
           onHover={(hovered) => setHoveredBorough(hovered ? borough.name : null)}
           animationDelay={index * 0.2}
           showTaxData={showTaxData}
-        />
-      ))}
-
-      {/* Procedural buildings per borough */}
-      {boroughs.map((borough) => (
-        <BoroughBuildings
-          key={`buildings-${borough.name}`}
-          name={borough.name}
-          coordinates={borough.coordinates}
         />
       ))}
 
