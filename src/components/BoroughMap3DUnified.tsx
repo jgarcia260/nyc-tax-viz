@@ -851,32 +851,38 @@ export default function BoroughMap3DUnified({
             )}
 
             {/* Borough legend */}
-            <div className="grid grid-cols-1 gap-2">
-              {Object.entries(BOROUGH_COLORS).map(([name, colors]) => {
-                const taxData = BOROUGH_TAX_DATA[name];
-                return (
-                  <div
-                    key={name}
-                    className="flex items-center justify-between gap-3 bg-white/5 hover:bg-white/10 px-4 py-3 rounded-xl transition-all cursor-pointer group/item border border-white/10"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div
-                        className="w-6 h-6 rounded-lg shadow-lg group-hover/item:scale-110 transition-transform"
-                        style={{
-                          backgroundColor: colors.base,
-                          boxShadow: `0 0 20px ${colors.glow}`
-                        }}
-                      />
-                      <span className="text-sm font-bold text-white drop-shadow">{name}</span>
+            <div>
+              <p className="text-xs font-bold text-blue-400 mb-2 drop-shadow">🗺️ BOROUGH COLORS & REVENUE</p>
+              <p className="text-xs text-gray-300 drop-shadow mb-3">
+                💡 <strong className="text-white">Color Guide:</strong> Darker shades = higher tax revenue potential
+              </p>
+              <div className="grid grid-cols-1 gap-2">
+                {Object.entries(BOROUGH_COLORS).map(([name, colors]) => {
+                  const taxData = BOROUGH_TAX_DATA[name];
+                  return (
+                    <div
+                      key={name}
+                      className="flex items-center justify-between gap-3 bg-white/5 hover:bg-white/10 px-4 py-3 rounded-xl transition-all cursor-pointer group/item border border-white/10"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div
+                          className="w-6 h-6 rounded-lg shadow-lg group-hover/item:scale-110 transition-transform"
+                          style={{
+                            backgroundColor: colors.base,
+                            boxShadow: `0 0 20px ${colors.glow}`
+                          }}
+                        />
+                        <span className="text-sm font-bold text-white drop-shadow">{name}</span>
+                      </div>
+                      {showTaxData && taxData && (
+                        <span className="text-xs font-bold text-emerald-400 drop-shadow">
+                          ${(taxData.revenue / 1000000000).toFixed(1)}B
+                        </span>
+                      )}
                     </div>
-                    {showTaxData && taxData && (
-                      <span className="text-xs font-bold text-emerald-400 drop-shadow">
-                        ${(taxData.revenue / 1000000000).toFixed(1)}B
-                      </span>
-                    )}
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
