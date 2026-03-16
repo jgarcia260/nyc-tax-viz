@@ -466,8 +466,8 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
         />
       </mesh>
       
-      {/* Enhanced grid with glow */}
-      <gridHelper args={[400, 40, '#3366aa', '#1e293b']} position={[0, -0.4, 0]} />
+      {/* Enhanced grid with glow - positioned below ground plane */}
+      <gridHelper args={[400, 40, '#3366aa', '#1e293b']} position={[0, -0.6, 0]} />
       
       {/* Contact shadows for better ground interaction */}
       <ContactShadows 
