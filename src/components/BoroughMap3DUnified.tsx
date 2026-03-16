@@ -41,8 +41,17 @@ function projectCoordinate(lat: number, lng: number): { x: number; y: number } {
 }
 
 // Building density configuration per borough
-// FIX: Scale up buildings 3x to be visible from camera distance (camera at ~100 units, map spans ~200 units)
-const BUILDING_SCALE_MULTIPLIER = 3;
+// FIX: Reduced overall height (0.6x) + borough-specific multipliers to show Manhattan as tallest
+const BUILDING_SCALE_MULTIPLIER = 1.8;  // Reduced from 3 to 1.8 (0.6x overall)
+
+// Borough-specific height multipliers (Manhattan = tallest)
+const BOROUGH_HEIGHT_MULTIPLIER: Record<string, number> = {
+  'Manhattan': 1.0,      // Tallest
+  'Brooklyn': 0.7,
+  'Queens': 0.7,
+  'Bronx': 0.6,
+  'Staten Island': 0.5   // Shortest
+};
 
 const BOROUGH_BUILDING_CONFIG: Record<string, {
   count: number;
@@ -52,11 +61,11 @@ const BOROUGH_BUILDING_CONFIG: Record<string, {
   maxWidth: number;
   clusterFactor: number;
 }> = {
-  'Manhattan':      { count: 220, minHeight: 4 * BUILDING_SCALE_MULTIPLIER,   maxHeight: 28 * BUILDING_SCALE_MULTIPLIER,  minWidth: 0.25 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.7 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.7 },
-  'Brooklyn':       { count: 150, minHeight: 1 * BUILDING_SCALE_MULTIPLIER,   maxHeight: 8 * BUILDING_SCALE_MULTIPLIER,   minWidth: 0.25 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.6 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.4 },
-  'Queens':         { count: 100, minHeight: 0.5 * BUILDING_SCALE_MULTIPLIER, maxHeight: 4 * BUILDING_SCALE_MULTIPLIER,   minWidth: 0.25 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.5 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.2 },
-  'Bronx':          { count: 110, minHeight: 1 * BUILDING_SCALE_MULTIPLIER,   maxHeight: 6 * BUILDING_SCALE_MULTIPLIER,   minWidth: 0.25 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.55 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.3 },
-  'Staten Island':  { count: 50,  minHeight: 0.3 * BUILDING_SCALE_MULTIPLIER, maxHeight: 2.5 * BUILDING_SCALE_MULTIPLIER, minWidth: 0.25 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.45 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.1 },
+  'Manhattan':      { count: 220, minHeight: 4 * BUILDING_SCALE_MULTIPLIER * BOROUGH_HEIGHT_MULTIPLIER['Manhattan'],   maxHeight: 28 * BUILDING_SCALE_MULTIPLIER * BOROUGH_HEIGHT_MULTIPLIER['Manhattan'],  minWidth: 0.25 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.7 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.7 },
+  'Brooklyn':       { count: 150, minHeight: 1 * BUILDING_SCALE_MULTIPLIER * BOROUGH_HEIGHT_MULTIPLIER['Brooklyn'],   maxHeight: 8 * BUILDING_SCALE_MULTIPLIER * BOROUGH_HEIGHT_MULTIPLIER['Brooklyn'],   minWidth: 0.25 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.6 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.4 },
+  'Queens':         { count: 100, minHeight: 0.5 * BUILDING_SCALE_MULTIPLIER * BOROUGH_HEIGHT_MULTIPLIER['Queens'], maxHeight: 4 * BUILDING_SCALE_MULTIPLIER * BOROUGH_HEIGHT_MULTIPLIER['Queens'],   minWidth: 0.25 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.5 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.2 },
+  'Bronx':          { count: 110, minHeight: 1 * BUILDING_SCALE_MULTIPLIER * BOROUGH_HEIGHT_MULTIPLIER['Bronx'],   maxHeight: 6 * BUILDING_SCALE_MULTIPLIER * BOROUGH_HEIGHT_MULTIPLIER['Bronx'],   minWidth: 0.25 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.55 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.3 },
+  'Staten Island':  { count: 50,  minHeight: 0.3 * BUILDING_SCALE_MULTIPLIER * BOROUGH_HEIGHT_MULTIPLIER['Staten Island'], maxHeight: 2.5 * BUILDING_SCALE_MULTIPLIER * BOROUGH_HEIGHT_MULTIPLIER['Staten Island'], minWidth: 0.25 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.45 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.1 },
 };
 
 // Seeded random for deterministic building placement
