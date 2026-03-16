@@ -1,6 +1,6 @@
 "use client";
 
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { Canvas, useFrame } from '@react-three/fiber';
 import {
   OrbitControls,
   PerspectiveCamera,
@@ -13,7 +13,6 @@ import {
 import {
   EffectComposer,
   Bloom,
-  SSAO,
   ChromaticAberration,
   Vignette,
   ToneMapping,
@@ -92,20 +91,37 @@ function generateBuildings(name: string, coordinates: number[][][][]): BuildingI
   const config = BOROUGH_BUILDING_CONFIG[name];
   if (!config) return [];
 
-  const outerRings: number[][][] = [];
+  // Calculate polygon areas and only use the largest polygon (main landmass)
+  // This prevents buildings from appearing on small disconnected islands
+  const polygonsWithAreas = coordinates.map((polygon) => {
+    if (!polygon || !polygon[0]) return null;
+    const ring = polygon[0].map((pt: number[]) => {
+      const { x, y } = projectCoordinate(pt[1], pt[0]);
+      return [x, y];
+    });
+    // Calculate polygon area using shoelace formula
+    let area = 0;
+    for (let i = 0; i < ring.length - 1; i++) {
+      area += ring[i][0] * ring[i + 1][1] - ring[i + 1][0] * ring[i][1];
+    }
+    area = Math.abs(area / 2);
+    return { ring, area };
+  }).filter(Boolean);
+
+  // Sort by area and only use the largest polygon
+  polygonsWithAreas.sort((a, b) => (b?.area || 0) - (a?.area || 0));
+  const largestPolygon = polygonsWithAreas[0];
+  
+  if (!largestPolygon) return [];
+  
+  const outerRings: number[][][] = [largestPolygon.ring];
   let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
   let centerX = 0, centerY = 0, pointCount = 0;
 
-  coordinates.forEach((polygon) => {
-    if (!polygon || !polygon[0]) return;
-    const ring = polygon[0].map((pt: number[]) => {
-      const { x, y } = projectCoordinate(pt[1], pt[0]);
-      minX = Math.min(minX, x); maxX = Math.max(maxX, x);
-      minY = Math.min(minY, y); maxY = Math.max(maxY, y);
-      centerX += x; centerY += y; pointCount++;
-      return [x, y];
-    });
-    outerRings.push(ring);
+  largestPolygon.ring.forEach((pt) => {
+    minX = Math.min(minX, pt[0]); maxX = Math.max(maxX, pt[0]);
+    minY = Math.min(minY, pt[1]); maxY = Math.max(maxY, pt[1]);
+    centerX += pt[0]; centerY += pt[1]; pointCount++;
   });
 
   if (outerRings.length === 0 || pointCount === 0) return [];

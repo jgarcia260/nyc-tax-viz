@@ -1,2 +1,2 @@
-:HL["/_next/static/chunks/cd85d6f0f05bcbd5.css","style"]
-0:{"buildId":"Uf8jebz-D3I7kg5pPfiaX","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"borough-impact","paramType":null,"paramKey":"borough-impact","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+:HL["/_next/static/chunks/c6e6396b860a87db.css","style"]
+0:{"buildId":"6w-IszzUWooywgXfeP4IE","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"borough-impact","paramType":null,"paramKey":"borough-impact","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
