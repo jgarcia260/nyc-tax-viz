@@ -30,6 +30,15 @@ const BOROUGH_BUILDING_CONFIG: Record<string, { count: number; minHeight: number
   'Staten Island':  { count: 40,  minHeight: 0.04 * BUILDING_SCALE_MULTIPLIER * 0.5, maxHeight: 0.3 * BUILDING_SCALE_MULTIPLIER * 0.5, minWidth: 0.35 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.5 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.1 },
 };
 
+// Configuration for small residential/suburban buildings
+const RESIDENTIAL_BUILDING_CONFIG: Record<string, { count: number; minHeight: number; maxHeight: number; minWidth: number; maxWidth: number; clusterFactor: number }> = {
+  'Manhattan':      { count: 800, minHeight: 0.02, maxHeight: 0.08, minWidth: 0.12, maxWidth: 0.2, clusterFactor: 0.3 },
+  'Brooklyn':       { count: 1200, minHeight: 0.015, maxHeight: 0.06, minWidth: 0.1, maxWidth: 0.18, clusterFactor: 0.2 },
+  'Queens':         { count: 1500, minHeight: 0.015, maxHeight: 0.05, minWidth: 0.1, maxWidth: 0.16, clusterFactor: 0.15 },
+  'Bronx':          { count: 1000, minHeight: 0.015, maxHeight: 0.055, minWidth: 0.1, maxWidth: 0.17, clusterFactor: 0.2 },
+  'Staten Island':  { count: 600, minHeight: 0.01, maxHeight: 0.04, minWidth: 0.08, maxWidth: 0.14, clusterFactor: 0.1 },
+};
+
 function seededRandom(seed: number) { let s = seed; return () => { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; }; }
 
 function pointInPolygon(x: number, y: number, polygon: number[][]) {
@@ -87,7 +96,7 @@ function Borough({ name, coordinates, isHovered, isSelected, onClick, onHover, a
     geo.rotateX(-Math.PI / 2); return geo;
   }, [coordinates, name]);
   const colors = BOROUGH_COLORS[name] || BOROUGH_COLORS['Manhattan'];
-  return (<group ref={groupRef}><mesh ref={meshRef} geometry={geometry} onClick={onClick} onPointerOver={() => onHover(true)} onPointerOut={() => onHover(false)} castShadow receiveShadow><meshPhysicalMaterial color={colors.base} emissive={colors.emissive} emissiveIntensity={isHovered ? 0.4 : isSelected ? 0.25 : 0.15} metalness={0.4} roughness={0.45} envMapIntensity={0.8} clearcoat={0.3} clearcoatRoughness={0.4} transparent={isHovered} opacity={isHovered ? 0.95 : 1.0} /></mesh><BoroughBuildings name={name} coordinates={coordinates} /></group>);
+  return (<group ref={groupRef}><mesh ref={meshRef} geometry={geometry} onClick={onClick} onPointerOver={() => onHover(true)} onPointerOut={() => onHover(false)} castShadow receiveShadow><meshPhysicalMaterial color={colors.base} emissive={colors.emissive} emissiveIntensity={isHovered ? 0.4 : isSelected ? 0.25 : 0.15} metalness={0.4} roughness={0.45} envMapIntensity={0.8} clearcoat={0.3} clearcoatRoughness={0.4} transparent={isHovered} opacity={isHovered ? 0.95 : 1.0} /></mesh><BoroughBuildings name={name} coordinates={coordinates} /><ResidentialBuildings name={name} coordinates={coordinates} /></group>);
 }
 
 function BoroughBuildings({ name, coordinates }: { name: string; coordinates: number[][][][] }) {
@@ -99,6 +108,88 @@ function BoroughBuildings({ name, coordinates }: { name: string; coordinates: nu
   useFrame((state) => { if (!meshRef.current) return; const mat = meshRef.current.material as THREE.MeshPhysicalMaterial; if (mat.emissiveIntensity !== undefined) mat.emissiveIntensity = 0.03 + Math.sin(state.clock.elapsedTime * 0.5) * 0.01; });
   if (buildings.length === 0) return null;
   return (<instancedMesh ref={meshRef} args={[undefined, undefined, buildings.length]} castShadow receiveShadow><boxGeometry args={[1, 1, 1]} /><meshPhysicalMaterial metalness={0.5} roughness={0.4} envMapIntensity={0.8} emissive={colors.base} emissiveIntensity={0.03} clearcoat={0.15} clearcoatRoughness={0.6} /></instancedMesh>);
+}
+
+function ResidentialBuildings({ name, coordinates }: { name: string; coordinates: number[][][][] }) {
+  const meshRef = useRef<THREE.InstancedMesh>(null);
+  const buildings = useMemo(() => {
+    const config = RESIDENTIAL_BUILDING_CONFIG[name];
+    if (!config) return [];
+    const outerRings: number[][][] = [];
+    let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+    coordinates.forEach((polygon) => {
+      if (!polygon || !polygon[0]) return;
+      const ring = polygon[0].map((pt: number[]) => {
+        const { x, y } = projectCoordinate(pt[1], pt[0]);
+        minX = Math.min(minX, x); maxX = Math.max(maxX, x);
+        minY = Math.min(minY, y); maxY = Math.max(maxY, y);
+        return [x, y];
+      });
+      outerRings.push(ring);
+    });
+    if (outerRings.length === 0) return [];
+    
+    const rand = seededRandom(name.charCodeAt(0) * 2000 + name.length * 17);
+    const buildings: BuildingInstance[] = [];
+    let attempts = 0;
+    
+    while (buildings.length < config.count && attempts < config.count * 30) {
+      attempts++;
+      const x = minX + rand() * (maxX - minX);
+      const y = minY + rand() * (maxY - minY);
+      
+      if (!outerRings.some(ring => pointInPolygon(x, y, ring))) continue;
+      
+      buildings.push({
+        x,
+        y,
+        width: config.minWidth + rand() * (config.maxWidth - config.minWidth),
+        depth: config.minWidth + rand() * (config.maxWidth - config.minWidth),
+        height: config.minHeight + rand() * (config.maxHeight - config.minHeight)
+      });
+    }
+    
+    return buildings;
+  }, [name, coordinates]);
+  
+  const colors = BOROUGH_COLORS[name] || BOROUGH_COLORS['Manhattan'];
+  
+  useEffect(() => {
+    if (!meshRef.current || buildings.length === 0) return;
+    const dummy = new THREE.Object3D();
+    const base = new THREE.Color(colors.base);
+    
+    buildings.forEach((b, i) => {
+      dummy.position.set(b.x, 2 + b.height / 2, -b.y);
+      dummy.scale.set(b.width, b.height, b.depth);
+      dummy.updateMatrix();
+      meshRef.current!.setMatrixAt(i, dummy.matrix);
+      
+      const c = base.clone();
+      c.multiplyScalar(0.4 + Math.random() * 0.3);
+      meshRef.current!.setColorAt(i, c);
+    });
+    
+    meshRef.current.instanceMatrix.needsUpdate = true;
+    if (meshRef.current.instanceColor) meshRef.current.instanceColor.needsUpdate = true;
+  }, [buildings, colors, name]);
+  
+  if (buildings.length === 0) return null;
+  
+  return (
+    <instancedMesh ref={meshRef} args={[undefined, undefined, buildings.length]} castShadow receiveShadow>
+      <boxGeometry args={[1, 1, 1]} />
+      <meshPhysicalMaterial 
+        metalness={0.2} 
+        roughness={0.7} 
+        envMapIntensity={0.4} 
+        emissive={colors.base} 
+        emissiveIntensity={0.01} 
+        opacity={0.85}
+        transparent={false}
+      />
+    </instancedMesh>
+  );
 }
 
 function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: BoroughData[]; showTaxData?: boolean; autoRotate?: boolean }) {
