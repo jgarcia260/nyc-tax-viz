@@ -21,8 +21,6 @@ export default function BoroughMapPremiumPage() {
     <div className="w-full h-screen">
       <BoroughMap3DUnified 
         showTaxData={true}
-        title="NYC Tax Revenue"
-        description="Interactive 3D visualization of NYC's 5 boroughs showing tax revenue potential and distribution."
       />
     </div>
   );

@@ -148,13 +148,14 @@ const BOROUGH_TAX_DATA: Record<string, { revenue: number; billionaireTaxShare: n
   'Staten Island': { revenue: 800000000, billionaireTaxShare: 0.1, corporateTaxShare: 0.07 }
 };
 
-// Premium SimCity-inspired colors
+// Professional sequential Blues palette - darker shades = higher tax revenue potential
+// Based on economic activity and median income per borough
 const BOROUGH_COLORS: Record<string, { base: string; emissive: string; glow: string }> = {
-  'Manhattan': { base: '#FF6B6B', emissive: '#FF3333', glow: '#FF9999' },
-  'Brooklyn': { base: '#4ECDC4', emissive: '#2EAD9D', glow: '#6EDDD4' },
-  'Queens': { base: '#FFE66D', emissive: '#FFD633', glow: '#FFF09D' },
-  'Bronx': { base: '#95E1D3', emissive: '#75C1B3', glow: '#B5F1E3' },
-  'Staten Island': { base: '#C7CEEA', emissive: '#A7AECA', glow: '#E7EEFA' }
+  'Manhattan': { base: '#08519c', emissive: '#2171b5', glow: '#4292c6' },        // Darkest - highest revenue
+  'Brooklyn': { base: '#3182bd', emissive: '#4292c6', glow: '#6baed6' },         // Dark - high revenue
+  'Queens': { base: '#6baed6', emissive: '#9ecae1', glow: '#bdd7e7' },           // Medium - moderate revenue
+  'Bronx': { base: '#9ecae1', emissive: '#bdd7e7', glow: '#d0e3f0' },            // Light - lower revenue
+  'Staten Island': { base: '#c6dbef', emissive: '#deebf7', glow: '#eff3fb' }     // Lightest - lowest revenue
 };
 
 // Custom shader for premium visual effects
@@ -272,6 +273,19 @@ function Borough({
     }
   }, [isSelected, mounted]);
 
+  // Hover animation
+  useEffect(() => {
+    if (meshRef.current && mounted) {
+      gsap.to(meshRef.current.scale, {
+        x: isHovered ? 1.02 : 1,
+        y: isHovered ? 1.02 : 1,
+        z: isHovered ? 1.05 : 1,
+        duration: 0.3,
+        ease: 'power2.out'
+      });
+    }
+  }, [isHovered, mounted]);
+
   // Shader animation frame
   useFrame((state) => {
     if (materialRef.current) {
@@ -378,8 +392,8 @@ function Borough({
       bevelEnabled: true,
       bevelThickness: 0.3,
       bevelSize: 0.2,
-      bevelSegments: 3,
-      curveSegments: 12
+      bevelSegments: 5,
+      curveSegments: 32  // FIX: Increase from 12 to 32 for smoother edges
     };
 
     if (shapes.length === 0) {
@@ -450,7 +464,8 @@ function BoroughBuildings({ name, coordinates }: { name: string; coordinates: nu
     const emissive = new THREE.Color(colors.emissive);
 
     buildings.forEach((b, i) => {
-      dummy.position.set(b.x, b.height / 2 + 2, -b.y);
+      // FIX: Remove the +2 offset to anchor buildings to borough surface
+      dummy.position.set(b.x, b.height / 2, -b.y);
       dummy.scale.set(b.width, b.height, b.depth);
       dummy.updateMatrix();
       meshRef.current!.setMatrixAt(i, dummy.matrix);
@@ -542,7 +557,7 @@ interface SceneProps {
   showTaxData?: boolean;
 }
 
-function Scene({ boroughs, showTaxData = true }: SceneProps) {
+function Scene({ boroughs, showTaxData = true, autoRotate = true }: SceneProps & { autoRotate?: boolean }) {
   const [hoveredBorough, setHoveredBorough] = useState<string | null>(null);
   const [selectedBorough, setSelectedBorough] = useState<string | null>(null);
 
@@ -551,22 +566,23 @@ function Scene({ boroughs, showTaxData = true }: SceneProps) {
       {/* White background */}
       <color attach="background" args={['#ffffff']} />
 
-      <PerspectiveCamera makeDefault position={[0, 80, 120]} fov={60} />
+      {/* FIX: 45° isometric view - equal X/Y/Z distances for true isometric */}
+      <PerspectiveCamera makeDefault position={[100, 100, 100]} fov={50} />
       <OrbitControls
         enablePan={true}
         enableZoom={true}
         enableRotate={true}
         enableDamping={true}
-        dampingFactor={0.05}
+        dampingFactor={0.15}
         minDistance={40}
         maxDistance={300}
-        maxPolarAngle={Math.PI}
-        minPolarAngle={0}
-        rotateSpeed={0.5}
-        zoomSpeed={0.8}
-        panSpeed={0.5}
-        autoRotate
-        autoRotateSpeed={0.3}
+        maxPolarAngle={Math.PI / 1.1}
+        minPolarAngle={Math.PI / 8}
+        rotateSpeed={0.6}
+        zoomSpeed={1.0}
+        panSpeed={0.6}
+        autoRotate={autoRotate}
+        autoRotateSpeed={0.5}
       />
 
       {/* Premium lighting */}
@@ -615,7 +631,7 @@ function Scene({ boroughs, showTaxData = true }: SceneProps) {
         />
       ))}
 
-      {/* Info overlay */}
+      {/* Info overlay - Clean, minimal tooltip */}
       {(hoveredBorough || selectedBorough) && (() => {
         const borough = hoveredBorough || selectedBorough || '';
         const taxData = BOROUGH_TAX_DATA[borough];
@@ -624,42 +640,60 @@ function Scene({ boroughs, showTaxData = true }: SceneProps) {
 
         return (
           <Html position={[0, 40, 0]} center>
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/40 to-blue-500/40 blur-2xl" />
-              <div className="relative bg-black/80 backdrop-blur-xl px-8 py-6 rounded-3xl shadow-2xl border-2 border-white/30 max-w-md">
-                <h3
-                  className="font-black text-3xl mb-3 drop-shadow-lg"
-                  style={{
-                    color: colors?.glow || '#fff',
-                    textShadow: `0 0 30px ${colors?.emissive}, 0 2px 10px rgba(0,0,0,0.8)`
-                  }}
-                >
-                  {borough}
-                </h3>
+            <div className="bg-white rounded-lg shadow-lg px-6 py-4 border border-gray-200 max-w-sm">
+              {/* Borough name with accent color */}
+              <h3
+                className="text-2xl font-bold mb-3"
+                style={{ color: colors?.base || '#000' }}
+              >
+                {borough}
+              </h3>
 
-                {showTaxData && taxData && (
-                  <div className="mb-4 p-4 bg-white/10 rounded-xl border border-white/20">
-                    <p className="text-sm font-bold text-white mb-2 drop-shadow">Tax Revenue Potential</p>
-                    <p className="text-2xl font-black text-emerald-400 drop-shadow-lg">
-                      ${(taxData.revenue / 1000000000).toFixed(2)}B
+              {/* Tax revenue - primary metric */}
+              {showTaxData && taxData && (
+                <div className="mb-3">
+                  <p className="text-3xl font-bold text-gray-900">
+                    ${(taxData.revenue / 1000000000).toFixed(2)}B
+                  </p>
+                  <p className="text-sm text-gray-500 mt-1">Tax Revenue Potential</p>
+                </div>
+              )}
+
+              {/* Stats grid */}
+              {showTaxData && taxData && (
+                <div className="grid grid-cols-2 gap-3 mb-3 pb-3 border-b border-gray-200">
+                  <div>
+                    <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Billionaire Tax</p>
+                    <p className="text-lg font-semibold text-gray-900">
+                      {(taxData.billionaireTaxShare * 100).toFixed(0)}%
                     </p>
-                    <div className="mt-3 space-y-1 text-xs text-white">
-                      <p className="drop-shadow">💰 Billionaire Tax: {(taxData.billionaireTaxShare * 100).toFixed(0)}% share</p>
-                      <p className="drop-shadow">🏢 Corporate Tax: {(taxData.corporateTaxShare * 100).toFixed(0)}% share</p>
-                    </div>
                   </div>
-                )}
+                  <div>
+                    <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Corporate Tax</p>
+                    <p className="text-lg font-semibold text-gray-900">
+                      {(taxData.corporateTaxShare * 100).toFixed(0)}%
+                    </p>
+                  </div>
+                </div>
+              )}
 
-                {boroughInfo && (
-                  <div className="text-sm space-y-2 text-white">
-                    <p className="text-gray-100 drop-shadow leading-relaxed">{boroughInfo.description}</p>
-                    <div className="flex justify-between text-xs pt-3 border-t border-white/20">
-                      <span className="font-bold drop-shadow">👥 {(boroughInfo.population / 1000000).toFixed(2)}M</span>
-                      <span className="font-bold drop-shadow">📏 {boroughInfo.area} mi²</span>
-                    </div>
+              {/* Borough stats */}
+              {boroughInfo && (
+                <div className="grid grid-cols-2 gap-3 text-sm">
+                  <div>
+                    <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Population</p>
+                    <p className="font-semibold text-gray-900">
+                      {(boroughInfo.population / 1000000).toFixed(2)}M
+                    </p>
                   </div>
-                )}
-              </div>
+                  <div>
+                    <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Area</p>
+                    <p className="font-semibold text-gray-900">
+                      {boroughInfo.area} mi²
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
           </Html>
         );
@@ -712,12 +746,13 @@ export interface BoroughMap3DUnifiedProps {
 
 export default function BoroughMap3DUnified({
   showTaxData = true,
-  title = "NYC Borough 3D Map",
-  description = "Interactive 3D visualization of NYC's 5 boroughs"
+  title = "NYC Tax Revenue Potential by Borough",
+  description = "3D visualization showing potential revenue from billionaire and corporate tax reforms. Building heights represent revenue potential, colors identify boroughs."
 }: BoroughMap3DUnifiedProps) {
   const [boroughs, setBoroughs] = useState<BoroughData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [autoRotate, setAutoRotate] = useState(true);
 
   useEffect(() => {
     async function loadBoroughData() {
@@ -790,40 +825,63 @@ export default function BoroughMap3DUnified({
             </p>
 
             {showTaxData && (
-              <div className="bg-white/10 p-4 rounded-xl border border-white/20 mb-4">
-                <p className="text-sm text-gray-200 drop-shadow">
-                  <span className="font-bold text-white">💡 Data Source:</span> Tax revenue projections from billionaire and corporate tax reform proposals (2026)
-                </p>
+              <div className="bg-white/10 p-4 rounded-xl border border-white/20 mb-4 space-y-3">
+                <div>
+                  <p className="text-xs font-bold text-emerald-400 mb-1 drop-shadow">📊 WHAT YOU'RE SEEING</p>
+                  <p className="text-sm text-gray-200 drop-shadow leading-relaxed">
+                    <span className="font-bold text-white">Building heights</span> represent tax revenue potential from each borough. Taller buildings = higher revenue.
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-purple-400 mb-1 drop-shadow">💰 TAX POLICIES EXPLAINED</p>
+                  <p className="text-xs text-gray-200 drop-shadow leading-relaxed mb-2">
+                    <span className="font-bold text-white">Billionaire Tax:</span> Wealth tax on NYC residents worth $1B+. Each borough's "share" shows what % of billionaires live there.
+                  </p>
+                  <p className="text-xs text-gray-200 drop-shadow leading-relaxed">
+                    <span className="font-bold text-white">Corporate Tax:</span> Tax on large businesses. Each borough's "share" shows what % of corporate activity happens there.
+                  </p>
+                </div>
+                <div className="pt-2 border-t border-white/20">
+                  <p className="text-xs text-gray-300 drop-shadow">
+                    <span className="font-bold text-white">📚 Sources:</span> NYC Open Data, NYC Comptroller, City & State NY (2026)
+                  </p>
+                </div>
               </div>
             )}
 
             {/* Borough legend */}
-            <div className="grid grid-cols-1 gap-2">
-              {Object.entries(BOROUGH_COLORS).map(([name, colors]) => {
-                const taxData = BOROUGH_TAX_DATA[name];
-                return (
-                  <div
-                    key={name}
-                    className="flex items-center justify-between gap-3 bg-white/5 hover:bg-white/10 px-4 py-3 rounded-xl transition-all cursor-pointer group/item border border-white/10"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div
-                        className="w-6 h-6 rounded-lg shadow-lg group-hover/item:scale-110 transition-transform"
-                        style={{
-                          backgroundColor: colors.base,
-                          boxShadow: `0 0 20px ${colors.glow}`
-                        }}
-                      />
-                      <span className="text-sm font-bold text-white drop-shadow">{name}</span>
+            <div>
+              <p className="text-xs font-bold text-blue-400 mb-2 drop-shadow">🗺️ BOROUGH COLORS & REVENUE</p>
+              <p className="text-xs text-gray-300 drop-shadow mb-3">
+                💡 <strong className="text-white">Color Guide:</strong> Darker shades = higher tax revenue potential
+              </p>
+              <div className="grid grid-cols-1 gap-2">
+                {Object.entries(BOROUGH_COLORS).map(([name, colors]) => {
+                  const taxData = BOROUGH_TAX_DATA[name];
+                  return (
+                    <div
+                      key={name}
+                      className="flex items-center justify-between gap-3 bg-white/5 hover:bg-white/10 px-4 py-3 rounded-xl transition-all cursor-pointer group/item border border-white/10"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div
+                          className="w-6 h-6 rounded-lg shadow-lg group-hover/item:scale-110 transition-transform"
+                          style={{
+                            backgroundColor: colors.base,
+                            boxShadow: `0 0 20px ${colors.glow}`
+                          }}
+                        />
+                        <span className="text-sm font-bold text-white drop-shadow">{name}</span>
+                      </div>
+                      {showTaxData && taxData && (
+                        <span className="text-xs font-bold text-emerald-400 drop-shadow">
+                          ${(taxData.revenue / 1000000000).toFixed(1)}B
+                        </span>
+                      )}
                     </div>
-                    {showTaxData && taxData && (
-                      <span className="text-xs font-bold text-emerald-400 drop-shadow">
-                        ${(taxData.revenue / 1000000000).toFixed(1)}B
-                      </span>
-                    )}
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
@@ -833,12 +891,24 @@ export default function BoroughMap3DUnified({
           <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/30 to-blue-500/30 blur-xl" />
           <div className="relative bg-black/70 backdrop-blur-2xl p-5 rounded-2xl border-2 border-white/20">
             <p className="text-sm font-black text-emerald-400 mb-3 drop-shadow">🎮 CONTROLS</p>
-            <div className="text-sm text-white space-y-2 drop-shadow-md">
-              <p className="font-semibold">🖱️ Drag to rotate (auto-rotating)</p>
+            <div className="text-sm text-white space-y-2 drop-shadow-md mb-4">
+              <p className="font-semibold">🖱️ Drag to rotate</p>
               <p className="font-semibold">🔍 Scroll to zoom in/out</p>
               <p className="font-semibold">👆 Click borough for details</p>
               <p className="font-semibold">✨ Hover for sparkles</p>
             </div>
+
+            {/* Auto-rotate toggle */}
+            <button
+              onClick={() => setAutoRotate(!autoRotate)}
+              className={`w-full px-4 py-3 rounded-xl font-bold text-sm transition-all shadow-lg ${
+                autoRotate
+                  ? 'bg-gradient-to-r from-emerald-500 to-blue-500 text-white hover:from-emerald-600 hover:to-blue-600'
+                  : 'bg-white/10 text-white hover:bg-white/20 border-2 border-white/30'
+              }`}
+            >
+              {autoRotate ? '⏸️ Pause Rotation' : '▶️ Auto Rotate'}
+            </button>
           </div>
         </div>
       </div>
@@ -855,9 +925,17 @@ export default function BoroughMap3DUnified({
         ))}
       </div>
 
-      <Canvas shadows gl={{ antialias: true, alpha: false }} dpr={[1, 2]}>
+      <Canvas 
+        shadows 
+        gl={{ 
+          antialias: true, 
+          alpha: false,
+          powerPreference: "high-performance"  // FIX: Better rendering quality
+        }} 
+        dpr={[1, 2]}  // FIX: Device pixel ratio for sharper edges
+      >
         <Suspense fallback={null}>
-          <Scene boroughs={boroughs} showTaxData={showTaxData} />
+          <Scene boroughs={boroughs} showTaxData={showTaxData} autoRotate={autoRotate} />
         </Suspense>
       </Canvas>
     </div>
