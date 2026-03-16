@@ -24,13 +24,19 @@ page.on('console', msg => {
 try {
   await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
   
-  // FIX: Wait much longer for WebGL/Three.js to fully render
-  console.log('[Screenshot] Waiting for canvas to render...');
-  await page.waitForTimeout(10000); // 10 seconds for Three.js scene to fully initialize
+  // Check if page has canvas (3D viz) or is a regular page
+  const hasCanvas = await page.locator('canvas').count() > 0;
   
-  // Wait for any canvas element to exist
-  await page.waitForSelector('canvas', { timeout: 10000 });
-  console.log('[Screenshot] Canvas element found, capturing...');
+  if (hasCanvas) {
+    console.log('[Screenshot] Waiting for canvas to render...');
+    await page.waitForSelector('canvas', { timeout: 10000 });
+    // Wait for scene to fully initialize (longer timeout for complex 3D scene)
+    await page.waitForTimeout(20000); // 20 seconds for Three.js scene, buildings, and post-processing
+    console.log('[Screenshot] Canvas element found, capturing...');
+  } else {
+    console.log('[Screenshot] No canvas found, waiting for page to settle...');
+    await page.waitForTimeout(2000); // 2 seconds for regular page
+  }
   
   const fullPath = outputPath.replace('~', process.env.HOME);
   await page.screenshot({ path: fullPath, fullPage: false });
