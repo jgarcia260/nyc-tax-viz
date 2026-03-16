@@ -6,8 +6,6 @@ import {
   PerspectiveCamera,
   Environment,
   Html,
-  Stars,
-  Sparkles,
   ContactShadows,
 } from '@react-three/drei';
 import {
@@ -15,6 +13,8 @@ import {
   Bloom,
   ChromaticAberration,
   Vignette,
+  ToneMapping,
+  DepthOfField,
   N8AO,
 } from '@react-three/postprocessing';
 import { Suspense, useState, useRef, useMemo, useEffect } from 'react';
@@ -513,7 +513,7 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
       {/* Main directional lights with enhanced shadows */}
       <directionalLight
         position={[100, 120, 80]}
-        intensity={1.5}
+        intensity={2.2}
         color="#ffe8c5"
         castShadow
         shadow-mapSize-width={2048}
@@ -530,7 +530,7 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
       
       <directionalLight 
         position={[80, 100, -60]} 
-        intensity={0.6} 
+        intensity={1.0} 
         color="#ffd8b3" 
         castShadow 
         shadow-mapSize-width={2048} 
@@ -548,13 +548,13 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
       <directionalLight position={[0, -10, 0]} intensity={0.3} color="#a78bfa" />
       
       {/* Enhanced hemisphere light */}
-      <hemisphereLight intensity={0.4} color="#b8d4ff" groundColor="#2b3252" />
+      <hemisphereLight intensity={0.8} color="#b8d4ff" groundColor="#2b3252" />
       
       {/* Rim lighting for depth */}
       <RimLighting />
 
       {/* Enhanced environment */}
-      <Environment preset="city" background={false} environmentIntensity={0.8} />
+      <Environment preset="city" background={false} environmentIntensity={1.5} />
       
       {/* Volumetric atmosphere */}
       <VolumetricAtmosphere />
@@ -621,7 +621,7 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
       })()}
 
       <EffectComposer multisampling={4}>
-        <N8AO aoRadius={0.4} intensity={0.6} quality="performance" halfRes />
+        <N8AO aoRadius={0.4} intensity={1.0} quality="performance" halfRes />
         <Bloom intensity={0.3} luminanceThreshold={0.6} luminanceSmoothing={0.7} mipmapBlur />
         <Vignette offset={0.3} darkness={0.4} eskil={false} />
         <ChromaticAberration offset={[0.0005, 0.0005]} />
@@ -734,7 +734,7 @@ export default function BoroughMap3DUnified({
           alpha: false, 
           powerPreference: "high-performance",
           toneMapping: THREE.ACESFilmicToneMapping,
-          toneMappingExposure: 0.8,
+          toneMappingExposure: 1.2,
         }} 
         dpr={[1, 1.5]}
       >
