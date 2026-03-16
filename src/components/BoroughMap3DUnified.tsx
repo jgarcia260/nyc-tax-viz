@@ -198,7 +198,7 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
   const [selectedBorough, setSelectedBorough] = useState<string | null>(null);
   return (
     <>
-      <color attach="background" args={['#0f172a']} />
+      <color attach="background" args={['#ffffff']} />
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow><planeGeometry args={[500, 500]} /><meshStandardMaterial color="#0f1419" roughness={0.95} metalness={0.05} envMapIntensity={0.1} emissive="#0a0e14" emissiveIntensity={0.1} /></mesh>
       <gridHelper args={[400, 40, '#334155', '#1e293b']} position={[0, -0.4, 0]} />
       <ContactShadows position={[0, -0.45, 0]} opacity={0.5} scale={200} blur={2} far={50} resolution={512} color="#000020" />
