@@ -670,13 +670,15 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
 
 function LoadingScreen() {
   return (
-    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
-      <div className="text-center space-y-4">
-        <h2 className="text-3xl font-bold text-white animate-pulse">Loading NYC 3D Map</h2>
-        <div className="flex justify-center gap-2">
-          {[0, 1, 2].map((i) => (
-            <div key={i} className="w-3 h-3 rounded-full bg-blue-500" style={{ animation: `pulse 1.5s ease-in-out ${i * 0.2}s infinite` }} />
-          ))}
+    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-950 via-indigo-950/40 to-slate-950">
+      <div className="text-center space-y-6">
+        <div className="relative inline-flex items-center justify-center">
+          <div className="w-16 h-16 rounded-full border-2 border-blue-500/20 border-t-blue-400 animate-spin" />
+          <div className="absolute w-16 h-16 rounded-full border-2 border-transparent border-b-purple-400/50 animate-spin" style={{ animationDirection: 'reverse', animationDuration: '1.5s' }} />
+        </div>
+        <div>
+          <h2 className="text-2xl font-semibold text-white mb-2">Loading NYC 3D Map</h2>
+          <p className="text-sm text-zinc-500">Preparing borough geometries and lighting...</p>
         </div>
       </div>
     </div>
