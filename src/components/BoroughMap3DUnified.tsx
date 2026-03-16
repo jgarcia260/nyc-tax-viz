@@ -397,7 +397,6 @@ function Borough({ name, coordinates, isHovered, isSelected, onClick, onHover, a
         />
       </mesh>
       <BoroughBuildings name={name} coordinates={coordinates} />
-      {isHovered && <Sparkles count={50} scale={[50, 50, 10]} size={2} speed={0.4} color={colors.glow} />}
     </group>
   );
 }
@@ -478,8 +477,8 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
         />
       </mesh>
       
-      {/* Enhanced grid with glow - positioned below ground plane */}
-      <gridHelper args={[400, 40, '#3366aa', '#1e293b']} position={[0, -0.6, 0]} />
+      {/* Grid helper - positioned below ground plane */}
+      <gridHelper args={[400, 40, '#666666', '#cccccc']} position={[0, -0.6, 0]} />
       
       {/* Contact shadows for better ground interaction */}
       <ContactShadows 
