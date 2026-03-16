@@ -23,6 +23,23 @@ import * as THREE from 'three';
 import gsap from 'gsap';
 import { parseBoroughGeoJSON, BOROUGH_INFO, BoroughData } from '@/lib/boroughData';
 
+// ===== SHARED COORDINATE PROJECTION =====
+// Single source of truth for coordinate transformation
+const NYC_CENTER_LNG = -73.978;
+const NYC_CENTER_LAT = 40.706;
+const COORDINATE_SCALE = 400;
+
+/**
+ * Projects geographic coordinates (lat/lng) to 2D plane coordinates
+ * Returns x (longitude offset) and y (latitude offset)
+ * After 3D extrusion and rotation: x stays x, y becomes z, extrude becomes y
+ */
+function projectCoordinate(lat: number, lng: number): { x: number; y: number } {
+  const x = (lng - NYC_CENTER_LNG) * COORDINATE_SCALE;
+  const y = (lat - NYC_CENTER_LAT) * COORDINATE_SCALE;
+  return { x, y };
+}
+
 // Building density configuration per borough
 const BOROUGH_BUILDING_CONFIG: Record<string, {
   count: number;
@@ -76,10 +93,6 @@ function generateBuildings(
   const config = BOROUGH_BUILDING_CONFIG[name];
   if (!config) return [];
 
-  const NYC_CENTER_LON = -73.978;
-  const NYC_CENTER_LAT = 40.706;
-  const SCALE = 400;
-
   const outerRings: number[][][] = [];
   let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
   let centerX = 0, centerY = 0, pointCount = 0;
@@ -87,8 +100,8 @@ function generateBuildings(
   coordinates.forEach((polygon) => {
     if (!polygon || !polygon[0]) return;
     const ring = polygon[0].map((pt: number[]) => {
-      const x = (pt[0] - NYC_CENTER_LON) * SCALE;
-      const y = (pt[1] - NYC_CENTER_LAT) * SCALE;
+      // Use shared projection function
+      const { x, y } = projectCoordinate(pt[1], pt[0]); // pt[0]=lng, pt[1]=lat
       minX = Math.min(minX, x); maxX = Math.max(maxX, x);
       minY = Math.min(minY, y); maxY = Math.max(maxY, y);
       centerX += x; centerY += y; pointCount++;
@@ -318,10 +331,6 @@ function Borough({
     console.log(`[Borough:${name}] Creating geometry with ${coordinates.length} polygon(s)`);
     const shapes: THREE.Shape[] = [];
 
-    const NYC_CENTER_LON = -73.978;
-    const NYC_CENTER_LAT = 40.706;
-    const SCALE = 400;
-
     coordinates.forEach((polygon, polyIndex) => {
       if (!polygon || polygon.length === 0) {
         console.warn(`[Borough:${name}] Empty polygon at index ${polyIndex}`);
@@ -345,8 +354,8 @@ function Borough({
           return;
         }
 
-        const x = (point[0] - NYC_CENTER_LON) * SCALE;
-        const y = (point[1] - NYC_CENTER_LAT) * SCALE;
+        // Use shared projection function - point[0]=lng, point[1]=lat
+        const { x, y } = projectCoordinate(point[1], point[0]);
 
         if (pointIndex === 0) {
           if (polyIndex === 0) {
@@ -366,8 +375,8 @@ function Borough({
         holeRing.forEach((point: any, pointIndex: number) => {
           if (!point || point.length < 2) return;
 
-          const x = (point[0] - NYC_CENTER_LON) * SCALE;
-          const y = (point[1] - NYC_CENTER_LAT) * SCALE;
+          // Use shared projection function
+          const { x, y } = projectCoordinate(point[1], point[0]);
 
           if (pointIndex === 0) {
             holePath.moveTo(x, y);
