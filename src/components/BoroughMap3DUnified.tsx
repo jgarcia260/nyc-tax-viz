@@ -459,13 +459,15 @@ function Borough({
         castShadow
         receiveShadow
       >
-        {/* FIX: Temporarily use MeshStandardMaterial to debug color rendering */}
+        {/* Enhanced material with better reflections and depth */}
         <meshStandardMaterial
           color={colors.base}
           emissive={colors.emissive}
-          emissiveIntensity={isHovered ? 0.5 : isSelected ? 0.3 : 0.15}
-          metalness={0.3}
-          roughness={0.6}
+          emissiveIntensity={isHovered ? 0.6 : isSelected ? 0.4 : 0.2}
+          metalness={0.4}
+          roughness={0.5}
+          envMapIntensity={1.0}
+          flatShading={false}
         />
       </mesh>
 
@@ -540,8 +542,11 @@ function BoroughBuildings({ name, coordinates }: { name: string; coordinates: nu
     <instancedMesh ref={meshRef} args={[undefined, undefined, buildings.length]} castShadow receiveShadow>
       <boxGeometry args={[1, 1, 1]} />
       <meshStandardMaterial
-        metalness={0.3}
-        roughness={0.6}
+        metalness={0.5}
+        roughness={0.4}
+        envMapIntensity={1.2}
+        emissive={colors.base}
+        emissiveIntensity={0.05}
       />
     </instancedMesh>
   );
@@ -618,8 +623,25 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: SceneProps &
 
   return (
     <>
-      {/* FIX: Darker background to show colors better */}
-      <color attach="background" args={['#1a1a1a']} />
+      {/* Gradient sky background for SimCity vibe */}
+      <color attach="background" args={['#0f172a']} />
+      
+      {/* Ground plane for depth and shadows */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
+        <planeGeometry args={[500, 500]} />
+        <meshStandardMaterial
+          color="#1a202c"
+          roughness={0.9}
+          metalness={0.1}
+          envMapIntensity={0.2}
+        />
+      </mesh>
+      
+      {/* Subtle grid on ground for better spatial reference */}
+      <gridHelper
+        args={[400, 40, '#334155', '#1e293b']}
+        position={[0, -0.4, 0]}
+      />
 
       {/* FIX: Zoom out further and adjust angle to fit all 5 boroughs in frame */}
       <PerspectiveCamera makeDefault position={[120, 140, 120]} fov={60} />
@@ -640,17 +662,62 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: SceneProps &
         autoRotateSpeed={0.5}
       />
 
-      {/* FIX: Reduced lighting to prevent washout */}
-      <ambientLight intensity={0.4} />
+      {/* Enhanced lighting for SimCity-style aesthetic */}
+      {/* Soft ambient base lighting */}
+      <ambientLight intensity={0.3} color="#4a5568" />
+      
+      {/* Primary sun light - warm, creates main shadows */}
       <directionalLight
-        position={[20, 30, 10]}
-        intensity={0.8}
+        position={[50, 80, 40]}
+        intensity={1.2}
+        color="#fff5e6"
         castShadow
-        shadow-mapSize-width={2048}
-        shadow-mapSize-height={2048}
+        shadow-mapSize-width={4096}
+        shadow-mapSize-height={4096}
+        shadow-camera-left={-150}
+        shadow-camera-right={150}
+        shadow-camera-top={150}
+        shadow-camera-bottom={-150}
+        shadow-camera-near={0.5}
+        shadow-camera-far={500}
+        shadow-bias={-0.0001}
+      />
+      
+      {/* Fill light - cooler, subtle, no shadows */}
+      <directionalLight
+        position={[-30, 40, -30]}
+        intensity={0.4}
+        color="#a8c5e6"
+      />
+      
+      {/* Rim light from below for dramatic effect */}
+      <directionalLight
+        position={[0, -20, 0]}
+        intensity={0.15}
+        color="#667eea"
+      />
+      
+      {/* Hemisphere light for natural sky/ground ambient */}
+      <hemisphereLight
+        args={["#87ceeb", "#4a5568", 0.5]}
       />
 
-      <Environment preset="city" />
+      {/* HDR environment for reflections */}
+      <Environment preset="city" background={false} />
+      
+      {/* Atmospheric fog */}
+      <fog attach="fog" args={["#1a1a2e", 100, 400]} />
+      
+      {/* Animated stars in the background */}
+      <Stars
+        radius={300}
+        depth={60}
+        count={3000}
+        factor={6}
+        saturation={0.5}
+        fade
+        speed={0.5}
+      />
 
       {/* Boroughs with staggered animation */}
       {boroughs.map((borough, index) => (
@@ -734,7 +801,48 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: SceneProps &
           </Html>
         );
       })()}
-
+      
+      {/* Post-processing for cinematic SimCity-style visuals */}
+      <EffectComposer multisampling={8}>
+        {/* Ambient occlusion for depth and realism */}
+        <SSAO
+          samples={31}
+          radius={0.1}
+          intensity={50}
+          luminanceInfluence={0.6}
+          color="black"
+        />
+        
+        {/* Bloom for glowing lights and emissive materials */}
+        <Bloom
+          intensity={0.6}
+          luminanceThreshold={0.3}
+          luminanceSmoothing={0.7}
+          mipmapBlur
+        />
+        
+        {/* Subtle vignette for focus */}
+        <Vignette
+          offset={0.3}
+          darkness={0.5}
+          eskil={false}
+        />
+        
+        {/* Tone mapping for better color range */}
+        <ToneMapping
+          adaptive={true}
+          resolution={256}
+          middleGrey={0.6}
+          maxLuminance={16.0}
+          averageLuminance={1.0}
+          adaptationRate={1.5}
+        />
+        
+        {/* Very subtle chromatic aberration for realism */}
+        <ChromaticAberration
+          offset={[0.0008, 0.0008]}
+        />
+      </EffectComposer>
 
     </>
   );

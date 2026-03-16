@@ -82,8 +82,8 @@ export default function Home() {
             NYC Tax Visualizer
           </h1>
           <p className="text-xl text-zinc-400 max-w-3xl mx-auto">
-            Explore different ways to visualize how NYC tax dollars can fund improvements.
-            Compare visualization approaches AND tools, powered by real research data.
+            Explore how NYC&apos;s $107 billion budget works — and what new tax policies could fund.
+            Interactive visualizations powered by real research data.
           </p>
         </header>
 
@@ -286,7 +286,7 @@ export default function Home() {
         {/* Footer */}
         <footer className="mt-8 pt-8 border-t border-zinc-800 text-center text-sm text-zinc-500">
           <p>
-            Built with Next.js, React, Three.js, and Recharts • Research completed March 2026
+            Built with Next.js, React Three Fiber, and D3.js • Research completed March 2026
           </p>
           <p className="mt-2">
             <a href="https://github.com/jgarcia260/nyc-tax-viz" className="text-blue-400 hover:underline" target="_blank" rel="noopener">
