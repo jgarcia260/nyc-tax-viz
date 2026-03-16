@@ -15,8 +15,6 @@ import {
   Bloom,
   ChromaticAberration,
   Vignette,
-  ToneMapping,
-  DepthOfField,
   N8AO,
 } from '@react-three/postprocessing';
 import { Suspense, useState, useRef, useMemo, useEffect } from 'react';
@@ -515,7 +513,7 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
       {/* Main directional lights with enhanced shadows */}
       <directionalLight
         position={[100, 120, 80]}
-        intensity={2.2}
+        intensity={1.5}
         color="#ffe8c5"
         castShadow
         shadow-mapSize-width={2048}
@@ -532,7 +530,7 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
       
       <directionalLight 
         position={[80, 100, -60]} 
-        intensity={1.0} 
+        intensity={0.6} 
         color="#ffd8b3" 
         castShadow 
         shadow-mapSize-width={2048} 
@@ -550,13 +548,13 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
       <directionalLight position={[0, -10, 0]} intensity={0.3} color="#a78bfa" />
       
       {/* Enhanced hemisphere light */}
-      <hemisphereLight intensity={0.8} color="#b8d4ff" groundColor="#2b3252" />
+      <hemisphereLight intensity={0.4} color="#b8d4ff" groundColor="#2b3252" />
       
       {/* Rim lighting for depth */}
       <RimLighting />
 
       {/* Enhanced environment */}
-      <Environment preset="city" background={false} environmentIntensity={1.5} />
+      <Environment preset="city" background={false} environmentIntensity={0.8} />
       
       {/* Volumetric atmosphere */}
       <VolumetricAtmosphere />
@@ -622,47 +620,11 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
         );
       })()}
 
-      {/* Enhanced post-processing */}
-      <EffectComposer multisampling={8}>
-        {/* N8AO for better ambient occlusion */}
-        <N8AO 
-          aoRadius={0.5}
-          intensity={2.5}
-          quality="performance"
-          halfRes
-        />
-        
-        {/* Enhanced bloom for glow effects */}
-        <Bloom 
-          intensity={0.8} 
-          luminanceThreshold={0.25} 
-          luminanceSmoothing={0.8} 
-          mipmapBlur 
-        />
-        
-        {/* Subtle depth of field for atmospheric depth */}
-        <DepthOfField 
-          focusDistance={0.015}
-          focalLength={0.08}
-          bokehScale={3}
-          height={480}
-        />
-        
-        {/* Enhanced vignette */}
-        <Vignette offset={0.25} darkness={0.6} eskil={false} />
-        
-        {/* Tone mapping for better HDR */}
-        <ToneMapping 
-          adaptive 
-          resolution={256} 
-          middleGrey={0.55} 
-          maxLuminance={18.0} 
-          averageLuminance={1.2} 
-          adaptationRate={1.8} 
-        />
-        
-        {/* Subtle chromatic aberration */}
-        <ChromaticAberration offset={[0.001, 0.001]} />
+      <EffectComposer multisampling={4}>
+        <N8AO aoRadius={0.4} intensity={0.6} quality="performance" halfRes />
+        <Bloom intensity={0.3} luminanceThreshold={0.6} luminanceSmoothing={0.7} mipmapBlur />
+        <Vignette offset={0.3} darkness={0.4} eskil={false} />
+        <ChromaticAberration offset={[0.0005, 0.0005]} />
       </EffectComposer>
     </>
   );
@@ -772,7 +734,7 @@ export default function BoroughMap3DUnified({
           alpha: false, 
           powerPreference: "high-performance",
           toneMapping: THREE.ACESFilmicToneMapping,
-          toneMappingExposure: 1.2,
+          toneMappingExposure: 0.8,
         }} 
         dpr={[1, 1.5]}
       >
