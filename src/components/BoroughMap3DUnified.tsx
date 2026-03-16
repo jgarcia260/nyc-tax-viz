@@ -468,7 +468,7 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
         <planeGeometry args={[500, 500]} />
         <meshPhysicalMaterial 
-          color="#f5f5f5"
+          color="#0f1419"
           roughness={0.9}
           metalness={0.05}
           envMapIntensity={0.2}
@@ -476,7 +476,7 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
       </mesh>
       
       {/* Grid helper - positioned below ground plane */}
-      <gridHelper args={[400, 40, '#666666', '#cccccc']} position={[0, -0.6, 0]} />
+      <gridHelper args={[400, 40, '#334155', '#1e293b']} position={[0, -0.6, 0]} />
       
       {/* Contact shadows for better ground interaction */}
       <ContactShadows 
@@ -486,7 +486,7 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
         blur={2.5} 
         far={50} 
         resolution={512}
-        color="#000022"
+        color="#000011"
       />
 
       <PerspectiveCamera makeDefault position={[120, 140, 120]} fov={60} />
@@ -513,7 +513,7 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
       {/* Main directional lights with enhanced shadows */}
       <directionalLight
         position={[100, 120, 80]}
-        intensity={2.2}
+        intensity={1.2}
         color="#ffe8c5"
         castShadow
         shadow-mapSize-width={2048}
@@ -530,7 +530,7 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
       
       <directionalLight 
         position={[80, 100, -60]} 
-        intensity={1.0} 
+        intensity={0.5} 
         color="#ffd8b3" 
         castShadow 
         shadow-mapSize-width={2048} 
@@ -548,19 +548,19 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
       <directionalLight position={[0, -10, 0]} intensity={0.3} color="#a78bfa" />
       
       {/* Enhanced hemisphere light */}
-      <hemisphereLight intensity={0.8} color="#b8d4ff" groundColor="#2b3252" />
+      <hemisphereLight intensity={0.4} color="#b8d4ff" groundColor="#2b3252" />
       
       {/* Rim lighting for depth */}
       <RimLighting />
 
       {/* Enhanced environment */}
-      <Environment preset="city" background={false} environmentIntensity={1.5} />
+      <Environment preset="city" background={false} environmentIntensity={0.6} />
       
       {/* Volumetric atmosphere */}
-      <VolumetricAtmosphere />
+      
       
       {/* Enhanced fog */}
-      <fog attach="fog" args={["#1a2035", 100, 380]} />
+      
       
       {/* Enhanced stars */}
       {boroughs.map((borough, index) => (
@@ -621,7 +621,7 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
       })()}
 
       <EffectComposer multisampling={4}>
-        <N8AO aoRadius={0.4} intensity={1.0} quality="performance" halfRes />
+        <N8AO aoRadius={0.4} intensity={0.5} quality="performance" halfRes />
         <Bloom intensity={0.3} luminanceThreshold={0.6} luminanceSmoothing={0.7} mipmapBlur />
         <Vignette offset={0.3} darkness={0.4} eskil={false} />
         <ChromaticAberration offset={[0.0005, 0.0005]} />
@@ -734,7 +734,7 @@ export default function BoroughMap3DUnified({
           alpha: false, 
           powerPreference: "high-performance",
           toneMapping: THREE.ACESFilmicToneMapping,
-          toneMappingExposure: 1.2,
+          toneMappingExposure: 0.7,
         }} 
         dpr={[1, 1.5]}
       >
