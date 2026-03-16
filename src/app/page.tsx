@@ -157,7 +157,7 @@ export default function Home() {
             Visualization Approaches
           </h2>
           <p className="text-center text-zinc-400 mb-8 max-w-2xl mx-auto">
-            Different ways to <span className="text-white font-semibold">present the story</span> — policy comparison, geographic impact, or money flow.
+            Interactive ways to explore NYC tax policy data — from policy comparison and geographic impact to 3D borough maps and real-time revenue calculations.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {visualizations.map((viz) => (
@@ -171,6 +171,10 @@ export default function Home() {
                     ? "border-indigo-500/30 hover:border-indigo-500 hover:shadow-xl hover:shadow-indigo-500/20"
                     : viz.color === "purple"
                     ? "border-purple-500/30 hover:border-purple-500 hover:shadow-xl hover:shadow-purple-500/20"
+                    : viz.color === "cyan"
+                    ? "border-cyan-500/30 hover:border-cyan-500 hover:shadow-xl hover:shadow-cyan-500/20"
+                    : viz.color === "pink"
+                    ? "border-pink-500/30 hover:border-pink-500 hover:shadow-xl hover:shadow-pink-500/20"
                     : "border-blue-500/30 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/20"
                 } bg-zinc-900/50 hover:bg-zinc-900`}
               >
@@ -258,8 +262,11 @@ export default function Home() {
         {/* Comparison table */}
         <div className="mb-16">
           <h2 className="text-3xl font-bold mb-8 text-center">
-            Approach Comparison
+            Core Narrative Approaches
           </h2>
+          <p className="text-center text-zinc-400 mb-8 max-w-2xl mx-auto">
+            The three foundational ways we tell the tax policy story — each optimized for different use cases.
+          </p>
           <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 overflow-hidden">
             <table className="w-full">
               <thead>
