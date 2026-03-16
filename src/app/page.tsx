@@ -74,14 +74,15 @@ export default function Home() {
 
 
   return (
-    <main className="min-h-screen p-6 md:p-12">
+    <main className="min-h-screen px-4 py-8 sm:px-6 md:px-12 md:py-16">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <header className="mb-16 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-4 text-white">
+        <header className="mb-16 text-center animate-fade-in">
+          <p className="text-sm font-medium tracking-widest uppercase text-blue-400 mb-3">Interactive Data Visualization</p>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-5 text-white leading-[1.1]">
             NYC Tax Visualizer
           </h1>
-          <p className="text-xl text-zinc-300 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-zinc-400 max-w-3xl mx-auto leading-relaxed">
             Explore how NYC&apos;s $107 billion budget works — and what new tax policies could fund.
             Interactive visualizations powered by real research data.
           </p>
@@ -108,10 +109,10 @@ export default function Home() {
 
         {/* Visualization APPROACHES */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-3 text-center text-white">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3 text-center text-white">
             Visualization Approaches
           </h2>
-          <p className="text-center text-zinc-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-center text-zinc-400 mb-10 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
             Interactive ways to explore NYC tax policy data — from policy comparison and geographic impact to 3D borough maps and real-time revenue calculations.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -121,14 +122,14 @@ export default function Home() {
                 href={viz.href}
                 className={`group rounded-2xl border-2 p-6 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 shadow-lg ${
                   viz.color === "emerald"
-                    ? "border-emerald-500/30 hover:border-emerald-400 hover:shadow-2xl hover:shadow-emerald-500/20 bg-gradient-to-br from-zinc-900/90 to-zinc-900/50 backdrop-blur-sm"
+                    ? "border-emerald-500/50 hover:border-emerald-400 hover:shadow-2xl hover:shadow-emerald-500/30 bg-gradient-to-br from-zinc-900/90 to-zinc-900/50 backdrop-blur-sm"
                     : viz.color === "indigo"
-                    ? "border-indigo-500/30 hover:border-indigo-400 hover:shadow-2xl hover:shadow-indigo-500/20 bg-gradient-to-br from-zinc-900/90 to-zinc-900/50 backdrop-blur-sm"
+                    ? "border-indigo-500/50 hover:border-indigo-400 hover:shadow-2xl hover:shadow-indigo-500/30 bg-gradient-to-br from-zinc-900/90 to-zinc-900/50 backdrop-blur-sm"
                     : viz.color === "purple"
-                    ? "border-purple-500/30 hover:border-purple-400 hover:shadow-2xl hover:shadow-purple-500/20 bg-gradient-to-br from-zinc-900/90 to-zinc-900/50 backdrop-blur-sm"
+                    ? "border-purple-500/50 hover:border-purple-400 hover:shadow-2xl hover:shadow-purple-500/30 bg-gradient-to-br from-zinc-900/90 to-zinc-900/50 backdrop-blur-sm"
                     : viz.color === "cyan"
-                    ? "border-cyan-500/30 hover:border-cyan-400 hover:shadow-2xl hover:shadow-cyan-500/20 bg-gradient-to-br from-zinc-900/90 to-zinc-900/50 backdrop-blur-sm"
-                    : "border-blue-500/30 hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-500/20 bg-gradient-to-br from-zinc-900/90 to-zinc-900/50 backdrop-blur-sm"
+                    ? "border-cyan-500/50 hover:border-cyan-400 hover:shadow-2xl hover:shadow-cyan-500/30 bg-gradient-to-br from-zinc-900/90 to-zinc-900/50 backdrop-blur-sm"
+                    : "border-blue-500/50 hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-500/30 bg-gradient-to-br from-zinc-900/90 to-zinc-900/50 backdrop-blur-sm"
                 }`}
               >
                 <div className="mb-4 text-4xl">{viz.icon}</div>
@@ -155,10 +156,10 @@ export default function Home() {
 
         {/* Comparison table */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center text-white">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3 text-center text-white">
             Core Narrative Approaches
           </h2>
-          <p className="text-center text-zinc-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-center text-zinc-400 mb-10 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
             The three foundational ways we tell the tax policy story — each optimized for different use cases.
           </p>
           <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 overflow-hidden">

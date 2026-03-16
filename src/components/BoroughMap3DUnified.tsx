@@ -311,7 +311,7 @@ function Borough({ name, coordinates, isHovered, isSelected, onClick, onHover, a
 
   useEffect(() => {
     if (groupRef.current && mounted) {
-      gsap.to(groupRef.current.scale, { x: isHovered ? 1.02 : 1, y: isHovered ? 1.02 : 1, z: isHovered ? 1.05 : 1, duration: 0.3, ease: 'power2.out' });
+      gsap.to(groupRef.current.scale, { x: isHovered ? 1.02 : 1, y: isHovered ? 1.02 : 1, z: isHovered ? 1.05 : 1, duration: 0.2, ease: 'power2.out', overwrite: true });
     }
   }, [isHovered, mounted]);
 
@@ -464,21 +464,17 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
 
   return (
     <>
-      {/* Enhanced background with gradient */}
-      <color attach="background" args={['#0a0f1a']} />
+      {/* Clean white background */}
+      <color attach="background" args={['#ffffff']} />
       
-      {/* Ground plane with enhanced material */}
+      {/* Ground plane with light material */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
         <planeGeometry args={[500, 500]} />
         <meshPhysicalMaterial 
-          color="#0f1419"
+          color="#f5f5f5"
           roughness={0.9}
-          metalness={0.2}
-          envMapIntensity={0.4}
-          emissive="#0a0e14"
-          emissiveIntensity={0.15}
-          clearcoat={0.1}
-          clearcoatRoughness={0.8}
+          metalness={0.05}
+          envMapIntensity={0.2}
         />
       </mesh>
       
@@ -497,42 +493,42 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
       />
 
       <PerspectiveCamera makeDefault position={[120, 140, 120]} fov={60} />
-      <OrbitControls 
-        enablePan 
-        enableZoom 
-        enableRotate 
-        enableDamping 
-        dampingFactor={0.15} 
-        minDistance={40} 
-        maxDistance={300} 
-        maxPolarAngle={Math.PI / 1.1} 
-        minPolarAngle={Math.PI / 8} 
-        rotateSpeed={0.6} 
-        zoomSpeed={1.0} 
-        panSpeed={0.6} 
-        autoRotate={autoRotate} 
-        autoRotateSpeed={0.5} 
+      <OrbitControls
+        enablePan
+        enableZoom
+        enableRotate
+        enableDamping
+        dampingFactor={0.08}
+        minDistance={40}
+        maxDistance={300}
+        maxPolarAngle={Math.PI / 1.1}
+        minPolarAngle={Math.PI / 8}
+        rotateSpeed={0.5}
+        zoomSpeed={0.8}
+        panSpeed={0.5}
+        autoRotate={autoRotate}
+        autoRotateSpeed={0.3}
       />
 
       {/* Enhanced lighting setup */}
       <ambientLight intensity={0.5} color="#4a5b7a" />
       
       {/* Main directional lights with enhanced shadows */}
-      <directionalLight 
-        position={[100, 120, 80]} 
-        intensity={2.2} 
-        color="#ffe8c5" 
-        castShadow 
-        shadow-mapSize-width={4096} 
-        shadow-mapSize-height={4096} 
-        shadow-camera-left={-200} 
-        shadow-camera-right={200} 
-        shadow-camera-top={200} 
-        shadow-camera-bottom={-200} 
-        shadow-camera-near={0.5} 
-        shadow-camera-far={500} 
+      <directionalLight
+        position={[100, 120, 80]}
+        intensity={2.2}
+        color="#ffe8c5"
+        castShadow
+        shadow-mapSize-width={2048}
+        shadow-mapSize-height={2048}
+        shadow-camera-left={-200}
+        shadow-camera-right={200}
+        shadow-camera-top={200}
+        shadow-camera-bottom={-200}
+        shadow-camera-near={0.5}
+        shadow-camera-far={500}
         shadow-bias={-0.0001}
-        shadow-radius={3}
+        shadow-radius={2}
       />
       
       <directionalLight 
@@ -570,16 +566,6 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
       <fog attach="fog" args={["#1a2035", 100, 380]} />
       
       {/* Enhanced stars */}
-      <Stars 
-        radius={320} 
-        depth={70} 
-        count={4000} 
-        factor={6.5} 
-        saturation={0.6} 
-        fade 
-        speed={0.6} 
-      />
-
       {boroughs.map((borough, index) => (
         <Borough
           key={borough.name} 
