@@ -4,9 +4,21 @@ import { useRef, useEffect } from 'react';
 import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
 
+// Coordinate system constants (see docs/COORDINATE-SYSTEM.md)
 const NYC_CENTER_LNG = -73.978;
 const NYC_CENTER_LAT = 40.706;
 const COORDINATE_SCALE = 400;
+
+/**
+ * Y-Axis Levels:
+ * - Ground plane: y = -0.5
+ * - Land surface (top of borough mesh): y = 1.5 to 2
+ * - Building/landmark base: y = 2 (canonical land surface level)
+ * 
+ * All landmarks should be positioned at LAND_SURFACE_Y (y = 2)
+ * and build their geometry upward from there.
+ */
+const LAND_SURFACE_Y = 2;
 
 function projectCoordinate(lat: number, lng: number): { x: number; y: number } {
   const x = (lng - NYC_CENTER_LNG) * COORDINATE_SCALE;
@@ -52,17 +64,23 @@ const LANDMARKS: Landmark[] = [
 
 function LandmarkIcon({ landmark }: { landmark: Landmark }) {
   const meshRef = useRef<THREE.Group>(null);
+  const floatingGroupRef = useRef<THREE.Group>(null);
   const { x, y } = projectCoordinate(landmark.lat, landmark.lng);
 
-  // Gentle floating animation
+  // Gentle floating animation applied to inner group
+  // This keeps the base position at land surface level
   useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.position.y = landmark.height + 1.5 + Math.sin(state.clock.elapsedTime + x) * 0.15;
+    if (floatingGroupRef.current) {
+      floatingGroupRef.current.position.y = Math.sin(state.clock.elapsedTime + x) * 0.15;
     }
   });
 
   return (
-    <group ref={meshRef} position={[x, landmark.height + 1.5, -y]}>
+    // Base position at land surface level (y = 2)
+    // See docs/COORDINATE-SYSTEM.md for details
+    <group ref={meshRef} position={[x, LAND_SURFACE_Y, -y]}>
+      {/* Floating animation group - applies subtle Y-offset */}
+      <group ref={floatingGroupRef}>
       {/* Main landmark shape */}
       {landmark.shape === 'tower' && (
         <group>
@@ -164,6 +182,7 @@ function LandmarkIcon({ landmark }: { landmark: Landmark }) {
           opacity={0.15}
         />
       </mesh>
+      </group> {/* Close floating group */}
     </group>
   );
 }
