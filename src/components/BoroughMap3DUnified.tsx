@@ -500,7 +500,7 @@ function BoroughBuildings({ name, coordinates }: { name: string; coordinates: nu
       dummy.position.set(
         b.x,           // X: longitude (unchanged)
         2 + b.height / 2,  // Y: borough surface (2) + half building height
-        b.y            // Z: latitude (was y in 2D)
+        -b.y           // Z: NEGATED latitude to fix mirroring (was y in 2D)
       );
       dummy.scale.set(b.width, b.height, b.depth);
       dummy.updateMatrix();
