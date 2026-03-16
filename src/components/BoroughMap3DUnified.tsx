@@ -774,7 +774,7 @@ export default function BoroughMap3DUnified({
           toneMapping: THREE.ACESFilmicToneMapping,
           toneMappingExposure: 1.2,
         }} 
-        dpr={[1, 2]}
+        dpr={[1, 1.5]}
       >
         <Suspense fallback={null}>
           <Scene boroughs={boroughs} showTaxData={showTaxData} autoRotate={autoRotate} />
