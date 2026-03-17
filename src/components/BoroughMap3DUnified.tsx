@@ -53,12 +53,17 @@ function pointInPolygon(x: number, y: number, polygon: number[][]) {
 
 // Central Park boundaries in projected coordinates (pre-calculated for performance)
 // Central Park: 40.7679°N to 40.8003°N, 73.9496°W to 73.9735°W
+// Note: -73.978 center lng, 40.706 center lat, scale 400
 const CENTRAL_PARK_PROJECTED = {
-  minX: (-73.9735 - NYC_CENTER_LNG) * COORDINATE_SCALE,  // ~1.8
-  maxX: (-73.9496 - NYC_CENTER_LNG) * COORDINATE_SCALE,  // ~11.36
-  minY: (40.7679 - NYC_CENTER_LAT) * COORDINATE_SCALE,   // ~24.76
-  maxY: (40.8003 - NYC_CENTER_LAT) * COORDINATE_SCALE    // ~37.72
+  minX: (-73.9735 - (-73.978)) * 400,  // = 0.0045 * 400 = 1.8
+  maxX: (-73.9496 - (-73.978)) * 400,  // = 0.0284 * 400 = 11.36
+  minY: (40.7679 - 40.706) * 400,      // = 0.0619 * 400 = 24.76
+  maxY: (40.8003 - 40.706) * 400       // = 0.0943 * 400 = 37.72
 };
+
+if (typeof window !== 'undefined') {
+  console.log('[Borough Data] Central Park projected bounds:', CENTRAL_PARK_PROJECTED);
+}
 
 // Water exclusion zones around Manhattan (projected coordinates)
 // These prevent buildings from appearing in rivers and harbor areas
@@ -125,19 +130,33 @@ function generateBuildings(name: string, coordinates: number[][][][]): BuildingI
   coordinates.forEach((polygon) => { if (!polygon || !polygon[0]) return; const ring = polygon[0].map((pt: number[]) => { const { x, y } = projectCoordinate(pt[1], pt[0]); minX = Math.min(minX, x); maxX = Math.max(maxX, x); minY = Math.min(minY, y); maxY = Math.max(maxY, y); centerX += x; centerY += y; pointCount++; return [x, y]; }); outerRings.push(ring); });
   if (outerRings.length === 0 || pointCount === 0) return [];
   centerX /= pointCount; centerY /= pointCount;
+  
+  if (typeof window !== 'undefined' && name === 'Manhattan') {
+    console.log(`[Borough Data] ${name} bounds:`, { minX, maxX, minY, maxY, centerX, centerY });
+  }
+  
   const rand = seededRandom(name.charCodeAt(0) * 1000 + name.length * 31);
   const buildings: BuildingInstance[] = [];
   let attempts = 0;
+  let excludedCount = 0;
   while (buildings.length < config.count && attempts < config.count * 20) {
     attempts++;
     const x = rand() < config.clusterFactor ? centerX + (rand() - 0.5) * (maxX - minX) * 0.4 : minX + rand() * (maxX - minX);
     const y = rand() < config.clusterFactor ? centerY + (rand() - 0.5) * (maxY - minY) * 0.4 : minY + rand() * (maxY - minY);
     if (!outerRings.some(ring => pointInPolygon(x, y, ring))) continue;
-    if (isExcludedLocation(x, y, name)) continue; // Skip Central Park and water
+    if (isExcludedLocation(x, y, name)) {
+      excludedCount++;
+      continue; // Skip Central Park and water
+    }
     const distRatio = Math.min(1, Math.sqrt((x - centerX) ** 2 + (y - centerY) ** 2) / (Math.sqrt((maxX - minX) ** 2 + (maxY - minY) ** 2) * 0.5));
     const centralBoost = 1 - distRatio * config.clusterFactor;
     buildings.push({ x, y, width: config.minWidth + rand() * (config.maxWidth - config.minWidth), depth: config.minWidth + rand() * (config.maxWidth - config.minWidth), height: config.minHeight + rand() * (config.maxHeight - config.minHeight) * centralBoost });
   }
+  
+  if (typeof window !== 'undefined') {
+    console.log(`[Borough Data] Created ${buildings.length} buildings for ${name} (excluded: ${excludedCount}, attempts: ${attempts})`);
+  }
+  
   return buildings;
 }
 
