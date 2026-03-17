@@ -51,67 +51,65 @@ function pointInPolygon(x: number, y: number, polygon: number[][]) {
   return inside;
 }
 
-// Central Park boundaries (latitude, longitude)
-const CENTRAL_PARK_BOUNDS = {
-  north: 40.8003,
-  south: 40.7679,
-  west: -73.9735,
-  east: -73.9496
+// Central Park boundaries in projected coordinates (pre-calculated for performance)
+// Central Park: 40.7679°N to 40.8003°N, 73.9496°W to 73.9735°W
+const CENTRAL_PARK_PROJECTED = {
+  minX: (-73.9735 - NYC_CENTER_LNG) * COORDINATE_SCALE,  // ~1.8
+  maxX: (-73.9496 - NYC_CENTER_LNG) * COORDINATE_SCALE,  // ~11.36
+  minY: (40.7679 - NYC_CENTER_LAT) * COORDINATE_SCALE,   // ~24.76
+  maxY: (40.8003 - NYC_CENTER_LAT) * COORDINATE_SCALE    // ~37.72
 };
 
-// Water exclusion zones around Manhattan (simplified polygons in lat/lng)
+// Water exclusion zones around Manhattan (projected coordinates)
 // These prevent buildings from appearing in rivers and harbor areas
-const MANHATTAN_WATER_EXCLUSIONS: { name: string; polygon: [number, number][] }[] = [
+const MANHATTAN_WATER_EXCLUSIONS_PROJECTED: { name: string; polygon: number[][] }[] = [
   {
     name: "Hudson River West",
     polygon: [
-      [-74.02, 40.70], [-74.02, 40.88], [-73.98, 40.88], [-73.98, 40.70]
+      [(-74.02 - NYC_CENTER_LNG) * COORDINATE_SCALE, (40.70 - NYC_CENTER_LAT) * COORDINATE_SCALE],
+      [(-74.02 - NYC_CENTER_LNG) * COORDINATE_SCALE, (40.88 - NYC_CENTER_LAT) * COORDINATE_SCALE],
+      [(-73.98 - NYC_CENTER_LNG) * COORDINATE_SCALE, (40.88 - NYC_CENTER_LAT) * COORDINATE_SCALE],
+      [(-73.98 - NYC_CENTER_LNG) * COORDINATE_SCALE, (40.70 - NYC_CENTER_LAT) * COORDINATE_SCALE]
     ]
   },
   {
     name: "East River East",
     polygon: [
-      [-73.935, 40.70], [-73.935, 40.88], [-73.90, 40.88], [-73.90, 40.70]
+      [(-73.935 - NYC_CENTER_LNG) * COORDINATE_SCALE, (40.70 - NYC_CENTER_LAT) * COORDINATE_SCALE],
+      [(-73.935 - NYC_CENTER_LNG) * COORDINATE_SCALE, (40.88 - NYC_CENTER_LAT) * COORDINATE_SCALE],
+      [(-73.90 - NYC_CENTER_LNG) * COORDINATE_SCALE, (40.88 - NYC_CENTER_LAT) * COORDINATE_SCALE],
+      [(-73.90 - NYC_CENTER_LNG) * COORDINATE_SCALE, (40.70 - NYC_CENTER_LAT) * COORDINATE_SCALE]
     ]
   },
   {
     name: "Lower Manhattan Harbor",
     polygon: [
-      [-74.02, 40.68], [-74.02, 40.72], [-73.98, 40.72], [-73.98, 40.68]
+      [(-74.02 - NYC_CENTER_LNG) * COORDINATE_SCALE, (40.68 - NYC_CENTER_LAT) * COORDINATE_SCALE],
+      [(-74.02 - NYC_CENTER_LNG) * COORDINATE_SCALE, (40.72 - NYC_CENTER_LAT) * COORDINATE_SCALE],
+      [(-73.98 - NYC_CENTER_LNG) * COORDINATE_SCALE, (40.72 - NYC_CENTER_LAT) * COORDINATE_SCALE],
+      [(-73.98 - NYC_CENTER_LNG) * COORDINATE_SCALE, (40.68 - NYC_CENTER_LAT) * COORDINATE_SCALE]
     ]
   }
 ];
 
-// Check if a lat/lng coordinate is in Central Park
-function isInCentralPark(lat: number, lng: number): boolean {
-  return lat >= CENTRAL_PARK_BOUNDS.south && 
-         lat <= CENTRAL_PARK_BOUNDS.north && 
-         lng >= CENTRAL_PARK_BOUNDS.west && 
-         lng <= CENTRAL_PARK_BOUNDS.east;
-}
-
-// Check if a lat/lng coordinate is in water exclusion zone (Manhattan only)
-function isInWaterExclusion(lat: number, lng: number): boolean {
-  for (const zone of MANHATTAN_WATER_EXCLUSIONS) {
-    const projected = zone.polygon.map(pt => [projectCoordinate(pt[1], pt[0]).x, projectCoordinate(pt[1], pt[0]).y]);
-    const { x, y } = projectCoordinate(lat, lng);
-    if (pointInPolygon(x, y, projected)) {
-      return true;
-    }
-  }
-  return false;
-}
-
 // Check if a projected x,y coordinate should be excluded (water or parks)
 function isExcludedLocation(x: number, y: number, boroughName: string): boolean {
-  // Convert projected coordinates back to lat/lng for exclusion checks
-  const lat = (y / COORDINATE_SCALE) + NYC_CENTER_LAT;
-  const lng = (x / COORDINATE_SCALE) + NYC_CENTER_LNG;
-  
   // Apply Manhattan-specific exclusions
   if (boroughName === 'Manhattan') {
-    if (isInCentralPark(lat, lng)) return true;
-    if (isInWaterExclusion(lat, lng)) return true;
+    // Check Central Park (simple rectangular bounds check)
+    if (x >= CENTRAL_PARK_PROJECTED.minX && 
+        x <= CENTRAL_PARK_PROJECTED.maxX && 
+        y >= CENTRAL_PARK_PROJECTED.minY && 
+        y <= CENTRAL_PARK_PROJECTED.maxY) {
+      return true;
+    }
+    
+    // Check water exclusion zones
+    for (const zone of MANHATTAN_WATER_EXCLUSIONS_PROJECTED) {
+      if (pointInPolygon(x, y, zone.polygon)) {
+        return true;
+      }
+    }
   }
   
   return false;
