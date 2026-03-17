@@ -227,6 +227,7 @@ function ResidentialBuildings({ name, coordinates }: { name: string; coordinates
       const y = minY + rand() * (maxY - minY);
       
       if (!outerRings.some(ring => pointInPolygon(x, y, ring))) continue;
+      if (isExcludedLocation(x, y, name)) continue; // Skip Central Park and water
       
       buildings.push({
         x,
