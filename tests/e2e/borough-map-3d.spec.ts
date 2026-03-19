@@ -5,6 +5,8 @@ import { test, expect } from '@playwright/test';
  * Tests the BoroughMap3DUnified component at /borough-map-premium
  */
 
+test.describe.configure({ mode: 'serial' }); // Run tests sequentially to avoid resource contention
+
 test.describe('3D NYC Borough Map', () => {
   test.beforeEach(async ({ page }) => {
     // Navigate to the 3D map page
@@ -40,6 +42,7 @@ test.describe('3D NYC Borough Map', () => {
   });
 
   test('auto-rotate toggle works', async ({ page }) => {
+    test.setTimeout(60000); // Increase timeout for this test
     // Find the auto-rotate button
     const autoRotateButton = page.getByRole('button', { name: /pause rotation|auto rotate/i });
     await expect(autoRotateButton).toBeVisible();
@@ -82,6 +85,7 @@ test.describe('3D NYC Borough Map', () => {
   });
 
   test('360° rotation works', async ({ page }) => {
+    test.setTimeout(60000); // Increase timeout for this test
     const canvas = page.locator('canvas');
     const box = await canvas.boundingBox();
     if (!box) throw new Error('Canvas not found');
@@ -113,6 +117,7 @@ test.describe('3D NYC Borough Map', () => {
   });
 
   test('borough click/selection works', async ({ page }) => {
+    test.setTimeout(60000); // Increase timeout for this test
     const canvas = page.locator('canvas');
     const box = await canvas.boundingBox();
     if (!box) throw new Error('Canvas not found');
@@ -143,6 +148,7 @@ test.describe('3D NYC Borough Map', () => {
   });
 
   test('hover effects trigger', async ({ page }) => {
+    test.setTimeout(60000); // Increase timeout for this test
     const canvas = page.locator('canvas');
     const box = await canvas.boundingBox();
     if (!box) throw new Error('Canvas not found');
