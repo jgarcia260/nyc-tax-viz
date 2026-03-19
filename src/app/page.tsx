@@ -74,32 +74,32 @@ export default function Home() {
 
 
   return (
-    <main className="min-h-screen px-4 py-12 sm:px-6 md:px-12 lg:py-20">
+    <main className="min-h-screen px-4 py-12 sm:px-6 lg:px-8 lg:py-20">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <header className="mb-20 text-center animate-fade-in">
-          <p className="text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-blue-400 mb-4">
+        <header className="mb-16 sm:mb-20 lg:mb-24 text-center animate-fade-in">
+          <p className="text-xs sm:text-sm font-bold tracking-[0.25em] uppercase text-blue-400 mb-3 sm:mb-4">
             Interactive Data Visualization
           </p>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-6 text-white leading-[1.05]">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4 sm:mb-6 text-white leading-[1.1]">
             NYC Tax Visualizer
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-zinc-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-zinc-300 max-w-3xl mx-auto leading-relaxed px-4">
             Explore how NYC&apos;s $107 billion budget works — and what new tax policies could fund.
             Interactive visualizations powered by real research data.
           </p>
         </header>
 
         {/* Context */}
-        <section className="mb-20 max-w-4xl mx-auto">
-          <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 sm:p-8 md:p-10 shadow-xl">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-5 text-white">The Question</h2>
-            <div className="space-y-4 text-zinc-300 leading-relaxed">
+        <section className="mb-16 sm:mb-20 lg:mb-24 max-w-4xl mx-auto px-4">
+          <div className="group rounded-2xl border border-zinc-800/90 bg-zinc-900/90 backdrop-blur-sm p-7 sm:p-9 lg:p-10 shadow-2xl transition-all duration-300 hover:border-zinc-700 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] hover:bg-zinc-900 focus-within:border-zinc-600 focus-within:ring-2 focus-within:ring-zinc-600/50 will-change-transform">
+            <h2 className="text-2xl sm:text-3xl font-extrabold mb-5 sm:mb-6 text-white">The Question</h2>
+            <div className="space-y-4 sm:space-y-5 text-base sm:text-lg text-zinc-300 leading-relaxed">
               <p>
                 NYC faces critical revenue decisions: should the city pursue a{" "}
-                <span className="font-semibold text-purple-400">billionaire tax</span> targeting
+                <span className="font-bold text-purple-300">billionaire tax</span> targeting
                 ultra-wealthy individuals, or{" "}
-                <span className="font-semibold text-blue-400">corporate tax reform</span> focused
+                <span className="font-bold text-blue-300">corporate tax reform</span> focused
                 on business restructuring?
               </p>
               <p>
@@ -112,12 +112,12 @@ export default function Home() {
         </section>
 
         {/* Visualization APPROACHES */}
-        <section className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white">
+        <section className="mb-16 sm:mb-20 lg:mb-24">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl font-extrabold mb-3 sm:mb-4 text-white">
               Visualization Approaches
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-zinc-300 max-w-2xl mx-auto leading-relaxed px-4">
               Interactive ways to explore NYC tax policy data — from policy comparison and geographic impact to 3D borough maps and real-time revenue calculations.
             </p>
           </div>
@@ -126,36 +126,36 @@ export default function Home() {
               <Link
                 key={viz.href}
                 href={viz.href}
-                className={`group rounded-2xl border-2 p-6 sm:p-7 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 shadow-lg ${
+                className={`group relative rounded-2xl border-2 p-6 sm:p-7 transition-all duration-300 ease-out hover:scale-[1.02] hover:-translate-y-1 shadow-xl hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black will-change-transform ${
                   viz.color === "emerald"
-                    ? "border-emerald-500/50 hover:border-emerald-400 hover:shadow-2xl hover:shadow-emerald-500/30 bg-gradient-to-br from-zinc-900/90 to-zinc-900/50 backdrop-blur-sm"
+                    ? "border-emerald-500/50 hover:border-emerald-400/90 hover:shadow-emerald-500/30 focus:ring-emerald-500/50 bg-gradient-to-br from-zinc-900/95 to-zinc-900/80 backdrop-blur-sm hover:from-zinc-900 hover:to-zinc-900/90"
                     : viz.color === "indigo"
-                    ? "border-indigo-500/50 hover:border-indigo-400 hover:shadow-2xl hover:shadow-indigo-500/30 bg-gradient-to-br from-zinc-900/90 to-zinc-900/50 backdrop-blur-sm"
+                    ? "border-indigo-500/50 hover:border-indigo-400/90 hover:shadow-indigo-500/30 focus:ring-indigo-500/50 bg-gradient-to-br from-zinc-900/95 to-zinc-900/80 backdrop-blur-sm hover:from-zinc-900 hover:to-zinc-900/90"
                     : viz.color === "purple"
-                    ? "border-purple-500/50 hover:border-purple-400 hover:shadow-2xl hover:shadow-purple-500/30 bg-gradient-to-br from-zinc-900/90 to-zinc-900/50 backdrop-blur-sm"
+                    ? "border-purple-500/50 hover:border-purple-400/90 hover:shadow-purple-500/30 focus:ring-purple-500/50 bg-gradient-to-br from-zinc-900/95 to-zinc-900/80 backdrop-blur-sm hover:from-zinc-900 hover:to-zinc-900/90"
                     : viz.color === "cyan"
-                    ? "border-cyan-500/50 hover:border-cyan-400 hover:shadow-2xl hover:shadow-cyan-500/30 bg-gradient-to-br from-zinc-900/90 to-zinc-900/50 backdrop-blur-sm"
-                    : "border-blue-500/50 hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-500/30 bg-gradient-to-br from-zinc-900/90 to-zinc-900/50 backdrop-blur-sm"
+                    ? "border-cyan-500/50 hover:border-cyan-400/90 hover:shadow-cyan-500/30 focus:ring-cyan-500/50 bg-gradient-to-br from-zinc-900/95 to-zinc-900/80 backdrop-blur-sm hover:from-zinc-900 hover:to-zinc-900/90"
+                    : "border-blue-500/50 hover:border-blue-400/90 hover:shadow-blue-500/30 focus:ring-blue-500/50 bg-gradient-to-br from-zinc-900/95 to-zinc-900/80 backdrop-blur-sm hover:from-zinc-900 hover:to-zinc-900/90"
                 }`}
               >
-                <div className="mb-5 text-5xl">{viz.icon}</div>
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 text-white group-hover:text-white transition-colors">
+                <div className="mb-4 sm:mb-5 text-4xl sm:text-5xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">{viz.icon}</div>
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 text-white transition-colors duration-200">
                   {viz.title}
                 </h3>
-                <p className="text-sm sm:text-base text-zinc-400 mb-5 leading-relaxed">
+                <p className="text-sm sm:text-base text-zinc-300 mb-4 sm:mb-5 leading-relaxed">
                   {viz.description}
                 </p>
-                <ul className="space-y-2.5 mb-6">
+                <ul className="space-y-2 sm:space-y-2.5 mb-5 sm:mb-6">
                   {viz.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-2.5 text-sm text-zinc-300">
-                      <span className="text-emerald-400 mt-0.5 font-bold text-base">✓</span>
+                    <li key={i} className="flex items-start gap-2 sm:gap-2.5 text-xs sm:text-sm text-zinc-300">
+                      <span className="text-emerald-400 mt-0.5 font-bold flex-shrink-0 transition-transform duration-200 group-hover:scale-110">✓</span>
                       <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
-                <div className="flex items-center gap-2 text-sm font-semibold text-zinc-300 group-hover:text-white transition-colors mt-auto">
+                <div className="flex items-center gap-2 text-sm font-bold text-zinc-400 group-hover:text-white transition-colors duration-200 mt-auto">
                   Explore this view
-                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
                 </div>
               </Link>
             ))}
@@ -163,75 +163,75 @@ export default function Home() {
         </section>
 
         {/* Comparison table */}
-        <section className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white">
+        <section className="mb-16 sm:mb-20 lg:mb-24">
+          <div className="text-center mb-10 sm:mb-12 lg:mb-14">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-3 sm:mb-4 text-white">
               Core Narrative Approaches
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-zinc-300 max-w-2xl mx-auto leading-relaxed px-4">
               The three foundational ways we tell the tax policy story — each optimized for different use cases.
             </p>
           </div>
           
           {/* Desktop Table */}
-          <div className="hidden md:block rounded-2xl border border-zinc-800 bg-zinc-900/50 overflow-hidden shadow-xl">
+          <div className="hidden md:block rounded-2xl border border-zinc-800/90 bg-zinc-900/80 overflow-hidden shadow-2xl backdrop-blur-sm">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-zinc-700 bg-zinc-900/80">
-                  <th className="px-6 py-5 text-left text-sm font-bold text-zinc-200 uppercase tracking-wider">
+                <tr className="border-b-2 border-zinc-700/90 bg-zinc-900">
+                  <th className="px-5 lg:px-6 py-4 lg:py-5 text-left text-xs lg:text-sm font-extrabold text-zinc-200 uppercase tracking-wider">
                     Approach
                   </th>
-                  <th className="px-6 py-5 text-left text-sm font-bold text-zinc-200 uppercase tracking-wider">
+                  <th className="px-5 lg:px-6 py-4 lg:py-5 text-left text-xs lg:text-sm font-extrabold text-zinc-200 uppercase tracking-wider">
                     Best For
                   </th>
-                  <th className="px-6 py-5 text-left text-sm font-bold text-zinc-200 uppercase tracking-wider">
+                  <th className="px-5 lg:px-6 py-4 lg:py-5 text-left text-xs lg:text-sm font-extrabold text-zinc-200 uppercase tracking-wider">
                     Interaction
                   </th>
-                  <th className="px-6 py-5 text-left text-sm font-bold text-zinc-200 uppercase tracking-wider">
+                  <th className="px-5 lg:px-6 py-4 lg:py-5 text-left text-xs lg:text-sm font-extrabold text-zinc-200 uppercase tracking-wider">
                     Data Focus
                   </th>
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-zinc-800/50 hover:bg-zinc-800/30 transition-colors">
-                  <td className="px-6 py-5">
-                    <div className="font-bold text-base text-indigo-400">Policy Comparison</div>
+                <tr className="border-b border-zinc-800/60 hover:bg-zinc-800/50 transition-all duration-200">
+                  <td className="px-5 lg:px-6 py-4 lg:py-5">
+                    <div className="font-bold text-base text-indigo-300">Policy Comparison</div>
                   </td>
-                  <td className="px-6 py-5 text-sm text-zinc-200">
+                  <td className="px-5 lg:px-6 py-4 lg:py-5 text-sm text-zinc-300">
                     Comparing revenue projections and trade-offs
                   </td>
-                  <td className="px-6 py-5 text-sm text-zinc-300">
+                  <td className="px-5 lg:px-6 py-4 lg:py-5 text-sm text-zinc-300">
                     Toggle between policies, explore charts
                   </td>
-                  <td className="px-6 py-5 text-sm text-zinc-300">
+                  <td className="px-5 lg:px-6 py-4 lg:py-5 text-sm text-zinc-300">
                     Revenue trends, pros/cons
                   </td>
                 </tr>
-                <tr className="border-b border-zinc-800/50 hover:bg-zinc-800/30 transition-colors">
-                  <td className="px-6 py-5">
-                    <div className="font-bold text-base text-purple-400">Borough Impact</div>
+                <tr className="border-b border-zinc-800/60 hover:bg-zinc-800/50 transition-all duration-200">
+                  <td className="px-5 lg:px-6 py-4 lg:py-5">
+                    <div className="font-bold text-base text-purple-300">Borough Impact</div>
                   </td>
-                  <td className="px-6 py-5 text-sm text-zinc-200">
+                  <td className="px-5 lg:px-6 py-4 lg:py-5 text-sm text-zinc-300">
                     Understanding local impact by neighborhood
                   </td>
-                  <td className="px-6 py-5 text-sm text-zinc-300">
+                  <td className="px-5 lg:px-6 py-4 lg:py-5 text-sm text-zinc-300">
                     Click boroughs, see local priorities
                   </td>
-                  <td className="px-6 py-5 text-sm text-zinc-300">
+                  <td className="px-5 lg:px-6 py-4 lg:py-5 text-sm text-zinc-300">
                     Geographic distribution
                   </td>
                 </tr>
-                <tr className="hover:bg-zinc-800/30 transition-colors">
-                  <td className="px-6 py-5">
-                    <div className="font-bold text-base text-blue-400">Revenue Flow</div>
+                <tr className="hover:bg-zinc-800/50 transition-all duration-200">
+                  <td className="px-5 lg:px-6 py-4 lg:py-5">
+                    <div className="font-bold text-base text-blue-300">Revenue Flow</div>
                   </td>
-                  <td className="px-6 py-5 text-sm text-zinc-200">
+                  <td className="px-5 lg:px-6 py-4 lg:py-5 text-sm text-zinc-300">
                     Following the full funding pipeline
                   </td>
-                  <td className="px-6 py-5 text-sm text-zinc-300">
+                  <td className="px-5 lg:px-6 py-4 lg:py-5 text-sm text-zinc-300">
                     Hover nodes, see allocations
                   </td>
-                  <td className="px-6 py-5 text-sm text-zinc-300">
+                  <td className="px-5 lg:px-6 py-4 lg:py-5 text-sm text-zinc-300">
                     End-to-end flow
                   </td>
                 </tr>
@@ -241,56 +241,56 @@ export default function Home() {
 
           {/* Mobile Cards */}
           <div className="md:hidden space-y-4">
-            <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-5 shadow-lg">
-              <h3 className="font-bold text-lg text-indigo-400 mb-3">Policy Comparison</h3>
-              <div className="space-y-2 text-sm">
+            <div className="rounded-xl border border-zinc-800/90 bg-zinc-900/80 p-5 shadow-xl backdrop-blur-sm">
+              <h3 className="font-bold text-lg text-indigo-300 mb-3">Policy Comparison</h3>
+              <div className="space-y-3 text-sm">
                 <div>
-                  <span className="font-semibold text-zinc-300">Best For:</span>
-                  <p className="text-zinc-400">Comparing revenue projections and trade-offs</p>
+                  <span className="font-semibold text-zinc-200">Best For:</span>
+                  <p className="text-zinc-300 mt-1">Comparing revenue projections and trade-offs</p>
                 </div>
                 <div>
-                  <span className="font-semibold text-zinc-300">Interaction:</span>
-                  <p className="text-zinc-400">Toggle between policies, explore charts</p>
+                  <span className="font-semibold text-zinc-200">Interaction:</span>
+                  <p className="text-zinc-300 mt-1">Toggle between policies, explore charts</p>
                 </div>
                 <div>
-                  <span className="font-semibold text-zinc-300">Data Focus:</span>
-                  <p className="text-zinc-400">Revenue trends, pros/cons</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-5 shadow-lg">
-              <h3 className="font-bold text-lg text-purple-400 mb-3">Borough Impact</h3>
-              <div className="space-y-2 text-sm">
-                <div>
-                  <span className="font-semibold text-zinc-300">Best For:</span>
-                  <p className="text-zinc-400">Understanding local impact by neighborhood</p>
-                </div>
-                <div>
-                  <span className="font-semibold text-zinc-300">Interaction:</span>
-                  <p className="text-zinc-400">Click boroughs, see local priorities</p>
-                </div>
-                <div>
-                  <span className="font-semibold text-zinc-300">Data Focus:</span>
-                  <p className="text-zinc-400">Geographic distribution</p>
+                  <span className="font-semibold text-zinc-200">Data Focus:</span>
+                  <p className="text-zinc-300 mt-1">Revenue trends, pros/cons</p>
                 </div>
               </div>
             </div>
 
-            <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-5 shadow-lg">
-              <h3 className="font-bold text-lg text-blue-400 mb-3">Revenue Flow</h3>
-              <div className="space-y-2 text-sm">
+            <div className="rounded-xl border border-zinc-800/90 bg-zinc-900/80 p-5 shadow-xl backdrop-blur-sm">
+              <h3 className="font-bold text-lg text-purple-300 mb-3">Borough Impact</h3>
+              <div className="space-y-3 text-sm">
                 <div>
-                  <span className="font-semibold text-zinc-300">Best For:</span>
-                  <p className="text-zinc-400">Following the full funding pipeline</p>
+                  <span className="font-semibold text-zinc-200">Best For:</span>
+                  <p className="text-zinc-300 mt-1">Understanding local impact by neighborhood</p>
                 </div>
                 <div>
-                  <span className="font-semibold text-zinc-300">Interaction:</span>
-                  <p className="text-zinc-400">Hover nodes, see allocations</p>
+                  <span className="font-semibold text-zinc-200">Interaction:</span>
+                  <p className="text-zinc-300 mt-1">Click boroughs, see local priorities</p>
                 </div>
                 <div>
-                  <span className="font-semibold text-zinc-300">Data Focus:</span>
-                  <p className="text-zinc-400">End-to-end flow</p>
+                  <span className="font-semibold text-zinc-200">Data Focus:</span>
+                  <p className="text-zinc-300 mt-1">Geographic distribution</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-zinc-800/90 bg-zinc-900/80 p-5 shadow-xl backdrop-blur-sm">
+              <h3 className="font-bold text-lg text-blue-300 mb-3">Revenue Flow</h3>
+              <div className="space-y-3 text-sm">
+                <div>
+                  <span className="font-semibold text-zinc-200">Best For:</span>
+                  <p className="text-zinc-300 mt-1">Following the full funding pipeline</p>
+                </div>
+                <div>
+                  <span className="font-semibold text-zinc-200">Interaction:</span>
+                  <p className="text-zinc-300 mt-1">Hover nodes, see allocations</p>
+                </div>
+                <div>
+                  <span className="font-semibold text-zinc-200">Data Focus:</span>
+                  <p className="text-zinc-300 mt-1">End-to-end flow</p>
                 </div>
               </div>
             </div>
@@ -298,50 +298,50 @@ export default function Home() {
         </section>
 
         {/* Research data source */}
-        <section className="mb-16 max-w-4xl mx-auto">
-          <div className="rounded-2xl border border-zinc-700 bg-zinc-900/70 p-6 sm:p-8 shadow-xl backdrop-blur-sm">
-            <h3 className="text-xl sm:text-2xl font-bold mb-4 flex items-center gap-2 text-white">
+        <section className="mb-16 sm:mb-20 max-w-4xl mx-auto px-4">
+          <div className="rounded-2xl border border-zinc-800/90 bg-zinc-900/80 p-6 sm:p-8 lg:p-9 shadow-2xl backdrop-blur-sm">
+            <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-5 flex items-center gap-2 text-white">
               📚 Research Sources
               <Citation sourceIds={['nyc-opendata', 'nyc-comptroller', 'cityandstate-mamdani']} variant="icon" />
             </h3>
-            <p className="text-sm sm:text-base text-zinc-300 mb-6 leading-relaxed">
+            <p className="text-sm sm:text-base text-zinc-300 mb-6 sm:mb-7 leading-relaxed">
               All visualizations are powered by comprehensive research from official government sources, 
               academic institutions, and independent research organizations. Hover over the 
               <Citation sourceIds={['nyc-opendata']} variant="icon" /> icons throughout the app to see specific citations.
             </p>
-            <ul className="grid sm:grid-cols-2 gap-y-3 gap-x-6 text-sm sm:text-base text-zinc-300">
+            <ul className="grid sm:grid-cols-2 gap-y-3 sm:gap-y-3.5 gap-x-6 text-sm sm:text-base text-zinc-300">
               <li className="flex items-start gap-2.5">
-                <span className="text-emerald-500 mt-1 font-bold">•</span>
+                <span className="text-emerald-400 mt-1 font-bold">•</span>
                 <span>
                   NYC Open Data <Citation sourceIds={['nyc-opendata']} variant="superscript" />
                 </span>
               </li>
               <li className="flex items-start gap-2.5">
-                <span className="text-emerald-500 mt-1 font-bold">•</span>
+                <span className="text-emerald-400 mt-1 font-bold">•</span>
                 <span>
                   City & State NY <Citation sourceIds={['cityandstate-mamdani']} variant="superscript" />
                 </span>
               </li>
               <li className="flex items-start gap-2.5">
-                <span className="text-emerald-500 mt-1 font-bold">•</span>
+                <span className="text-emerald-400 mt-1 font-bold">•</span>
                 <span>
                   NYC Comptroller <Citation sourceIds={['nyc-comptroller']} variant="superscript" />
                 </span>
               </li>
               <li className="flex items-start gap-2.5">
-                <span className="text-emerald-500 mt-1 font-bold">•</span>
+                <span className="text-emerald-400 mt-1 font-bold">•</span>
                 <span>
                   MTA & DOT <Citation sourceIds={['mta', 'nyc-dot']} variant="superscript" />
                 </span>
               </li>
               <li className="flex items-start gap-2.5">
-                <span className="text-emerald-500 mt-1 font-bold">•</span>
+                <span className="text-emerald-400 mt-1 font-bold">•</span>
                 <span>
                   Academic Research <Citation sourceIds={['nber-billionaire-tax', 'berkeley-ultrarich']} variant="superscript" />
                 </span>
               </li>
               <li className="flex items-start gap-2.5">
-                <span className="text-emerald-500 mt-1 font-bold">•</span>
+                <span className="text-emerald-400 mt-1 font-bold">•</span>
                 <span>
                   Independent Analysis <Citation sourceIds={['cbc', 'rpa']} variant="superscript" />
                 </span>
@@ -354,15 +354,15 @@ export default function Home() {
         <DataSourcesFooter />
 
         {/* Footer */}
-        <footer className="mt-16 pt-8 border-t border-zinc-800/50 text-center">
-          <div className="space-y-3">
-            <p className="text-sm text-zinc-400">
+        <footer className="mt-16 sm:mt-20 pt-8 border-t border-zinc-800/60 text-center">
+          <div className="space-y-3 sm:space-y-4">
+            <p className="text-sm text-zinc-400 px-4">
               Built with Next.js, React Three Fiber, and D3.js • Research completed March 2026
             </p>
-            <p className="text-sm">
+            <p className="text-sm px-4">
               <a 
                 href="https://github.com/jgarcia260/nyc-tax-viz" 
-                className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-medium transition-colors hover:underline" 
+                className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-medium transition-colors duration-200 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-400/50 rounded px-2 py-1" 
                 target="_blank" 
                 rel="noopener noreferrer"
               >
