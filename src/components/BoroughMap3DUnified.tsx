@@ -23,7 +23,7 @@ const BUILDING_SCALE_MULTIPLIER = 0.9;
 const BOROUGH_HEIGHT_MULTIPLIER: Record<string, number> = { 'Manhattan': 1.0, 'Brooklyn': 0.7, 'Queens': 0.7, 'Bronx': 0.6, 'Staten Island': 0.5 };
 
 const BOROUGH_BUILDING_CONFIG: Record<string, { count: number; minHeight: number; maxHeight: number; minWidth: number; maxWidth: number; clusterFactor: number }> = {
-  'Manhattan':      { count: 180, minHeight: 0.4 * BUILDING_SCALE_MULTIPLIER * 1.0,  maxHeight: 2.4 * BUILDING_SCALE_MULTIPLIER * 1.0, minWidth: 0.35 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.8 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.7 },
+  'Manhattan':      { count: 220, minHeight: 0.3 * BUILDING_SCALE_MULTIPLIER * 1.0,  maxHeight: 2.0 * BUILDING_SCALE_MULTIPLIER * 1.0, minWidth: 0.35 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.75 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.65 },
   'Brooklyn':       { count: 120, minHeight: 0.1 * BUILDING_SCALE_MULTIPLIER * 0.7,  maxHeight: 0.8 * BUILDING_SCALE_MULTIPLIER * 0.7,  minWidth: 0.35 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.7 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.4 },
   'Queens':         { count: 80, minHeight: 0.06 * BUILDING_SCALE_MULTIPLIER * 0.7, maxHeight: 0.4 * BUILDING_SCALE_MULTIPLIER * 0.7, minWidth: 0.35 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.6 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.2 },
   'Bronx':          { count: 90, minHeight: 0.1 * BUILDING_SCALE_MULTIPLIER * 0.6,  maxHeight: 0.6 * BUILDING_SCALE_MULTIPLIER * 0.6,  minWidth: 0.35 * BUILDING_SCALE_MULTIPLIER, maxWidth: 0.65 * BUILDING_SCALE_MULTIPLIER, clusterFactor: 0.3 },
@@ -64,6 +64,43 @@ const CENTRAL_PARK_PROJECTED = {
 if (typeof window !== 'undefined') {
   console.log('[Borough Data] Central Park projected bounds:', CENTRAL_PARK_PROJECTED);
 }
+
+// Manhattan height zones for realistic building distribution
+// Financial District (FiDi): Southern tip (below Canal St ~40.72)
+// Midtown: Around 40.74-40.77 (Times Sq, Empire State, Chrysler)
+// Uptown: Above 40.78 (Upper East/West Side - shorter buildings)
+interface HeightZone {
+  minLat: number;
+  maxLat: number;
+  heightMultiplier: number;
+  densityMultiplier: number;
+}
+
+const MANHATTAN_HEIGHT_ZONES: HeightZone[] = [
+  { minLat: 40.69, maxLat: 40.72, heightMultiplier: 2.2, densityMultiplier: 1.5 },  // Financial District
+  { minLat: 40.74, maxLat: 40.77, heightMultiplier: 2.0, densityMultiplier: 1.4 },  // Midtown
+  { minLat: 40.77, maxLat: 40.82, heightMultiplier: 0.6, densityMultiplier: 0.8 },  // Uptown
+];
+
+function getHeightMultiplierForLocation(lat: number, lng: number): number {
+  // Only apply to Manhattan-ish longitudes
+  if (lng < -74.02 || lng > -73.93) return 1.0;
+  
+  for (const zone of MANHATTAN_HEIGHT_ZONES) {
+    if (lat >= zone.minLat && lat <= zone.maxLat) {
+      return zone.heightMultiplier;
+    }
+  }
+  return 1.0;
+}
+
+// Iconic Manhattan landmarks (approximate locations)
+const MANHATTAN_LANDMARKS = [
+  { name: "One World Trade", lat: 40.7127, lng: -74.0134, heightMultiplier: 3.5 },
+  { name: "Empire State", lat: 40.7484, lng: -73.9857, heightMultiplier: 3.0 },
+  { name: "Chrysler Building", lat: 40.7516, lng: -73.9755, heightMultiplier: 2.8 },
+  { name: "432 Park Ave", lat: 40.7615, lng: -73.9719, heightMultiplier: 2.9 },
+];
 
 // Water exclusion zones around Manhattan (projected coordinates)
 // These prevent buildings from appearing in rivers and harbor areas
@@ -137,6 +174,23 @@ function generateBuildings(name: string, coordinates: number[][][][]): BuildingI
   
   const rand = seededRandom(name.charCodeAt(0) * 1000 + name.length * 31);
   const buildings: BuildingInstance[] = [];
+  
+  // Add landmark buildings first for Manhattan
+  if (name === 'Manhattan') {
+    MANHATTAN_LANDMARKS.forEach(landmark => {
+      const { x, y } = projectCoordinate(landmark.lat, landmark.lng);
+      if (outerRings.some(ring => pointInPolygon(x, y, ring)) && !isExcludedLocation(x, y, name)) {
+        buildings.push({
+          x,
+          y,
+          width: config.maxWidth * 0.8,
+          depth: config.maxWidth * 0.8,
+          height: config.maxHeight * landmark.heightMultiplier
+        });
+      }
+    });
+  }
+  
   let attempts = 0;
   let excludedCount = 0;
   while (buildings.length < config.count && attempts < config.count * 20) {
@@ -148,9 +202,25 @@ function generateBuildings(name: string, coordinates: number[][][][]): BuildingI
       excludedCount++;
       continue; // Skip Central Park and water
     }
+    
+    // Calculate height based on location zones (Manhattan only)
+    let heightMultiplier = 1.0;
+    if (name === 'Manhattan') {
+      // Convert projected coords back to lat/lng for zone checking
+      const lat = (y / COORDINATE_SCALE) + NYC_CENTER_LAT;
+      const lng = (x / COORDINATE_SCALE) + NYC_CENTER_LNG;
+      heightMultiplier = getHeightMultiplierForLocation(lat, lng);
+    }
+    
     const distRatio = Math.min(1, Math.sqrt((x - centerX) ** 2 + (y - centerY) ** 2) / (Math.sqrt((maxX - minX) ** 2 + (maxY - minY) ** 2) * 0.5));
     const centralBoost = 1 - distRatio * config.clusterFactor;
-    buildings.push({ x, y, width: config.minWidth + rand() * (config.maxWidth - config.minWidth), depth: config.minWidth + rand() * (config.maxWidth - config.minWidth), height: config.minHeight + rand() * (config.maxHeight - config.minHeight) * centralBoost });
+    buildings.push({ 
+      x, 
+      y, 
+      width: config.minWidth + rand() * (config.maxWidth - config.minWidth), 
+      depth: config.minWidth + rand() * (config.maxWidth - config.minWidth), 
+      height: (config.minHeight + rand() * (config.maxHeight - config.minHeight) * centralBoost) * heightMultiplier 
+    });
   }
   
   if (typeof window !== 'undefined') {
@@ -172,6 +242,34 @@ const BOROUGH_Y_OFFSETS: Record<string, number> = {
   'Bronx': 0.06,
   'Staten Island': 0.08
 };
+
+// Central Park component - visible green park area
+function CentralPark() {
+  const meshRef = useRef<THREE.Mesh>(null);
+  
+  // Create a simple box for Central Park
+  const parkWidth = CENTRAL_PARK_PROJECTED.maxX - CENTRAL_PARK_PROJECTED.minX;
+  const parkDepth = CENTRAL_PARK_PROJECTED.maxY - CENTRAL_PARK_PROJECTED.minY;
+  const parkCenterX = (CENTRAL_PARK_PROJECTED.minX + CENTRAL_PARK_PROJECTED.maxX) / 2;
+  const parkCenterY = (CENTRAL_PARK_PROJECTED.minY + CENTRAL_PARK_PROJECTED.maxY) / 2;
+  
+  return (
+    <mesh 
+      ref={meshRef}
+      position={[parkCenterX, 2.1, -parkCenterY]}
+      rotation={[-Math.PI / 2, 0, 0]}
+    >
+      <planeGeometry args={[parkWidth, parkDepth]} />
+      <meshPhysicalMaterial 
+        color="#2d5016"
+        emissive="#3a6b1f"
+        emissiveIntensity={0.2}
+        roughness={0.9}
+        metalness={0.0}
+      />
+    </mesh>
+  );
+}
 
 function Borough({ name, coordinates, isHovered, isSelected, onClick, onHover, animationDelay }: { name: string; coordinates: number[][][][]; isHovered: boolean; isSelected: boolean; onClick: () => void; onHover: (h: boolean) => void; animationDelay: number }) {
   const meshRef = useRef<THREE.Mesh>(null);
@@ -201,7 +299,7 @@ function Borough({ name, coordinates, isHovered, isSelected, onClick, onHover, a
     geo.rotateX(-Math.PI / 2); return geo;
   }, [coordinates, name]);
   const colors = BOROUGH_COLORS[name] || BOROUGH_COLORS['Manhattan'];
-  return (<group ref={groupRef}><mesh ref={meshRef} geometry={geometry} onClick={onClick} onPointerOver={() => onHover(true)} onPointerOut={() => onHover(false)} castShadow receiveShadow><meshPhysicalMaterial color={colors.base} emissive={colors.emissive} emissiveIntensity={isHovered ? 0.4 : isSelected ? 0.25 : 0.15} metalness={0.4} roughness={0.45} envMapIntensity={0.8} clearcoat={0.3} clearcoatRoughness={0.4} transparent={isHovered} opacity={isHovered ? 0.95 : 1.0} /></mesh><BoroughBuildings name={name} coordinates={coordinates} /><ResidentialBuildings name={name} coordinates={coordinates} /></group>);
+  return (<group ref={groupRef}><mesh ref={meshRef} geometry={geometry} onClick={onClick} onPointerOver={() => onHover(true)} onPointerOut={() => onHover(false)} castShadow receiveShadow><meshPhysicalMaterial color={colors.base} emissive={colors.emissive} emissiveIntensity={isHovered ? 0.4 : isSelected ? 0.25 : 0.15} metalness={0.4} roughness={0.45} envMapIntensity={0.8} clearcoat={0.3} clearcoatRoughness={0.4} transparent={isHovered} opacity={isHovered ? 0.95 : 1.0} /></mesh><BoroughBuildings name={name} coordinates={coordinates} /><ResidentialBuildings name={name} coordinates={coordinates} />{name === 'Manhattan' && <CentralPark />}</group>);
 }
 
 function BoroughBuildings({ name, coordinates }: { name: string; coordinates: number[][][][] }) {
