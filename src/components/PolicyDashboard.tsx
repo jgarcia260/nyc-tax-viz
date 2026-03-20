@@ -103,25 +103,25 @@ export function PolicyDashboard({ data }: { data: PolicyData }) {
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-zinc-900/50 rounded-xl p-4">
-                  <p className="text-xs text-zinc-500 uppercase">Year 1 Revenue</p>
+                  <p className="text-xs text-zinc-400 uppercase">Year 1 Revenue</p>
                   <p className="text-2xl font-bold text-purple-300">
                     ${(billionaireTax.revenueProjections.year1 / 1e9).toFixed(1)}B
                   </p>
                 </div>
                 <div className="bg-zinc-900/50 rounded-xl p-4">
-                  <p className="text-xs text-zinc-500 uppercase">Implementation</p>
+                  <p className="text-xs text-zinc-400 uppercase">Implementation</p>
                   <p className="text-2xl font-bold text-purple-300">
                     {billionaireTax.implementation}
                   </p>
                 </div>
                 <div className="bg-zinc-900/50 rounded-xl p-4">
-                  <p className="text-xs text-zinc-500 uppercase">Flight Risk</p>
+                  <p className="text-xs text-zinc-400 uppercase">Flight Risk</p>
                   <p className="text-2xl font-bold text-red-400">
                     {billionaireTax.flightRisk}
                   </p>
                 </div>
                 <div className="bg-zinc-900/50 rounded-xl p-4">
-                  <p className="text-xs text-zinc-500 uppercase">Tax Base</p>
+                  <p className="text-xs text-zinc-400 uppercase">Tax Base</p>
                   <p className="text-xl font-bold text-purple-300">
                     {(billionaireTax.affectedTaxpayers / 1000).toFixed(0)}K people
                   </p>
@@ -165,25 +165,25 @@ export function PolicyDashboard({ data }: { data: PolicyData }) {
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-zinc-900/50 rounded-xl p-4">
-                  <p className="text-xs text-zinc-500 uppercase">Year 1 Revenue</p>
+                  <p className="text-xs text-zinc-400 uppercase">Year 1 Revenue</p>
                   <p className="text-2xl font-bold text-blue-300">
                     ${(corporateTax.revenueProjections.year1 / 1e9).toFixed(1)}B
                   </p>
                 </div>
                 <div className="bg-zinc-900/50 rounded-xl p-4">
-                  <p className="text-xs text-zinc-500 uppercase">Implementation</p>
+                  <p className="text-xs text-zinc-400 uppercase">Implementation</p>
                   <p className="text-2xl font-bold text-blue-300">
                     {corporateTax.implementation}
                   </p>
                 </div>
                 <div className="bg-zinc-900/50 rounded-xl p-4">
-                  <p className="text-xs text-zinc-500 uppercase">Flight Risk</p>
+                  <p className="text-xs text-zinc-400 uppercase">Flight Risk</p>
                   <p className="text-2xl font-bold text-yellow-400">
                     {corporateTax.flightRisk}
                   </p>
                 </div>
                 <div className="bg-zinc-900/50 rounded-xl p-4">
-                  <p className="text-xs text-zinc-500 uppercase">Tax Base</p>
+                  <p className="text-xs text-zinc-400 uppercase">Tax Base</p>
                   <p className="text-xl font-bold text-blue-300">
                     {(corporateTax.affectedTaxpayers / 1000).toFixed(0)}K businesses
                   </p>
@@ -295,11 +295,11 @@ export function PolicyDashboard({ data }: { data: PolicyData }) {
                   </p>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm text-zinc-500">Cost</p>
+                  <p className="text-sm text-zinc-400">Cost</p>
                   <p className="text-xl font-bold text-zinc-200">
                     ${(imp.cost5Year / 1e9).toFixed(1)}B
                   </p>
-                  <p className="text-xs text-zinc-500 mt-1">
+                  <p className="text-xs text-zinc-400 mt-1">
                     {imp.publicSupport} support
                   </p>
                 </div>

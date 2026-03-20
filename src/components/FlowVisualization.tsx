@@ -66,7 +66,7 @@ export function FlowVisualization({ data }: { data: PolicyData }) {
         <div className="min-w-[800px]">
           {/* Stage 1: Tax Source */}
           <div className="mb-12">
-            <p className="text-sm text-zinc-500 uppercase mb-4 text-center">
+            <p className="text-sm text-zinc-400 uppercase mb-4 text-center">
               Step 1: Tax Policy
             </p>
             <div
@@ -85,7 +85,7 @@ export function FlowVisualization({ data }: { data: PolicyData }) {
                 {policy.description}
               </p>
               <div className="text-center">
-                <p className="text-sm text-zinc-500">5-Year Revenue</p>
+                <p className="text-sm text-zinc-400">5-Year Revenue</p>
                 <p className="text-4xl font-bold text-white">
                   {formatBillions(totalRevenue)}
                 </p>
@@ -95,7 +95,7 @@ export function FlowVisualization({ data }: { data: PolicyData }) {
 
           {/* Arrow down */}
           <div className="flex justify-center mb-12">
-            <svg width="2" height="60" className="opacity-50">
+            <svg width="2" height="60" className="opacity-70">
               <line
                 x1="1"
                 y1="0"
@@ -111,7 +111,7 @@ export function FlowVisualization({ data }: { data: PolicyData }) {
 
           {/* Stage 2: Revenue Pool */}
           <div className="mb-12">
-            <p className="text-sm text-zinc-500 uppercase mb-4 text-center">
+            <p className="text-sm text-zinc-400 uppercase mb-4 text-center">
               Step 2: Revenue Collected
             </p>
             <div
@@ -126,7 +126,7 @@ export function FlowVisualization({ data }: { data: PolicyData }) {
                 <p className="text-5xl font-bold text-white">
                   {formatBillions(totalRevenue)}
                 </p>
-                <p className="text-sm text-zinc-500 mt-2">
+                <p className="text-sm text-zinc-400 mt-2">
                   Available for improvements over 5 years
                 </p>
               </div>
@@ -137,7 +137,7 @@ export function FlowVisualization({ data }: { data: PolicyData }) {
           <div className="flex justify-center mb-8">
             <div className="flex gap-4">
               {improvementAllocations.slice(0, 5).map((_, i) => (
-                <svg key={i} width="2" height="60" className="opacity-30">
+                <svg key={i} width="2" height="60" className="opacity-60">
                   <line
                     x1="1"
                     y1="0"
@@ -155,7 +155,7 @@ export function FlowVisualization({ data }: { data: PolicyData }) {
 
           {/* Stage 3: Improvements */}
           <div>
-            <p className="text-sm text-zinc-500 uppercase mb-4 text-center">
+            <p className="text-sm text-zinc-400 uppercase mb-4 text-center">
               Step 3: Funded Improvements
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -177,7 +177,7 @@ export function FlowVisualization({ data }: { data: PolicyData }) {
                       onMouseLeave={() => setHoveredNode(null)}
                     >
                       <div className="flex items-start justify-between mb-3">
-                        <span className="text-2xl font-bold text-zinc-600">
+                        <span className="text-2xl font-bold text-zinc-400">
                           #{imp.priority}
                         </span>
                         <span className="text-xs bg-zinc-900/50 px-2 py-1 rounded">
@@ -190,7 +190,7 @@ export function FlowVisualization({ data }: { data: PolicyData }) {
                       </h4>
                       
                       <div className="mb-3">
-                        <p className="text-sm text-zinc-500">Funding</p>
+                        <p className="text-sm text-zinc-400">Funding</p>
                         <p className="text-2xl font-bold text-emerald-400">
                           {formatBillions(imp.allocation)}
                         </p>
@@ -207,7 +207,7 @@ export function FlowVisualization({ data }: { data: PolicyData }) {
                         ✓ {imp.impact}
                       </p>
 
-                      <div className="text-xs text-zinc-500">
+                      <div className="text-xs text-zinc-400">
                         Total need: {formatBillions(imp.cost)}
                       </div>
 
@@ -227,19 +227,19 @@ export function FlowVisualization({ data }: { data: PolicyData }) {
             <h3 className="text-lg font-semibold mb-4">Funding Analysis</h3>
             <div className="grid md:grid-cols-3 gap-4 text-sm">
               <div>
-                <p className="text-zinc-500">Total Revenue</p>
+                <p className="text-zinc-400">Total Revenue</p>
                 <p className="text-xl font-bold text-white">
                   {formatBillions(totalRevenue)}
                 </p>
               </div>
               <div>
-                <p className="text-zinc-500">Total Improvement Needs</p>
+                <p className="text-zinc-400">Total Improvement Needs</p>
                 <p className="text-xl font-bold text-white">
                   {formatBillions(totalImprovementCost)}
                 </p>
               </div>
               <div>
-                <p className="text-zinc-500">Coverage</p>
+                <p className="text-zinc-400">Coverage</p>
                 <p className="text-xl font-bold text-emerald-400">
                   {((totalRevenue / totalImprovementCost) * 100).toFixed(0)}%
                 </p>
