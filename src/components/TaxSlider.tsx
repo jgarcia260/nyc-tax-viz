@@ -132,7 +132,7 @@ export function TaxSlider({ data }: { data: PolicyData }) {
       {/* Header */}
       <div className="text-center space-y-3">
         <h1 className="text-4xl md:text-5xl font-bold">NYC Tax Policy Explorer</h1>
-        <p className="text-zinc-400 max-w-2xl mx-auto">
+        <p className="text-zinc-200 max-w-2xl mx-auto">
           Adjust the slider to explore different tax approaches and see what improvements can be funded.
         </p>
       </div>
@@ -151,7 +151,7 @@ export function TaxSlider({ data }: { data: PolicyData }) {
                 variant="icon"
               />
             </h2>
-            <p className="text-zinc-400 mt-2">{currentRevenue.description}</p>
+            <p className="text-zinc-200 mt-2">{currentRevenue.description}</p>
           </div>
 
           {/* Slider Control */}
@@ -229,7 +229,7 @@ export function TaxSlider({ data }: { data: PolicyData }) {
                 className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all ${
                   sliderValue === 0
                     ? "bg-purple-600 text-white"
-                    : "bg-zinc-800 text-zinc-400"
+                    : "bg-zinc-800 text-zinc-200"
                 }`}
               >
                 Billionaire
@@ -239,7 +239,7 @@ export function TaxSlider({ data }: { data: PolicyData }) {
                 className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all ${
                   sliderValue === 1
                     ? "bg-indigo-600 text-white"
-                    : "bg-zinc-800 text-zinc-400"
+                    : "bg-zinc-800 text-zinc-200"
                 }`}
               >
                 Hybrid
@@ -249,7 +249,7 @@ export function TaxSlider({ data }: { data: PolicyData }) {
                 className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all ${
                   sliderValue === 2
                     ? "bg-blue-600 text-white"
-                    : "bg-zinc-800 text-zinc-400"
+                    : "bg-zinc-800 text-zinc-200"
                 }`}
               >
                 Corporate
@@ -295,7 +295,7 @@ export function TaxSlider({ data }: { data: PolicyData }) {
           {/* Implementation Timeline */}
           <div className="bg-zinc-800/30 rounded-lg p-4 border border-zinc-700/50">
             <div className="flex items-center justify-between">
-              <span className="text-sm text-zinc-400">Implementation Timeline:</span>
+              <span className="text-sm text-zinc-200">Implementation Timeline:</span>
               <span className={`text-sm font-semibold ${colors.text}`}>
                 {currentRevenue.implementation}
               </span>
@@ -333,7 +333,7 @@ export function TaxSlider({ data }: { data: PolicyData }) {
                       </span>
                     )}
                   </div>
-                  <p className="text-sm text-zinc-400">{improvement.description}</p>
+                  <p className="text-sm text-zinc-200">{improvement.description}</p>
                   <p className="text-sm text-emerald-400 mt-2">
                     {improvement.impact}
                   </p>
@@ -353,7 +353,7 @@ export function TaxSlider({ data }: { data: PolicyData }) {
               <div className="mt-3">
                 <div className="flex items-center justify-between text-xs mb-1">
                   <span className="text-zinc-500">Funding coverage</span>
-                  <span className={improvement.funded ? "text-emerald-400 font-semibold" : "text-zinc-400"}>
+                  <span className={improvement.funded ? "text-emerald-400 font-semibold" : "text-zinc-200"}>
                     {improvement.percentFunded.toFixed(0)}%
                   </span>
                 </div>
@@ -373,7 +373,7 @@ export function TaxSlider({ data }: { data: PolicyData }) {
         {/* Summary */}
         <div className="mt-6 bg-zinc-800/50 rounded-xl p-4 border border-zinc-700">
           <div className="flex items-center justify-between">
-            <span className="text-sm text-zinc-400">
+            <span className="text-sm text-zinc-200">
               Total funded:
             </span>
             <span className="text-lg font-bold text-emerald-400">

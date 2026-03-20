@@ -21,13 +21,13 @@ export function DataSourcesFooter() {
           <div className="text-2xl">📚</div>
           <div className="text-left">
             <h3 className="text-lg font-semibold">Data Sources & Citations</h3>
-            <p className="text-sm text-zinc-400">
+            <p className="text-sm text-zinc-200">
               {dataSources.length} sources from government agencies, research institutions, and advocacy organizations
             </p>
           </div>
         </div>
         <svg 
-          className={`w-5 h-5 text-zinc-400 transition-transform ${expanded ? 'rotate-180' : ''}`}
+          className={`w-5 h-5 text-zinc-200 transition-transform ${expanded ? 'rotate-180' : ''}`}
           fill="none" 
           stroke="currentColor" 
           viewBox="0 0 24 24"
@@ -42,7 +42,7 @@ export function DataSourcesFooter() {
             const sources = getSourcesByCategory(category);
             return (
               <div key={category}>
-                <h4 className="text-sm font-semibold text-zinc-400 uppercase mb-3">
+                <h4 className="text-sm font-semibold text-zinc-200 uppercase mb-3">
                   {formatCategory(category)} ({sources.length})
                 </h4>
                 <div className="grid md:grid-cols-2 gap-3">
@@ -66,7 +66,7 @@ export function DataSourcesFooter() {
                         </svg>
                       </a>
                       {source.description && (
-                        <p className="text-xs text-zinc-400 mt-2">
+                        <p className="text-xs text-zinc-200 mt-2">
                           {source.description}
                         </p>
                       )}
@@ -84,7 +84,7 @@ export function DataSourcesFooter() {
                 <h4 className="text-sm font-semibold text-emerald-400 mb-1">
                   Transparency Commitment
                 </h4>
-                <p className="text-xs text-zinc-400">
+                <p className="text-xs text-zinc-200">
                   All data, research, and visualizations in this app are sourced from public records, 
                   government agencies, and peer-reviewed research. We believe in transparent, 
                   evidence-based policy discussion. If you find any data inaccuracies, please 
@@ -105,7 +105,7 @@ export function DataSourcesFooter() {
 export function CompactDataSources({ sourceIds }: { sourceIds: string[] }) {
   return (
     <div className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-4">
-      <h4 className="text-sm font-semibold text-zinc-400 mb-3 flex items-center gap-2">
+      <h4 className="text-sm font-semibold text-zinc-200 mb-3 flex items-center gap-2">
         <span>📊</span>
         Data Sources Used
       </h4>

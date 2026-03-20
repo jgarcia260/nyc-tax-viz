@@ -138,14 +138,14 @@ export function BudgetViz({ dollarBreakdown, expenseBudget, years }: BudgetVizPr
   }, [agencies]);
 
   if (!yearData) {
-    return <p className="text-zinc-400">No data for FY{selectedYear}</p>;
+    return <p className="text-zinc-200">No data for FY{selectedYear}</p>;
   }
 
   return (
     <div className="space-y-10">
       {/* Year selector */}
       <div className="flex items-center gap-3 flex-wrap">
-        <span className="text-sm font-medium text-zinc-400">Fiscal Year</span>
+        <span className="text-sm font-medium text-zinc-200">Fiscal Year</span>
         <div className="flex gap-1">
           {years.map((year) => (
             <button
@@ -154,7 +154,7 @@ export function BudgetViz({ dollarBreakdown, expenseBudget, years }: BudgetVizPr
               className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                 selectedYear === year
                   ? "bg-indigo-600 text-white"
-                  : "bg-zinc-800 text-zinc-400 hover:bg-zinc-700 hover:text-zinc-200"
+                  : "bg-zinc-800 text-zinc-200 hover:bg-zinc-700 hover:text-zinc-200"
               }`}
             >
               FY{year}
@@ -184,7 +184,7 @@ export function BudgetViz({ dollarBreakdown, expenseBudget, years }: BudgetVizPr
 
       {/* Total budget headline */}
       <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-8">
-        <p className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+        <p className="text-sm font-medium text-zinc-200 uppercase tracking-wider">
           Total Adopted Budget — FY{selectedYear}
         </p>
         <p className="mt-2 text-5xl font-bold tracking-tight text-white">
@@ -291,7 +291,7 @@ export function BudgetViz({ dollarBreakdown, expenseBudget, years }: BudgetVizPr
                       <span className="text-sm font-bold text-white">
                         {formatDollars(agency.amount)}
                       </span>
-                      <span className="ml-1 text-xs text-zinc-400">
+                      <span className="ml-1 text-xs text-zinc-200">
                         {pct.toFixed(1)}%
                       </span>
                     </div>
@@ -317,7 +317,7 @@ export function BudgetViz({ dollarBreakdown, expenseBudget, years }: BudgetVizPr
                         setSortDirection("asc");
                       }
                     }}
-                    className="text-xs font-medium text-zinc-400 uppercase hover:text-zinc-200 transition-colors flex items-center gap-1"
+                    className="text-xs font-medium text-zinc-200 uppercase hover:text-zinc-200 transition-colors flex items-center gap-1"
                   >
                     Agency
                     {sortField === "name" && (
@@ -335,7 +335,7 @@ export function BudgetViz({ dollarBreakdown, expenseBudget, years }: BudgetVizPr
                         setSortDirection("desc");
                       }
                     }}
-                    className="text-xs font-medium text-zinc-400 uppercase hover:text-zinc-200 transition-colors flex items-center gap-1 ml-auto"
+                    className="text-xs font-medium text-zinc-200 uppercase hover:text-zinc-200 transition-colors flex items-center gap-1 ml-auto"
                   >
                     Amount
                     {sortField === "amount" && (
@@ -353,7 +353,7 @@ export function BudgetViz({ dollarBreakdown, expenseBudget, years }: BudgetVizPr
                         setSortDirection("desc");
                       }
                     }}
-                    className="text-xs font-medium text-zinc-400 uppercase hover:text-zinc-200 transition-colors flex items-center gap-1 ml-auto"
+                    className="text-xs font-medium text-zinc-200 uppercase hover:text-zinc-200 transition-colors flex items-center gap-1 ml-auto"
                   >
                     % of Budget
                     {sortField === "percentage" && (
@@ -361,7 +361,7 @@ export function BudgetViz({ dollarBreakdown, expenseBudget, years }: BudgetVizPr
                     )}
                   </button>
                 </th>
-                <th className="px-4 py-3 text-left text-xs font-medium text-zinc-400 uppercase w-1/3">Share</th>
+                <th className="px-4 py-3 text-left text-xs font-medium text-zinc-200 uppercase w-1/3">Share</th>
               </tr>
             </thead>
             <tbody>
@@ -378,7 +378,7 @@ export function BudgetViz({ dollarBreakdown, expenseBudget, years }: BudgetVizPr
                     <td className="px-4 py-2.5 text-sm text-right text-zinc-300 font-mono">
                       {formatDollars(agency.amount)}
                     </td>
-                    <td className="px-4 py-2.5 text-sm text-right text-zinc-400 font-mono">
+                    <td className="px-4 py-2.5 text-sm text-right text-zinc-200 font-mono">
                       {pct.toFixed(1)}%
                     </td>
                     <td className="px-4 py-2.5">

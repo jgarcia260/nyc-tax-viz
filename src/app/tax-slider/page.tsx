@@ -16,13 +16,13 @@ export default function TaxSliderPage() {
         <div className="flex items-center justify-between mb-8">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-zinc-200 hover:text-white transition-colors"
           >
             ← Back to home
           </Link>
           
           <div className="flex items-center gap-3">
-            <span className="text-sm text-zinc-400">
+            <span className="text-sm text-zinc-200">
               {isPremium ? "✨ Premium" : "Basic"}
             </span>
             <button
@@ -83,7 +83,7 @@ export default function TaxSliderPage() {
             >
               <div className="text-2xl mb-2">📊</div>
               <h4 className="font-semibold mb-1">Policy Comparison</h4>
-              <p className="text-sm text-zinc-400">
+              <p className="text-sm text-zinc-200">
                 Detailed side-by-side analysis
               </p>
             </Link>
@@ -93,7 +93,7 @@ export default function TaxSliderPage() {
             >
               <div className="text-2xl mb-2">🗺️</div>
               <h4 className="font-semibold mb-1">Borough Impact</h4>
-              <p className="text-sm text-zinc-400">
+              <p className="text-sm text-zinc-200">
                 Geographic distribution by area
               </p>
             </Link>
@@ -103,7 +103,7 @@ export default function TaxSliderPage() {
             >
               <div className="text-2xl mb-2">💰</div>
               <h4 className="font-semibold mb-1">Revenue Flow</h4>
-              <p className="text-sm text-zinc-400">
+              <p className="text-sm text-zinc-200">
                 Follow the money to improvements
               </p>
             </Link>

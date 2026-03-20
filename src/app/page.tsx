@@ -78,7 +78,7 @@ export default function Home() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <header className="mb-16 sm:mb-20 lg:mb-24 text-center animate-fade-in">
-          <p className="text-xs sm:text-sm font-bold tracking-[0.25em] uppercase text-blue-400 mb-3 sm:mb-4">
+          <p className="text-xs sm:text-sm font-bold tracking-[0.25em] uppercase text-blue-300 mb-3 sm:mb-4">
             Interactive Data Visualization
           </p>
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4 sm:mb-6 text-white leading-[1.1]">
@@ -153,7 +153,7 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <div className="flex items-center gap-2 text-sm font-bold text-zinc-400 group-hover:text-white transition-colors duration-200 mt-auto">
+                <div className="flex items-center gap-2 text-sm font-bold text-zinc-200 group-hover:text-white transition-colors duration-200 mt-auto">
                   Explore this view
                   <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
                 </div>
@@ -356,7 +356,7 @@ export default function Home() {
         {/* Footer */}
         <footer className="mt-16 sm:mt-20 pt-8 border-t border-zinc-800/60 text-center">
           <div className="space-y-3 sm:space-y-4">
-            <p className="text-sm text-zinc-400 px-4">
+            <p className="text-sm text-zinc-200 px-4">
               Built with Next.js, React Three Fiber, and D3.js • Research completed March 2026
             </p>
             <p className="text-sm px-4">

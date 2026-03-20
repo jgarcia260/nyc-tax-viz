@@ -126,7 +126,7 @@ function StatCard({
       transition={{ delay, duration: 0.4, ease: "easeOut" }}
       whileHover={{ scale: 1.05, borderColor: "rgba(255,255,255,0.3)" }}
     >
-      <p className="text-xs text-zinc-400 uppercase mb-1 tracking-wide">{label}</p>
+      <p className="text-xs text-zinc-200 uppercase mb-1 tracking-wide">{label}</p>
       <p className={`text-2xl font-bold ${colorClasses[color as keyof typeof colorClasses]}`}>
         {typeof value === "number" ? (
           <CountUp
@@ -351,7 +351,7 @@ export function TaxSliderPremium({ data }: { data: PolicyData }) {
           NYC Tax Policy Explorer
         </motion.h1>
         <motion.p
-          className="text-zinc-400 max-w-2xl mx-auto text-lg"
+          className="text-zinc-200 max-w-2xl mx-auto text-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
@@ -383,7 +383,7 @@ export function TaxSliderPremium({ data }: { data: PolicyData }) {
           {/* Radix UI Slider */}
           <div className="space-y-4 px-2">
             {/* Labels */}
-            <div className="flex justify-between text-sm text-zinc-400 mb-4">
+            <div className="flex justify-between text-sm text-zinc-200 mb-4">
               <motion.span
                 animate={{
                   color: policyPosition === 0 ? "#a855f7" : "#71717a",
@@ -506,7 +506,7 @@ export function TaxSliderPremium({ data }: { data: PolicyData }) {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            <p className="text-sm text-zinc-400 mb-2">5-Year Revenue Projection</p>
+            <p className="text-sm text-zinc-200 mb-2">5-Year Revenue Projection</p>
             <MiniChart
               data={currentRevenue.projections}
               color={
@@ -558,7 +558,7 @@ export function TaxSliderPremium({ data }: { data: PolicyData }) {
                         )}
                       </AnimatePresence>
                     </div>
-                    <p className="text-sm text-zinc-400">{improvement.description}</p>
+                    <p className="text-sm text-zinc-200">{improvement.description}</p>
                     <p className="text-sm text-emerald-400 mt-2">{improvement.impact}</p>
                   </div>
                   <div className="text-right">
@@ -580,7 +580,7 @@ export function TaxSliderPremium({ data }: { data: PolicyData }) {
                       className={
                         improvement.funded
                           ? "text-emerald-400 font-semibold"
-                          : "text-zinc-400"
+                          : "text-zinc-200"
                       }
                     >
                       <CountUp
@@ -635,7 +635,7 @@ export function TaxSliderPremium({ data }: { data: PolicyData }) {
       <GlassCard className="p-6">
         <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
           📚 Data Sources
-          <span className="text-xs text-zinc-400 font-normal">(hover for details)</span>
+          <span className="text-xs text-zinc-200 font-normal">(hover for details)</span>
         </h3>
         <div className="grid md:grid-cols-2 gap-3">
           {[

@@ -26,7 +26,7 @@ export function LoadingText({ text = 'Loading...' }: { text?: string }) {
   return (
     <div className="flex flex-col items-center justify-center gap-4 min-h-[400px]">
       <Loading />
-      <p className="text-zinc-400 text-sm animate-pulse">{text}</p>
+      <p className="text-zinc-200 text-sm animate-pulse">{text}</p>
     </div>
   );
 }

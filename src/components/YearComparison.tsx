@@ -92,14 +92,14 @@ export function YearComparison({ expenseBudget, years }: YearComparisonProps) {
     <div className="space-y-8">
       <div>
         <h2 className="text-2xl font-bold mb-4">Year-over-Year Comparison</h2>
-        <p className="text-zinc-400 mb-6">
+        <p className="text-zinc-200 mb-6">
           Compare spending between fiscal years to see where the budget grew or shrank.
         </p>
 
         {/* Year selectors */}
         <div className="flex gap-4 items-center flex-wrap">
           <div className="flex items-center gap-2">
-            <label className="text-sm font-medium text-zinc-400">From:</label>
+            <label className="text-sm font-medium text-zinc-200">From:</label>
             <select
               value={yearA}
               onChange={(e) => setYearA(e.target.value)}
@@ -116,7 +116,7 @@ export function YearComparison({ expenseBudget, years }: YearComparisonProps) {
           <span className="text-zinc-600 text-lg">→</span>
 
           <div className="flex items-center gap-2">
-            <label className="text-sm font-medium text-zinc-400">To:</label>
+            <label className="text-sm font-medium text-zinc-200">To:</label>
             <select
               value={yearB}
               onChange={(e) => setYearB(e.target.value)}
@@ -132,12 +132,12 @@ export function YearComparison({ expenseBudget, years }: YearComparisonProps) {
 
           <div className="ml-auto">
             <div className="rounded-xl bg-zinc-900/50 border border-zinc-800 px-6 py-3">
-              <div className="text-xs text-zinc-400 uppercase tracking-wider mb-1">
+              <div className="text-xs text-zinc-200 uppercase tracking-wider mb-1">
                 Total Budget Change
               </div>
               <div
                 className={`text-2xl font-bold ${
-                  totalChangePercent > 0 ? "text-emerald-400" : totalChangePercent < 0 ? "text-red-400" : "text-zinc-400"
+                  totalChangePercent > 0 ? "text-emerald-400" : totalChangePercent < 0 ? "text-red-400" : "text-zinc-200"
                 }`}
               >
                 {formatPercent(totalChangePercent)}
@@ -215,19 +215,19 @@ export function YearComparison({ expenseBudget, years }: YearComparisonProps) {
         <table className="w-full">
           <thead>
             <tr className="border-b border-zinc-800 bg-zinc-900/50">
-              <th className="px-4 py-3 text-left text-xs font-medium text-zinc-400 uppercase">
+              <th className="px-4 py-3 text-left text-xs font-medium text-zinc-200 uppercase">
                 Agency
               </th>
-              <th className="px-4 py-3 text-right text-xs font-medium text-zinc-400 uppercase">
+              <th className="px-4 py-3 text-right text-xs font-medium text-zinc-200 uppercase">
                 FY{yearA}
               </th>
-              <th className="px-4 py-3 text-right text-xs font-medium text-zinc-400 uppercase">
+              <th className="px-4 py-3 text-right text-xs font-medium text-zinc-200 uppercase">
                 FY{yearB}
               </th>
-              <th className="px-4 py-3 text-right text-xs font-medium text-zinc-400 uppercase">
+              <th className="px-4 py-3 text-right text-xs font-medium text-zinc-200 uppercase">
                 Change
               </th>
-              <th className="px-4 py-3 text-right text-xs font-medium text-zinc-400 uppercase">
+              <th className="px-4 py-3 text-right text-xs font-medium text-zinc-200 uppercase">
                 % Change
               </th>
             </tr>
@@ -244,7 +244,7 @@ export function YearComparison({ expenseBudget, years }: YearComparisonProps) {
                   <td className="px-4 py-2.5 text-sm text-zinc-200">
                     {item.name}
                   </td>
-                  <td className="px-4 py-2.5 text-sm text-right text-zinc-400 font-mono">
+                  <td className="px-4 py-2.5 text-sm text-right text-zinc-200 font-mono">
                     {formatDollars(item.amountA)}
                   </td>
                   <td className="px-4 py-2.5 text-sm text-right text-zinc-300 font-mono">
@@ -252,14 +252,14 @@ export function YearComparison({ expenseBudget, years }: YearComparisonProps) {
                   </td>
                   <td
                     className={`px-4 py-2.5 text-sm text-right font-mono ${
-                      isIncrease ? "text-emerald-400" : isDecrease ? "text-red-400" : "text-zinc-400"
+                      isIncrease ? "text-emerald-400" : isDecrease ? "text-red-400" : "text-zinc-200"
                     }`}
                   >
                     {formatDollars(item.change)}
                   </td>
                   <td
                     className={`px-4 py-2.5 text-sm text-right font-mono font-medium ${
-                      isIncrease ? "text-emerald-400" : isDecrease ? "text-red-400" : "text-zinc-400"
+                      isIncrease ? "text-emerald-400" : isDecrease ? "text-red-400" : "text-zinc-200"
                     }`}
                   >
                     {formatPercent(item.percentChange)}

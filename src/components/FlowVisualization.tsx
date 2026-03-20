@@ -44,7 +44,7 @@ export function FlowVisualization({ data }: { data: PolicyData }) {
           className={`px-6 py-3 rounded-xl font-medium transition-all ${
             selectedPolicy === "billionaire"
               ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
-              : "bg-zinc-800 text-zinc-400 hover:bg-zinc-700"
+              : "bg-zinc-800 text-zinc-200 hover:bg-zinc-700"
           }`}
         >
           Billionaire Tax
@@ -54,7 +54,7 @@ export function FlowVisualization({ data }: { data: PolicyData }) {
           className={`px-6 py-3 rounded-xl font-medium transition-all ${
             selectedPolicy === "corporate"
               ? "bg-blue-600 text-white shadow-lg shadow-blue-500/30"
-              : "bg-zinc-800 text-zinc-400 hover:bg-zinc-700"
+              : "bg-zinc-800 text-zinc-200 hover:bg-zinc-700"
           }`}
         >
           Corporate Tax
@@ -81,7 +81,7 @@ export function FlowVisualization({ data }: { data: PolicyData }) {
               <h3 className="text-2xl font-bold mb-2 text-center">
                 {policy.name}
               </h3>
-              <p className="text-sm text-zinc-400 text-center mb-4">
+              <p className="text-sm text-zinc-200 text-center mb-4">
                 {policy.description}
               </p>
               <div className="text-center">
@@ -203,7 +203,7 @@ export function FlowVisualization({ data }: { data: PolicyData }) {
                         />
                       </div>
 
-                      <p className="text-xs text-zinc-400 mb-2">
+                      <p className="text-xs text-zinc-200 mb-2">
                         ✓ {imp.impact}
                       </p>
 
