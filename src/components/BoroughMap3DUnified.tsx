@@ -19,7 +19,7 @@ function projectCoordinate(lat: number, lng: number): { x: number; y: number } {
   return { x, y };
 }
 
-const BUILDING_SCALE_MULTIPLIER = 15;
+const BUILDING_SCALE_MULTIPLIER = 150;
 const BOROUGH_HEIGHT_MULTIPLIER: Record<string, number> = { 'Manhattan': 1.0, 'Brooklyn': 0.7, 'Queens': 0.7, 'Bronx': 0.6, 'Staten Island': 0.5 };
 
 const BOROUGH_BUILDING_CONFIG: Record<string, { count: number; minHeight: number; maxHeight: number; minWidth: number; maxWidth: number; clusterFactor: number }> = {
