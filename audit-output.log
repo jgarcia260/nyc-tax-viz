@@ -1,0 +1,55 @@
+
+Running 8 tests using 6 workers
+
+[1A[2K[1/8] [chromium] › tests/e2e/ui-audit.spec.ts:89:7 › NYC Tax Viz - Full UI Audit › Borough Impact page
+[1A[2K[2/8] [chromium] › tests/e2e/ui-audit.spec.ts:12:7 › NYC Tax Viz - Full UI Audit › Home page loads
+[1A[2K[3/8] [chromium] › tests/e2e/ui-audit.spec.ts:99:7 › NYC Tax Viz - Full UI Audit › Flow Visualization page
+[1A[2K[4/8] [chromium] › tests/e2e/ui-audit.spec.ts:74:7 › NYC Tax Viz - Full UI Audit › Policy Comparison page
+[1A[2K[5/8] [chromium] › tests/e2e/ui-audit.spec.ts:40:7 › NYC Tax Viz - Full UI Audit › 3D Borough Map - /borough-map-premium
+[1A[2K[6/8] [chromium] › tests/e2e/ui-audit.spec.ts:109:7 › NYC Tax Viz - Full UI Audit › 3D Map Interactivity Test
+[1A[2K[chromium] › tests/e2e/ui-audit.spec.ts:109:7 › NYC Tax Viz - Full UI Audit › 3D Map Interactivity Test
+❌ CRITICAL: Canvas not rendering
+
+[1A[2K[7/8] [chromium] › tests/e2e/ui-audit.spec.ts:168:7 › NYC Tax Viz - Full UI Audit › Check for building layers on all boroughs
+[1A[2K[chromium] › tests/e2e/ui-audit.spec.ts:168:7 › NYC Tax Viz - Full UI Audit › Check for building layers on all boroughs
+❌ CRITICAL: No canvas - cannot test building layers
+
+[1A[2K[8/8] [chromium] › tests/e2e/ui-audit.spec.ts:197:7 › NYC Tax Viz - Full UI Audit › Console errors check
+[1A[2K[chromium] › tests/e2e/ui-audit.spec.ts:74:7 › NYC Tax Viz - Full UI Audit › Policy Comparison page
+Charts found: [33m5[39m
+
+[1A[2K[chromium] › tests/e2e/ui-audit.spec.ts:40:7 › NYC Tax Viz - Full UI Audit › 3D Borough Map - /borough-map-premium
+Canvas element found: [33mtrue[39m
+
+[1A[2K[chromium] › tests/e2e/ui-audit.spec.ts:12:7 › NYC Tax Viz - Full UI Audit › Home page loads
+Home page title: NYC Tax Dollar Visualizer
+
+[1A[2K[chromium] › tests/e2e/ui-audit.spec.ts:197:7 › NYC Tax Viz - Full UI Audit › Console errors check
+
+=== CONSOLE ERRORS ===
+
+[1A[2K
+=== CONSOLE WARNINGS ===
+
+[1A[2K⚠️ THREE.THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+
+[1A[2K⚠️ [.WebGL-0x114001a3200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+
+[1A[2K⚠️ [.WebGL-0x114001a3200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+
+[1A[2K⚠️ [.WebGL-0x114001a3200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+
+[1A[2K⚠️ [.WebGL-0x114001a3200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)
+
+[1A[2K[chromium] › tests/e2e/ui-audit.spec.ts:40:7 › NYC Tax Viz - Full UI Audit › 3D Borough Map - /borough-map-premium
+Manhattan label found: [33mtrue[39m
+
+[1A[2KBrooklyn label found: [33mtrue[39m
+
+[1A[2KQueens label found: [33mtrue[39m
+
+[1A[2KBronx label found: [33mtrue[39m
+
+[1A[2KStaten Island label found: [33mtrue[39m
+
+[1A[2K  8 passed (31.2s)
