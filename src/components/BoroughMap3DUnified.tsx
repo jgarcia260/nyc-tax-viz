@@ -19,7 +19,7 @@ function projectCoordinate(lat: number, lng: number): { x: number; y: number } {
   return { x, y };
 }
 
-const BUILDING_SCALE_MULTIPLIER = 150;
+const BUILDING_SCALE_MULTIPLIER = 500;
 const BOROUGH_HEIGHT_MULTIPLIER: Record<string, number> = { 'Manhattan': 1.0, 'Brooklyn': 0.7, 'Queens': 0.7, 'Bronx': 0.6, 'Staten Island': 0.5 };
 
 const BOROUGH_BUILDING_CONFIG: Record<string, { count: number; minHeight: number; maxHeight: number; minWidth: number; maxWidth: number; clusterFactor: number }> = {
@@ -402,7 +402,7 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
   return (<>
     <color attach="background" args={['#0e1419']} />
     <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]}><planeGeometry args={[600, 600]} /><meshBasicMaterial color="#101520" /></mesh>
-    <PerspectiveCamera makeDefault position={[80, 200, 100]} fov={50} />
+    <PerspectiveCamera makeDefault position={[80, 120, 100]} fov={50} />
     <OrbitControls enablePan enableZoom enableRotate enableDamping dampingFactor={0.15} minDistance={40} maxDistance={300} maxPolarAngle={Math.PI / 1.1} minPolarAngle={Math.PI / 8} rotateSpeed={0.6} zoomSpeed={1.0} panSpeed={0.6} autoRotate={autoRotate} autoRotateSpeed={0.5} />
     <ambientLight intensity={1.4} color="#f5f8fa" />
     <directionalLight position={[150, 250, 100]} intensity={1.1} color="#ffffff" />
