@@ -12,24 +12,38 @@ interface PolicyData {
   improvements: any;
 }
 
-// Particle effect component
+// Particle effect component - client-side only to avoid hydration mismatch
 function Particle({ index }: { index: number }) {
-  const x = Math.random() * 100;
-  const delay = Math.random() * 2;
-  const duration = 2 + Math.random() * 2;
+  const [particleConfig, setParticleConfig] = useState<{
+    x: number;
+    delay: number;
+    duration: number;
+  } | null>(null);
+
+  useEffect(() => {
+    // Generate random values on client only
+    setParticleConfig({
+      x: Math.random() * 100,
+      delay: Math.random() * 2,
+      duration: 2 + Math.random() * 2,
+    });
+  }, []);
+
+  // Don't render until client-side config is ready
+  if (!particleConfig) return null;
   
   return (
     <motion.div
       className="absolute w-1 h-1 rounded-full bg-white/30"
-      style={{ left: `${x}%`, top: "50%" }}
+      style={{ left: `${particleConfig.x}%`, top: "50%" }}
       initial={{ y: 0, opacity: 0 }}
       animate={{
         y: [-20, -60],
         opacity: [0, 1, 0],
       }}
       transition={{
-        duration,
-        delay,
+        duration: particleConfig.duration,
+        delay: particleConfig.delay,
         repeat: Infinity,
         ease: "easeOut",
       }}

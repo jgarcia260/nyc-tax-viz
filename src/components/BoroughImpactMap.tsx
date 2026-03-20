@@ -91,8 +91,39 @@ export function BoroughImpactMap({ data }: { data: PolicyData }) {
                     data={boroughData}
                     cx="50%"
                     cy="50%"
-                    labelLine={false}
-                    label={(entry: any) => `${entry.name}: ${(entry.share * 100).toFixed(1)}%`}
+                    labelLine={{
+                      stroke: "#71717a",
+                      strokeWidth: 1,
+                    }}
+                    label={({
+                      cx,
+                      cy,
+                      midAngle,
+                      outerRadius,
+                      name,
+                      share,
+                    }: any) => {
+                      const RADIAN = Math.PI / 180;
+                      const radius = outerRadius + 30;
+                      const x = cx + radius * Math.cos(-midAngle * RADIAN);
+                      const y = cy + radius * Math.sin(-midAngle * RADIAN);
+                      
+                      return (
+                        <text
+                          x={x}
+                          y={y}
+                          fill="#e4e4e7"
+                          textAnchor={x > cx ? "start" : "end"}
+                          dominantBaseline="central"
+                          className="text-sm font-medium"
+                          style={{
+                            textShadow: "0 1px 3px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.6)",
+                          }}
+                        >
+                          {`${name}: ${(share * 100).toFixed(1)}%`}
+                        </text>
+                      );
+                    }}
                     outerRadius={100}
                     fill="#8884d8"
                     dataKey="revenue"

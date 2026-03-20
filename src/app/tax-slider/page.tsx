@@ -16,7 +16,7 @@ export default function TaxSliderPage() {
         <div className="flex items-center justify-between mb-8">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-zinc-200 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-zinc-100 hover:text-indigo-300 transition-colors"
           >
             ← Back to home
           </Link>
