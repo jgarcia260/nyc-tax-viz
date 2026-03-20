@@ -235,7 +235,10 @@ export function PolicyDashboard({ data }: { data: PolicyData }) {
                 }}
                 formatter={(value: any) => formatBillions(value as number)}
               />
-              <Legend />
+              <Legend 
+                wrapperStyle={{ fontSize: '14px', paddingTop: '20px' }}
+                iconSize={18}
+              />
               <Line
                 type="monotone"
                 dataKey="billionaire"
@@ -275,7 +278,10 @@ export function PolicyDashboard({ data }: { data: PolicyData }) {
               }}
               formatter={(value: any) => formatBillions(value as number)}
             />
-            <Legend />
+            <Legend 
+              wrapperStyle={{ fontSize: '14px', paddingTop: '20px' }}
+              iconSize={18}
+            />
             <Bar dataKey="cost" name="Cost (5 years)" fill="#6366f1" />
           </BarChart>
         </ResponsiveContainer>
