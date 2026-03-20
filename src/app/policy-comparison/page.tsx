@@ -16,7 +16,7 @@ export default function PolicyComparisonPage() {
         <div className="flex items-center gap-4 mb-4">
           <a
             href="/"
-            className="text-zinc-400 hover:text-zinc-200 transition-colors"
+            className="text-zinc-200 hover:text-zinc-200 transition-colors"
           >
             ← Back to Overview
           </a>
@@ -24,7 +24,7 @@ export default function PolicyComparisonPage() {
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
           Tax Policy Comparison
         </h1>
-        <p className="mt-3 text-lg text-zinc-400">
+        <p className="mt-3 text-lg text-zinc-200">
           Compare billionaire tax vs. corporate tax reform — revenue, impact, and trade-offs
         </p>
       </header>

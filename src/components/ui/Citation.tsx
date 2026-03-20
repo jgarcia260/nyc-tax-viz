@@ -61,7 +61,7 @@ export function Citation({ sourceIds, variant = 'icon', className = '' }: Citati
       
       {showTooltip && (
         <div className="absolute z-50 bottom-full left-1/2 -translate-x-1/2 mb-2 w-80 p-3 bg-zinc-900 border border-zinc-700 rounded-lg shadow-xl">
-          <div className="text-xs font-semibold text-zinc-400 mb-2">
+          <div className="text-xs font-semibold text-zinc-200 mb-2">
             {sources.length === 1 ? 'Source:' : 'Sources:'}
           </div>
           <div className="space-y-2">
@@ -127,7 +127,7 @@ export function SourceCard({ sourceId }: { sourceId: string }) {
         {source.title}
       </a>
       {source.description && (
-        <p className="text-xs text-zinc-400 mt-2">
+        <p className="text-xs text-zinc-200 mt-2">
           {source.description}
         </p>
       )}

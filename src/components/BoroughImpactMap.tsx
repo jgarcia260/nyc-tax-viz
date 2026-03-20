@@ -61,7 +61,7 @@ export function BoroughImpactMap({ data }: { data: PolicyData }) {
           className={`px-6 py-3 rounded-xl font-medium transition-all ${
             selectedPolicy === "billionaire"
               ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
-              : "bg-zinc-800 text-zinc-400 hover:bg-zinc-700"
+              : "bg-zinc-800 text-zinc-200 hover:bg-zinc-700"
           }`}
         >
           Billionaire Tax
@@ -71,7 +71,7 @@ export function BoroughImpactMap({ data }: { data: PolicyData }) {
           className={`px-6 py-3 rounded-xl font-medium transition-all ${
             selectedPolicy === "corporate"
               ? "bg-blue-600 text-white shadow-lg shadow-blue-500/30"
-              : "bg-zinc-800 text-zinc-400 hover:bg-zinc-700"
+              : "bg-zinc-800 text-zinc-200 hover:bg-zinc-700"
           }`}
         >
           Corporate Tax
@@ -142,7 +142,7 @@ export function BoroughImpactMap({ data }: { data: PolicyData }) {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="font-semibold text-zinc-100">{borough.name}</p>
-                      <p className="text-sm text-zinc-400">
+                      <p className="text-sm text-zinc-200">
                         Pop: {formatPopulation(borough.population)}
                       </p>
                     </div>
@@ -190,7 +190,7 @@ export function BoroughImpactMap({ data }: { data: PolicyData }) {
                 </div>
 
                 <div className="mb-6">
-                  <p className="text-sm font-semibold text-zinc-400 mb-3 uppercase">
+                  <p className="text-sm font-semibold text-zinc-200 mb-3 uppercase">
                     Revenue Share by Policy
                   </p>
                   <div className="space-y-2">
@@ -226,7 +226,7 @@ export function BoroughImpactMap({ data }: { data: PolicyData }) {
                 </div>
 
                 <div>
-                  <p className="text-sm font-semibold text-zinc-400 mb-3 uppercase">
+                  <p className="text-sm font-semibold text-zinc-200 mb-3 uppercase">
                     Top Priorities for {selectedBorough}
                   </p>
                   <div className="space-y-3">
@@ -247,7 +247,7 @@ export function BoroughImpactMap({ data }: { data: PolicyData }) {
                                   {improvement.name}
                                 </h3>
                               </div>
-                              <p className="text-xs text-zinc-400 mt-1">
+                              <p className="text-xs text-zinc-200 mt-1">
                                 {improvement.description}
                               </p>
                               <p className="text-xs text-emerald-400 mt-2">

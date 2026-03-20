@@ -56,7 +56,7 @@ export default function AnimationsCinematic() {
           {/* Tax Rate Slider */}
           <div>
             <label className="block text-sm font-medium mb-2">
-              Tax Rate: <span className="text-blue-400 font-bold">{taxRate}%</span>
+              Tax Rate: <span className="text-blue-300 font-bold">{taxRate}%</span>
             </label>
             <input
               type="range"
@@ -115,7 +115,7 @@ export default function AnimationsCinematic() {
               <span>Construction cranes + dust particles</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-blue-400">⚡</span>
+              <span className="text-blue-300">⚡</span>
               <span>Light trails + energy pulses</span>
             </div>
             <div className="flex items-center gap-2">

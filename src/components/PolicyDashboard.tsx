@@ -64,7 +64,7 @@ export function PolicyDashboard({ data }: { data: PolicyData }) {
           className={`px-6 py-3 rounded-xl font-medium transition-all ${
             selectedPolicy === "billionaire"
               ? "bg-purple-600 text-white shadow-lg shadow-purple-500/30"
-              : "bg-zinc-800 text-zinc-400 hover:bg-zinc-700"
+              : "bg-zinc-800 text-zinc-200 hover:bg-zinc-700"
           }`}
         >
           Billionaire Tax
@@ -74,7 +74,7 @@ export function PolicyDashboard({ data }: { data: PolicyData }) {
           className={`px-6 py-3 rounded-xl font-medium transition-all ${
             selectedPolicy === "corporate"
               ? "bg-blue-600 text-white shadow-lg shadow-blue-500/30"
-              : "bg-zinc-800 text-zinc-400 hover:bg-zinc-700"
+              : "bg-zinc-800 text-zinc-200 hover:bg-zinc-700"
           }`}
         >
           Corporate Tax
@@ -84,7 +84,7 @@ export function PolicyDashboard({ data }: { data: PolicyData }) {
           className={`px-6 py-3 rounded-xl font-medium transition-all ${
             selectedPolicy === "both"
               ? "bg-indigo-600 text-white shadow-lg shadow-indigo-500/30"
-              : "bg-zinc-800 text-zinc-400 hover:bg-zinc-700"
+              : "bg-zinc-800 text-zinc-200 hover:bg-zinc-700"
           }`}
         >
           Compare Both
@@ -98,7 +98,7 @@ export function PolicyDashboard({ data }: { data: PolicyData }) {
             <h2 className="text-2xl font-bold mb-2 text-purple-300">
               {billionaireTax.name}
             </h2>
-            <p className="text-zinc-400 mb-6">{billionaireTax.description}</p>
+            <p className="text-zinc-200 mb-6">{billionaireTax.description}</p>
 
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
@@ -160,7 +160,7 @@ export function PolicyDashboard({ data }: { data: PolicyData }) {
             <h2 className="text-2xl font-bold mb-2 text-blue-300">
               {corporateTax.name}
             </h2>
-            <p className="text-zinc-400 mb-6">{corporateTax.description}</p>
+            <p className="text-zinc-200 mb-6">{corporateTax.description}</p>
 
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
@@ -289,7 +289,7 @@ export function PolicyDashboard({ data }: { data: PolicyData }) {
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
                   <h3 className="font-semibold text-lg text-zinc-100">{imp.name}</h3>
-                  <p className="text-sm text-zinc-400 mt-1">{imp.description}</p>
+                  <p className="text-sm text-zinc-200 mt-1">{imp.description}</p>
                   <p className="text-sm text-emerald-400 mt-2">
                     ✓ {imp.impact}
                   </p>

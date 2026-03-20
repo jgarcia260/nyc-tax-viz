@@ -94,7 +94,7 @@ export function FacilitiesMap({ data }: FacilitiesMapProps) {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-semibold">NYC Public Facilities Map</h2>
-        <p className="text-sm text-zinc-400">
+        <p className="text-sm text-zinc-200">
           {filteredFacilities.length.toLocaleString()} facilities shown
         </p>
       </div>
@@ -107,7 +107,7 @@ export function FacilitiesMap({ data }: FacilitiesMapProps) {
             className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
               !selectedBorough
                 ? "bg-indigo-600 text-white"
-                : "bg-zinc-800 text-zinc-400 hover:bg-zinc-700"
+                : "bg-zinc-800 text-zinc-200 hover:bg-zinc-700"
             }`}
           >
             All Boroughs
@@ -121,7 +121,7 @@ export function FacilitiesMap({ data }: FacilitiesMapProps) {
               className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
                 selectedBorough === boro
                   ? "bg-indigo-600 text-white"
-                  : "bg-zinc-800 text-zinc-400 hover:bg-zinc-700"
+                  : "bg-zinc-800 text-zinc-200 hover:bg-zinc-700"
               }`}
             >
               {boro}
@@ -137,7 +137,7 @@ export function FacilitiesMap({ data }: FacilitiesMapProps) {
           className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
             !selectedDomain
               ? "bg-zinc-600 text-white"
-              : "bg-zinc-800 text-zinc-400 hover:bg-zinc-700"
+              : "bg-zinc-800 text-zinc-200 hover:bg-zinc-700"
           }`}
         >
           All Types
@@ -203,7 +203,7 @@ export function FacilitiesMap({ data }: FacilitiesMapProps) {
         {hoveredFacility && (
           <div className="absolute top-4 left-4 bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-2 z-10 max-w-xs">
             <p className="text-sm font-medium text-white">{hoveredFacility.name}</p>
-            <p className="text-xs text-zinc-400">{hoveredFacility.domain}</p>
+            <p className="text-xs text-zinc-200">{hoveredFacility.domain}</p>
           </div>
         )}
 
@@ -216,7 +216,7 @@ export function FacilitiesMap({ data }: FacilitiesMapProps) {
       {/* Borough breakdown cards */}
       <div className="mb-2 px-4 py-2 rounded-lg bg-zinc-900/30 border border-zinc-800/50">
         <p className="text-xs text-zinc-500">
-          💡 <strong className="text-zinc-400">Spending estimates</strong> are calculated based on facility counts and types. 
+          💡 <strong className="text-zinc-200">Spending estimates</strong> are calculated based on facility counts and types. 
           Actual capital spending may vary significantly by borough.
         </p>
       </div>
@@ -257,7 +257,7 @@ export function FacilitiesMap({ data }: FacilitiesMapProps) {
                     className="w-2 h-2 rounded-full flex-shrink-0"
                     style={{ backgroundColor: getDomainColor(d.name) }}
                   />
-                  <span className="text-xs text-zinc-400 truncate flex-1">
+                  <span className="text-xs text-zinc-200 truncate flex-1">
                     {d.name}
                   </span>
                   <span className="text-xs text-zinc-500 font-mono">
