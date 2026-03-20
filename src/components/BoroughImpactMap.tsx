@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from "recharts";
 
 interface PolicyData {
@@ -21,6 +21,11 @@ const BOROUGH_COLORS = {
 export function BoroughImpactMap({ data }: { data: PolicyData }) {
   const [selectedBorough, setSelectedBorough] = useState<string | null>("Manhattan");
   const [selectedPolicy, setSelectedPolicy] = useState<"billionaire" | "corporate">("billionaire");
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const { boroughBreakdown, improvements, billionaireTax, corporateTax } = data;
 
@@ -78,38 +83,42 @@ export function BoroughImpactMap({ data }: { data: PolicyData }) {
         <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6">
           <h2 className="text-xl font-semibold mb-6">Revenue by Borough</h2>
           
-          <ResponsiveContainer width="100%" height={300}>
-            <PieChart>
-              <Pie
-                data={boroughData}
-                cx="50%"
-                cy="50%"
-                labelLine={false}
-                label={(entry: any) => `${entry.name}: ${(entry.share * 100).toFixed(1)}%`}
-                outerRadius={100}
-                fill="#8884d8"
-                dataKey="revenue"
-                onClick={(entry: any) => setSelectedBorough(entry.name)}
-              >
-                {boroughData.map((entry, index) => (
-                  <Cell
-                    key={`cell-${index}`}
-                    fill={BOROUGH_COLORS[entry.name as keyof typeof BOROUGH_COLORS]}
-                    opacity={selectedBorough === entry.name ? 1 : 0.6}
-                    style={{ cursor: "pointer" }}
+          <div className="w-full" style={{ height: 300 }}>
+            {isMounted && (
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={boroughData}
+                    cx="50%"
+                    cy="50%"
+                    labelLine={false}
+                    label={(entry: any) => `${entry.name}: ${(entry.share * 100).toFixed(1)}%`}
+                    outerRadius={100}
+                    fill="#8884d8"
+                    dataKey="revenue"
+                    onClick={(entry: any) => setSelectedBorough(entry.name)}
+                  >
+                    {boroughData.map((entry, index) => (
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={BOROUGH_COLORS[entry.name as keyof typeof BOROUGH_COLORS]}
+                        opacity={selectedBorough === entry.name ? 1 : 0.6}
+                        style={{ cursor: "pointer" }}
+                      />
+                    ))}
+                  </Pie>
+                  <Tooltip
+                    contentStyle={{
+                      backgroundColor: "#18181b",
+                      border: "1px solid #3f3f46",
+                      borderRadius: "0.5rem",
+                    }}
+                    formatter={(value: any) => formatBillions(value as number)}
                   />
-                ))}
-              </Pie>
-              <Tooltip
-                contentStyle={{
-                  backgroundColor: "#18181b",
-                  border: "1px solid #3f3f46",
-                  borderRadius: "0.5rem",
-                }}
-                formatter={(value: any) => formatBillions(value as number)}
-              />
-            </PieChart>
-          </ResponsiveContainer>
+                </PieChart>
+              </ResponsiveContainer>
+            )}
+          </div>
 
           <div className="mt-6 space-y-2">
             {boroughData
