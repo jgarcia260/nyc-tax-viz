@@ -1,2 +1,0 @@
-:HL["/_next/static/chunks/337731adc37366cb.css","style"]
-0:{"buildId":"AnTY1lnXKsReni2DH0-rc","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"animations-cinematic","paramType":null,"paramKey":"animations-cinematic","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
