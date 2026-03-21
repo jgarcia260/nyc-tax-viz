@@ -141,11 +141,11 @@ export function PolicyDashboard({ data }: { data: PolicyData }) {
               </div>
 
               <div>
-                <p className="text-sm font-semibold text-red-400 mb-2">✗ Cons</p>
+                <p className="text-sm font-semibold text-red-600 mb-2">✗ Cons</p>
                 <ul className="space-y-1 text-sm text-zinc-300">
                   {billionaireTax.cons.map((con: string, i: number) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="text-red-500 mt-0.5">•</span>
+                      <span className="text-red-700 mt-0.5">•</span>
                       {con}
                     </li>
                   ))}
@@ -203,11 +203,11 @@ export function PolicyDashboard({ data }: { data: PolicyData }) {
               </div>
 
               <div>
-                <p className="text-sm font-semibold text-red-400 mb-2">✗ Cons</p>
+                <p className="text-sm font-semibold text-red-600 mb-2">✗ Cons</p>
                 <ul className="space-y-1 text-sm text-zinc-300">
                   {corporateTax.cons.map((con: string, i: number) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="text-red-500 mt-0.5">•</span>
+                      <span className="text-red-700 mt-0.5">•</span>
                       {con}
                     </li>
                   ))}

@@ -22,7 +22,7 @@ page.on('console', msg => {
 });
 
 try {
-  await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
+  await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 }); // Increased to 60s for font loading
   
   // Check if page has canvas (3D viz) or is a regular page
   const hasCanvas = await page.locator('canvas').count() > 0;
@@ -39,7 +39,7 @@ try {
   }
   
   const fullPath = outputPath.replace('~', process.env.HOME);
-  await page.screenshot({ path: fullPath, fullPage: false });
+  await page.screenshot({ path: fullPath, fullPage: false, timeout: 60000 }); // 60s timeout for font loading
   
   console.log(`✅ Screenshot saved to: ${fullPath}`);
 } catch (error) {
