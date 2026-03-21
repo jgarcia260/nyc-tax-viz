@@ -364,7 +364,7 @@ function ResidentialBuildings({ name, coordinates }: { name: string; coordinates
     const base = new THREE.Color(colors.base);
     
     buildings.forEach((b, i) => {
-      dummy.position.set(b.x, 2 + b.height / 2, -b.y);
+      dummy.position.set(b.x, 2 + b.height / 2 + yOffset, -b.y);
       dummy.scale.set(b.width, b.height, b.depth);
       dummy.updateMatrix();
       meshRef.current!.setMatrixAt(i, dummy.matrix);
@@ -376,7 +376,7 @@ function ResidentialBuildings({ name, coordinates }: { name: string; coordinates
     
     meshRef.current.instanceMatrix.needsUpdate = true;
     if (meshRef.current.instanceColor) meshRef.current.instanceColor.needsUpdate = true;
-  }, [buildings, colors, name]);
+  }, [buildings, colors, name, yOffset]);
   
   if (buildings.length === 0) return null;
   
