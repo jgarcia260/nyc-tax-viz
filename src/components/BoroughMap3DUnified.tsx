@@ -299,7 +299,7 @@ function Borough({ name, coordinates, isHovered, isSelected, onClick, onHover, a
     geo.rotateX(-Math.PI / 2); return geo;
   }, [coordinates, name]);
   const colors = BOROUGH_COLORS[name] || BOROUGH_COLORS['Manhattan'];
-  return (<group ref={groupRef}><mesh ref={meshRef} geometry={geometry} onClick={onClick} onPointerOver={() => onHover(true)} onPointerOut={() => onHover(false)} castShadow receiveShadow><meshPhysicalMaterial color={colors.base} emissive={colors.emissive} emissiveIntensity={isHovered ? 0.4 : isSelected ? 0.25 : 0.15} metalness={0.4} roughness={0.45} envMapIntensity={0.8} clearcoat={0.3} clearcoatRoughness={0.4} transparent={isHovered} opacity={isHovered ? 0.95 : 1.0} /></mesh><BoroughBuildings name={name} coordinates={coordinates} /><ResidentialBuildings name={name} coordinates={coordinates} />{name === 'Manhattan' && <CentralPark />}</group>);
+  return (<group ref={groupRef}><mesh ref={meshRef} geometry={geometry} onClick={onClick} onPointerOver={() => onHover(true)} onPointerOut={() => onHover(false)} castShadow receiveShadow><meshPhysicalMaterial color={colors.base} emissive={colors.emissive} emissiveIntensity={isHovered ? 0.4 : isSelected ? 0.25 : 0.15} metalness={0.4} roughness={0.45} envMapIntensity={0.8} clearcoat={0.3} clearcoatRoughness={0.4} transparent={isHovered} opacity={isHovered ? 0.95 : 1.0} /></mesh><BoroughBuildings name={name} coordinates={coordinates} yOffset={yOffset} /><ResidentialBuildings name={name} coordinates={coordinates} yOffset={yOffset} />{name === 'Manhattan' && <CentralPark />}</group>);
 }
 
 function BoroughBuildings({ name, coordinates }: { name: string; coordinates: number[][][][] }) {
@@ -364,7 +364,7 @@ function ResidentialBuildings({ name, coordinates }: { name: string; coordinates
     const base = new THREE.Color(colors.base);
     
     buildings.forEach((b, i) => {
-      dummy.position.set(b.x, 2 + b.height / 2, -b.y);
+      dummy.position.set(b.x, 2 + b.height / 2 + yOffset, -b.y);
       dummy.scale.set(b.width, b.height, b.depth);
       dummy.updateMatrix();
       meshRef.current!.setMatrixAt(i, dummy.matrix);
@@ -376,7 +376,7 @@ function ResidentialBuildings({ name, coordinates }: { name: string; coordinates
     
     meshRef.current.instanceMatrix.needsUpdate = true;
     if (meshRef.current.instanceColor) meshRef.current.instanceColor.needsUpdate = true;
-  }, [buildings, colors, name]);
+  }, [buildings, colors, name, yOffset]);
   
   if (buildings.length === 0) return null;
   
@@ -401,7 +401,12 @@ function Scene({ boroughs, showTaxData = true, autoRotate = true }: { boroughs: 
   const [selectedBorough, setSelectedBorough] = useState<string | null>(null);
   return (<>
     <color attach="background" args={['#0e1419']} />
-    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]}><planeGeometry args={[600, 600]} /><meshBasicMaterial color="#101520" /></mesh>
+    {/* Ground plane with subtle grid */}
+    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]}>
+      <planeGeometry args={[800, 800]} />
+      <meshBasicMaterial color="#0a0e13" opacity={0.9} transparent />
+    </mesh>
+    <gridHelper args={[800, 80, '#1a2332', '#131820']} position={[0, -0.49, 0]} />
     <PerspectiveCamera makeDefault position={[80, 120, 100]} fov={50} />
     <OrbitControls enablePan enableZoom enableRotate enableDamping dampingFactor={0.15} minDistance={40} maxDistance={300} maxPolarAngle={Math.PI / 1.1} minPolarAngle={Math.PI / 8} rotateSpeed={0.6} zoomSpeed={1.0} panSpeed={0.6} autoRotate={autoRotate} autoRotateSpeed={0.5} />
     <ambientLight intensity={1.4} color="#f5f8fa" />
