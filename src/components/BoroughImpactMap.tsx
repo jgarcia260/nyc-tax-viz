@@ -104,23 +104,26 @@ export function BoroughImpactMap({ data }: { data: PolicyData }) {
                       share,
                     }: any) => {
                       const RADIAN = Math.PI / 180;
-                      const radius = outerRadius + 30;
+                      const radius = outerRadius + 35;
                       const x = cx + radius * Math.cos(-midAngle * RADIAN);
                       const y = cy + radius * Math.sin(-midAngle * RADIAN);
+                      
+                      // Format borough name (add space for "Staten Island")
+                      const displayName = name === "StatenIsland" ? "Staten Island" : name;
                       
                       return (
                         <text
                           x={x}
                           y={y}
-                          fill="#e4e4e7"
+                          fill="#ffffff"
                           textAnchor={x > cx ? "start" : "end"}
                           dominantBaseline="central"
-                          className="text-sm font-medium"
+                          className="text-sm font-semibold"
                           style={{
-                            textShadow: "0 1px 3px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.6)",
+                            textShadow: "0 2px 4px rgba(0,0,0,0.9), 0 0 12px rgba(0,0,0,0.7)",
                           }}
                         >
-                          {`${name}: ${(share * 100).toFixed(1)}%`}
+                          {`${displayName}: ${(share * 100).toFixed(1)}%`}
                         </text>
                       );
                     }}
