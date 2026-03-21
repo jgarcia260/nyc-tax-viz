@@ -151,6 +151,152 @@ grep "BUILDING_SCALE_MULTIPLIER" src/components/BoroughMap3DUnified.tsx
 # Should be ~20-40, NOT >50
 ```
 
+## Common Examples (From Real Failures)
+
+### Example 1: Fix Oversized Buildings (Happened 2026-03-21)
+
+**Symptom:** Buildings appear as massive blocks blocking entire view, no city detail visible.
+
+**Diagnosis:**
+```bash
+# Check current scale
+grep "BUILDING_SCALE_MULTIPLIER" src/components/BoroughMap3DUnified.tsx
+# Output: const BUILDING_SCALE_MULTIPLIER = 500;  ← TOO HIGH!
+```
+
+**Fix:**
+```typescript
+// src/components/BoroughMap3DUnified.tsx (around line 30)
+
+// BEFORE (WRONG - buildings too large)
+const BUILDING_SCALE_MULTIPLIER = 500;
+
+// AFTER (CORRECT - realistic scale)
+const BUILDING_SCALE_MULTIPLIER = 25;
+```
+
+**Verification workflow:**
+```bash
+# Start dev server
+npm run dev &
+sleep 5
+
+# Screenshot BEFORE fix
+node screenshot-site.mjs http://localhost:3005/borough-map-3d screenshots/before-scale-fix.png
+
+# Make the change above (500 → 25)
+
+# Screenshot AFTER fix
+node screenshot-site.mjs http://localhost:3005/borough-map-3d screenshots/after-scale-fix.png
+
+# Compare visually
+open screenshots/before-scale-fix.png screenshots/after-scale-fix.png
+# Buildings should be visible but not overwhelming
+
+# Run tests
+npm test
+
+# Create branch and push
+git checkout -b fix/building-scale-realistic
+git add src/components/BoroughMap3DUnified.tsx
+git commit -m "fix: reduce building scale to realistic size (500x → 25x)"
+git push origin fix/building-scale-realistic
+
+# Signal QA
+echo "QA_NEEDED|branch=fix/building-scale-realistic|attempt=1"
+```
+
+**Expected result:** Realistic NYC cityscape with visible building detail, not massive blocks.
+
+### Example 2: Fix Vitest Picking Up Playwright Tests (Happened 2026-03-21)
+
+**Symptom:** `npm test` fails with errors about Playwright E2E test suites.
+
+**Diagnosis:**
+```bash
+npm test
+# Error: Playwright suite errors, vitest trying to run tests/** files
+```
+
+**Fix:**
+```typescript
+// vitest.config.ts
+
+import { defineConfig } from 'vitest/config';
+
+export default defineConfig({
+  test: {
+    // BEFORE (missing tests/** exclusion)
+    exclude: ['**/node_modules/**', '**/dist/**'],
+    
+    // AFTER (exclude Playwright tests)
+    exclude: ['**/node_modules/**', '**/dist/**', 'tests/**'],
+  }
+});
+```
+
+**Verification:**
+```bash
+# Run tests - should pass now
+npm test
+# Output: ✓ 20 tests passing (2 test files)
+
+# Commit fix
+git add vitest.config.ts
+git commit -m "fix: exclude Playwright tests from vitest"
+git push origin fix/vitest-config
+```
+
+**Why it happened:** Vitest tried to run Playwright E2E tests in `tests/` directory, causing suite errors.
+
+### Example 3: Resolve Merge Conflicts on Building Scale (Happened 2026-03-21)
+
+**Symptom:** Git merge fails with conflict in `BoroughMap3DUnified.tsx`.
+
+**Diagnosis:**
+```bash
+git merge origin/main
+# CONFLICT (content): Merge conflict in src/components/BoroughMap3DUnified.tsx
+```
+
+**Conflict looks like:**
+```typescript
+// src/components/BoroughMap3DUnified.tsx
+<<<<<<< HEAD
+const BUILDING_SCALE_MULTIPLIER = 25;  // Your fix (CORRECT)
+=======
+const BUILDING_SCALE_MULTIPLIER = 500; // Main branch (WRONG - regression!)
+>>>>>>> origin/main
+```
+
+**Resolution:**
+```typescript
+// ALWAYS keep your fix (25), reject main's broken value (500)
+const BUILDING_SCALE_MULTIPLIER = 25;
+```
+
+**Complete workflow:**
+```bash
+# Resolve conflict in editor (keep 25, delete conflict markers)
+
+# Verify no markers remain
+git grep "<<<<<<< HEAD"  # Should be empty
+
+# Test after resolving
+npm test
+npm run dev  # Verify visually
+
+# Commit resolution
+git add src/components/BoroughMap3DUnified.tsx
+git commit -m "chore: resolve merge conflict, keep 25x scale fix"
+git push origin fix/building-scale-realistic --force-with-lease
+
+# Signal QA
+echo "QA_NEEDED|branch=fix/building-scale-realistic|attempt=2"
+```
+
+**Critical rule:** For BUILDING_SCALE_MULTIPLIER conflicts, ALWAYS keep the value between 20-40, NEVER accept values >50.
+
 ## Common Tasks
 
 ### Update Building Scale
